@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark"><meta name="theme-color" content="#0b0c0f">
+<meta name="robots" content="noindex, nofollow">
+<title>MBNG Advisor | 마비노기 모바일 직업·룬 정보</title>
+<style>
+:root{--bg:#0b0c0f;--bg1:#111318;--bg2:#171a20;--bg3:#1e222a;--line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.12);--line3:rgba(255,255,255,.2);--edge:var(--line2);--txt:#eceef2;--muted:#a3aab5;--subtle:#7a8290;--accent:#6fe3c1;--accent-h:#8aeccf;--accent-w:rgba(111,227,193,.12);--accent-l:rgba(111,227,193,.4);--on-accent:#04261d;--accent2:#8fbaf5;--gold:#f0cd7a;--red:#f2938c;--orange:#f3ac70;--r:16px;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;min-width:320px;background:radial-gradient(1100px 440px at 62% -280px,rgba(111,227,193,.09),transparent 70%) fixed,var(--bg);color:var(--txt);font:14px/1.6 "Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;letter-spacing:-.005em;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(111,227,193,.25)}
+*{scrollbar-width:thin;scrollbar-color:#2a2f38 transparent}::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#2a2f38;border-radius:10px;border:3px solid transparent;background-clip:padding-box}
+button,input,select{font:inherit;letter-spacing:inherit}button{cursor:pointer;color:inherit}a{color:var(--accent2);text-decoration:none}a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input,select{color:var(--txt);background-color:var(--bg2);border:1px solid var(--line2);border-radius:10px;height:36px;padding:0 12px;min-width:0;outline:none;transition:border-color .15s,box-shadow .15s}
+input:hover,select:hover{border-color:var(--line3)}input:focus,select:focus{border-color:var(--accent-l);box-shadow:0 0 0 3px var(--accent-w)}input::placeholder{color:var(--subtle)}
+input[type=search]{padding-left:34px;background:var(--bg2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a8290' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 11px 50%/15px}
+input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;width:14px;height:14px;cursor:pointer;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3aab5' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E") center/14px no-repeat}
+select{-webkit-appearance:none;appearance:none;padding-right:32px;background:var(--bg2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3aab5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center/14px}
+input[type=checkbox]{width:17px;height:17px;padding:0;accent-color:var(--accent)}
+svg{flex:none}
+.app{display:grid;grid-template-columns:244px minmax(0,1fr);min-height:100vh}
+.side{position:sticky;top:0;height:100vh;overflow-y:auto;padding:20px 14px 16px;border-right:1px solid var(--line);background:rgba(11,12,15,.55);display:flex;flex-direction:column}
+.logo{display:flex;gap:11px;align-items:center;padding:2px 8px 10px}.logo i{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:var(--accent);color:var(--on-accent);flex:none}.logo i svg{width:18px;height:18px}
+.logo b{font-size:15px;font-weight:700;letter-spacing:-.015em;display:block;line-height:1.25}.logo small{display:block;font-size:11px;color:var(--subtle)}
+.snav{display:flex;flex-direction:column;gap:2px}.nlabel{font-size:11px;font-weight:600;color:var(--subtle);padding:16px 10px 6px;letter-spacing:.02em}
+.nav{position:relative;width:100%;text-align:left;display:flex;gap:10px;align-items:center;border:0;border-radius:9px;padding:0 10px;height:34px;background:none;color:var(--muted);font-size:13.5px;font-weight:500;white-space:nowrap;text-decoration:none!important;transition:background-color .15s,color .15s}
+.nav svg{width:17px;height:17px;opacity:.85}.nav:hover{background:var(--bg2);color:var(--txt)}
+.nav.on{background:var(--accent-w);color:var(--txt);font-weight:600}.nav.on svg{color:var(--accent);opacity:1}
+.snav .nav.on::before{content:"";position:absolute;left:-14px;top:8px;bottom:8px;width:3px;border-radius:0 3px 3px 0;background:var(--accent)}
+.sidebottom{margin-top:auto;display:grid;gap:10px;padding-top:18px}.ext{width:100%}
+.sidefoot{padding:12px 13px;border:1px solid var(--line);border-radius:12px;background:var(--bg1);font-size:11.5px;color:var(--muted);line-height:1.75}.sidefoot b{color:var(--txt);font-weight:600}
+.mtop,.tabbar,.sheet{display:none}
+main{min-width:0;padding:34px clamp(16px,3.4vw,48px) 72px;max-width:1480px;width:100%;margin:0 auto}
+.eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--accent)}
+.h1{font-size:clamp(24px,2.6vw,30px);font-weight:700;letter-spacing:-.03em;line-height:1.25;margin:6px 0}
+.desc{color:var(--muted);margin:0 0 26px;max-width:72ch}
+.panel{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-bottom:16px;min-width:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.025),0 14px 34px -22px rgba(0,0,0,.7)}
+.panel.hl{border-color:var(--accent-l);background:linear-gradient(180deg,rgba(111,227,193,.06),transparent 240px),var(--bg1)}
+.panel h2{font-size:15px;margin:0;font-weight:600;letter-spacing:-.01em}.ph{display:flex;align-items:center;justify-content:space-between;gap:10px 12px;flex-wrap:wrap;margin-bottom:14px}
+.hint{font-size:12.5px;color:var(--muted);line-height:1.7}.tiny{font-size:11.5px;color:var(--subtle)}.b{font-weight:600;color:var(--txt)}
+.btn{height:34px;padding:0 14px;border-radius:10px;border:1px solid var(--line2);background:var(--bg2);color:var(--txt);font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px;justify-content:center;white-space:nowrap;text-decoration:none!important;transition:background-color .15s,border-color .15s,transform .15s}
+.btn:hover{background:var(--bg3);border-color:var(--line3)}.btn:active{transform:scale(.98)}.btn svg{width:15px;height:15px}
+.btn.primary{background:var(--accent);border-color:transparent;color:var(--on-accent)}.btn.primary:hover{background:var(--accent-h)}
+.btn.sm{height:30px;padding:0 11px;font-size:12.5px;border-radius:9px}
+.linkbtn{background:none;border:0;color:var(--accent);font-weight:600;padding:0;font-size:12.5px}.linkbtn:hover{text-decoration:underline}
+.notice{border:1px solid rgba(240,205,122,.28);background:rgba(240,205,122,.07);padding:12px 16px;border-radius:12px;color:#ecd9a8;margin-bottom:20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px}
+.layout2{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,1.05fr);gap:16px;align-items:start}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.between{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.stack{display:grid;gap:10px}.mt10{margin-top:12px}
+.field{display:grid;gap:6px;min-width:0}.field label{font-size:12px;font-weight:500;color:var(--muted)}.field input,.field select{width:100%}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabbtn{flex:none;white-space:nowrap;border:1px solid var(--line2);background:transparent;color:var(--muted);height:32px;padding:0 13px;border-radius:999px;font-size:12.5px;font-weight:500;transition:background-color .15s,color .15s,border-color .15s}
+.tabbtn:hover{color:var(--txt);background:var(--bg2)}.tabbtn.on{background:var(--txt);border-color:var(--txt);color:#0b0c0f;font-weight:600}
+.tablewrap{overflow:auto;max-width:100%}table{border-collapse:collapse;width:100%}
+th{text-align:left;font-size:11.5px;color:var(--subtle);font-weight:600;padding:10px 12px;border-bottom:1px solid var(--line2);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}tbody tr:last-child td{border-bottom:0}
+tbody tr{transition:background-color .12s}tbody tr:hover{background:rgba(255,255,255,.025)}tr.click{cursor:pointer}
+tr.cur,tr.cur:hover{background:var(--accent-w);box-shadow:inset 3px 0 0 var(--accent)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.empty{padding:34px 16px;text-align:center;color:var(--muted);border:1px dashed var(--line2);border-radius:14px}
+.toast{position:fixed;right:20px;bottom:20px;border:1px solid var(--line2);border-radius:12px;background:var(--bg3);color:var(--txt);padding:11px 16px 11px 34px;z-index:60;font-size:13px;box-shadow:0 18px 44px -14px rgba(0,0,0,.75)}
+.toast::before{content:"";position:absolute;left:15px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--accent)}.toast[hidden]{display:none}
+.footer{font-size:11.5px;color:var(--subtle);margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.ccard{background:var(--bg1);border:1px solid var(--line);border-radius:14px;padding:14px 15px 14px 18px;cursor:pointer;display:grid;gap:9px;min-width:0;box-shadow:inset 3px 0 0 var(--fc);transition:border-color .15s,background-color .15s,transform .15s,box-shadow .15s}
+.ccard:hover{border-color:var(--line2);background:var(--bg2);transform:translateY(-1px)}.ccard.on{border-color:var(--accent-l);box-shadow:inset 3px 0 0 var(--fc),0 0 0 3px var(--accent-w)}
+.cdet{position:sticky;top:20px}.big{font-size:clamp(22px,3vw,26px);font-weight:700;letter-spacing:-.025em;line-height:1.3}.ch{font-size:12px;color:var(--muted);margin:22px 0 10px;font-weight:600}
+.sk{font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:7px;display:inline-block;white-space:nowrap}
+.sk-r{background:rgba(242,147,140,.14);color:#f6aaa4}.sk-g{background:rgba(111,227,160,.13);color:#8ce8b4}.sk-y{background:rgba(230,197,107,.14);color:#ecd28a}.sk-p{background:rgba(239,159,198,.14);color:#f3b4d3}.sk-s{background:rgba(159,179,200,.14);color:#b7c6d6}.sk-b{background:rgba(143,186,245,.14);color:#a9c9f8}.sk-v{background:rgba(173,159,242,.15);color:#c2b7f6}.sk-o{background:rgba(243,172,112,.14);color:#f6be8d}.sk-x{background:rgba(255,255,255,.07);color:var(--muted)}
+.mods{display:flex;gap:5px;align-items:center;margin-top:6px}.mods small{width:14px;color:var(--subtle);font-weight:600}
+.mods i{font-style:normal;width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:var(--bg2);border:1px solid var(--line);color:#4f5664;font-size:12px;font-weight:600}.mods i.on{background:var(--accent-w);border-color:var(--accent-l);color:var(--accent)}
+.crafts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.crafts div{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 4px;text-align:center}.crafts small{display:block;font-size:10.5px;color:var(--subtle);margin-bottom:5px}
+.rset{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.rn2{background:rgba(173,159,242,.1);color:#cfc6fa;border:1px solid rgba(173,159,242,.28);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:600}.rn2 em{font-style:normal;color:var(--subtle);font-weight:500;font-size:10.5px;margin:0 4px}
+.tg{font-size:10.5px;font-weight:600;padding:1px 6px;border-radius:6px;border:1px solid;white-space:nowrap;flex:none}
+.tg-d{color:#f6aaa4;border-color:rgba(242,147,140,.4);background:rgba(242,147,140,.1)}.tg-l{color:#ecd28a;border-color:rgba(230,197,107,.4);background:rgba(230,197,107,.1)}.tg-a{color:#c2b7f6;border-color:rgba(173,159,242,.4);background:rgba(173,159,242,.1)}
+.sp{color:var(--orange)}
+.st{font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid;color:var(--sc);background:rgba(255,255,255,.04);background:color-mix(in srgb,var(--sc) 12%,transparent);border-color:color-mix(in srgb,var(--sc) 45%,transparent);white-space:nowrap;display:inline-block}.st.sub{border-style:dashed;font-weight:500}.st.none{--sc:var(--subtle)}
+.sgh{display:flex;align-items:center;gap:8px;margin:24px 0 10px;font-weight:600}.sgh:first-child{margin-top:0}
+.lt th,.lt td{padding:8px 9px;font-size:12px}.lt td.hc{background:var(--accent-w);color:var(--accent);font-weight:700}
+.prow{display:grid;grid-template-columns:60px minmax(150px,.8fr) minmax(0,2fr);gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.prow:last-child{border-bottom:0}
+.lvb{min-width:46px;font-size:11px;font-weight:600;padding:3px 7px;border-radius:7px;background:var(--bg3);border:1px solid var(--line);color:var(--muted);text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}
+.pres{background:none;border:0;padding:0;color:var(--txt);font-weight:600;text-align:left}.pres:hover{color:var(--accent)}.pres em,.mat em{font-style:normal;color:var(--subtle);font-weight:500;margin-left:4px}
+.mat{border:1px solid var(--line2);background:var(--bg2);color:var(--txt);border-radius:8px;padding:3px 9px;font-size:12px;display:inline-block;transition:border-color .15s,background-color .15s}.mat:hover{border-color:var(--line3);background:var(--bg3)}
+.mat.made{border-color:var(--accent-l);color:var(--accent)}.mat.gold{border-color:rgba(240,205,122,.45);color:var(--gold)}
+.gitem{padding:12px 0;border-bottom:1px solid var(--line)}.gitem:last-child{border-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{border:1px solid var(--line2);background:var(--bg2);color:var(--txt);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:500;transition:border-color .15s,color .15s}.chip:hover{border-color:var(--accent-l);color:var(--accent)}
+.rbox{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:13px}
+.rl{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+.rl li{display:grid;grid-template-columns:22px auto minmax(0,1fr) 56px 38px;gap:7px;align-items:center;font-size:12px}.rl li.nt{grid-template-columns:22px minmax(0,1fr) 56px 38px}
+.rk{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:700;background:var(--bg3);color:var(--muted);font-variant-numeric:tabular-nums}
+.rk1{background:#e9b949;color:#2a1d00}.rk2{background:#b8c1cc;color:#1b222c}.rk3{background:#c98a5a;color:#2b1608}
+.rname{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bar{height:6px;border-radius:9px;background:rgba(255,255,255,.06);overflow:hidden}.bar i{display:block;height:100%;border-radius:9px;background:var(--accent);opacity:.85}
+.rl b{font-size:11.5px;text-align:right;color:var(--gold);font-weight:600;font-variant-numeric:tabular-nums}
+.mini{display:flex;flex-wrap:wrap;gap:4px}.mini span{font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--bg3);color:var(--muted)}
+.hit{outline:1px solid var(--accent-l);background:var(--accent-w)!important;border-radius:6px}
+.verdict{font-size:26px;font-weight:700;letter-spacing:-.02em;margin:6px 0;font-variant-numeric:tabular-nums}
+.wtime{text-align:right}.wtime b{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}.wbar{height:8px;margin-top:16px}
+.wrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 16px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);transition:opacity .15s}.wrow:last-child{border-bottom:0}
+.wrow.done .wmain b{color:var(--muted)}.wrow.off{opacity:.45}.wok{display:inline-grid;color:var(--accent)}.wok svg{width:16px;height:16px}
+.wsubs{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;align-items:center}
+.scard{box-shadow:inset 0 3px 0 var(--sc)}.sres{margin-top:12px;display:grid;gap:6px;font-size:12.5px;color:var(--muted)}.sres .ln{display:flex;justify-content:space-between;gap:10px}.sres .ln b{color:var(--txt);font-weight:600;text-align:right;font-variant-numeric:tabular-nums}.sres .sbr{color:var(--txt);font-weight:600;padding-bottom:6px;border-bottom:1px solid var(--line)}.sres .err{color:var(--red)}#stot b{color:var(--gold);font-variant-numeric:tabular-nums}
+.wslot{display:inline-flex;align-items:center;gap:6px}.wslot select{height:32px;padding:0 28px 0 10px;background-position:right 8px center;font-size:12.5px}
+.step{display:inline-flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:3px}.step .tiny{padding:0 2px 0 7px}
+.sbtn{width:28px;height:28px;border-radius:7px;border:0;background:var(--bg3);color:var(--txt);font-size:16px;line-height:1;transition:background-color .15s}.sbtn:hover{background:#2a2f38}.sbtn:active{transform:scale(.94)}
+.step b{min-width:46px;text-align:center;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}.step b em{font-style:normal;color:var(--subtle);font-weight:500}.step b.ok{color:var(--accent)}
+.wchk{height:34px;padding:0 14px;border-radius:10px;border:1px solid var(--line2);background:var(--bg2);color:var(--muted);font-size:12.5px;font-weight:600;transition:background-color .15s,border-color .15s,color .15s}.wchk:hover{border-color:var(--line3)}.wchk.on{background:var(--accent-w);border-color:var(--accent-l);color:var(--accent)}
+@keyframes up{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+@media(max-width:1100px){.layout2{grid-template-columns:1fr}.cdet{position:static}}
+@media(max-width:760px){.app{display:block}.side{display:none}
+.mtop{display:flex;position:sticky;top:0;z-index:20;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(11,12,15,.8);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.mtop .logo{padding:0}.mtop .logo i{width:30px;height:30px;border-radius:9px}.mtop .logo i svg{width:16px;height:16px}
+.iconbtn{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line2);color:var(--muted);background:var(--bg2)}.iconbtn svg{width:16px;height:16px}
+main{padding:22px 16px calc(98px + env(safe-area-inset-bottom))}.panel{padding:16px;border-radius:14px}.h1{font-size:24px}.desc{margin-bottom:20px}
+.tabbar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:30;padding:6px 6px calc(6px + env(safe-area-inset-bottom));background:rgba(14,15,19,.88);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-top:1px solid var(--line)}
+.tab{display:flex;flex-direction:column;align-items:center;gap:3px;border:0;background:none;color:var(--subtle);font-size:10.5px;font-weight:500;padding:6px 0;border-radius:10px;transition:color .15s}.tab svg{width:21px;height:21px}.tab.on{color:var(--accent)}
+.sheet:not([hidden]){display:block;position:fixed;inset:0;z-index:40}.sheet-bg{position:absolute;inset:0;background:rgba(0,0,0,.55)}
+.sheet-card{position:absolute;left:8px;right:8px;bottom:calc(74px + env(safe-area-inset-bottom));background:var(--bg2);border:1px solid var(--line2);border-radius:18px;padding:8px;display:grid;gap:2px;box-shadow:0 -24px 60px -24px rgba(0,0,0,.85);animation:up .2s var(--ease)}
+.sheet-card .nav{height:46px;font-size:14px}.sheet-card .nav:hover{background:var(--bg3)}
+.toast{left:16px;right:16px;bottom:calc(86px + env(safe-area-inset-bottom))}
+.prow{grid-template-columns:52px minmax(0,1fr)}.prow .mats{grid-column:1/-1}.wrow{grid-template-columns:1fr}.wsubs{justify-content:flex-start}.wtime{text-align:left}.grid2,.grid3{grid-template-columns:1fr}.crafts{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side"><div class="logo"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4M17 19h4"/></svg></i><div><b>MBNG Advisor</b><small>Mabinogi Mobile · v3</small></div></div>
+<nav id="nav" class="snav" aria-label="페이지"></nav>
+<div class="sidebottom"><a class="btn sm ext" href="https://mabimobi.life/codex/runes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>룬 도감 열기</a>
+<div class="sidefoot">룬 통계 기준일 <b id="dd"></b><br>출처: mabimobi.life<br>저장: 이 브라우저 (자동)</div></div></aside>
+<header class="mtop"><div class="logo"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4M17 19h4"/></svg></i><div><b>MBNG Advisor</b></div></div><a class="iconbtn" href="https://mabimobi.life/codex/runes" target="_blank" rel="noopener" aria-label="룬 도감 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></header>
+<main><div id="stale"></div><div class="eyebrow" id="eb">MABINOGI MOBILE</div><h1 class="h1" id="pt"></h1><p class="desc" id="ps"></p><div id="page"></div>
+<div class="footer">MBNG Advisor 3.0 · 비공식 개인용 도구 · 데이터가 21개 직업 전부 갖춰진 기능만 수록 · 룬 순위는 유저 사용 통계이며 패치에 따라 바뀝니다</div></main>
+</div>
+<nav class="tabbar" id="tabbar" aria-label="주요 페이지"></nav>
+<div class="sheet" id="sheet" hidden><div class="sheet-bg" data-act="more"></div><div class="sheet-card" id="sheetnav"></div></div>
+<div id="toast" class="toast" hidden role="status"></div>
+<script>
+'use strict';
+const KEY='mbng_advisor_v3',OLD_KEY='erin_hub_v3',RUNE_URL='https://mabimobi.life/codex/runes',DATA_DATE='2026-10-27',STALE_DAYS=30;
+const $=id=>document.getElementById(id);
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(m){const el=$('toast');el.textContent=m;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2600)}
+async function copyText(t){try{await navigator.clipboard.writeText(t);toast('클립보드에 복사했습니다.')}catch(e){const ta=document.createElement('textarea');ta.value=t;document.body.append(ta);ta.select();try{document.execCommand('copy');toast('복사했습니다.')}catch(_){toast('복사가 제한된 브라우저입니다.')}ta.remove()}}
+
+/* ===== 데이터: 직업 기본 · 개조 · 세공 · 장신구 세팅 (사용자 제공 표) ===== */
+const CF={warrior:['전사 계열','#f2938c'],healer:['힐러 계열','#8fbaf5'],mage:['마법사 계열','#ad9ff2'],archer:['궁수 계열','#f3ac70'],bard:['음유시인 계열','#e6c56b'],rogue:['도적 계열','#ef9fc6']};
+const SKC={강타:'r',연타:'g',보조:'y',방해:'p',이동:'s',원소:'b',소환:'v',생존:'o'};
+const CLS=[
+['전사','warrior','246','','강타,방해,이동,생존','돌격+붕괴+패기/검투사',''],
+['검술사','warrior','456','','강타,보조,이동,연타','관통+평정+일섬/맹렬',''],
+['대검전사','warrior','456/156','','보조,강타,보조쿨,강타쿨','탄력+광전사+절단',''],
+['기사','warrior','156/135','','강타,보조,연타,소환','돌파+용기+지진',''],
+['힐러','healer','345','','보조,연타,소환,보조쿨','물결/고동침+가호+광륜',''],
+['사제','healer','235','','보조,강타,방해,보조쿨','집행+심판+성전/결속',''],
+['수도사','healer','123','','보조,연타,이동,방해','인과+뇌정+등불',''],
+['암흑술사','healer','135','134','소환,방해,보조,연타','절제+구속+광기','절제+구속+나락'],
+['마법사','mage','123','','원소,방해,강타,소환','우레+운석+빙창/서리가시',''],
+['빙결술사','mage','456','145','원소,소환,생존,강타','북풍+빙하+설원','빙검+빙하+설원'],
+['화염술사','mage','136','135','원소,강타,연타,방해','폭격+청염+분출',''],
+['전격술사','mage','245','256','원소,강타,보조,방해','폭풍우+도관+섬광','천둥+도관+섬광'],
+['궁수','archer','156','135','연타,방해,강타,이동','치명적/몰아침+매+닻','몰아침/재빠른+나선+닻'],
+['석궁사수','archer','246/146','234','강타,원소,연타,원소쿨','꿰뚫음+화약+산탄','꿰뚫음+반전+균열/산탄'],
+['장궁병','archer','236','','방해,강타,연타,방해쿨','초음파+돌개+호응',''],
+['악사','bard','345','235','방해,연타,강타,보조','조율+속주+종장','조율+매혹+종장/순환'],
+['음유시인','bard','346/134','','방해,보조,강타,연타','합주+무아+기만/급습',''],
+['댄서','bard','135/356','','연타,이동,강타,보조','환호+발걸음+전환',''],
+['도적','rogue','134','234','방해,강타,이동,연타','닻+땅거미+폭발','닻+교활함+폭발'],
+['듀얼블레이드','rogue','145/456','456','연타,이동,강타,보조','천침+강화+교차','열상+속행+교차'],
+['격투가','rogue','456','145','강타,이동,보조,강타쿨','전진+승천+강격','약점+승천+열혈']];
+
+/* ===== 데이터: 직업 주·부 스탯 (나무위키 각 직업 문서 상단 정보 상자 'main'·'sub', 2026-10-27 확인 · 문서 수정 2026-08-20~10-25) =====
+   기본 직업 6종(전사·궁수·마법사·힐러·음유시인·도적)은 정보 상자에 'sub'가 없는 = 부 스탯이 없는 직업(사용자 확인) → '없음' */
+const STAT_SRC='나무위키 직업 문서 정보 상자',STAT_DATE='2026-10-27';
+const STAT={전사:'힘',대검전사:'힘',검술사:'힘',기사:'힘',궁수:'솜씨',석궁사수:'솜씨',장궁병:'솜씨',마법사:'지력',화염술사:'지력',빙결술사:'지력',전격술사:'지력',힐러:'지력',사제:'지력',수도사:'지력',암흑술사:'지력',음유시인:'솜씨',댄서:'솜씨',악사:'솜씨',도적:'솜씨',격투가:'솜씨',듀얼블레이드:'솜씨'};
+const SUB={전사:'없음',대검전사:'의지',검술사:'행운',기사:'의지',궁수:'없음',석궁사수:'행운',장궁병:'의지',마법사:'없음',화염술사:'행운',빙결술사:'의지',전격술사:'행운',힐러:'없음',사제:'의지',수도사:'의지',암흑술사:'행운',음유시인:'없음',댄서:'행운',악사:'의지',도적:'없음',격투가:'의지',듀얼블레이드:'행운'};
+const STC={힘:'#f2938c',솜씨:'#6fe3c1',지력:'#8fbaf5',의지:'#ad9ff2',행운:'#e6c56b'};
+
+/* ===== 데이터: 룬 사용 순위 (mabimobi.life/codex/runes, 2026-10-27 캡처) =====
+   형식 이름:태그:사용률  (태그 용/빛/어=어둠/특=주황색 특수, 태그 없으면 이름:사용률) · 순서 = 사이트 순위 */
+const RAW={
+'전사':{w:'바위 칼날:용:34,죽음:특:15,타오르는 영광:빛:23,창백한 기수:어:12,거대한 분노:용:2,대군주+:용:5,광채+:빛:6,억눌린 충동:어:1,암운+:어:0,계시+:빛:0',e:'위대함:용:67,빛바랜 별:용:26,영원한 밤:어:6,태초:용:0,고결함:빛:0,침묵:어:0,백금 천칭:빛:0,해방:어:0,초월:빛:0,원정대:0',a:'붕괴+:97,돌격+:96,패기+:72,검투사+:23,극점+:2,맹공+:2,포효+:3,참격+:1,돌진+:1',r:'칼바람:용:91,위엄:빛:90,무너진 경계:어:83,아귀:어:63,첫 번째 서약:빛:37,금 간 봉인:어:18,서광:빛:13,교차하는 사슬:어:39,흐릿한 형상:어:7,용 사냥꾼:특:14'},
+'대검전사':{w:'거대한 분노:용:48,암운+:어:16,광채+:빛:15,죽음:특:16,오랜 광기:어:1,창백한 기수:어:0,추적자:용:3,타오르는 영광:빛:0,억눌린 충동:어:0,눈부신 잔영:빛:0',e:'위대함:용:69,영원한 밤:어:22,빛바랜 별:용:9,초월:빛:0,고결함:빛:1,해방:어:0,태초:용:0,침묵:어:0,백금 천칭:빛:0,원정대:0',a:'탄력+:99,광전사+:92,절단+:76,봉쇄+:12,반격+:2,분노+:12,무자비+:6,회심+:1,회전+:0',r:'끓는 피:어:87,봉인술사:용:75,금 간 봉인:어:76,무너진 경계:어:81,첫 번째 서약:빛:23,승전:빛:20,용 사냥꾼:특:22,무한한 탐욕:어:30,흐릿한 형상:어:9,별바라기:용:9'},
+'검술사':{w:'타오르는 영광:빛:59,눈부신 잔영:빛:24,거대한 분노:용:4,죽음:특:7,바위 칼날:용:3,대군주+:용:1,창백한 기수:어:1,계시+:빛:0,광채+:빛:0,햇살+:빛:0',e:'해방:어:71,영원한 밤:어:15,위대함:용:7,빛바랜 별:용:5,초월:빛:0,원정대:0,태초:용:0,고결함:빛:0,백금 천칭:빛:0,침묵:어:0',a:'관통+:99,평정+:95,일섬+:80,낙화+:3,맹렬+:14,중검+:3,무희+:2,피바람+:0,압박+:0',r:'아귀:어:78,교차하는 사슬:어:74,무너진 경계:어:71,별바라기:용:45,잠들지 않는 불:용:39,계승자:용:50,수호자:빛:26,용 사냥꾼:특:18,잿빛 장막:어:15,유폐된 어둠:특:9'},
+'기사':{w:'눈부신 잔영:빛:82,두 갈래 뿔:용:7,죽음:특:7,부패+:어:0,바위 칼날:용:1,억눌린 충동:어:0,타오르는 영광:빛:0,계시+:빛:1,창백한 기수:어:0,햇살+:빛:0',e:'백금 천칭:빛:78,영원한 밤:어:11,초월:빛:5,위대함:용:2,태초:용:0,해방:어:1,침묵:어:0,빛바랜 별:용:3,고결함:빛:1,원정대:0',a:'돌파+:97,용기+:96,지진+:95,고갈+:2,격돌+:2,헌신+:2,맹약+:1,결의+:1,명예+:1',r:'작열하는:빛:84,열의+:빛:71,첫 번째 서약:빛:59,무너진 경계:어:55,서광:빛:24,금 간 봉인:어:25,위엄:빛:43,승전:빛:16,숲 길잡이:용:12,공허:어:25'},
+'궁수':{w:'바위 칼날:용:38,타오르는 영광:빛:39,죽음:특:19,두 갈래 뿔:용:3,창백한 기수:어:0,광채+:빛:1,대군주+:용:0,거대한 분노:용:0,오랜 광기:어:0,계시+:빛:0',e:'영원한 밤:어:39,해방:어:43,고결함:빛:8,빛바랜 별:용:10,초월:빛:0,원정대:0,백금 천칭:빛:0,태초:용:0,위대함:용:0,침묵:어:0',a:'닻+:98,매+:89,몰아침+:85,날렵함+:9,나선+:14,치명적인+:1,재빠른+:1,추적+:0,탈출+:0',r:'무너진 경계:어:90,교차하는 사슬:어:78,금 간 봉인:어:40,승전:빛:35,별바라기:용:15,빛살+:빛:67,숲 길잡이:용:18,황혼 숨결:용:9,잠들지 않는 불:용:9,열의+:빛:12'},
+'석궁사수':{w:'바위 칼날:용:82,죽음:특:15,타오르는 영광:빛:2,대군주+:용:0,계시+:빛:0,거대한 분노:용:0,햇살+:빛:0,창백한 기수:어:0,억눌린 충동:어:0,불꽃으로 새긴 문장:특:0',e:'해방:어:49,영원한 밤:어:30,위대함:용:12,빛바랜 별:용:10,원정대:0,초월:빛:0,고결함:빛:0,태초:용:0,침묵:어:0,백금 천칭:빛:0',a:'꿰뚫음+:100,산탄+:89,화약+:77,반전+:21,균열+:12,감전+:0,연쇄+:0,전류+:0,방해+:0',r:'무한한 탐욕:어:87,무너진 경계:어:82,금 간 봉인:어:71,교차하는 사슬:어:57,첫 번째 서약:빛:33,계승자:용:48,오팔 성배:빛:31,승전:빛:18,용 사냥꾼:특:18,별바라기:용:8'},
+'장궁병':{w:'바위 칼날:용:54,타오르는 영광:빛:29,죽음:특:13,억눌린 충동:어:1,광채+:빛:0,대군주+:용:1,거대한 분노:용:0,햇살+:빛:0,계시+:빛:0,추적자:용:0',e:'영원한 밤:어:51,위대함:용:44,초월:빛:1,침묵:어:0,태초:용:0,백금 천칭:빛:0,빛바랜 별:용:4,해방:어:0,원정대:0,고결함:빛:0',a:'초음파+:99,돌개+:99,호응+:99,끈질김+:0,무너짐+:0,비연+:0,파쇄+:0,집중+:0,내상+:1',r:'뼈 인장:어:92,무너진 경계:어:78,첫 번째 서약:빛:79,금 간 봉인:어:40,흐릿한 형상:어:29,계승자:용:36,승전:빛:14,별바라기:용:11,용 사냥꾼:특:15,칼바람:용:12'},
+'마법사':{w:'계시+:빛:97,바위 칼날:용:1,타오르는 영광:빛:1,죽음:특:1,억눌린 충동:어:0,광채+:빛:0,거대한 분노:용:0,부패+:어:0,대군주+:용:0,햇살+:빛:0',e:'영원한 밤:어:59,빛바랜 별:용:13,위대함:용:25,고결함:빛:1,해방:어:2,태초:용:0,초월:빛:0,침묵:어:0,백금 천칭:빛:0,원정대:0',a:'운석+:100,우레+:93,서리가시+:45,빙창+:54,낙뢰+:1,깜빡임+:2,산사태+:4,암석+:0,증폭+:1',r:'봉인술사:용:94,금 간 봉인:어:79,무한한 탐욕:어:79,계승자:용:54,오팔 성배:빛:49,첫 번째 서약:빛:28,무너진 경계:어:32,흐릿한 형상:어:11,칼바람:용:16,용 사냥꾼:특:11'},
+'화염술사':{w:'바위 칼날:용:54,광채+:빛:22,죽음:특:14,타오르는 영광:빛:9,창백한 기수:어:0,계시+:빛:0,햇살+:빛:0,억눌린 충동:어:0,대군주+:용:0,불꽃으로 새긴 문장:특:0',e:'영원한 밤:어:50,위대함:용:29,해방:어:18,빛바랜 별:용:3,원정대:0,초월:빛:0,고결함:빛:0,태초:용:0,침묵:어:0,백금 천칭:빛:0',a:'폭격+:100,청염+:99,분출+:98,불기둥+:1,잿더미+:1,발화+:0,열풍+:1,화력+:0,불씨+:0',r:'뼈 인장:어:96,무너진 경계:어:81,금 간 봉인:어:68,첫 번째 서약:빛:37,별바라기:용:23,교차하는 사슬:어:40,계승자:용:44,잠들지 않는 불:용:14,용 사냥꾼:특:20,얼음 발톱:용:6'},
+'빙결술사':{w:'바위 칼날:용:72,죽음:특:15,광채+:빛:9,대군주+:용:2,타오르는 영광:빛:1,계시+:빛:0,거대한 분노:용:0,햇살+:빛:0,창백한 기수:어:0,억눌린 충동:어:1',e:'영원한 밤:어:62,해방:어:17,빛바랜 별:용:13,위대함:용:5,초월:빛:1,원정대:0,태초:용:0,고결함:빛:0,침묵:어:0,백금 천칭:빛:0',a:'빙하+:99,설원+:97,북풍+:89,빙검+:12,오로라+:1,수정+:0,겨울+:0,고드름+:0,파편+:0',r:'위엄:빛:83,칼바람:용:81,무너진 경계:어:73,금 간 봉인:어:64,서광:빛:59,교차하는 사슬:어:31,용 사냥꾼:특:16,오팔 성배:빛:18,별바라기:용:7,잿빛 장막:어:4'},
+'전격술사':{w:'계시+:빛:63,타오르는 영광:빛:20,죽음:특:10,광채+:빛:2,억눌린 충동:어:1,부패+:어:0,바위 칼날:용:2,거대한 분노:용:1,오랜 광기:어:0,암운+:어:0',e:'영원한 밤:어:58,위대함:용:22,빛바랜 별:용:18,초월:빛:1,태초:용:0,해방:어:0,백금 천칭:빛:0,고결함:빛:0,침묵:어:0,원정대:0',a:'섬광+:97,도관+:90,폭풍우+:91,천둥+:8,방전+:5,환기+:3,벼락+:1,장막+:0,역장+:1',r:'봉인술사:용:72,금 간 봉인:어:63,무너진 경계:어:49,오팔 성배:빛:45,흐릿한 형상:어:28,별바라기:용:26,첫 번째 서약:빛:31,무한한 탐욕:어:45,용 사냥꾼:특:13,계승자:용:28'},
+'힐러':{w:'바위 칼날:용:77,죽음:특:16,햇살+:빛:3,계시+:빛:2,타오르는 영광:빛:1,대군주+:용:1,두 갈래 뿔:용:0,광채+:빛:0,억눌린 충동:어:0,부패+:어:0',e:'해방:어:62,영원한 밤:어:28,원정대:2,초월:빛:1,빛바랜 별:용:2,고결함:빛:1,위대함:용:1,백금 천칭:빛:0,태초:용:3,침묵:어:0',a:'광륜+:98,가호+:97,물결+:90,억압+:4,개화+:1,고동침+:8,서약+:1,빛무리+:0,감쌈+:0',r:'긍지:빛:90,교차하는 사슬:어:80,금 간 봉인:어:67,무너진 경계:어:68,승전:빛:33,잿빛 장막:어:15,비늘 덮인 현자:용:12,용 사냥꾼:특:16,오팔 성배:빛:18,잠들지 않는 불:용:4'},
+'사제':{w:'바위 칼날:용:62,죽음:특:16,광채+:빛:14,계시+:빛:6,타오르는 영광:빛:0,오랜 광기:어:1,암운+:어:0,햇살+:빛:0,거대한 분노:용:0,억눌린 충동:어:0',e:'위대함:용:72,영원한 밤:어:22,고결함:빛:1,초월:빛:0,원정대:0,빛바랜 별:용:4,해방:어:0,태초:용:0,침묵:어:0,백금 천칭:빛:0',a:'심판+:99,집행+:96,성전+:90,날개+:11,결속+:3,수레바퀴+:0,빛줄기+:0,축복+:0,희생+:0',r:'뼈 인장:어:93,긍지:빛:88,칼바람:용:84,무너진 경계:어:84,무한한 탐욕:어:31,오팔 성배:빛:26,금 간 봉인:어:25,승전:빛:3,용 사냥꾼:특:13,사슬로 묶은 법전:특:5'},
+'수도사':{w:'바위 칼날:용:51,광채+:빛:25,죽음:특:16,두 갈래 뿔:용:6,눈부신 잔영:빛:1,오랜 광기:어:0,햇살+:빛:0,거대한 분노:용:0,억눌린 충동:어:0,부패+:어:0',e:'백금 천칭:빛:89,영원한 밤:어:6,고결함:빛:1,해방:어:1,초월:빛:2,위대함:용:0,원정대:0,빛바랜 별:용:0,태초:용:0,침묵:어:0',a:'뇌정+:99,인과+:99,등불+:97,업화+:0,해일+:1,응보+:1,정화+:2,광휘+:0,축성+:0',r:'열의+:빛:90,긍지:빛:91,작열하는:빛:90,금 간 봉인:어:74,잠든 땅:용:59,첫 번째 서약:빛:18,용 사냥꾼:특:13,숲 길잡이:용:8,승전:빛:4,별바라기:용:3'},
+'암흑술사':{w:'바위 칼날:용:79,죽음:특:12,광채+:빛:5,타오르는 영광:빛:2,계시+:빛:0,창백한 기수:어:0,눈부신 잔영:빛:0,억눌린 충동:어:3,대군주+:용:0,오랜 광기:어:0',e:'해방:어:82,영원한 밤:어:10,백금 천칭:빛:0,태초:용:0,빛바랜 별:용:7,초월:빛:0,원정대:0,위대함:용:1,고결함:빛:0,침묵:어:0',a:'구속+:99,절제+:99,광기+:97,속박+:1,나락+:1,제사장+:0,타락+:0,심연+:0,착취+:0',r:'무너진 경계:어:95,봉인술사:용:95,교차하는 사슬:어:56,첫 번째 서약:빛:40,오팔 성배:빛:47,금 간 봉인:어:20,바다뱀+:용:29,잿빛 장막:어:13,용 사냥꾼:특:16,별바라기:용:3'},
+'음유시인':{w:'대군주+:용:66,타오르는 영광:빛:19,죽음:특:8,햇살+:빛:1,광채+:빛:1,암운+:어:0,바위 칼날:용:3,두 갈래 뿔:용:1,억눌린 충동:어:0,추적자:용:0',e:'영원한 밤:어:43,해방:어:39,위대함:용:5,고결함:빛:3,원정대:0,초월:빛:1,침묵:어:0,백금 천칭:빛:0,태초:용:0,빛바랜 별:용:9',a:'무아+:98,합주+:98,변주+:48,기만+:35,재치+:9,화음+:1,조롱+:4,급습+:5,즉흥+:0',r:'긍지:빛:85,바다뱀+:용:74,무너진 경계:어:63,금 간 봉인:어:56,교차하는 사슬:어:52,잿빛 장막:어:22,첫 번째 서약:빛:19,오팔 성배:빛:11,승전:빛:8,용 사냥꾼:특:14'},
+'댄서':{w:'바위 칼날:용:82,광채+:빛:6,죽음:특:9,햇살+:빛:1,거대한 분노:용:0,억눌린 충동:어:1,타오르는 영광:빛:1,오랜 광기:어:0,부패+:어:0,대군주+:용:0',e:'해방:어:52,영원한 밤:어:20,초월:빛:22,빛바랜 별:용:5,위대함:용:1,백금 천칭:빛:0,고결함:빛:0,침묵:어:0,원정대:0,태초:용:0',a:'전환+:99,발걸음+:99,환호+:99,갈채+:1,다가옴+:0,간결함+:0,정열+:0,나비+:0,산뜻함+:0',r:'공허:어:80,계승자:용:74,교차하는 사슬:어:49,오팔 성배:빛:59,무너진 경계:어:61,금 간 봉인:어:30,첫 번째 서약:빛:38,숲 길잡이:용:20,별바라기:용:8,용 사냥꾼:특:16'},
+'악사':{w:'바위 칼날:용:78,죽음:특:14,광채+:빛:4,계시+:빛:1,억눌린 충동:어:1,오랜 광기:어:0,두 갈래 뿔:용:0,창백한 기수:어:0,타오르는 영광:빛:1,대군주+:용:0',e:'영원한 밤:어:62,해방:어:30,빛바랜 별:용:4,초월:빛:4,위대함:용:1,태초:용:0,원정대:0,고결함:빛:0,백금 천칭:빛:0,침묵:어:0',a:'조율+:95,종장+:89,순환+:85,속주+:13,매혹+:10,박애+:1,흥성+:3,이중주+:0,공명+:0',r:'무너진 경계:어:78,칼바람:용:75,금 간 봉인:어:66,교차하는 사슬:어:57,계승자:용:51,뼈 인장:어:20,용 사냥꾼:특:19,잿빛 장막:어:4,바다뱀+:용:4,숲 길잡이:용:6'},
+'도적':{w:'바위 칼날:용:73,죽음:특:12,두 갈래 뿔:용:6,부패+:어:4,햇살+:빛:0,억눌린 충동:어:1,광채+:빛:0,대군주+:용:0,불꽃으로 새긴 문장:특:0,암운+:어:0',e:'초월:빛:56,영원한 밤:어:22,해방:어:10,백금 천칭:빛:6,위대함:용:1,고결함:빛:0,빛바랜 별:용:6,침묵:어:0,태초:용:0,원정대:0',a:'폭발+:98,땅거미+:88,닻+:96,교활함+:8,독무+:3,투척+:3,독성+:1,치밀함+:1,주입+:1',r:'열의+:빛:83,작열하는:빛:82,무너진 경계:어:59,첫 번째 서약:빛:56,금 간 봉인:어:42,교차하는 사슬:어:28,잠들지 않는 불:용:6,용 사냥꾼:특:17,수호자:빛:18,무형:특:4'},
+'격투가':{w:'타오르는 영광:빛:45,광채+:빛:30,죽음:특:14,억눌린 충동:어:2,햇살+:빛:3,두 갈래 뿔:용:0,계시+:빛:0,바위 칼날:용:5,눈부신 잔영:빛:0,창백한 기수:어:0',e:'영원한 밤:어:54,위대함:용:37,원정대:5,빛바랜 별:용:2,초월:빛:0,백금 천칭:빛:0,고결함:빛:1,해방:어:0,태초:용:0,침묵:어:0',a:'승천+:99,전진+:69,강격+:41,열혈+:57,약점+:30,순발력+:1,격파+:0,충돌+:0,도약+:0',r:'금 간 봉인:어:73,무너진 경계:어:74,첫 번째 서약:빛:60,승전:빛:23,공허:어:39,오팔 성배:빛:43,흐릿한 형상:어:21,별바라기:용:22,잠들지 않는 불:용:16,용 사냥꾼:특:18'},
+'듀얼블레이드':{w:'바위 칼날:용:82,죽음:특:13,타오르는 영광:빛:2,광채+:빛:0,햇살+:빛:0,억눌린 충동:어:1,암운+:어:0,두 갈래 뿔:용:0,대군주+:용:0,거대한 분노:용:0',e:'해방:어:71,영원한 밤:어:25,초월:빛:2,고결함:빛:0,백금 천칭:빛:0,태초:용:0,침묵:어:0,위대함:용:0,빛바랜 별:용:1,원정대:0',a:'천침+:98,교차+:96,강화+:95,질주+:3,열상+:1,회오리+:1,속행+:3,보름달+:0,기본+:0',r:'무한한 탐욕:어:83,무너진 경계:어:74,계승자:용:63,승전:빛:49,교차하는 사슬:어:39,별바라기:용:25,오팔 성배:빛:45,잠들지 않는 불:용:18,금 간 봉인:어:18,용 사냥꾼:특:15'}};
+const PARTS=[['w','무기'],['e','엠블럼'],['a','장신구'],['r','방어구']];
+const parse=s=>s.split(',').map((x,i)=>{const p=x.split(':');return p.length===3?{n:p[0],t:p[1],p:+p[2],rk:i+1}:{n:p[0],t:'',p:+p[1],rk:i+1}});
+const RUNES=Object.fromEntries(Object.entries(RAW).map(([k,v])=>[k,Object.fromEntries(PARTS.map(([pk])=>[pk,parse(v[pk])]))]));
+
+/* ===== 데이터: 숙련 연계 (공식 업데이트 노트, 2026-10-27 확인 · 7/2~10/22 노트에 수치 변경 없음) =====
+   추가 공격력 = 기본 공격력 차이 40% + 룬 공격력 차이 40% (대상 무기가 높을 때만) + 각인 룬 값(대상 ★ · 각인 강화 단계)
+   LK/LKH[★][강화-1], 인덱스 0 = ★ 없음. ★없음~★8 = 3/26 노트, ★9·★10 = 6/25 노트. LKH = 회복 효과 적용 시 대체 값
+   공지에 없는 0강 값 · 회복 시 차이(40%) 부분 비율 · 소수점 처리는 계산하지 않음 */
+const LINK_DATE='2026-10-27',LINK_PCT=0.4,LINK_SRC=[['3/26(목) 업데이트 노트','https://mabinogimobile.nexon.com/News/Update/3407267','2026-03-25','계산식 · ★없음~★8'],['6/25(목) 업데이트 노트','https://mabinogimobile.nexon.com/News/Update/3480721','2026-06-24','★9·★10 추가 · 회복 효과 값 대체']];
+const LK=[
+[3,4,4,5,6,7,8,10,11,13,18,23,28,33,38,44,49,54,59,64],
+[5,8,9,11,12,14,17,20,22,26,37,47,58,68,79,90,100,111,121,132],
+[11,16,19,22,25,30,36,41,47,55,77,98,120,142,164,186,208,230,252,274],
+[18,27,32,36,41,50,59,68,77,90,126,162,198,234,271,307,343,379,415,451],
+[32,48,56,64,72,89,105,121,137,161,226,290,354,419,483,548,612,677,741,806],
+[52,79,92,105,118,144,171,197,223,262,367,472,577,682,787,892,997,1102,1207,1312],
+[71,106,124,141,159,194,230,265,301,354,495,636,778,919,1061,1202,1344,1485,1627,1768],
+[81,121,141,162,182,222,263,303,344,404,566,728,889,1051,1213,1374,1536,1698,1860,2021],
+[93,140,163,186,209,256,302,349,395,465,651,837,1023,1209,1395,1581,1767,1953,2139,2325],
+[105,158,184,210,237,289,342,394,447,526,736,946,1157,1367,1577,1788,1998,2208,2419,2629],
+[134,200,234,267,300,367,434,501,568,668,935,1202,1469,1736,2003,2270,2537,2804,3071,3338]];
+const LKH=[
+[1,1,1,2,2,2,3,3,4,4,6,8,9,11,13,15,16,18,20,21],
+[2,3,3,4,4,5,6,7,7,9,12,16,19,23,26,30,33,37,40,44],
+[4,5,6,7,8,10,12,14,16,18,26,33,40,47,55,62,69,77,84,91],
+[6,9,11,12,14,17,20,23,26,30,42,54,66,78,90,102,114,126,138,150],
+[11,16,19,21,24,30,35,40,46,54,75,97,118,140,161,183,204,226,247,269],
+[17,26,31,35,39,48,57,66,74,87,122,157,192,227,262,297,332,367,402,437],
+[24,35,41,47,53,65,77,88,100,118,165,212,259,306,354,401,448,495,542,589],
+[27,40,47,54,61,74,88,101,115,135,189,243,296,350,404,458,512,566,620,674],
+[31,47,54,62,70,85,101,116,132,155,217,279,341,403,465,527,589,651,713,775],
+[35,53,61,70,79,96,114,131,149,175,245,315,386,456,526,596,666,736,806,876],
+[45,67,78,89,100,122,145,167,189,223,312,401,490,579,668,757,846,935,1024,1113]];
+
+/* ===== 데이터: 가공 레시피 (나무위키 '마비노기 모바일/생활 스킬' 6. 재료 가공, 문서 수정 2026-10-21 · 2026-10-27 수집) =====
+   [시설, 필요 시설 Lv, 결과물, 재료(' + ' 구분)] · 공식 6/25(Lv.6 신규)·8/13(Lv.6 대체 레시피)·10/15(약품 레시피명) 노트와 대조 일치
+   '백금 강괴'는 공식 6/25 노트 표기(나무위키 '백금강괴'). 가공 시간은 6/25 패치의 시설 레벨별 단축 수치가 없어 미수록 */
+const PROC_DATE='2026-10-27',PROC_SRC=['https://namu.wiki/w/%EB%A7%88%EB%B9%84%EB%85%B8%EA%B8%B0%20%EB%AA%A8%EB%B0%94%EC%9D%BC/%EC%83%9D%ED%99%9C%20%EC%8A%A4%ED%82%AC','2026-10-21'],PROC_CHK=[['6/25','3480721','Lv.6 신규 가공품'],['8/13','3521707','Lv.6 대체 레시피'],['10/15','3563175','약품 레시피명']];
+const PFAC=['금속','목재','가죽','옷감','약품','식재료'];
+const PROC=[
+['금속',1,'철괴(광석) x3','광석 x20'],
+['금속',1,'철괴(철 광석) x3','철 광석 x10'],
+['금속',1,'강철괴 x3','철괴 x3 + 석탄 x4'],
+['금속',2,'합금강괴 x3','강철괴 x3 + 동 광석 x15 + 석탄 x8'],
+['금속',2,'타르 x5','통나무 x50 + 점토 x25'],
+['금속',3,'특수강괴 x3','합금강괴 x4 + 백동 광석 x20 + 석탄 x12'],
+['금속',4,'은합금괴 x3','특수강괴 x5 + 은 광석 x20 + 석탄 x16'],
+['금속',5,'운철괴 x3','은합금괴 x5 + 운철 광석 x20 + 석탄 x20'],
+['금속',6,'은합금괴 x3','마력 깃든 돌 x12 + 은 광석 x20 + 석탄 x16'],
+['금속',6,'백금 강괴 x3','운철괴 x5 + 백금 광석 x20 + 석탄 x20'],
+['목재',1,'목재 x3','통나무 x10'],
+['목재',1,'목재+ x3','목재 x3 + 나무 진액 x4'],
+['목재',2,'상급 목재 x3','목재+ x3 + 상급 통나무 x15 + 나무 진액 x8'],
+['목재',3,'상급 목재+ x3','상급 목재 x4 + 상급 통나무+ x20 + 나무 진액 x12'],
+['목재',3,'부드러운 목재 x3','상급 목재+ x15 + 부드러운 통나무 x30 + 나무 진액 x30'],
+['목재',3,'단단한 목재 x3','상급 목재+ x15 + 단단한 통나무 x30 + 나무 진액 x30'],
+['목재',4,'최상급 목재 x3','상급 목재+ x5 + 최상급 통나무 x20 + 나무 진액 x16'],
+['목재',5,'최상급 목재+ x3','최상급 목재 x5 + 최상급 통나무+ x20 + 나무 진액 x20'],
+['목재',5,'구름결 막대 x5','부드러운 목재 x2 + 환영 가루 x30 + 변화의 핵 x50 + 사포 x10'],
+['목재',6,'최상급 목재 x3','단단한 통나무 x4 + 최상급 통나무 x20 + 나무 진액 x16'],
+['목재',6,'특급 목재 x3','최상급 목재+ x5 + 특급 통나무 x20 + 나무 진액 x20'],
+['가죽',1,'가죽 x3','생가죽 x10'],
+['가죽',1,'가죽+ x3','가죽 x3 + 타닌 가루 x4'],
+['가죽',2,'상급 가죽 x3','가죽+ x3 + 상급 생가죽 x15 + 타닌 가루 x8'],
+['가죽',3,'상급 가죽+ x3','상급 가죽 x4 + 상급 생가죽+ x20 + 타닌 가루 x12'],
+['가죽',4,'최상급 가죽 x3','상급 가죽+ x5 + 최상급 생가죽 x20 + 타닌 가루 x16'],
+['가죽',5,'최상급 가죽+ x3','최상급 가죽 x5 + 최상급 생가죽+ x20 + 타닌 가루 x20'],
+['가죽',6,'최상급 가죽 x3','반짝이는 이끼 x4 + 최상급 생가죽 x20 + 타닌 가루 x16'],
+['가죽',6,'특급 가죽 x3','최상급 가죽+ x5 + 특급 생가죽 x20 + 타닌 가루 x20'],
+['옷감',1,'옷감 x3','양털 x10'],
+['옷감',1,'실크 x2','거미줄 x10'],
+['옷감',1,'옷감+ x3','옷감 x3 + 양털 x4'],
+['옷감',2,'상급 옷감 x3','옷감+ x3 + 상급 양털 x15 + 양털 x8'],
+['옷감',2,'두꺼운 옷감 x3','두꺼운 양털 x50 + 상급 양털 x100 + 밀랍 x2'],
+['옷감',2,'상급 실크 x2','실크 x4 + 튼튼 버섯 진액 x8'],
+['옷감',3,'상급 옷감+ x3','상급 옷감 x4 + 상급 양털+ x20 + 양털 x12'],
+['옷감',3,'식물 섬유 x10','긴 줄기 x150'],
+['옷감',3,'밧줄 x3','식물 섬유 x45 + 밀랍 x4'],
+['옷감',4,'최상급 옷감 x3','상급 옷감+ x5 + 최상급 양털 x20 + 양털 x16'],
+['옷감',4,'최상급 실크 x2','상급 실크 x4 + 최상급 거미줄 x20 + 튼튼 버섯 진액 x16'],
+['옷감',4,'튼튼한 밧줄 x3','밧줄 x6 + 식물 섬유 x90 + 밀랍 x8 + 타르 x3'],
+['옷감',5,'최상급 옷감+ x3','최상급 옷감 x5 + 최상급 양털+ x20 + 양털 x20'],
+['옷감',6,'최상급 옷감 x3','두꺼운 양털 x40 + 최상급 양털 x20 + 양털 x16'],
+['옷감',6,'특급 옷감 x3','최상급 옷감+ x5 + 특급 양털 x20 + 양털 x20'],
+['옷감',6,'특급 실크 x2','최상급 실크 x4 + 특급 거미줄 x20 + 튼튼 버섯 진액 x20'],
+['약품',1,'새록 버섯 진액 x5','새록 버섯 포자 x10 + 물이 든 병 x1'],
+['약품',1,'튼튼 버섯 가루 x5','튼튼 버섯 x20'],
+['약품',1,'튼튼 버섯 진액 x5','튼튼 버섯 포자 x10 + 물이 든 병 x1'],
+['약품',1,'광휘의 결정(유령 반딧불이) x3','유령 반딧불이 x3 + 마나 허브 x10 + 점토 x3'],
+['약품',2,'새록 버섯 포자 x15','새록 버섯 x30 + 종이 x3'],
+['약품',2,'튼튼 버섯 포자 x15','튼튼 버섯 x30 + 종이 x3'],
+['약품',2,'쑥쑥 버섯 포자 x15','쑥쑥 버섯 x30 + 종이 x3'],
+['약품',2,'쑥쑥 버섯 진액 x5','쑥쑥 버섯 포자 x10 + 물이 든 병 x1'],
+['약품',2,'불꽃의 결정(석양나비) x3','석양나비 x3 + 마나 허브 x10 + 점토 x3'],
+['약품',2,'아교 x5','상급 생가죽 x30 + 물이 든 병 x10'],
+['약품',3,'숨숨꽃 가루 x5','숨숨꽃 x20'],
+['약품',3,'깔끔 버섯 포자 x15','깔끔 버섯 x30 + 종이 x3'],
+['약품',3,'깔끔 버섯 진액 x5','깔끔 버섯 포자 x10 + 물이 든 병 x1'],
+['약품',3,'얼음의 결정(흰얼음풍뎅이) x3','흰얼음풍뎅이 x3 + 마나 허브 x10 + 점토 x3'],
+['약품',3,'마력 기폭제 x10','마력 깃든 돌 x50 + 마나 허브 x50 + 반짝이는 이끼 x25'],
+['약품',3,'봉인된 분노의 파편','분노의 파편 x10 + 종이 x10 + 봉인된 결정 x5'],
+['약품',3,'봉인된 망각의 파편','망각의 파편 x10 + 종이 x10 + 봉인된 결정 x5'],
+['약품',3,'봉인된 야성의 파편','야성의 파편 x10 + 종이 x10 + 봉인된 결정 x5'],
+['약품',4,'생채기꽃 가루 x5','생채기꽃 x20'],
+['약품',4,'증폭 버섯 포자 x15','증폭 버섯 x30 + 종이 x3'],
+['약품',4,'증폭 버섯 진액 x5','증폭 버섯 포자 x10 + 물이 든 병 x1'],
+['약품',4,'전기의 결정(낙엽나방) x3','낙엽나방 x3 + 마나 허브 x10 + 점토 x3'],
+['약품',5,'진정초 가루 x5','진정초 x20'],
+['약품',5,'솔솔 버섯 포자 x15','솔솔 버섯 x30 + 종이 x3'],
+['약품',5,'솔솔 버섯 진액 x5','솔솔 버섯 포자 x10 + 물이 든 병 x1'],
+['약품',5,'봉인의 결정(황혼잠자리) x3','황혼잠자리 x3 + 마나 허브 x10 + 점토 x3'],
+['약품',5,'환영 가루 x5','벼락 맞은 나뭇가지 x20 + 나비잠자리 x10'],
+['약품',6,'끈적 풀 가루 x5','끈적 풀 x20'],
+['약품',6,'산뜻 버섯 포자 x15','산뜻 버섯 x30 + 종이 x3'],
+['약품',6,'산뜻 버섯 진액 x5','산뜻 버섯 포자 x10 + 물이 든 병 x1'],
+['약품',6,'광휘의 결정(달무늬 사슴벌레) x3','달무늬 사슴벌레 x3 + 마나 허브 x10 + 점토 x3'],
+['식재료',1,'마요네즈 x3','달걀 x10 + 식용유 x2'],
+['식재료',2,'밀가루 x3','밀 x15'],
+['식재료',2,'치즈 x3','우유 x6 + 소금 x1'],
+['식재료',3,'면 x3','밀가루 x3 + 달걀 x5 + 물이 든 병 x1'],
+['식재료',3,'생크림 x3','우유 x12 + 달걀 x6 + 설탕 x2'],
+['식재료',4,'물에 불린 콩 x5','콩 x30 + 물이 든 병 x3'],
+['식재료',4,'두부 x3','물에 불린 콩 x3 + 물이 든 병 x3 + 소금 x2 + 옷감 x3'],
+['식재료',4,'두유 x3','물에 불린 콩 x3 + 물이 든 병 x3 + 소금 x1 + 식용유 x1'],
+['식재료',4,'숙성된 커다란 고기','커다란 고기 x1 + 허브 x6 + 마늘 x2 + 소금 x2 + 후추 x1'],
+['식재료',5,'물에 불린 쌀 x5','쌀 x30 + 물이 든 병 x6'],
+['식재료',5,'밥 x3','물에 불린 쌀 x8 + 물이 든 병 x2'],
+['식재료',5,'말린 찻잎 x3','찻잎 x30'],
+['식재료',5,'발효된 찻잎 x3','말린 찻잎 x5 + 옷감 x1'],
+['식재료',6,'헤이즐넛 오일 x3','헤이즐넛 x15 + 옷감+ x1'],
+['식재료',6,'오트밀 x3','귀리 x30']];
+
+/* ===== 데이터: 채집 (나무위키 '마비노기 모바일/생활 스킬' 3. 채집 계열, 문서 수정 2026-10-21 · 2026-10-27 수집) =====
+   [스킬, 필요 레벨(0 = 그 스킬의 모든 채집물 공통), 채집물, 획득 아이템(', ' 구분)] · 공식 6/25 노트와 대조: 최대 레벨, 신규 채집물 11종의 레벨·황금 아이템 일치
+   사용자 게임 내 확인(2026-10-27): 옥수수 Lv.1 유지, 동쪽 호수 낚시터(이멘마하)에 황금 도구 상자(낫) 추가(나무위키 누락)
+   공식 노트의 '서쪽 호수 낚시터 황금 도구 상자(호미)'는 나무위키·게임 확인과 맞지 않아 미수록. 채집물 지역은 자료가 없어 미수록 */
+const GATH_DATE='2026-10-27',GATH_SRC=['https://namu.wiki/w/%EB%A7%88%EB%B9%84%EB%85%B8%EA%B8%B0%20%EB%AA%A8%EB%B0%94%EC%9D%BC/%EC%83%9D%ED%99%9C%20%EC%8A%A4%ED%82%AC','2026-10-21'];
+const GSK=[['일상 채집',35],['나무 베기',37],['광석 캐기',37],['약초 채집',37],['양털 깎기',37],['추수',37],['호미질',37],['곤충 채집',37],['낚시',37]];
+const GATH=[
+['일상 채집',1,'둥지','달걀, 황금 달걀'],
+['일상 채집',1,'거미줄','거미줄, 흰꽃나비, 하루살이, 황금 거미줄'],
+['일상 채집',1,'물','물이 든 병, 황금 네잎클로버'],
+['일상 채집',1,'우물','물이 든 병, 병 속에 든 쪽지, 황금 네잎클로버'],
+['일상 채집',1,'젖소','우유, 황금 우유'],
+['일상 채집',1,'사과 나무','사과, 황금 사과'],
+['일상 채집',10,'차나무','찻잎, 황금 나뭇가지'],
+['일상 채집',20,'거미줄 뭉치','거미줄, 흰꽃나비, 하루살이, 최상급 거미줄, 황금 거미줄'],
+['일상 채집',25,'헤이즐넛','헤이즐넛, 나뭇가지, 황금 헤이즐넛'],
+['일상 채집',30,'얽힌 거미줄','거미줄, 특급 거미줄, 황금 거미줄+'],
+['나무 베기',1,'나무','통나무, 나무 진액, 나뭇가지, 단단한 통나무, 황금 풍뎅이'],
+['나무 베기',1,'뾰족 나무','통나무, 나무 진액, 나뭇가지, 부드러운 통나무, 황금 풍뎅이'],
+['나무 베기',5,'굵은 나무','통나무, 나무 진액, 나뭇가지, 애벌레, 장수풍뎅이, 단단한 통나무, 황금 풍뎅이'],
+['나무 베기',10,'쓸 만한 나무','상급 통나무, 나무 진액, 나뭇가지, 애벌레, 장수풍뎅이, 단단한 통나무, 황금 풍뎅이'],
+['나무 베기',20,'갑옷 나무','상급 통나무+, 나무 진액, 나뭇가지, 애벌레, 장수풍뎅이, 부드러운 통나무, 황금 풍뎅이'],
+['나무 베기',25,'어스름 나무','최상급 통나무, 나무 진액, 나뭇가지, 장수풍뎅이, 단단한 통나무, 황금 풍뎅이'],
+['나무 베기',30,'벼락 나무','최상급 통나무+, 나뭇가지, 벼락 맞은 나뭇가지, 황금 나뭇가지'],
+['나무 베기',32,'흰 껍질 나무','특급 통나무, 나무 진액, 단단한 통나무, 황금 나뭇가지'],
+['광석 캐기',1,'광맥','광석, 돌멩이, 황금 부스러기'],
+['광석 캐기',1,'철 광맥','철 광석, 돌멩이, 황금 부스러기'],
+['광석 캐기',1,'얼음','얼음'],
+['광석 캐기',5,'석탄 광맥','석탄, 돌멩이, 황금 부스러기'],
+['광석 캐기',10,'동 광맥','동 광석, 돌멩이, 황금 부스러기'],
+['광석 캐기',20,'백동 광맥','백동 광석, 돌멩이, 마력 깃든 돌, 황금 부스러기'],
+['광석 캐기',25,'은 광맥','은 광석, 돌멩이, 마력 깃든 돌, 황금 부스러기'],
+['광석 캐기',30,'운철 광맥','운철 광석, 마력 깃든 돌, 황금 부스러기'],
+['광석 캐기',32,'백금 광맥','백금 광석, 마력 깃든 돌, 황금 부스러기'],
+['약초 채집',1,'허브','허브, 새초롱꽃, 네잎클로버, 황금 네잎클로버'],
+['약초 채집',1,'블러디 허브','블러디 허브, 새초롱꽃, 네잎클로버, 황금 네잎클로버'],
+['약초 채집',1,'화살꽃','화살꽃, 새초롱꽃, 네잎클로버, 황금 네잎클로버'],
+['약초 채집',1,'마나 허브','마나 허브, 새초롱꽃, 네잎클로버, 황금 네잎클로버'],
+['약초 채집',1,'새록 버섯','새록 버섯, 새록 버섯 포자, 반짝이는 이끼, 황금 이끼'],
+['약초 채집',1,'튼튼 버섯','튼튼 버섯, 튼튼 버섯 포자, 반짝이는 이끼, 황금 이끼'],
+['약초 채집',5,'끈기 풀','끈기 풀, 새초롱꽃, 네잎클로버, 황금 네잎클로버'],
+['약초 채집',10,'쑥쑥 버섯','쑥쑥 버섯, 쑥쑥 버섯 포자, 반짝이는 이끼, 황금 이끼'],
+['약초 채집',15,'숨숨꽃','숨숨꽃, 새초롱꽃, 네잎클로버, 황금 네잎클로버'],
+['약초 채집',20,'깔끔 버섯','깔끔 버섯, 깔끔 버섯 포자, 반짝이는 이끼, 황금 이끼'],
+['약초 채집',20,'생채기꽃','생채기꽃, 새초롱꽃, 네잎클로버, 황금 네잎클로버'],
+['약초 채집',25,'증폭 버섯','증폭 버섯, 증폭 버섯 포자, 반짝이는 이끼, 황금 이끼'],
+['약초 채집',25,'진정초','진정초, 새초롱꽃, 네잎클로버, 황금 네잎클로버'],
+['약초 채집',27,'끈적 풀','끈적 풀, 새초롱꽃, 네잎클로버, 황금 네잎클로버'],
+['약초 채집',30,'솔솔 버섯','솔솔 버섯, 솔솔 버섯 포자, 반짝이는 이끼, 황금 이끼'],
+['약초 채집',32,'산뜻 버섯','산뜻 버섯, 산뜻 버섯 포자, 반짝이는 이끼, 황금 이끼'],
+['양털 깎기',1,'양','양털, 상급 양털, 황금 양털'],
+['양털 깎기',15,'곱슬 양','상급 양털, 상급 양털+, 두꺼운 양털, 황금 양털'],
+['양털 깎기',25,'먹구름 양','상급 양털+, 최상급 양털, 두꺼운 양털, 황금 양털'],
+['양털 깎기',30,'구름털 양','상급 양털, 최상급 양털+, 두꺼운 양털, 황금 양털'],
+['양털 깎기',32,'복슬 양','양털, 특급 양털, 두꺼운 양털, 황금 양털+'],
+['추수',0,'공통','긴 줄기, 황금 줄기'],
+['추수',1,'밀','밀'],
+['추수',1,'옥수수','옥수수'],
+['추수',10,'콩','콩'],
+['추수',20,'쌀','쌀'],
+['추수',25,'귀리','귀리'],
+['호미질',1,'감자','감자, 점토, 돌멩이, 묵직한 감자, 황금 부스러기'],
+['호미질',1,'양파','양파, 점토, 돌멩이, 황금 부스러기'],
+['호미질',1,'조개','조개, 돌멩이, 황금 부스러기'],
+['호미질',10,'파스닙','파스닙, 점토, 돌멩이, 황금 부스러기'],
+['호미질',15,'양배추','양배추, 점토, 돌멩이, 황금 부스러기'],
+['호미질',20,'호박','호박, 점토, 돌멩이, 황금 부스러기'],
+['호미질',25,'개암 버섯','개암 버섯, 점토, 황금 개암 버섯'],
+['곤충 채집',0,'공통','응축된 바람'],
+['곤충 채집',1,'빛 무리','하루살이, 똑딱 반딧불이, 흰꽃나비, 황금 나비'],
+['곤충 채집',1,'설원 빛 무리','겨울나방, 똑딱 반딧불이, 장수풍뎅이, 황금 풍뎅이'],
+['곤충 채집',1,'곤충 무리','초파리, 장수풍뎅이, 동전무당벌레, 황금 풍뎅이'],
+['곤충 채집',5,'고요한 빛 무리','하루살이, 똑딱 반딧불이, 흰꽃나비, 유령 반딧불이, 동전무당벌레, 황금 나비'],
+['곤충 채집',10,'따스한 빛 무리','하루살이, 똑딱 반딧불이, 흰꽃나비, 석양나비, 동전무당벌레, 황금 나비'],
+['곤충 채집',20,'차가운 빛 무리','겨울나방, 똑딱 반딧불이, 장수풍뎅이, 흰얼음풍뎅이, 동전무당벌레, 황금 풍뎅이'],
+['곤충 채집',20,'삭막한 곤충 무리','초파리, 장수풍뎅이, 낙엽나방, 동전무당벌레, 황금 풍뎅이'],
+['곤충 채집',25,'황폐한 곤충 무리','초파리, 장수풍뎅이, 황혼잠자리, 동전무당벌레, 나비잠자리, 황금 잠자리'],
+['곤충 채집',27,'일렁이는 빛 무리','하루살이, 흰꽃나비, 사슴벌레, 달무늬 사슴벌레, 동전무당벌레, 황금 사슴벌레'],
+['낚시',0,'전 지역 공통','잡어, 망가진 신발, 망가진 옷감, 이끼 덩어리, 나뭇가지, 빈 병, 허브, 블러디 허브, 화살꽃, 분해된 장비 부품, 불꽃의 결정, 광휘의 결정, 전기의 결정, 얼음의 결정, 봉인의 결정, 작은 자루퍼, 황금 주괴, 데코 제작 부품, 자루퍼, 참사랑어, 황금 주괴 묶음, 데코 제작 부품+, 메아리 고둥, 큰 자루퍼, 황금 주괴 더미, 상급 데코 제작 부품, 커다란 메아리 고둥'],
+['낚시',1,'작은 낚시터 (티르코네일)','축축한 편지 뭉치, 이끼 낀 쇳조각, 황금 도구 상자(낫), 은붕어, 브리흐네 잉어, 황금 잉어, 원형 나무 의자 마감재(브라운), 나들이 의자 마감재(포근한 향)'],
+['낚시',1,'남쪽 성벽 낚시터 (던바튼)','훼손된 계약서, 얼룩덜룩한 옷감, 황금 도구 상자(호미), 은어, 무지개 송어, 황금 잉어, 원형 나무 의자 마감재(베이지), 나들이 의자 마감재(평온한 향)'],
+['낚시',10,'동쪽 성벽 낚시터 (던바튼)','훼손된 계약서, 얼룩덜룩한 옷감, 황금 도구 상자(호미), 은어, 무지개 송어, 황금 잉어, 원형 나무 의자 마감재(베이지), 나들이 의자 마감재(평온한 향)'],
+['낚시',15,'동쪽 호수 낚시터 (이멘마하)','빛바랜 기도문, 도금이 벗겨진 장식, 황금 도구 상자(호미), 황금 도구 상자(낫), 은붕어, 무지개 송어, 금린어, 황금 송어, 클래식 나무 의자 마감재(모노톤), 나들이 의자 마감재(아늑한 향), 낚시 애호가 의자 마감재(그린)'],
+['낚시',20,'해변 낚시터 (콜헨)','보석 빠진 반지, 변이된 물보라초, 황금 도구 상자(벌목 도끼), 조개, 고등어, 연어, 황금 연어, 초롱아귀, 클래식 나무 의자 마감재(브라운), 흔들흔들 소환 의자 마감재(달콤한 향), 나들이 의자 마감재(포근한 향)'],
+['낚시',25,'옛 낚시터 (던바튼)','부러진 악몽의 검, 사령의 구슬, 황금 도구 상자(호미), 무지개 송어, 메기, 황금 메기, 어둠유령고기, 클래식 나무 의자 마감재(레드), 흔들흔들 소환 의자 마감재(편안한 향), 나들이 의자 마감재(평온한 향)'],
+['낚시',25,'하구 낚시터 (가이레흐 언덕)','오래된 발톱 화석, 용 석상 스케치, 윤이 나는 천 조각, 춤추는 꽃가지, 광석, 철 광석, 황금 도구 상자(곡괭이), 은어, 무지개 송어, 농어, 황금 농어, 클래식 나무 의자 마감재(블루), 흔들흔들 소환 의자 마감재(상쾌한 향), 나들이 의자 마감재(아늑한 향)'],
+['낚시',30,'서쪽 호수 낚시터 (이멘마하)','빛바랜 기도문, 도금이 벗겨진 장식, 황금 도구 상자(낫), 은붕어, 금린어, 갈색송어, 황금 송어, 클래식 나무 의자 마감재(모노톤), 흔들흔들 소환 의자 마감재(느긋한 향), 나들이 의자 마감재(아늑한 향), 낚시 애호가 의자 마감재(블루)'],
+['낚시',32,'산속 낚시터 (창백한 산)','깨진 성화 목판, 으스러진 신상 조각, 석탄, 황금 도구 상자(곡괭이), 메기, 파이크퍼치, 민물꼬치고기, 황금 민물꼬치고기, 클래식 나무 의자 마감재(레드), 나들이 의자 마감재(포근한 향), 낚시 애호가 의자 마감재(핑크)'],
+['낚시',1,'미지의 낚시터 (구름 황야)','오래된 발톱 화석, 광석, 철 광석, 황금 도구 상자(곡괭이), 은어, 무지개 송어, 농어, 기이한 검은 물고기, 황금 농어, 나들이 의자 마감재(아늑한 향), 낚시 애호가 의자 마감재(베이지)'],
+['낚시',1,'미지의 낚시터 (센마이 평원)','철 광석, 황금 도구 상자(낫), 은붕어, 금린어, 갈색송어, 기이한 검은 물고기, 황금 송어, 낚시 애호가 의자 마감재(베이지)'],
+['낚시',1,'미지의 낚시터 (창백한 산)','깨진 성화 목판, 으스러진 신상 조각, 석탄, 황금 도구 상자(곡괭이), 메기, 파이크퍼치, 민물꼬치고기, 기이한 검은 물고기, 황금 민물꼬치고기, 낚시 애호가 의자 마감재(베이지)']];
+
+/* ===== 데이터: 주간 체크리스트 (공식 에린 가이드·업데이트 노트, 2026-10-27 확인 · 매주 월요일 06:00 KST 초기화) =====
+   [id, 그룹, 이름, [[세부 이름, 주간 최대]], 설명, [[출처 경로, 출처 이름]]] · 적용 범위(캐릭터/계정/서버)는 사용자 요청으로 표시하지 않음
+   아르바이트: 요일 아르바이트는 클리어 시 매일 06시에 새로 생겨 주간 상한이 없으므로 제외(가이드 2751073, 2025-12-18 기준)
+   레이드 보스는 레이드 가이드(2026-09-21 기준)의 현재 목록. 패치로 레이드가 바뀌면 RAID_DATE와 함께 갱신 */
+const WK_DATE='2026-10-27',RAID_DATE='2026-10-27',NX='https://mabinogimobile.nexon.com/';
+const WEEKLY=[
+['bh','전투','검은 구멍 초과 탐험',[['',7]],'주 7회를 요일과 관계없이 사용. 매일 기본 1회는 다음 날 06시에 소멸(일일)',[['Info/Guide/2751103','사냥터 콘텐츠 가이드'],['News/Update/3147463','9/25 업데이트 노트']]],
+['summon','전투','불길한 소환의 결계',[['',7]],'진행 횟수 주 7회',[['News/Update/3147463','9/25 업데이트 노트']]],
+['abyss','전투','어비스 클리어 전리품',[['',3]],'클리어 전리품 주 3회. 입장은 제한 없음',[['Info/Guide/3164452','어비스 가이드']]],
+['abyssw','전투','어비스 주간 전리품 수령',[['',1]],'주간 초기화 후 수령. 전주에 못 한 레이드·결계·검은 구멍 정산 포함',[['Info/Guide/3164452','어비스 가이드'],['Info/Guide/2839865','레이드 가이드']]],
+['raid','전투','레이드 클리어 전리품',[['카브락',1],['화이트 서큐버스',1],['에이렐',1]],'보스별 주 1회, 난이도와 관계없이 공유',[['Info/Guide/2839865','레이드 가이드']]],
+['fboss','전투','필드 보스 토벌 전리품',[['',1]],'주 1회(1회 획득 후 다른 필드 보스도 미지급)',[['Info/Guide/2751102','필드 보스 가이드'],['News/Update/3480721','6/25 업데이트 노트']]],
+['vanguard','전투','뱅가드 브리치 주간 전리품',[['',3]],'주간 전리품 주 3회',[['Info/Guide/3344477','뱅가드 브리치 가이드']]],
+['guild','미션','길드 미션',[['',6]],'매주 6개',[['Info/Guide/2751033','길드 가이드']]],
+['coop','미션','협동 미션 주간 선물',[['',1]],'주간 선물 주 1회',[['Info/Guide/3481541','협동 미션 가이드']]],
+['wmission','미션','주간 미션 진행 보상',[['',4]],'4단계 진행 보상',[['News/Update/3480721','6/25 업데이트 노트']]],
+['pet','성장·생활','펫 원정대',[['',5]],'매주 최대 5마리(원정대 레벨에 따라 슬롯 1~5). 내 슬롯 수를 고르면 그만큼 채웠을 때 완료',[['Info/Guide/3558754','펫 원정대 가이드']]],
+['soul','성장·생활','소울 주간 구매',[['붉은',30],['노란',30],['푸른',30]],'소울별 주 최대 30회(골드)',[['Info/Guide/3481548','소울스트림 가이드']]],
+['job','성장·생활','아르바이트',[['스페셜',1],['주말',1]],'매주 월 06시 초기화 · 스페셜 아르바이트 주 1개(라이프 멤버십) · 주말 아르바이트 주 최대 1개(토·일 생성)',[['Info/Guide/2751073','아르바이트 가이드']]]];
+const WGRP=['전투','미션','성장·생활'];
+
+/* ===== 데이터: 소울스트림 (공식 소울스트림 가이드 /Info/Guide/3481548, 2026-07-16 기준 · 2026-10-27 확인, 이후 노트에 수치 변경 없음) =====
+   소울별 [이름, 기준 합계, 색, [[합계 시작, 합계 끝, 시간당 최소, 시간당 최대]]]. 구간 안의 정확한 생산량은 공식에 없어 구간은 범위로만 표시
+   주간 구매: 소울별 주 30회(서버). 가격 [누적 회차 시작, 끝, 시작 골드, 회차당 증가]. 사용자 게임 내 확인(2026-10-27): 첫 구매 10,000·회차마다 +20, 누적 횟수는 소울별 독립
+   부캐 매력 루틴: 공식 '캐릭터 점수와 능력치'·'성장 가이드'([매력] 화면 항목)·'커스터마이즈/환생'(얼굴 장식) 가이드의 매력 획득 방법 중 캐릭터별로 하는 것만.
+   스텔라그램은 계정당 1개(스텔라그램 가이드), 스텔라 매칭 시 서로 매력 +2(2025-08-21 노트), 매력 10,000 이상 악보책 구매(작곡 가이드). 데코 점수는 매력과 별개(마이홈 가이드) */
+const SOUL_DATE='2026-10-27';
+const SOULS=[['붉은','전투력','#f2938c',[[1,5e4,.018,.036],[5e4,1e5,.036,.054],[1e5,1.5e5,.054,.072],[1.5e5,1.8e5,.072,.09],[1.8e5,2e5,.09,.108]]],
+['푸른','생활력','#8fbaf5',[[1,3e4,.018,.036],[3e4,6e4,.036,.054],[6e4,9e4,.054,.072],[9e4,1.2e5,.072,.09],[1.2e5,1.4e5,.09,.108]]],
+['노란','매력','#e6c56b',[[1,2e4,.018,.036],[2e4,5e4,.036,.054],[5e4,8e4,.054,.072],[8e4,1.1e5,.072,.09],[1.1e5,1.3e5,.09,.108]]]];
+const SOUL_PRICE=[[1,600,10000,20],[601,1200,22000,50],[1201,1800,52000,100],[1801,2000,112000,200]];
+const CHARM=[['face','얼굴 장식 선택','외모 바꾸기에서 얼굴 장식 선택. 안경은 던바튼 NPC 시몬의 의상점에서 캐릭터당 1회 구매 가능'],['fashion','패션 장비 착용','가진 것 중 희귀도가 가장 높은 것으로. [매력] 화면이 더 높은 희귀도로 교체를 추천'],['pet','동행 펫 지정',''],['ride','탈것 장착',''],['title','매력을 올려 주는 타이틀 장착',''],['check','성장 가이드 → [매력] 화면 확인','타이틀·스텔라그램·펫·탈것·패션 항목별 매력 현황에서 빠진 곳 찾기']];
+
+/* ===== 상태 ===== */
+let S={page:'class',sel:'석궁사수',fam:'all',q:'',view:'card',fav:[],all:false,rp:'w',rq:'',rsel:'',ca:'석궁사수',cb:'궁수',ls:8,lall:false,lh:0,lk:{},pq:'',pf:'all',pl:0,gq:'',gs:'all',wk:{},wedit:false,soul:{},charm:[]};
+try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(OLD_KEY)||'{}'))}catch(e){}
+if(!Array.isArray(S.fav))S.fav=[];if(!RUNES[S.sel])S.sel='석궁사수';
+S.lk=Object.assign({b1:0,r1:0,b2:0,r2:0,st:8,lv:15},S.lk&&typeof S.lk==='object'?S.lk:{});if(!LK[S.lk.st])S.lk.st=8;if(!LK[0][S.lk.lv-1])S.lk.lv=15;if(!LK[S.ls])S.ls=8;
+if(S.pf!=='all'&&!PFAC.includes(S.pf))S.pf='all';if(!(S.pl>=0&&S.pl<=6))S.pl=0;if(typeof S.pq!=='string')S.pq='';
+if(S.gs!=='all'&&!GSK.some(g=>g[0]===S.gs))S.gs='all';if(typeof S.gq!=='string')S.gq='';
+S.wk=Object.assign({key:'',c:{},hide:[]},S.wk&&typeof S.wk==='object'?S.wk:{});if(!S.wk.c||typeof S.wk.c!=='object')S.wk.c={};if(!Array.isArray(S.wk.hide))S.wk.hide=[];if(S.wk.v!==2){delete S.wk.c['job.0'];delete S.wk.c['job.1'];S.wk.v=2}if(![1,2,3,4,5].includes(S.wpet))S.wpet=5;
+{const o=S.soul&&typeof S.soul==='object'?S.soul:{},a=x=>[0,1,2].map(i=>Array.isArray(x)&&typeof x[i]==='string'?x[i]:'');S.soul={r:a(o.r),s:a(o.s),p:a(o.p),alt:typeof o.alt==='string'?o.alt:''}}if(!Array.isArray(S.charm))S.charm=[];
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+
+/* ===== 공통 렌더 조각 ===== */
+const findC=n=>CLS.find(c=>c[0]===n)||CLS[0];
+const craft=t=>{const cd=t.endsWith('쿨'),b=cd?t.slice(0,-1):t;return `<span class="sk sk-${SKC[b]||'x'}">${esc(b)}${cd?' ⟳':''}</span>`};
+const modRow=s=>s?s.split('/').map((o,i,a)=>`<div class="mods">${a.length>1?`<small>${'ABC'[i]}</small>`:''}${[1,2,3,4,5,6].map(n=>`<i class="${o.includes(n)?'on':''}">${n}</i>`).join('')}</div>`).join(''):'';
+const accSet=s=>s?`<div class="rset">${s.split('+').map(p=>`<span class="rn2">${p.split('/').map(esc).join('<em>또는</em>')}</span>`).join('<span class="tiny">+</span>')}</div>`:'';
+const TG={용:['d','용'],빛:['l','빛'],어:['a','어둠']};
+const tag=t=>TG[t]?`<span class="tg tg-${TG[t][0]}">${TG[t][1]}</span>`:'';
+const rname=r=>`<span class="rname ${r.t==='특'?'sp':''}">${esc(r.n)}</span>`;
+function runeList(cls,pk,limit,hits){const L=RUNES[cls][pk].slice(0,limit),nt=pk==='a';
+ return `<ol class="rl">${L.map(r=>`<li class="${nt?'nt':''} ${hits&&hits.has(r.n)?'hit':''}" title="${esc(r.n)} · 사용률 ${r.p}%"><span class="rk ${r.rk<=3?'rk'+r.rk:''}">${r.rk}</span>${nt?'':tag(r.t)||'<span></span>'}${rname(r)}<span class="bar"><i style="width:${r.p}%"></i></span><b>${r.p}%</b></li>`).join('')}</ol>`}
+const topR=(n,pk)=>RUNES[n][pk][0];
+const stChip=(s,sub)=>s==='없음'?'<span class="st sub none">없음</span>':`<span class="st${sub?' sub':''}" style="--sc:${STC[s]}">${esc(s)}</span>`;
+const stat=n=>stChip(STAT[n])+(SUB[n]==='없음'?'':stChip(SUB[n],1));
+const combo=n=>STAT[n]+'/'+SUB[n];
+const sameCombo=n=>CLS.filter(c=>c[0]!==n&&combo(c[0])===combo(n)).map(c=>c[0]);
+const sameMain=n=>CLS.filter(c=>c[0]!==n&&STAT[c[0]]===STAT[n]&&SUB[c[0]]!==SUB[n]).map(c=>c[0]);
+const ORD=['힘','솜씨','지력','의지','행운','없음'],COMBOS=[...new Set(CLS.map(c=>combo(c[0])))].sort((a,b)=>{const[a1,a2]=a.split('/'),[b1,b2]=b.split('/');return ORD.indexOf(a1)-ORD.indexOf(b1)||ORD.indexOf(a2)-ORD.indexOf(b2)});
+const clsChips=a=>a.length?`<div class="chips">${a.map(x=>`<button class="chip" data-cls="${esc(x)}">${esc(x)}</button>`).join('')}</div>`:'<span class="tiny">해당 직업 없음</span>';
+const famTabs=()=>[['all','전체'],...Object.entries(CF).map(([k,v])=>[k,v[0]]),['fav','★ 즐겨찾기']];
+function cText(n){const c=findC(n),R=RUNES[n],t3=pk=>R[pk].slice(0,3).map(r=>r.n).join(', ');
+ return [`[${n}] ${CF[c[1]][0]}`,`스탯: 주 ${STAT[n]} / 부 ${SUB[n]}`,`개조: ${c[2]}${c[3]?' | '+c[3]:''}`,`세공: ${c[4].split(',').join(' > ')}`,`장신구 세팅: ${c[5]}${c[6]?' | '+c[6]:''}`,`무기 룬 TOP3: ${t3('w')}`,`엠블럼 룬 TOP3: ${t3('e')}`,`장신구 룬 TOP3: ${t3('a')}`,`방어구 룬 TOP3: ${t3('r')}`,`(룬 통계 mabimobi.life · ${DATA_DATE})`].join('\n')}
+
+/* ===== 페이지: 직업 정보 ===== */
+function filtered(){const q=(S.q||'').trim().toLowerCase();return CLS.filter(c=>(S.fam==='all'||(S.fam==='fav'?S.fav.includes(c[0]):c[1]===S.fam))&&(!q||[c[0],CF[c[1]][0],STAT[c[0]],SUB[c[0]],c[4],c[5],c[6],...PARTS.flatMap(([pk])=>RUNES[c[0]][pk].slice(0,3).map(r=>r.n))].join(' ').toLowerCase().includes(q)))}
+function classList(){const arr=filtered();if(!arr.length)return '<div class="empty">조건에 맞는 직업이 없습니다.</div>';
+ if(S.view==='table')return `<div class="panel"><div class="tablewrap"><table style="min-width:1100px"><thead><tr><th>직업</th><th>주 스탯</th><th>부 스탯</th><th>개조</th><th>세공 1→4</th><th>무기 1위</th><th>엠블럼 1위</th><th>장신구 TOP3</th><th>방어구 TOP3</th></tr></thead><tbody>${arr.map(c=>{const n=c[0];return `<tr class="click ${n===S.sel?'cur':''}" data-cls="${esc(n)}"><td><b style="color:${CF[c[1]][1]}">${S.fav.includes(n)?'★ ':''}${esc(n)}</b></td><td>${stChip(STAT[n])}</td><td>${stChip(SUB[n],1)}</td><td class="tiny">${esc(c[2])}${c[3]?' | '+esc(c[3]):''}</td><td><div class="row" style="gap:3px;flex-wrap:nowrap">${c[4].split(',').map(craft).join('')}</div></td><td class="tiny">${esc(topR(n,'w').n)} ${topR(n,'w').p}%</td><td class="tiny">${esc(topR(n,'e').n)} ${topR(n,'e').p}%</td><td class="tiny">${RUNES[n].a.slice(0,3).map(r=>esc(r.n)).join(' · ')}</td><td class="tiny">${RUNES[n].r.slice(0,3).map(r=>esc(r.n)).join(' · ')}</td></tr>`}).join('')}</tbody></table></div></div>`;
+ if(S.view==='stat')return COMBOS.map(k=>{const g=arr.filter(c=>combo(c[0])===k),[m,s]=k.split('/');return g.length?`<div class="sgh">${stChip(m)}${s==='없음'?'<span class="tiny">부 스탯 없음</span>':stChip(s,1)}<span class="tiny">· ${g.length}개 직업</span></div><div class="cgrid">${g.map(card).join('')}</div>`:''}).join('');
+ return `<div class="cgrid">${arr.map(card).join('')}</div>`}
+function card(c){const n=c[0];return `<div class="ccard ${n===S.sel?'on':''}" data-cls="${esc(n)}" style="--fc:${CF[c[1]][1]}" role="button" tabindex="0"><div class="between"><b>${S.fav.includes(n)?'<span style="color:var(--gold)">★</span> ':''}${esc(n)}</b><span class="row" style="gap:6px">${stat(n)}<span class="tiny">${esc(CF[c[1]][0])}</span></span></div><div class="row" style="gap:4px">${c[4].split(',').map(craft).join('')}</div><div class="mini"><span>무기 ${esc(topR(n,'w').n)}</span><span>엠블럼 ${esc(topR(n,'e').n)}</span></div><div class="tiny">${RUNES[n].a.slice(0,3).map(r=>esc(r.n)).join(' · ')}</div></div>`}
+function classDetail(n){const c=findC(n),fav=S.fav.includes(n),lim=S.all?10:5;
+ return `<div class="panel hl"><div class="between"><div><div class="eyebrow" style="color:${CF[c[1]][1]}">${CF[c[1]][0]}</div><div class="big">${esc(n)}</div></div><div class="row"><button class="btn sm" data-fav="${esc(n)}">${fav?'★ 즐겨찾기됨':'☆ 즐겨찾기'}</button><button class="btn sm" data-copy="${esc(n)}">📋 세팅 복사</button></div></div>
+ <div class="ch">주·부 스탯 (${STAT_SRC} · ${STAT_DATE})</div><div class="row"><span class="tiny">주</span>${stChip(STAT[n])}<span class="tiny">부</span>${stChip(SUB[n],1)}</div>
+ <div class="stack mt10"><div class="row" style="flex-wrap:nowrap;align-items:start"><span class="tiny" style="flex:none;width:76px;padding-top:4px">같은 조합</span>${clsChips(sameCombo(n))}</div><div class="row" style="flex-wrap:nowrap;align-items:start"><span class="tiny" style="flex:none;width:76px;padding-top:4px">같은 주 스탯</span>${clsChips(sameMain(n))}</div></div>
+ <div class="ch">스킬 개조 (강조 = 개조할 스킬 번호)</div><div class="grid2"><div><div class="tiny">세팅 #1</div>${modRow(c[2])}</div>${c[3]?`<div><div class="tiny">세팅 #2</div>${modRow(c[3])}</div>`:''}</div>
+ <div class="ch">세공 우선순위 (⟳ = 쿨타임 세공)</div><div class="crafts">${c[4].split(',').map((t,i)=>`<div><small>${i+1}순위</small>${craft(t)}</div>`).join('')}</div>
+ <div class="ch">장신구 룬 세팅</div><div class="stack"><div><div class="tiny">세팅 #1</div>${accSet(c[5])}</div>${c[6]?`<div><div class="tiny">세팅 #2</div>${accSet(c[6])}</div>`:''}</div>
+ <div class="between ch" style="margin-top:18px"><span>룬 사용 순위 · mabimobi.life · ${DATA_DATE}</span><span class="row"><button class="linkbtn" data-act="all">${S.all?'상위 5개만':'전체 순위 보기'}</button><a class="btn sm" href="${RUNE_URL}" target="_blank" rel="noopener">최신 룬 통계 ↗</a></span></div>
+ <div class="grid2">${PARTS.map(([pk,pl])=>`<div class="rbox"><div class="tiny b">${pl}</div>${runeList(n,pk,lim)}</div>`).join('')}</div>
+ <p class="tiny mt10">순위는 사이트 표시 순서이며, 사용률은 해당 직업 유저 중 그 룬을 쓰는 비율입니다. 장신구·방어구는 여러 개를 함께 쓰므로 합이 100%를 넘습니다.</p></div>`}
+function pgClass(){return `<div class="panel"><div class="ph"><h2>직업 ${CLS.length}종</h2><div class="row"><input type="search" id="q" placeholder="직업 · 스탯 · 룬 · 세공 검색" value="${esc(S.q)}" style="width:210px"><button class="btn sm ${S.view==='card'?'primary':''}" data-view="card">카드</button><button class="btn sm ${S.view==='stat'?'primary':''}" data-view="stat">스탯별</button><button class="btn sm ${S.view==='table'?'primary':''}" data-view="table">표</button></div></div>
+ <div class="tabs">${famTabs().map(([k,l])=>`<button class="tabbtn ${S.fam===k?'on':''}" data-fam="${k}">${esc(l)}</button>`).join('')}</div>
+ <div class="row tiny">세공 색상: ${Object.keys(SKC).map(craft).join(' ')}</div></div>
+ <div class="layout2"><div id="clist">${classList()}</div><div class="cdet" id="cdet">${classDetail(S.sel)}</div></div>`}
+
+/* ===== 페이지: 룬 역검색 ===== */
+function runeStats(pk){const m=new Map();CLS.forEach(c=>RUNES[c[0]][pk].forEach(r=>{if(!m.has(r.n))m.set(r.n,{n:r.n,t:r.t,rows:[]});m.get(r.n).rows.push({c:c[0],fam:c[1],rk:r.rk,p:r.p})}));
+ return [...m.values()].map(x=>({...x,top1:x.rows.filter(r=>r.rk===1).length,top3:x.rows.filter(r=>r.rk<=3).length,avg:Math.round(x.rows.reduce((s,r)=>s+r.p,0)/CLS.length)})).sort((a,b)=>b.top1-a.top1||b.top3-a.top3||b.avg-a.avg)}
+function pgRune(){const pk=S.rp,st=runeStats(pk),q=(S.rq||'').trim().toLowerCase(),list=st.filter(x=>!q||x.n.toLowerCase().includes(q)),sel=st.find(x=>x.n===S.rsel)||st[0],rows=sel.rows.slice().sort((a,b)=>a.rk-b.rk||b.p-a.p);
+ return `<div class="panel"><div class="ph"><h2>룬 역검색</h2><a class="btn sm" href="${RUNE_URL}" target="_blank" rel="noopener">룬 도감에서 효과 보기 ↗</a></div><p class="hint">룬을 고르면 그 룬을 쓰는 직업과 순위·사용률을 자동으로 정리합니다. 왼쪽 목록은 "1위로 채택한 직업 수" 순입니다.</p>
+ <div class="tabs">${PARTS.map(([k,l])=>`<button class="tabbtn ${pk===k?'on':''}" data-rp="${k}">${l}</button>`).join('')}</div></div>
+ <div class="layout2"><div class="panel"><div class="ph"><h2>${PARTS.find(p=>p[0]===pk)[1]} 룬 ${st.length}종</h2><input type="search" id="rq" placeholder="룬 이름 검색" value="${esc(S.rq)}" style="width:170px"></div>
+ <div class="tablewrap"><table style="min-width:420px"><thead><tr><th>룬</th><th class="num">1위 직업</th><th class="num">TOP3 직업</th><th class="num">평균 사용률</th></tr></thead><tbody>${list.map(x=>`<tr class="click ${x.n===sel.n?'cur':''}" data-rsel="${esc(x.n)}"><td><span class="row" style="gap:6px;flex-wrap:nowrap">${tag(x.t)}${rname(x)}</span></td><td class="num">${x.top1}</td><td class="num">${x.top3}</td><td class="num">${x.avg}%</td></tr>`).join('')||'<tr><td colspan="4" class="tiny">검색 결과가 없습니다.</td></tr>'}</tbody></table></div></div>
+ <div class="cdet"><div class="panel hl"><div class="row">${tag(sel.t)}<span class="big ${sel.t==='특'?'sp':''}">${esc(sel.n)}</span></div><p class="hint">${CLS.length}개 직업 중 ${sel.rows.length}개 직업의 순위표에 등장 · 1위 ${sel.top1}개 · TOP3 ${sel.top3}개</p>
+ <div class="tablewrap"><table style="min-width:300px"><thead><tr><th>직업</th><th class="num">순위</th><th>사용률</th></tr></thead><tbody>${rows.map(r=>`<tr class="click" data-cls="${esc(r.c)}" data-go="class"><td><b style="color:${CF[r.fam][1]}">${esc(r.c)}</b></td><td class="num"><span class="rk ${r.rk<=3?'rk'+r.rk:''}" style="display:inline-grid">${r.rk}</span></td><td><div class="row" style="flex-wrap:nowrap"><span class="bar" style="width:110px"><i style="width:${r.p}%"></i></span><b class="tiny" style="color:var(--gold)">${r.p}%</b></div></td></tr>`).join('')}</tbody></table></div>
+ <p class="tiny mt10">직업을 누르면 해당 직업 상세로 이동합니다.</p></div></div></div>`}
+
+/* ===== 페이지: 직업 비교 ===== */
+function pgCmp(){const A=findC(S.ca),B=findC(S.cb),opt=v=>CLS.map(c=>`<option ${c[0]===v?'selected':''}>${esc(c[0])}</option>`).join(''),common=pk=>{const a=new Set(RUNES[A[0]][pk].slice(0,3).map(r=>r.n));return new Set(RUNES[B[0]][pk].slice(0,3).map(r=>r.n).filter(n=>a.has(n)))};
+ const cs=Object.fromEntries(PARTS.map(([pk])=>[pk,common(pk)])),cnt=Object.values(cs).reduce((s,x)=>s+x.size,0);
+ const col=c=>`<div class="panel"><div class="eyebrow" style="color:${CF[c[1]][1]}">${CF[c[1]][0]}</div><div class="big">${esc(c[0])}</div><div class="row mt10"><span class="tiny">주</span>${stChip(STAT[c[0]])}<span class="tiny">부</span>${stChip(SUB[c[0]],1)}</div>
+ <div class="ch">개조</div><div>${modRow(c[2])}</div><div class="ch">세공</div><div class="crafts">${c[4].split(',').map((t,i)=>`<div><small>${i+1}</small>${craft(t)}</div>`).join('')}</div>
+ <div class="ch">장신구 세팅</div>${accSet(c[5])}
+ <div class="stack mt10">${PARTS.map(([pk,pl])=>`<div class="rbox"><div class="tiny b">${pl} TOP3</div>${runeList(c[0],pk,3,cs[pk])}</div>`).join('')}</div></div>`;
+ return `<div class="panel"><div class="ph"><h2>두 직업 나란히 보기</h2><span class="tiny">룬 TOP3 공통 <b style="color:var(--accent)">${cnt}개</b> (초록 테두리)</span></div><div class="grid2"><div class="field"><label>직업 A</label><select id="ca">${opt(A[0])}</select></div><div class="field"><label>직업 B</label><select id="cb">${opt(B[0])}</select></div></div>
+ <p class="tiny mt10">공통 룬이 많을수록 같은 룬 장비를 두 직업이 함께 활용하기 쉽습니다(무기·엠블럼은 같은 클래스끼리만 성능 개선 가능).</p></div><div class="grid2">${col(A)}${col(B)}</div>`}
+
+/* ===== 페이지: 숙련 연계 ===== */
+const starName=s=>s?'★'+s:'★ 없음';
+const fmt=v=>(Math.round(v*10)/10).toLocaleString('ko-KR',{maximumFractionDigits:1});
+function fullTable(){const T=S.lh?LKH:LK;
+ return `<div class="tabs"><button class="tabbtn ${S.lh?'':'on'}" data-lh="0">일반</button><button class="tabbtn ${S.lh?'on':''}" data-lh="1">회복 효과 시</button></div>
+ <div class="tablewrap"><table class="lt" style="min-width:1100px"><thead><tr><th>★ \\ 강화</th>${T[0].map((_,i)=>`<th class="num">${i+1}</th>`).join('')}</tr></thead><tbody>${T.map((r,s)=>`<tr class="click ${s===S.ls?'cur':''}" data-ls="${s}"><td><b>${starName(s)}</b></td>${r.map((v,i)=>`<td class="num ${S.lk.st===s&&S.lk.lv===i+1?'hc':''}">${v.toLocaleString()}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
+ <p class="tiny mt10">행을 누르면 그 성급의 단계별 보기로 바뀝니다. 강조 칸 = 계산기에서 고른 ★·강화.</p>`}
+function pgLink(){const s=S.ls,L=LK[s],H=LKH[s],mx=LK[10][19],k=S.lk;
+ const f=(id,l)=>`<div class="field"><label>${l}</label><input type="number" id="l${id}" value="${k[id]}" min="0" inputmode="numeric"></div>`;
+ const sel=(id,opts,v)=>`<select id="${id}">${opts.map(([val,lab])=>`<option value="${val}" ${val===v?'selected':''}>${lab}</option>`).join('')}</select>`;
+ return `<div class="panel"><div class="ph"><h2>계산 방식</h2><span class="tiny">공식 업데이트 노트 · 확인 ${LINK_DATE}</span></div>
+ <p class="hint">숙련 연계 추가 공격력 = <b class="b">기본 공격력 차이 × 40%</b> + <b class="b">룬 공격력 차이 × 40%</b> (각 차이는 대상 무기가 더 높을 때만) + <b class="b">각인 룬 값</b> (대상 무기의 ★ · 각인 강화 단계, 아래 표). 대상 무기는 45레벨 이상인 다른 클래스의 무기 중 기본 + 룬 공격력 합이 가장 높은 무기로 게임이 자동 지정합니다.</p></div>
+ <div class="layout2"><div class="panel"><div class="ph"><h2>각인 룬 보너스표</h2><button class="linkbtn" data-act="lall">${S.lall?'성급별 보기':'전체 표 보기'}</button></div>
+ ${S.lall?fullTable():`<div class="tabs">${LK.map((_,i)=>`<button class="tabbtn ${i===s?'on':''}" data-ls="${i}">${starName(i)}</button>`).join('')}</div>
+ <div class="tablewrap"><table style="min-width:340px"><thead><tr><th>각인 강화</th><th class="num">추가 공격력</th><th class="num">이전 대비</th><th class="num">회복 효과 시</th><th style="width:28%"></th></tr></thead><tbody>${L.map((v,i)=>`<tr class="${k.st===s&&k.lv===i+1?'cur':''}"><td>${i+1}강</td><td class="num"><b style="color:var(--gold)">${v.toLocaleString()}</b></td><td class="num tiny">${i?'+'+(v-L[i-1]).toLocaleString():''}</td><td class="num tiny">${H[i].toLocaleString()}</td><td><span class="bar"><i style="width:${v/mx*100}%"></i></span></td></tr>`).join('')}</tbody></table></div>
+ <p class="tiny mt10">막대는 최대값(★10 20강 ${mx.toLocaleString()}) 대비 비율입니다. 회복 효과 시 값은 아군 회복에 적용될 때 일반 값 대신 쓰입니다.</p>`}</div>
+ <div class="cdet"><div class="panel hl" id="lq"><div class="ph"><h2>추가 공격력 계산</h2><span class="tiny">입력 즉시 계산</span></div>
+ <div class="stack"><div class="rbox"><b>장착 중인 무기</b><div class="grid2 mt10">${f('b1','기본 공격력')}${f('r1','룬 추가 공격력')}</div></div>
+ <div class="rbox"><b>숙련 연계 대상 무기</b><div class="grid2 mt10">${f('b2','기본 공격력')}${f('r2','룬 추가 공격력')}</div><div class="grid2 mt10"><div class="field"><label>★</label>${sel('lst',LK.map((_,i)=>[i,starName(i)]),k.st)}</div><div class="field"><label>각인 강화</label>${sel('llv',LK[0].map((_,i)=>[i+1,(i+1)+'강']),k.lv)}</div></div></div></div>
+ <div id="lres" class="mt10"></div></div></div></div>`}
+function linkCalc(){if(!$('lres'))return;const v=id=>Math.max(0,Number($(id).value)||0);
+ const k=S.lk={b1:v('lb1'),r1:v('lr1'),b2:v('lb2'),r2:v('lr2'),st:+$('lst').value,lv:+$('llv').value};save();
+ const db=Math.max(0,k.b2-k.b1),dr=Math.max(0,k.r2-k.r1),pb=db*LINK_PCT,pr=dr*LINK_PCT,t=LK[k.st][k.lv-1],nx=k.lv<20?LK[k.st][k.lv]-t:0;
+ const line=(l,d,val)=>`<div class="between"><span class="hint">${l}<br><span class="tiny">${d}</span></span><b>+${fmt(val)}</b></div>`;
+ $('lres').innerHTML=`<div class="stack">${line('기본 공격력 차이 × 40%',db?`${k.b2.toLocaleString()} − ${k.b1.toLocaleString()} = ${db.toLocaleString()}`:'대상 무기가 높지 않아 0',pb)}${line('룬 공격력 차이 × 40%',dr?`${k.r2.toLocaleString()} − ${k.r1.toLocaleString()} = ${dr.toLocaleString()}`:'대상 무기가 높지 않아 0',pr)}${line('각인 룬 값',`${starName(k.st)} · ${k.lv}강 (보너스표)`,t)}</div>
+ <div class="verdict" style="color:var(--accent)">추가 공격력 +${fmt(pb+pr+t)}</div>
+ <p class="hint">${nx?`대상 무기를 ${k.lv+1}강으로 올리면 각인 룬 값이 +${nx.toLocaleString()} 늘어납니다.`:'각인 강화 20강(표 최대)입니다.'}</p>
+ <p class="tiny">아군 회복에 적용될 때의 각인 룬 값(공식 대체 값): <b class="b">${LKH[k.st][k.lv-1].toLocaleString()}</b>. 공격력 차이(40%) 부분이 회복에 반영되는 비율과 소수점 처리 방식은 공지에 없어 계산하지 않습니다.</p>`}
+
+/* ===== 페이지: 가공 레시피 ===== */
+const pname=s=>s.replace(/ x\d+$/,''),ns=s=>String(s).replace(/\s+/g,'').toLowerCase();
+const PMADE=new Set(PROC.map(r=>pname(r[2]))),PDUP=PROC.reduce((m,r)=>{const k=r[0]+pname(r[2]);(m[k]=m[k]||[]).push(r[1]);return m},{});
+function prow(r){const k=pname(r[2]),qt=r[2].slice(k.length+1),o=PDUP[r[0]+k].filter(l=>l!==r[1]);
+ return `<div class="prow"><span class="lvb">Lv.${r[1]}</span><div><button class="pres" data-pq="${esc(k)}">${esc(k)}${qt?`<em>${esc(qt)}</em>`:''}</button>${o.length?`<div class="tiny">같은 결과물 Lv.${o.join(', Lv.')} 레시피 있음</div>`:''}</div>
+ <div class="chips mats">${r[3].split(' + ').map(m=>{const b=pname(m);return `<button class="mat ${PMADE.has(b)?'made':''}" data-pq="${esc(b)}">${esc(b)}<em>${esc(m.slice(b.length+1))}</em></button>`}).join('')}</div></div>`}
+function procList(){const q=ns(S.pq),L=PROC.filter(r=>(S.pf==='all'||r[0]===S.pf)&&(!S.pl||r[1]===S.pl)&&(!q||ns(r[2]+r[3]).includes(q)));
+ if(!L.length)return '<div class="empty">조건에 맞는 레시피가 없습니다.</div>';
+ return `<p class="tiny">${L.length}개 레시피</p>`+PFAC.map(f=>{const g=L.filter(r=>r[0]===f);return g.length?`<div class="panel"><div class="ph"><h2>${f} 가공 시설</h2><span class="tiny">${g.length}개</span></div>${g.map(prow).join('')}</div>`:''}).join('')}
+function pgProc(){return `<div class="panel"><div class="ph"><h2>가공 레시피 ${PROC.length}개</h2><div class="row"><input type="search" id="pq" placeholder="결과물 · 재료 검색" value="${esc(S.pq)}" style="width:210px"><button class="btn sm" data-act="preset">초기화</button></div></div>
+ <div class="tabs">${[['all','전체 시설'],...PFAC.map(f=>[f,f])].map(([k,l])=>`<button class="tabbtn ${S.pf===k?'on':''}" data-pf="${k}">${l}</button>`).join('')}</div>
+ <div class="tabs" style="padding-top:0">${[0,1,2,3,4,5,6].map(l=>`<button class="tabbtn ${S.pl===l?'on':''}" data-pl="${l}">${l?'시설 Lv.'+l:'모든 레벨'}</button>`).join('')}</div>
+ <p class="hint">결과물이나 재료를 누르면 그 이름으로 검색해, 만드는 레시피와 쓰이는 레시피를 함께 보여 줍니다. <span class="mat made">테두리 강조</span> = 가공으로 만드는 재료.</p>
+ <p class="tiny">가공 시간은 6/25 패치 이후 식재료를 제외한 5개 시설에서 시설 레벨에 따라 일부 단축되며, 레시피별 수치 자료가 없어 표시하지 않습니다.</p></div>
+ <div id="plist">${procList()}</div>
+ <p class="tiny">출처: <a href="${PROC_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 재료 가공</a> (문서 수정 ${PROC_SRC[1]}, 수집 ${PROC_DATE}) · 공식 업데이트 노트 ${PROC_CHK.map(([d,id,w])=>`<a href="https://mabinogimobile.nexon.com/News/Update/${id}" target="_blank" rel="noopener">${d}</a>(${w})`).join(' · ')}와 대조</p>`}
+
+/* ===== 페이지: 채집 바로찾기 ===== */
+const GIDX=GATH.reduce((m,r)=>{r[3].split(', ').forEach(it=>(m[it]=m[it]||[]).push(r));return m},{}),PMAT=new Set(PROC.flatMap(r=>r[3].split(' + ').map(pname)));
+const gchips=s=>s.split(', ').map(it=>`<button class="mat ${it.startsWith('황금')?'gold':''}" data-gq="${esc(it)}">${esc(it)}${PMAT.has(it)?'<em>⚙</em>':''}</button>`).join('');
+const grow=(r,showSk)=>`<div class="prow"><span class="lvb">${r[1]?'Lv.'+r[1]:'공통'}</span><div><b>${esc(r[2])}</b>${showSk||!r[1]?`<div class="tiny">${esc(r[0])}${r[1]?'':' · 모든 채집물에서 획득'}</div>`:''}</div><div class="chips mats">${gchips(r[3])}</div></div>`;
+function gatherList(){const q=ns(S.gq),sk=g=>S.gs==='all'||g===S.gs;
+ if(!q)return GSK.filter(([g])=>sk(g)).map(([g,mx])=>{const rs=GATH.filter(r=>r[0]===g);return `<div class="panel"><div class="ph"><h2>${g}</h2><span class="tiny">최대 레벨 ${mx} · 채집물 ${rs.filter(r=>r[1]).length}개</span></div>${rs.map(r=>grow(r)).join('')}</div>`}).join('');
+ const items=Object.keys(GIDX).filter(it=>ns(it).includes(q)&&GIDX[it].some(r=>sk(r[0]))).sort((a,b)=>(ns(b)===q)-(ns(a)===q)||ns(a).indexOf(q)-ns(b).indexOf(q)||a.length-b.length);
+ const nodes=GATH.filter(r=>r[1]&&sk(r[0])&&ns(r[2]).includes(q));
+ if(!items.length&&!nodes.length)return '<div class="empty">조건에 맞는 아이템·채집물이 없습니다.</div>';
+ return (items.length?`<div class="panel"><div class="ph"><h2>아이템 ${items.length}개</h2><span class="tiny">나오는 채집물 · 낮은 레벨부터</span></div>${items.map(it=>`<div class="gitem"><div class="between"><span class="row">${gchips(it)}</span>${PMAT.has(it)?`<button class="linkbtn" data-goproc="${esc(it)}">⚙ 가공 레시피에서 보기</button>`:''}</div>
+ <div class="stack mt10">${GIDX[it].filter(r=>sk(r[0])).sort((a,b)=>a[1]-b[1]).map(r=>`<div class="row tiny"><span class="lvb">${r[1]?'Lv.'+r[1]:'공통'}</span><b class="b">${esc(r[2])}</b><span>${esc(r[0])}${r[1]?'':' · 모든 채집물'}</span></div>`).join('')}</div></div>`).join('')}</div>`:'')
+ +(nodes.length?`<div class="panel"><div class="ph"><h2>채집물 ${nodes.length}개</h2></div>${nodes.map(r=>grow(r,1)).join('')}</div>`:'')}
+function pgGath(){return `<div class="panel"><div class="ph"><h2>채집물 ${GATH.filter(r=>r[1]).length}개 · 생활 스킬 ${GSK.length}종</h2><div class="row"><input type="search" id="gq" placeholder="아이템 · 채집물 검색" value="${esc(S.gq)}" style="width:210px"><button class="btn sm" data-act="greset">초기화</button></div></div>
+ <div class="tabs">${[['all','전체 스킬'],...GSK.map(([g])=>[g,g])].map(([k,l])=>`<button class="tabbtn ${S.gs===k?'on':''}" data-gs="${k}">${l}</button>`).join('')}</div>
+ <p class="hint">아이템을 누르면 그 아이템이 나오는 채집물과 필요 레벨을 낮은 레벨부터 보여 줍니다. <span class="mat gold">황금 아이템</span> <span class="mat">재료<em>⚙</em></span> = 가공 재료(가공 레시피로 연결).</p>
+ <p class="tiny">필요 레벨은 해당 생활 스킬 레벨입니다. 채집물 위치(지역)는 낚시터 이름에 적힌 것 외에는 자료가 없어 표시하지 않습니다.</p></div>
+ <div id="glist">${gatherList()}</div>
+ <p class="tiny">출처: <a href="${GATH_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 채집 계열</a> (문서 수정 ${GATH_SRC[1]}, 수집 ${GATH_DATE}) · 최대 레벨·신규 채집물은 <a href="https://mabinogimobile.nexon.com/News/Update/3480721" target="_blank" rel="noopener">공식 6/25 노트</a>와 대조 · 옥수수 Lv.1과 동쪽 호수 낚시터 황금 도구 상자(낫)는 게임 내 확인(${GATH_DATE})</p>`}
+
+/* ===== 페이지: 주간 체크리스트 ===== */
+const HR=36e5,DAYMS=864e5,KST=9*HR;let wArm=0;
+const weekStart=(now=Date.now())=>{const d=new Date(now+KST-6*HR);return Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate())-(d.getUTCDay()+6)%7*DAYMS-KST+6*HR};
+const wkKey=(now=Date.now())=>new Date(weekStart(now)+KST).toISOString().slice(0,10);
+function checkWeek(){const k=wkKey();if(S.wk.key===k)return false;const had=S.wk.key&&Object.values(S.wk.c).some(v=>v>0);S.wk.key=k;S.wk.c={};save();if(had)toast('새 주가 시작되어 주간 체크를 초기화했습니다.');return true}
+function wcd(){const ms=weekStart()+7*DAYMS-Date.now(),d=Math.floor(ms/DAYMS),h=Math.floor(ms%DAYMS/HR),m=Math.floor(ms%HR/6e4);return (d?`${d}일 ${h}시간`:h?`${h}시간 ${m}분`:`${m}분`)+' 남음'}
+const wnext=()=>{const d=new Date(weekStart()+7*DAYMS+KST);return `${d.getUTCMonth()+1}/${d.getUTCDate()}(월) 06:00`};
+const wmax=(w,i)=>w[0]==='pet'?S.wpet:w[3][i][1],wcnt=(w,i)=>Math.min(wmax(w,i),S.wk.c[w[0]+'.'+i]||0),wdone=w=>w[3].every((_,i)=>wcnt(w,i)>=wmax(w,i)),won=w=>!S.wk.hide.includes(w[0]);
+const wsum=L=>L.reduce((a,w)=>[a[0]+w[3].reduce((s,_,i)=>s+wcnt(w,i),0),a[1]+w[3].reduce((s,_,i)=>s+wmax(w,i),0)],[0,0]);
+function wrow(w){const done=wdone(w);
+ return `<div class="wrow ${done?'done':''} ${won(w)?'':'off'}"><div class="wmain"><div class="row" style="gap:7px">${done?`<span class="wok">${svg('check')}</span>`:''}<b>${esc(w[2])}</b></div>
+ <div class="tiny">${esc(w[4])} · ${w[5].map(([p,l])=>`<a href="${NX+p}" target="_blank" rel="noopener">${l}</a>`).join(' · ')}</div></div>
+ <div class="wsubs">${S.wedit?`<button class="btn sm" data-whide="${w[0]}">${won(w)?'숨기기':'보이기'}</button>`:(w[0]==='pet'?`<label class="wslot tiny">내 슬롯<select id="wpet" aria-label="펫 원정대 내 슬롯 수">${[1,2,3,4,5].map(v=>`<option ${v===S.wpet?'selected':''}>${v}</option>`).join('')}</select></label>`:'')+w[3].map(([lb],i)=>{const mx=wmax(w,i),k=w[0]+'.'+i,n=wcnt(w,i),al=esc((w[2]+' '+lb).trim());
+ return mx===1?`<button class="wchk ${n?'on':''}" data-wk="${k}" data-d="t" aria-pressed="${!!n}">${lb?esc(lb)+' ':''}${n?'완료':'미완료'}</button>`:`<div class="step">${lb?`<span class="tiny">${esc(lb)}</span>`:''}<button class="sbtn" data-wk="${k}" data-d="-1" aria-label="${al} 1 줄이기">−</button><b class="${n>=mx?'ok':''}">${n}<em>/${mx}</em></b><button class="sbtn" data-wk="${k}" data-d="1" aria-label="${al} 1 늘리기">+</button></div>`}).join('')}</div></div>`}
+function pgWeek(){const L=WEEKLY.filter(won),p=L.length?Math.round(L.reduce((s,w)=>{const[n,t]=wsum([w]);return s+n/t},0)/L.length*100):0;
+ return `<div class="panel hl"><div class="between"><div><div class="tiny">이번 주 진행 · ${S.wk.key}(월) 시작</div><div class="big">${p}%</div></div><div class="wtime"><div class="tiny">초기화까지</div><b id="wcd">${wcd()}</b><div class="tiny">다음 초기화 ${wnext()}</div></div></div>
+ <div class="bar wbar"><i style="width:${p}%"></i></div>
+ <div class="between mt10"><span class="hint">${L.filter(wdone).length}/${L.length} 항목 완료 · 진행률은 항목별 달성 비율의 평균</span><span class="row"><button class="btn sm" data-act="wedit">${S.wedit?'편집 완료':'목록 편집'}</button><button class="btn sm" data-act="wreset">${wArm?'한 번 더 누르면 해제':'전체 해제'}</button></span></div></div>
+ ${WGRP.map(g=>{const G=WEEKLY.filter(w=>w[1]===g&&(S.wedit||won(w))),V=G.filter(won);return G.length?`<div class="panel"><div class="ph"><h2>${g}</h2><span class="tiny">${V.filter(wdone).length}/${V.length} 완료</span></div>${G.map(wrow).join('')}</div>`:''}).join('')}
+ <p class="tiny">${S.wedit?'숨긴 항목은 진행률에서 빠지고 다음 주에도 숨겨집니다. ':''}매주 월요일 06:00(한국 시간)에 자동으로 초기화되며, 체크는 이 브라우저에만 저장됩니다. 항목과 횟수는 공식 에린 가이드·업데이트 노트 기준(확인 ${WK_DATE}), 레이드 보스 목록 기준 ${RAID_DATE}.</p>`}
+
+/* ===== 페이지: 소울스트림 ===== */
+const fnum=v=>Math.round(v).toLocaleString('ko-KR');
+const priceAt=n=>{const b=SOUL_PRICE.find(([a,z])=>n>=a&&n<=z);return b?b[2]+(n-b[0])*b[3]:null};
+const priceN=p=>{for(const [a,z,s,inc] of SOUL_PRICE)if(p>=s&&p<=s+(z-a)*inc&&(p-s)%inc===0)return a+(p-s)/inc;return null};
+const buyCost=(n,k)=>{let c=0,i=0;for(;i<k&&n+i<=2000;i++)c+=priceAt(n+i);return [c,i]};
+const soulBought=name=>{const w=WEEKLY.find(x=>x[0]==='soul');return Math.min(30,S.wk.c['soul.'+w[3].findIndex(x=>x[0]===name)]||0)};
+function soulCalc(){if(!$('soulq'))return;const g=id=>$(id)?$(id).value.trim():'',N=x=>x===''?null:Number(x.replace(/[,\s]/g,''));
+ S.soul={r:[0,1,2].map(i=>g('sr'+i)),s:[0,1,2].map(i=>g('ss'+i)),p:[0,1,2].map(i=>g('sp'+i)),alt:g('salt')};save();let tot=0,totN=0;
+ SOULS.forEach((so,i)=>{const B=so[3],r=N(S.soul.r[i]),sm=N(S.soul.s[i]),p=N(S.soul.p[i]),L=[],row=(a,b)=>L.push(`<div class="ln"><span>${a}</span><b>${b}</b></div>`),bad=t=>L.push(`<div class="err">${t}</div>`);let bi=null;
+  if(r!==null){if(!(r>=.018&&r<=.108))bad(`합계로 생기는 생산은 시간당 0.018~0.108입니다. 별·멤버십이 있다면 ‘서버 내 캐릭터의 ${so[1]} 합’ 줄의 값을 넣으세요.`);
+   else{row('주당 자동 생산',`${(r*168).toFixed(1)}개`);row('1개 생산 시간',`${(1/r).toFixed(1)}시간`);bi=r>=.108?5:B.reduce((k,b,j)=>r>=b[2]?j:k,0)}}
+  if(sm!==null){if(!(sm>=1))bad(`${so[1]} 합은 1 이상입니다.`);else{const si=sm>=B[4][1]?5:B.reduce((k,b,j)=>sm>=b[0]?j:k,0);
+   if(bi!==null&&bi!==si)bad('생산 속도와 합계의 구간이 다릅니다. 두 값을 다시 확인하세요.');bi=si;
+   if(si<5){if(si<4)row('다음 구간까지',`${so[1]} +${fnum(B[si][1]-sm)}`);row('최대 구간 끝까지',`${so[1]} +${fnum(B[4][1]-sm)}`);
+    const alt=so[0]==='푸른'?N(S.soul.alt):null;if(alt!==null){if(alt>0)row('부캐로만 채우면',`${si<4?`다음 구간 ${Math.ceil((B[si][1]-sm)/alt)}명 · `:''}최대 ${Math.ceil((B[4][1]-sm)/alt)}명`);else bad('부캐 생활력은 0보다 커야 합니다.')}}}}
+  if(bi!==null)L.unshift(`<div class="sbr">${bi===5?'최대 구간 끝 도달 (시간당 0.108)':`${bi+1}구간 · ${so[1]} 합 ${fnum(B[bi][0])}~${fnum(B[bi][1])} · 시간당 ${B[bi][2]}~${B[bi][3]}`}</div>`);
+  const bought=soulBought(so[0]),rem=30-bought;row('이번 주 구매',`${bought}/30`);
+  if(p!==null){const n=priceN(p);if(n===null)bad('공식 가격표에 없는 가격입니다. 처음이면 10,000이고 한 번 살 때마다 20씩 오릅니다(600회차까지).');
+   else if(!rem)row('남은 구매 비용','이번 주 구매 완료');else{const [c,k]=buyCost(n,rem);tot+=c;totN+=k;row(`남은 ${k}회 비용 (${fnum(n)}~${fnum(n+k-1)}회차)`,`${fnum(c)}골드`);if(k<rem)bad('2,000회차 이후 가격은 공식 표에 없어 계산하지 않았습니다.')}}
+  if(r!==null&&r>=.018&&r<=.108)row('주당 최대 (자동+구매 30)',`${(r*168+30).toFixed(1)}개`);
+  $('sres'+i).innerHTML=L.join('')||'<div class="tiny">값을 넣으면 바로 계산합니다.</div>'});
+ $('stot').innerHTML=totN?`세 소울 남은 구매 ${totN}회 합계 <b>${fnum(tot)}골드</b>`:'다음 구매 가격을 넣으면 세 소울 합계 비용이 나옵니다.'}
+function pgSoul(){const c=S.soul,first30=buyCost(1,30)[0];
+ return `<div class="panel hl" id="soulq"><div class="ph"><h2>소울 생산·구매 계산</h2><span class="tiny">모두 선택 입력 · 입력 즉시 계산</span></div>
+ <p class="hint">소울스트림 왼쪽 위 소울 아이콘을 누르면 나오는 창의 값을 옮겨 적으세요. 별을 아직 하나도 연결하지 않았다면 ‘현재 생산 속도’와 ‘서버 내 캐릭터의 ○○ 합’ 값이 같습니다.</p>
+ <div class="grid3 mt10">${SOULS.map((so,i)=>`<div class="rbox scard" style="--sc:${so[2]}"><div class="between"><span class="st" style="--sc:${so[2]}">${so[0]} 소울</span><span class="tiny">${so[1]} 합 기준</span></div>
+ <div class="field mt10"><label>시간당 생산 (‘서버 내 캐릭터의 ${so[1]} 합’ 줄)</label><input id="sr${i}" inputmode="decimal" placeholder="예: 0.036000" value="${esc(c.r[i])}"></div>
+ <div class="field mt10"><label>서버 내 캐릭터 ${so[1]} 합 (알면)</label><input id="ss${i}" inputmode="numeric" placeholder="캐릭터별 ${so[1]}의 합" value="${esc(c.s[i])}"></div>
+ ${so[0]==='푸른'?`<div class="field mt10"><label>부캐 1명의 생활력 (알면)</label><input id="salt" inputmode="numeric" placeholder="새 부캐 생활력" value="${esc(c.alt)}"></div>`:''}
+ <div class="field mt10"><label>다음 구매 가격 (구입하기 버튼의 골드)</label><input id="sp${i}" inputmode="numeric" placeholder="처음이면 10000" value="${esc(c.p[i])}"></div>
+ <div class="sres" id="sres${i}"></div></div>`).join('')}</div>
+ <div class="between mt10"><span class="hint" id="stot"></span><span class="tiny">이번 주 구매 수는 <button class="linkbtn" data-nav="week">주간 체크리스트</button>의 소울 주간 구매 칸에서 가져옵니다.</span></div></div>
+ <div class="panel"><div class="ph"><h2>합계별 시간당 생산 구간</h2><span class="tiny">공식 · 구간 안의 정확한 값은 공개되지 않음</span></div>
+ <div class="tablewrap"><table style="min-width:640px"><thead><tr><th>소울</th>${[1,2,3,4,5].map(n=>`<th>${n}구간</th>`).join('')}</tr></thead><tbody>${SOULS.map(so=>`<tr><td><b style="color:${so[2]}">${so[0]}</b><div class="tiny">${so[1]} 합</div></td>${so[3].map(b=>`<td><div style="font-variant-numeric:tabular-nums">${fnum(b[0])}~${fnum(b[1])}</div><div class="tiny">시간당 ${b[2]}~${b[3]}<br>주 ${(b[2]*168).toFixed(1)}~${(b[3]*168).toFixed(1)}개</div></td>`).join('')}</tr>`).join('')}</tbody></table></div>
+ <p class="tiny mt10">최대 구간 끝(시간당 0.108, 주 약 18.1개)을 넘으면 합계로는 더 늘지 않습니다. 별·멤버십으로 생산량을 더 올릴 수 있지만 증가량은 공식 가이드에 없습니다.</p></div>
+ <div class="panel"><div class="ph"><h2>주간 구매 가격</h2><span class="tiny">소울별 주 30회(서버) · 누적 횟수는 소울마다 따로</span></div>
+ <div class="tablewrap"><table style="min-width:420px"><thead><tr><th>누적 회차</th><th class="num">시작 가격</th><th class="num">회차마다</th><th class="num">구간 마지막 가격</th></tr></thead><tbody>${SOUL_PRICE.map(([a,z,s,inc])=>`<tr><td>${fnum(a)}~${fnum(z)}회</td><td class="num">${fnum(s)}</td><td class="num">+${inc}</td><td class="num">${fnum(s+(z-a)*inc)}</td></tr>`).join('')}</tbody></table></div>
+ <p class="tiny mt10">예: 한 소울을 처음 30회 사면 ${fnum(first30)}골드, 세 소울 모두 사면 ${fnum(first30*3)}골드입니다.</p></div>
+ <div class="panel"><div class="ph"><h2>부캐 매력 루틴</h2><button class="btn sm" data-act="charmreset">새 부캐 시작</button></div>
+ <p class="hint">노란 소울은 서버 내 모든 캐릭터의 매력 합으로 생산됩니다. 부캐를 만들 때마다 아래를 챙기세요.</p>
+ ${CHARM.map(([id,l,d])=>{const on=S.charm.includes(id);return `<div class="wrow ${on?'done':''}"><div class="wmain"><div class="row" style="gap:7px">${on?`<span class="wok">${svg('check')}</span>`:''}<b>${l}</b></div>${d?`<div class="tiny">${d}</div>`:''}</div><div class="wsubs"><button class="wchk ${on?'on':''}" data-charm="${id}" aria-pressed="${on}">${on?'완료':'미완료'}</button></div></div>`}).join('')}
+ <div class="ch">더 높이기 (계정 단위·장기)</div><ul class="hint" style="margin:0;padding-left:18px">
+ <li>스텔라그램 작성과 항목 공개: 계정당 1개(대표 캐릭터 정보로 표시)라 부캐마다 반복할 필요 없음</li>
+ <li>스텔라 픽 받기, 스텔라 매칭: 매칭되면 서로 매력 +2. 받은 픽과 매칭 수치는 계정 단위로 누적</li>
+ <li>패션 희귀도 올리기: [매력] 화면은 지금보다 높은 희귀도의 패션 장비로 교체를 추천합니다</li>
+ <li>매력 타이틀 모으기: 타이틀 효과로 오른 매력은 [매력] 화면의 타이틀 항목에 표시</li></ul>
+ <div class="ch">매력으로 열리는 것</div><ul class="hint" style="margin:0;padding-left:18px">
+ <li>매력 10,000 이상: 악보책 구매(작곡)</li>
+ <li>던바튼·콜헨 잡화점의 일부 아이템 구매 제한 해제, 스텔라 돔 입장, 매력 등급에 따른 매력링 색상(기준 수치는 공개되지 않음)</li></ul>
+ <p class="tiny mt10">방법별 매력 수치는 공식 자료에 없어 순서는 정하지 않았습니다. 마이홈 데코 점수는 매력과 별개의 점수로, 매력에 들어가지 않습니다.</p></div>
+ <div class="panel"><h2>알아 둘 규칙</h2><ul class="hint" style="margin:10px 0 0;padding-left:18px">
+ <li>소울은 서버 내 모든 캐릭터의 전투력(붉은)·생활력(푸른)·매력(노란) <b class="b">합</b>으로 자동 생산됩니다.</li>
+ <li>생활 스킬 레벨·누적 생활 경험치·가공 시설·제작대로 오른 생활력은 서버 내 모든 캐릭터가 공유합니다. 그래서 캐릭터가 많을수록 생활력 합이 커집니다.</li>
+ <li>생활도구·가방처럼 장착해서 오르는 생활력은 장착한 캐릭터에만 적용됩니다.</li>
+ <li>소울스트림 별 효과는 서버 내 모든 캐릭터에 적용됩니다.</li></ul>
+ <p class="tiny mt10">출처: 공식 <a href="${NX}Info/Guide/3481548" target="_blank" rel="noopener">소울스트림 가이드</a>(2026-07-16 기준) · <a href="${NX}Info/Guide/2751047" target="_blank" rel="noopener">캐릭터 점수와 능력치</a> · <a href="${NX}Info/Guide/2751027" target="_blank" rel="noopener">스텔라그램</a>(2026-08-13 기준) · <a href="${NX}Info/Guide/2751088" target="_blank" rel="noopener">성장 가이드</a>(2025-12-05 기준) · <a href="${NX}Info/Guide/2751137" target="_blank" rel="noopener">커스터마이즈/환생</a> · <a href="${NX}Info/Guide/2751071" target="_blank" rel="noopener">작곡</a>(2025-12-18 기준) · <a href="${NX}Info/Guide/3311715" target="_blank" rel="noopener">마이홈</a>(2026-08-13 기준) · <a href="${NX}News/Update/3100670" target="_blank" rel="noopener">2025-08-21 업데이트 노트</a>(스텔라 매칭) ·<a href="${NX}News/Update/3480721" target="_blank" rel="noopener">6/25 업데이트 노트</a> · 첫 구매 가격·소울별 독립 계산은 게임 내 확인(${SOUL_DATE})</p></div>`}
+
+/* ===== 페이지: 장비 비교 ===== */
+function pgGear(){const f=(id,l,v)=>`<div class="field"><label>${l}</label><input type="number" id="${id}" value="${v}" min="0"></div>`;
+ return `<div class="panel" id="gq"><div class="ph"><h2>현재 장착 A vs 새 장비 B</h2><span class="tiny">입력 즉시 판정</span></div>
+ <div class="grid2"><div class="rbox"><b>A · 현재 장착</b><div class="grid3 mt10">${f('a1','기본 수치',3100)}${f('a2','보석 슬롯',2)}${f('a3','마도 저항',100)}</div></div><div class="rbox"><b>B · 새 장비</b><div class="grid3 mt10">${f('b1','기본 수치',3400)}${f('b2','보석 슬롯',3)}${f('b3','마도 저항',130)}</div></div></div>
+ <div class="row mt10"><label class="row tiny"><input type="checkbox" id="bp">B에 각인 강화·인챈트·보석·특수 효과가 있음</label><label class="row tiny"><input type="checkbox" id="bu">B가 미감정</label></div>
+ <div class="panel hl mt10" id="gres"></div></div>
+ <div class="panel"><h2>판정 기준</h2><p class="hint">기본 수치·보석 슬롯·마도 저항의 단순 차이만 봅니다. 성능 개선(연금술 성능 주입)으로 강화된 장비에 더 좋은 기본 수치를 옮길 수 있으므로, 희귀도가 낮아도 수치가 높으면 재료 후보로 판정합니다. 실제 전투력·DPS는 계산하지 않습니다.</p></div>`}
+function gearJudge(){if(!$('gres'))return;const v=id=>Math.max(0,Number($(id).value)||0),db=v('b1')-v('a1'),ds=v('b2')-v('a2'),dr=v('b3')-v('a3'),pro=$('bp').checked,un=$('bu').checked;
+ let t,c,why;if(un){t='감정 먼저';c='var(--gold)';why='미감정 장비는 감정 후 수치를 확인하세요.'}
+ else if(db>0){t='성능 개선 후보';c='var(--accent)';why=`기본 수치가 ${db} 높습니다. 지금 장비(A)에 성능 주입 재료로 쓰는 것을 먼저 검토하세요.`}
+ else if(ds>0||dr>0){t='보관 · 확인';c='var(--gold)';why=`${ds>0?'보석 슬롯 +'+ds+'. ':''}${dr>0?'마도 저항 +'+dr+'. ':''}기본 수치는 낮아도 재료 가치가 있을 수 있습니다.`}
+ else if(pro){t='보관 · 수동 검토';c='var(--gold)';why='강화·인챈트·보석·특수 효과를 먼저 회수하거나 확인하세요.'}
+ else{t='분해 · 판매 후보';c='var(--red)';why='세 지표 모두 현재 장비보다 낫지 않습니다.'}
+ const s=x=>`<b style="color:${x>0?'var(--accent)':x<0?'var(--red)':'var(--muted)'}">${x>0?'+':''}${x}</b>`;
+ $('gres').innerHTML=`<div class="verdict" style="color:${c}">${t}</div><p class="hint">${why}</p><div class="row tiny">기본 수치 ${s(db)} · 보석 슬롯 ${s(ds)} · 마도 저항 ${s(dr)}</div>`}
+
+/* ===== 페이지: 출처 · 갱신 ===== */
+function pgAbout(){return `<div class="panel"><h2>데이터 출처</h2><div class="stack mt10">
+ <div><b>룬 사용 순위</b><div class="hint">mabimobi.life 룬 도감의 직업별 통계 (무기·엠블럼·방어구 상위 10, 장신구 상위 9) · 기준일 ${DATA_DATE} · 21개 직업 전부 수록</div></div>
+ <div><b>스킬 개조 · 세공 · 장신구 세팅</b><div class="hint">사용자 제공 직업별 개조/세공/악세 표 · 21개 직업 전부 수록</div></div>
+ <div><b>주·부 스탯</b><div class="hint">${STAT_SRC}의 'main'·'sub' 항목 · 확인일 ${STAT_DATE} (문서 수정 2026-08-20~10-25) · 21개 직업 전부 수록 (기본 직업 6종은 부 스탯 없음)</div></div>
+ <div><b>숙련 연계 계산식 · 보너스표</b><div class="hint">공식 ${LINK_SRC.map(([n,u,d,w])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a> (${d} 게시, ${w})`).join(' · ')} · 확인일 ${LINK_DATE} · 이후 업데이트 노트에 수치 변경 없음 · ★ 없음~★10 × 1~20강 전부 수록</div></div>
+ <div><b>가공 레시피</b><div class="hint"><a href="${PROC_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 재료 가공</a> (문서 수정 ${PROC_SRC[1]}, 수집 ${PROC_DATE}) · 6개 시설 ${PROC.length}개 레시피 전부 수록 · 공식 업데이트 노트 ${PROC_CHK.map(([d,id,w])=>`<a href="https://mabinogimobile.nexon.com/News/Update/${id}" target="_blank" rel="noopener">${d}</a>(${w})`).join(' · ')}와 대조 · '백금 강괴'는 공식 표기 · 가공 시간은 시설 레벨별 단축 수치가 없어 미수록</div></div>
+ <div><b>채집물 · 필요 레벨 · 획득 아이템</b><div class="hint"><a href="${GATH_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 채집 계열</a> (문서 수정 ${GATH_SRC[1]}, 수집 ${GATH_DATE}) · 생활 스킬 ${GSK.length}종 채집물 ${GATH.filter(r=>r[1]).length}개 전부 수록 · 최대 레벨·신규 채집물 11종은 <a href="https://mabinogimobile.nexon.com/News/Update/3480721" target="_blank" rel="noopener">공식 6/25 노트</a>와 대조 · 옥수수 Lv.1, 동쪽 호수 낚시터 황금 도구 상자(낫)는 게임 내 확인 · 공식 노트의 서쪽 호수 낚시터 황금 도구 상자(호미)는 확인되지 않아 미수록</div></div>
+ <div><b>주간 체크리스트</b><div class="hint">공식 에린 가이드 120개·업데이트 노트 45개 전수 검색으로 근거가 확인된 ${WEEKLY.length}개 항목 · 확인일 ${WK_DATE} · 매주 월요일 06:00(한국 시간) 자동 초기화 · 레이드 보스 목록은 <a href="${NX}Info/Guide/2839865" target="_blank" rel="noopener">레이드 가이드</a> 기준(${RAID_DATE}). 레이드가 바뀌면 WEEKLY의 레이드 항목과 RAID_DATE를 갱신 · 후보 출처였던 nipponhashi 트래커의 '생활 스킬 주간 과제'·'필드 보스 막타'는 공식 근거가 없어 제외</div></div>
+ <div><b>소울스트림 생산 구간 · 주간 구매 가격</b><div class="hint">공식 <a href="${NX}Info/Guide/3481548" target="_blank" rel="noopener">소울스트림 가이드</a>(2026-07-16 기준, 이후 노트에 수치 변경 없음) · 확인일 ${SOUL_DATE} · 첫 구매 10,000골드·회차마다 +20·소울별 독립 계산은 게임 내 확인 · 구간 안의 정확한 생산량, 별·멤버십 증가량, 별 지도는 공식 자료가 없어 미수록</div></div></div>
+ <div class="row mt10"><a class="btn primary sm" href="${RUNE_URL}" target="_blank" rel="noopener">룬 도감 열기 ↗</a></div></div>
+ <div class="panel"><h2>룬 데이터 갱신 방법</h2><p class="hint">룬 순위는 대형 패치나 유저 연구에 따라 바뀝니다. 기준일로부터 ${STALE_DAYS}일이 지나면 상단에 갱신 권장 배너가 뜹니다.</p><ol class="hint"><li>룬 도감에서 직업별 통계 화면을 캡처합니다(부위별 목록 끝까지).</li><li>Claude에 캡처를 첨부하고 "MBNG Advisor의 RAW 룬 데이터와 DATA_DATE만 교체해줘"라고 요청합니다.</li><li>받은 데이터 블록으로 파일의 해당 부분만 바꿔 저장합니다.</li></ol></div>
+ <div class="panel"><h2>수록 기준</h2><p class="hint">21개 직업 전부에 대해 데이터가 갖춰진 기능만 넣었습니다. 채집물 위치(지역), 가공 시간, 시설 업그레이드 재료는 현재 기준 완전한 자료가 확보되지 않아 제외했습니다.</p></div>`}
+
+/* ===== 라우팅 ===== */
+const ICO={class:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',rune:'<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9.5 3 12 9l2.5-6M12 9v12"/>',cmp:'<path d="m8 3-4 4 4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
+ link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',gear:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
+ proc:'<path d="M2 20h20"/><path d="M4 20V10l5 3v-3l5 3V6l6 4v10"/>',gath:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.2-6"/>',
+ week:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="m9 15 2 2 4-4"/>',check:'<path d="M20 6 9 17l-5-5"/>',
+ soul:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/>',
+ about:'<circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/>',more:'<circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/>',ext:'<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>'};
+const svg=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k]}</svg>`;
+const NAV=[['class','정보','직업 정보'],['rune','정보','룬 역검색'],['cmp','정보','직업 비교'],['week','도구','주간 체크리스트'],['link','도구','숙련 연계'],['soul','도구','소울스트림'],['gear','도구','장비 비교'],['proc','생활','가공 레시피'],['gath','생활','채집 바로찾기'],['about','기타','출처 · 갱신']];
+const TABS={class:'직업',week:'숙제',link:'숙련',proc:'가공',gath:'채집'};
+const PAGES={class:['직업 정보','21개 직업의 주·부 스탯·개조·세공·장신구 세팅과 부위별 룬 사용 순위를 한눈에 봅니다.',pgClass],rune:['룬 역검색','룬을 고르면 어떤 직업이 몇 위로 쓰는지 자동으로 정리합니다.',pgRune],cmp:['직업 비교','두 직업의 세팅과 룬 TOP3를 나란히 비교하고 공통 룬을 찾습니다.',pgCmp],week:['주간 체크리스트','매주 월요일 06:00에 자동으로 초기화되는 주간 숙제입니다. 공식 가이드·업데이트 노트로 확인된 항목만 담았습니다.',pgWeek],link:['숙련 연계','공식 보너스표를 성급·강화 단계별로 조회하고, 무기 수치로 숙련 연계 추가 공격력을 자동 계산합니다.',pgLink],soul:['소울스트림','게임 화면의 소울 값 몇 개만 옮겨 적으면 주당 생산량, 다음 구간까지 남은 합계, 이번 주 구매 비용을 계산합니다.',pgSoul],proc:['가공 레시피','6개 가공 시설의 레시피 91개를 검색하고, 재료를 눌러 가공 단계를 따라갑니다.',pgProc],gath:['채집 바로찾기','아이템을 검색하면 어느 채집물에서 몇 레벨부터 얻는지 자동으로 정리합니다.',pgGath],gear:['장비 비교','숫자 몇 개로 성능 개선·보관·분해를 바로 판정합니다.',pgGear],about:['출처 · 갱신','데이터 출처, 기준일, 갱신 방법입니다.',pgAbout]};
+function render(){if(!PAGES[S.page])S.page='class';const P=PAGES[S.page];$('pt').textContent=P[0];$('ps').textContent=P[1];$('page').innerHTML=P[2]();if(S.page==='gear')gearJudge();if(S.page==='link')linkCalc();if(S.page==='soul')soulCalc();
+ document.querySelectorAll('.nav[data-nav],.tab[data-nav]').forEach(b=>b.classList.toggle('on',b.dataset.nav===S.page));$('morebtn').classList.toggle('on',!TABS[S.page]);$('eb').textContent='MABINOGI MOBILE · '+NAV.find(n=>n[0]===S.page)[1]}
+function go(p){S.page=p;save();$('sheet').hidden=true;render();window.scrollTo({top:0});if($('page').animate&&!matchMedia('(prefers-reduced-motion: reduce)').matches)$('page').animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:220,easing:'cubic-bezier(.2,.7,.2,1)'})}
+
+/* ===== 이벤트 ===== */
+document.addEventListener('click',e=>{const t=e.target;let el;
+ if(el=t.closest('[data-act="more"]')){$('sheet').hidden=!$('sheet').hidden;return}
+ if(el=t.closest('[data-nav]'))return go(el.dataset.nav);
+ if(el=t.closest('[data-cls]')){S.sel=el.dataset.cls;save();if(el.dataset.go)return go('class');render();if(innerWidth<1100)$('cdet')?.scrollIntoView({behavior:'smooth'});return}
+ if(el=t.closest('[data-fam]')){S.fam=el.dataset.fam;save();return render()}
+ if(el=t.closest('[data-view]')){S.view=el.dataset.view;save();return render()}
+ if(el=t.closest('[data-fav]')){const n=el.dataset.fav;S.fav=S.fav.includes(n)?S.fav.filter(x=>x!==n):[...S.fav,n];save();return render()}
+ if(el=t.closest('[data-copy]'))return copyText(cText(el.dataset.copy));
+ if(el=t.closest('[data-rp]')){S.rp=el.dataset.rp;S.rsel='';save();return render()}
+ if(el=t.closest('[data-rsel]')){S.rsel=el.dataset.rsel;save();return render()}
+ if(el=t.closest('[data-act="all"]')){S.all=!S.all;save();return render()}
+ if(el=t.closest('[data-ls]')){S.ls=+el.dataset.ls;S.lall=false;save();return render()}
+ if(el=t.closest('[data-lh]')){S.lh=+el.dataset.lh;save();return render()}
+ if(el=t.closest('[data-act="lall"]')){S.lall=!S.lall;save();return render()}
+ if(el=t.closest('[data-pf]')){S.pf=el.dataset.pf;save();return render()}
+ if(el=t.closest('[data-pl]')){S.pl=+el.dataset.pl;save();return render()}
+ if(el=t.closest('[data-pq]')){S.pq=el.dataset.pq;S.pf='all';S.pl=0;save();render();return window.scrollTo({top:0,behavior:'smooth'})}
+ if(el=t.closest('[data-act="preset"]')){S.pq='';S.pf='all';S.pl=0;save();return render()}
+ if(el=t.closest('[data-gs]')){S.gs=el.dataset.gs;save();return render()}
+ if(el=t.closest('[data-gq]')){S.gq=el.dataset.gq;S.gs='all';save();render();return window.scrollTo({top:0,behavior:'smooth'})}
+ if(el=t.closest('[data-goproc]')){S.pq=el.dataset.goproc;S.pf='all';S.pl=0;return go('proc')}
+ if(el=t.closest('[data-charm]')){const id=el.dataset.charm;S.charm=S.charm.includes(id)?S.charm.filter(x=>x!==id):[...S.charm,id];save();return render()}
+ if(el=t.closest('[data-act="charmreset"]')){S.charm=[];save();toast('새 부캐 매력 루틴을 시작합니다.');return render()}
+ if(el=t.closest('[data-act="greset"]')){S.gq='';S.gs='all';save();return render()}
+ if(el=t.closest('[data-wk]')){const k=el.dataset.wk,[id,i]=k.split('.'),w=WEEKLY.find(x=>x[0]===id),cur=wcnt(w,+i);S.wk.c[k]=el.dataset.d==='t'?(cur?0:1):Math.max(0,Math.min(wmax(w,+i),cur+ +el.dataset.d));save();return render()}
+ if(el=t.closest('[data-whide]')){const id=el.dataset.whide;S.wk.hide=S.wk.hide.includes(id)?S.wk.hide.filter(x=>x!==id):[...S.wk.hide,id];save();return render()}
+ if(el=t.closest('[data-act="wedit"]')){S.wedit=!S.wedit;save();return render()}
+ if(el=t.closest('[data-act="wreset"]')){if(wArm&&Date.now()-wArm<4000){wArm=0;S.wk.c={};save();toast('이번 주 체크를 모두 해제했습니다.')}else{wArm=Date.now();setTimeout(()=>{if(wArm&&Date.now()-wArm>=4000){wArm=0;if(S.page==='week')render()}},4100)}return render()}});
+document.addEventListener('input',e=>{const el=e.target;
+ if(el.id==='q'){S.q=el.value;save();$('clist').innerHTML=classList();return}
+ if(el.id==='rq'){S.rq=el.value;save();const pos=el.selectionStart;render();const n=$('rq');n.focus();n.setSelectionRange(pos,pos);return}
+ if(el.id==='pq'){S.pq=el.value;save();$('plist').innerHTML=procList();return}
+ if(el.id==='gq'){S.gq=el.value;save();$('glist').innerHTML=gatherList();return}
+ if(el.closest('#soulq'))return soulCalc();
+ if(el.closest('#lq'))return linkCalc();
+ if(el.closest('#gq'))return gearJudge()});
+document.addEventListener('change',e=>{const el=e.target;if(el.id==='ca'||el.id==='cb'){S[el.id]=el.value;save();render()}
+ if(el.id==='lst'||el.id==='llv'){linkCalc();S.ls=S.lk.st;save();render()}
+ if(el.id==='wpet'){S.wpet=+el.value;save();render()}});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList?.contains('ccard'))e.target.click();if(e.key==='Escape')$('sheet').hidden=true});
+
+/* ===== 시작 ===== */
+const navBtn=([id,,lb])=>`<button class="nav" data-nav="${id}">${svg(id)}<span>${lb}</span></button>`;
+$('nav').innerHTML=NAV.map((n,i)=>(!i||NAV[i-1][1]!==n[1]?`<div class="nlabel">${n[1]}</div>`:'')+navBtn(n)).join('');
+$('tabbar').innerHTML=Object.entries(TABS).map(([id,lb])=>`<button class="tab" data-nav="${id}">${svg(id)}<span>${lb}</span></button>`).join('')+`<button class="tab" id="morebtn" data-act="more" aria-label="더보기">${svg('more')}<span>더보기</span></button>`;
+$('sheetnav').innerHTML=NAV.filter(n=>!TABS[n[0]]).map(navBtn).join('')+`<a class="nav" href="${RUNE_URL}" target="_blank" rel="noopener">${svg('ext')}<span>룬 도감 열기 (mabimobi.life)</span></a>`;
+$('dd').textContent=DATA_DATE;
+checkWeek();
+setInterval(()=>{if(checkWeek()&&S.page==='week')render();else if($('wcd'))$('wcd').textContent=wcd()},6e4);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&checkWeek()&&S.page==='week')render()});
+(()=>{const d=Math.floor((Date.now()-new Date(DATA_DATE+'T00:00:00+09:00'))/864e5);if(d>STALE_DAYS)$('stale').innerHTML=`<div class="notice"><span>⚠</span><span>룬 통계가 ${d}일 전 데이터입니다. 큰 패치가 있었다면 최신 순위를 확인하세요.</span><a class="btn sm" href="${RUNE_URL}" target="_blank" rel="noopener">룬 도감 ↗</a><button class="btn sm" data-nav="about">갱신 방법</button></div>`})();
+render();
+</script>
+</body>
+</html>
