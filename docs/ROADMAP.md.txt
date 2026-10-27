@@ -15,7 +15,7 @@
 운영 (2026-10-27~): 이름을 ERIN HUB → MBNG Advisor로 변경(파일 `MBNG Advisor.html`, 저장 키 `mbng_advisor_v3`, 기존 키 자동 이전).
 저장소 https://github.com/WonJeong-Dev/MBNG-Advisor (공개 — 무료 계정은 비공개 저장소에 Pages를 쓸 수 없어 사용자가 공개 전환 선택, 2026-10-27).
 배포 주소 https://wonjeong-dev.github.io/MBNG-Advisor/ (검색 노출 차단 noindex). 변경은 사용자 요청 → Claude가 커밋·푸시(=배포).
-주 1회(목요일 점검 후) 예약 작업이 공식 업데이트 노트를 확인해, 바뀐 수치가 있으면 검증표와 함께 별도 브랜치·PR로 올림. 반영은 사용자 승인 후.
+패치 확인은 수동(사용자 요청 시 검증표 → 승인 → 반영). 클라우드 주간 예약은 계정 공용 환경 설정을 바꿔야 해서 2026-10-27 삭제.
 
 이전 버전 v2.2 참고: `legacy/erin-hub-v2.2.html` (ERIN HUB 시절 파일명, 이 폴더에는 없음)
 (데카·시세·장비 관리 등 입력형 기능은 의도적으로 제외함)
