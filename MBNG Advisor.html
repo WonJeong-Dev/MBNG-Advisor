@@ -88,6 +88,7 @@ tr.cur,tr.cur:hover{background:var(--accent-w);box-shadow:inset 3px 0 0 var(--ac
 .brow{display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.brow:last-child{border-bottom:0}.brow.p{grid-template-columns:minmax(0,1fr) auto}
 .bx{display:flex;flex-wrap:wrap;align-items:center;gap:6px}.bx .arr{color:var(--subtle);font-size:12px}.mt6{margin-top:6px}
 .blim{font-size:12px;color:var(--muted);white-space:nowrap;text-align:right}.bget{text-align:right;white-space:nowrap}.bget b{display:block;font-size:13px;font-weight:600}.bget .tiny{display:block}
+.blim .tiny{display:block}
 .srv{display:inline-block;font-size:10.5px;font-weight:600;padding:1px 6px;border-radius:6px;background:rgba(173,159,242,.14);color:#c9bdf7;margin-right:5px}
 @media(max-width:760px){.brow,.brow.p{grid-template-columns:minmax(0,1fr);gap:6px}.blim,.bget{text-align:left}}
 .lvb{min-width:46px;font-size:11px;font-weight:600;padding:3px 7px;border-radius:7px;background:var(--bg3);border:1px solid var(--line);color:var(--muted);text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}
@@ -572,6 +573,149 @@ const BARTER=[
 ['이멘마하','크레이그','최상급 봉인의 붕대 x3','금은 매운탕 x1','서버당일 1회'],
 ['이멘마하','프레이저','만찬 재료: 휘몰아치는 바람 x1(생활력 15000)','만찬 재료: 꺼지지 않는 불 x3','서버당주 2회']];
 
+/* ===== 데이터: NPC 주간 상점 (같은 문서 2.4의 골드·하트 토큰 구매 표, 문서 수정 2026-10-21 · 2026-10-27 수집) =====
+   [지역, NPC, 아이템, 가격, 주간 구매 제한('서버당'은 서버 공유)] · 원문 그대로, SHA-256 대조 일치. 매주 월요일 06:00 재입고(문서 본문)
+   nipponhashi와 겹치는 1건(던바튼 크리스텔 성수 1,500 골드·서버당 주 5개) 일치. 여관 하트 토큰 상점은 이 표에 없어 미수록 */
+const SHOP=[
+['티르코네일','딜리스','블러디 허브','250 골드','30'],
+['티르코네일','딜리스','새록 버섯','250 골드','30'],
+['티르코네일','라사','강화 비약 유화제','하트 토큰 5개','서버당 10'],
+['티르코네일','라사','강화 비약 유화제','7,500 골드','서버당 20'],
+['티르코네일','말콤','생가죽','250 골드','30'],
+['티르코네일','말콤','옷감','500 골드','30'],
+['티르코네일','말콤','장수풍뎅이','500 골드','30'],
+['티르코네일','엔델리온','성수','1,500 골드','서버당 5'],
+['티르코네일','케이틴','고기','250 골드','30'],
+['티르코네일','케이틴','소금','1,000 골드','30'],
+['티르코네일','케이틴','설탕','1,200 골드','30'],
+['티르코네일','케이틴','사과','800 골드','30'],
+['티르코네일','케이틴','양배추','800 골드','30'],
+['티르코네일','케이틴','식용유','1,200 골드','30'],
+['두갈드아일','앨빈','사포 (생활력 7000)','9,000 골드','서버당 30'],
+['던바튼','글리니스','고기','250 골드','30'],
+['던바튼','글리니스','소금','1,000 골드','30'],
+['던바튼','글리니스','설탕','1,200 골드','30'],
+['던바튼','글리니스','양배추','800 골드','30'],
+['던바튼','글리니스','식용유','1,200 골드','30'],
+['던바튼','글리니스','사과','800 골드','30'],
+['던바튼','글리니스','마늘','1,200 골드','30'],
+['던바튼','글리니스','후추','2,000 골드','30'],
+['던바튼','글리니스','레몬','3,000 골드','30'],
+['던바튼','글리니스','토마토','6,800 골드','30'],
+['던바튼','글리니스','아스파라거스','10,000 골드','30'],
+['던바튼','글리니스','완두콩','10,000 골드','30'],
+['던바튼','네리스','지배의 도안 선택 상자','하트 토큰 40개','서버당 10'],
+['던바튼','네리스','상급 지배의 도안 선택 상자','하트 토큰 40개','서버당 10'],
+['던바튼','마누스','블러디 허브','250 골드','30'],
+['던바튼','마누스','화살꽃','400 골드','30'],
+['던바튼','마누스','마나 허브','600 골드','30'],
+['던바튼','마누스','끈기 풀','400 골드','30'],
+['던바튼','마누스','튼튼 버섯 가루','600 골드','30'],
+['던바튼','마누스','튼튼 버섯 진액','600 골드','30'],
+['던바튼','마누스','쑥쑥 버섯','600 골드','30'],
+['던바튼','마누스','쑥쑥 버섯 진액','600 골드','30'],
+['던바튼','발터','생가죽','250 골드','30'],
+['던바튼','발터','상급 생가죽','600 골드','30'],
+['던바튼','발터','옷감','500 골드','30'],
+['던바튼','발터','똑딱 반딧불이','400 골드','30'],
+['던바튼','발터','흰꽃나비','400 골드','30'],
+['던바튼','발터','밀랍','3,600 골드','30'],
+['던바튼','스튜어트','강화 비약 유화제','하트 토큰 5개','서버당 10'],
+['던바튼','스튜어트','강화 비약 유화제','7,500 골드','서버당 20'],
+['던바튼','크리스텔','성수','1,500 골드','서버당 5'],
+['콜헨','코너','고기','250 골드','30'],
+['콜헨','코너','조개','600 골드','30'],
+['콜헨','코너','얼음','600 골드','30'],
+['콜헨','코너','딸기','1,200 골드','30'],
+['콜헨','코너','후추','2,000 골드','30'],
+['콜헨','코너','토마토','6,800 골드','30'],
+['콜헨','코너','아스파라거스','10,000 골드','30'],
+['콜헨','코너','완두콩','10,000 골드','30'],
+['콜헨','코너','상급 생가죽','600 골드','30'],
+['콜헨','코너','상급 생가죽+','600 골드','30'],
+['콜헨','코너','장수풍뎅이','500 골드','30'],
+['콜헨','코너','똑딱 반딧불이','400 골드','30'],
+['콜헨','코너','밀랍','3,600 골드','30'],
+['콜헨','킬리언','네잎클로버','750 골드','5'],
+['콜헨','킬리언','숨숨꽃','150 골드','30'],
+['콜헨','킬리언','숨숨꽃 가루','900 골드','30'],
+['콜헨','킬리언','튼튼 버섯 가루','600 골드','30'],
+['콜헨','킬리언','깔끔 버섯','600 골드','30'],
+['콜헨','킬리언','깔끔 버섯 진액','750 골드','30'],
+['반호르','길모어','상급 생가죽+','600 골드','30'],
+['반호르','길모어','최상급 생가죽','900 골드','30'],
+['반호르','길모어','최상급 거미줄','900 골드','30'],
+['반호르','길모어','동전무당벌레','1,000 골드','30'],
+['반호르','길모어','타닌 가루','500 골드','30'],
+['반호르','길모어','나무 진액','500 골드','30'],
+['반호르','길모어','밀랍','3,600 골드','30'],
+['반호르','아이데른','철 광석','250 골드','30'],
+['반호르','아이데른','석탄','300 골드','30'],
+['반호르','아이데른','동 광석','600 골드','30'],
+['반호르','아이데른','상급 지배의 도안+ 선택 상자','하트 토큰 40개','서버당 10'],
+['반호르','제니퍼','고기','250 골드','30'],
+['반호르','제니퍼','담백한 고기','400 골드','30'],
+['반호르','제니퍼','조개','600 골드','30'],
+['반호르','제니퍼','소금','1,000 골드','30'],
+['반호르','제니퍼','고춧가루','3,000 골드','30'],
+['반호르','제니퍼','마늘','1,200 골드','30'],
+['반호르','제니퍼','레몬','3,000 골드','30'],
+['반호르','제니퍼','무','10,000 골드','30'],
+['반호르','컴건','블러디 허브','250 골드','30'],
+['반호르','컴건','화살꽃','400 골드','30'],
+['반호르','컴건','네잎클로버','750 골드','5'],
+['반호르','컴건','생채기꽃','900 골드','30'],
+['반호르','컴건','생채기꽃 가루','1,200 골드','30'],
+['반호르','컴건','증폭 버섯','900 골드','30'],
+['반호르','컴건','증폭 버섯 진액','900 골드','30'],
+['센마이 평원','플레타','빈티지 낚시 바구니 (낚시 Lv.26)','150,000 골드','서버당 3'],
+['이멘마하','고든','고기','250 골드','30'],
+['이멘마하','고든','담백한 고기','400 골드','30'],
+['이멘마하','고든','마늘','1,200 골드','30'],
+['이멘마하','고든','딸기','1,200 골드','30'],
+['이멘마하','고든','레몬','3,000 골드','30'],
+['이멘마하','고든','당근','4,200 골드','30'],
+['이멘마하','고든','토마토','6,800 골드','30'],
+['이멘마하','고든','생강','7,300 골드','30'],
+['이멘마하','고든','무','10,000 골드','30'],
+['이멘마하','고든','파프리카','7,300 골드','30'],
+['이멘마하','고든','셀러리','10,000 골드','30'],
+['이멘마하','델렌','생가죽','250 골드','30'],
+['이멘마하','델렌','최상급 생가죽','900 골드','30'],
+['이멘마하','델렌','최상급 생가죽+','1,400 골드','30'],
+['이멘마하','델렌','최상급 거미줄','900 골드','30'],
+['이멘마하','델렌','동전무당벌레','1,000 골드','30'],
+['이멘마하','델렌','나비잠자리','1,400 골드','30'],
+['이멘마하','델렌','양털','500 골드','30'],
+['이멘마하','델렌','밀랍','3,600 골드','30'],
+['이멘마하','델렌','사포 (생활력 7000)','9,000 골드','서버당 30'],
+['이멘마하','델렌','특급 생가죽','1,600 골드','30'],
+['이멘마하','델렌','특급 거미줄','1,600 골드','30'],
+['이멘마하','델렌','사슴벌레','1,600 골드','30'],
+['이멘마하','도나','성수','1,500 골드','서버당 5'],
+['이멘마하','아그네스','블러디 허브','250 골드','30'],
+['이멘마하','아그네스','마나 허브','600 골드','30'],
+['이멘마하','아그네스','끈기 풀','400 골드','30'],
+['이멘마하','아그네스','네잎클로버','750 골드','10'],
+['이멘마하','아그네스','진정초','1,400 골드','30'],
+['이멘마하','아그네스','진정초 가루','1,700 골드','30'],
+['이멘마하','아그네스','솔솔 버섯','1,700 골드','30'],
+['이멘마하','아그네스','솔솔 버섯 진액','1,850 골드','30'],
+['이멘마하','아그네스','끈적 풀','1,600 골드','30'],
+['이멘마하','아그네스','끈적 풀 가루','1,900 골드','30'],
+['이멘마하','아그네스','산뜻 버섯','1,900 골드','30'],
+['이멘마하','아그네스','산뜻 버섯 진액','2,050 골드','30'],
+['이멘마하','조셀린','상급 설비 증축 도면 (아르바이트 Lv.15)','11,000 골드','서버당 20'],
+['이멘마하','프레이저','밀가루','600 골드','30'],
+['이멘마하','프레이저','생크림','1,100 골드','30'],
+['이멘마하','프레이저','소금','1,000 골드','30'],
+['이멘마하','프레이저','설탕','1,200 골드','30'],
+['이멘마하','프레이저','식용유','1,200 골드','30'],
+['이멘마하','프레이저','후추','2,000 골드','30'],
+['이멘마하','프레이저','고춧가루','3,000 골드','30'],
+['이멘마하','프레이저','카레 가루','3,500 골드','30'],
+['이멘마하','프레이저','조각 초콜릿','3,500 골드','30']];
+
 /* ===== 데이터: 주간 체크리스트 (공식 에린 가이드·업데이트 노트, 2026-10-27 확인 · 매주 월요일 06:00 KST 초기화) =====
    [id, 그룹, 이름, [[세부 이름, 주간 최대]], 설명, [[출처 경로, 출처 이름]]] · 적용 범위(캐릭터/계정/서버)는 사용자 요청으로 표시하지 않음
    아르바이트: 요일 아르바이트는 클리어 시 매일 06시에 새로 생겨 주간 상한이 없으므로 제외(가이드 2751073, 2025-12-18 기준)
@@ -606,13 +750,13 @@ const SOUL_PRICE=[[1,600,10000,20],[601,1200,22000,50],[1201,1800,52000,100],[18
 const CHARM=[['face','얼굴 장식 선택','외모 바꾸기에서 얼굴 장식 선택. 안경은 던바튼 NPC 시몬의 의상점에서 캐릭터당 1회 구매 가능'],['fashion','패션 장비 착용','가진 것 중 희귀도가 가장 높은 것으로. [매력] 화면이 더 높은 희귀도로 교체를 추천'],['pet','동행 펫 지정',''],['ride','탈것 장착',''],['title','매력을 올려 주는 타이틀 장착',''],['check','성장 가이드 → [매력] 화면 확인','타이틀·스텔라그램·펫·탈것·패션 항목별 매력 현황에서 빠진 곳 찾기']];
 
 /* ===== 상태 ===== */
-let S={page:'class',sel:'석궁사수',fam:'all',q:'',view:'card',fav:[],all:false,rp:'w',rq:'',rsel:'',ca:'석궁사수',cb:'궁수',ls:8,lall:false,lh:0,lk:{},pq:'',pf:'all',pl:0,gq:'',gs:'all',wk:{},wedit:false,soul:{},charm:[],bq:'',bm:'all',br:'all',bp:'all',bc:1};
+let S={page:'class',sel:'석궁사수',fam:'all',q:'',view:'card',fav:[],all:false,rp:'w',rq:'',rsel:'',ca:'석궁사수',cb:'궁수',ls:8,lall:false,lh:0,lk:{},pq:'',pf:'all',pl:0,gq:'',gs:'all',wk:{},wedit:false,soul:{},charm:[],bq:'',bm:'all',br:'all',bp:'all',bc:1,bt:'x',bcur:'all'};
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(OLD_KEY)||'{}'))}catch(e){}
 if(!Array.isArray(S.fav))S.fav=[];if(!RUNES[S.sel])S.sel='석궁사수';
 S.lk=Object.assign({b1:0,r1:0,b2:0,r2:0,st:8,lv:15},S.lk&&typeof S.lk==='object'?S.lk:{});if(!LK[S.lk.st])S.lk.st=8;if(!LK[0][S.lk.lv-1])S.lk.lv=15;if(!LK[S.ls])S.ls=8;
 if(S.pf!=='all'&&!PFAC.includes(S.pf))S.pf='all';if(!(S.pl>=0&&S.pl<=6))S.pl=0;if(typeof S.pq!=='string')S.pq='';
 if(S.gs!=='all'&&!GSK.some(g=>g[0]===S.gs))S.gs='all';if(typeof S.gq!=='string')S.gq='';
-if(typeof S.bq!=='string')S.bq='';if(!['all','o','i'].includes(S.bm))S.bm='all';if(S.br!=='all'&&!BARTER.some(r=>r[0]===S.br))S.br='all';if(!['all','일','주'].includes(S.bp))S.bp='all';if(!(Number.isInteger(S.bc)&&S.bc>=1&&S.bc<=20))S.bc=1;
+if(typeof S.bq!=='string')S.bq='';if(!['all','o','i'].includes(S.bm))S.bm='all';if(S.br!=='all'&&!BARTER.concat(SHOP).some(r=>r[0]===S.br))S.br='all';if(!['x','g'].includes(S.bt))S.bt='x';if(!['all','골드','하트 토큰'].includes(S.bcur))S.bcur='all';if(!['all','일','주'].includes(S.bp))S.bp='all';if(!(Number.isInteger(S.bc)&&S.bc>=1&&S.bc<=20))S.bc=1;
 S.wk=Object.assign({key:'',c:{},hide:[]},S.wk&&typeof S.wk==='object'?S.wk:{});if(!S.wk.c||typeof S.wk.c!=='object')S.wk.c={};if(!Array.isArray(S.wk.hide))S.wk.hide=[];if(S.wk.v!==2){delete S.wk.c['job.0'];delete S.wk.c['job.1'];S.wk.v=2}if(![1,2,3,4,5].includes(S.wpet))S.wpet=5;
 {const o=S.soul&&typeof S.soul==='object'?S.soul:{},a=x=>[0,1,2].map(i=>Array.isArray(x)&&typeof x[i]==='string'?x[i]:'');S.soul={r:a(o.r),s:a(o.s),p:a(o.p),alt:typeof o.alt==='string'?o.alt:''}}if(!Array.isArray(S.charm))S.charm=[];
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
@@ -768,22 +912,33 @@ function bChain(){const st=BX.filter(b=>b.l.n&&TIER.indexOf(b.i[0])>=0&&TIER.ind
 function bProc(){const L=BX.filter(b=>b.l.n&&PRUN[b.o[0]]);
  return PFAC.map(f=>{const g=L.filter(b=>PRUN[b.o[0]][0]===f).sort((a,b)=>PRUN[a.o[0]][2]-PRUN[b.o[0]][2]||bwk(b)-bwk(a));
   return g.length?`<div class="panel"><div class="ph"><h2>${f} 가공 대신</h2><span class="tiny">${g.length}건</span></div>${g.map(b=>{const q=PRUN[b.o[0]][1];return `<div class="brow p"><div>${btrade(b)}<div class="tiny mt6">${esc(b.npc)} · ${esc(b.reg)} · ${blimB(b.l)} · <button class="linkbtn" data-goproc="${esc(b.o[0])}">⚙ 가공 레시피</button></div></div><div class="bget"><b>${bamt(b)}</b><span class="tiny">가공 1회 ${q}개 기준 주 ${r1(bwk(b)/q)}회분</span></div></div>`}).join('')}</div>`:''}).join('')}
-function barterList(){const q=ns(S.bq),hit=b=>!q||(S.bm!=='i'&&ns(b.o[0]).includes(q))||(S.bm!=='o'&&ns(b.i[0]).includes(q))||(S.bm==='all'&&ns(b.npc+b.reg).includes(q));
- const L=BX.filter(b=>(S.br==='all'||b.reg===S.br)&&(S.bp==='all'||b.l.p===S.bp)&&hit(b));
- if(!L.length)return '<div class="empty">조건에 맞는 교환이 없습니다.</div>';
- return `<p class="tiny">${L.length}건</p>`+BREG.map(r=>{const g=L.filter(b=>b.reg===r);return g.length?`<div class="panel"><div class="ph"><h2>${r}</h2><span class="tiny">${g.length}건 · NPC ${new Set(g.map(b=>b.npc)).size}명</span></div>${g.map(brow).join('')}</div>`:''}).join('')}
-function pgBarter(){const tabs=(k,a)=>a.map(([v,l])=>`<button class="tabbtn ${S[k]===v?'on':''}" data-${k}="${esc(v)}">${l}</button>`).join('');
- return `<div class="panel"><div class="ph"><h2>물물교환 ${BARTER.length}건 · 지역 ${BREG.length}곳</h2><label class="wslot">교환할 캐릭터 수 <select id="bc" style="width:76px">${Array.from({length:20},(_,i)=>`<option value="${i+1}" ${S.bc===i+1?'selected':''}>${i+1}명</option>`).join('')}</select></label></div>
- <p class="hint">'하루' 교환은 매일 06:00, '주' 교환은 매주 월요일 06:00에 다시 채워집니다. 횟수는 캐릭터마다 따로 세고, <span class="srv">서버 공유</span> 교환만 서버 안 모든 캐릭터가 함께 셉니다. 아래 획득량은 고른 캐릭터 수를 곱한 최대치입니다.</p>
- <p class="tiny">가공 시간은 시설 레벨별 수치 자료가 없어 시간 대신 '가공 몇 회분'으로 보여 줍니다.</p></div>
- ${bChain()}${bProc()}
- <div class="panel" id="ball"><div class="ph"><h2>전체 교환</h2><div class="row"><input type="search" id="bq" placeholder="아이템 · NPC · 지역 검색" value="${esc(S.bq)}" style="width:210px"><button class="btn sm" data-act="breset">초기화</button></div></div>
- <div class="tabs">${tabs('bm',[['all','이름 전체'],['o','받는 것으로'],['i','내는 것으로']])}</div>
- <div class="tabs" style="padding-top:0">${tabs('br',[['all','전체 지역'],...BREG.map(r=>[r,r])])}</div>
- <div class="tabs" style="padding-top:0">${tabs('bp',[['all','모든 주기'],['일','하루'],['주','주간']])}</div>
- <p class="hint">아이템을 누르면 그 이름으로 검색합니다. <span class="mat made">테두리 강조</span> = 가공 레시피로도 만드는 재료.</p></div>
- <div id="blist">${barterList()}</div>
- <p class="tiny">출처: <a href="${BARTER_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/특별 상점' 상점(물물교환/주간재료)</a> (문서 수정 ${BARTER_SRC[1]}, 수집 ${BARTER_DATE}) · <a href="${BARTER_NH}" target="_blank" rel="noopener">nipponhashi 물물교환 DB</a>와 대조, 횟수·공유 범위가 다른 항목은 더 최신인 나무위키 기준 · 넥슨은 교환표를 공식 공개하지 않습니다</p>`}
+/* 주간 상점: 아이템 이름 뒤 괄호는 원문 조건 표기(예: 생활력 7000) */
+const SREG=[...new Set(SHOP.map(r=>r[0]))];
+const SX=SHOP.map(([reg,npc,it,pr,lim])=>{const a=it.match(/^(.*?) \((.+)\)$/),h=pr.match(/^하트 토큰 ([\d,]+)개$/),m=lim.match(/^(서버당 )?(\d+)$/);return {reg,npc,it:a?[a[1],a[2]]:[it,''],p:{n:+(h?h[1]:pr.replace(' 골드','')).replace(/,/g,''),c:h?'하트 토큰':'골드'},l:{n:+m[2],srv:!!m[1]}}});
+const cur=(n,c)=>c==='골드'?`${n.toLocaleString()} 골드`:`하트 토큰 ${n.toLocaleString()}개`;
+const srow=x=>{const k=x.l.n*(x.l.srv?1:S.bc);return `<div class="brow"><span class="lvb">${esc(x.npc)}</span><div class="bx"><button class="mat" data-bq="${esc(x.it[0])}">${esc(x.it[0])}${PMAT.has(x.it[0])?'<em>⚙</em>':''}</button>${x.it[1]?`<span class="tiny">${esc(x.it[1])}</span>`:''}<span class="tiny">개당 ${cur(x.p.n,x.p.c)}</span></div><span class="blim">${x.l.srv?'<span class="srv">서버 공유</span>':''}주 ${x.l.n}개<span class="tiny">최대 ${k.toLocaleString()}개 · ${cur(k*x.p.n,x.p.c)}</span></span></div>`};
+const bHit=b=>{const q=ns(S.bq);return !q||(S.bm!=='i'&&ns(b.o[0]).includes(q))||(S.bm!=='o'&&ns(b.i[0]).includes(q))||(S.bm==='all'&&ns(b.npc+b.reg).includes(q))};
+const sHit=x=>{const q=ns(S.bq);return !q||ns(x.it[0]+x.npc+x.reg).includes(q)};
+const bOther=(n,t,l)=>S.bq&&n?` · <button class="linkbtn" data-bt="${t}">${l} ${n}건 보기</button>`:'';
+function barterList(){const L=BX.filter(b=>(S.br==='all'||b.reg===S.br)&&(S.bp==='all'||b.l.p===S.bp)&&bHit(b)),o=bOther(SX.filter(sHit).length,'g','주간 상점에서');
+ if(!L.length)return `<div class="empty">조건에 맞는 교환이 없습니다.${o}</div>`;
+ return `<p class="tiny">${L.length}건${o}</p>`+BREG.map(r=>{const g=L.filter(b=>b.reg===r);return g.length?`<div class="panel"><div class="ph"><h2>${r}</h2><span class="tiny">${g.length}건 · NPC ${new Set(g.map(b=>b.npc)).size}명</span></div>${g.map(brow).join('')}</div>`:''}).join('')}
+function shopList(){const L=SX.filter(x=>(S.br==='all'||x.reg===S.br)&&(S.bcur==='all'||x.p.c===S.bcur)&&sHit(x)),o=bOther(BX.filter(bHit).length,'x','물물교환에서');
+ if(!L.length)return `<div class="empty">조건에 맞는 상품이 없습니다.${o}</div>`;
+ return `<p class="tiny">${L.length}건${o}</p>`+SREG.map(r=>{const g=L.filter(x=>x.reg===r);return g.length?`<div class="panel"><div class="ph"><h2>${r}</h2><span class="tiny">${g.length}건 · NPC ${new Set(g.map(x=>x.npc)).size}명</span></div>${g.map(srow).join('')}</div>`:''}).join('')}
+function pgBarter(){const tabs=(k,a)=>a.map(([v,l])=>`<button class="tabbtn ${S[k]===v?'on':''}" data-${k}="${esc(v)}">${l}</button>`).join(''),g=S.bt==='g';
+ return `<div class="panel"><div class="ph"><div class="tabs" style="padding:0">${tabs('bt',[['x',`물물교환 ${BARTER.length}건`],['g',`NPC 주간 상점 ${SHOP.length}건`]])}</div><label class="wslot">캐릭터 수 <select id="bc" style="width:76px">${Array.from({length:20},(_,i)=>`<option value="${i+1}" ${S.bc===i+1?'selected':''}>${i+1}명</option>`).join('')}</select></label></div>
+ ${g?`<p class="hint">골드·하트 토큰으로 사는 NPC 상점입니다. 매주 월요일 06:00에 다시 채워지고, 구매 제한은 캐릭터마다 따로 셉니다. <span class="srv">서버 공유</span> 품목만 서버 안 모든 캐릭터가 함께 셉니다. 최대 구매량과 비용은 고른 캐릭터 수를 곱한 값입니다.</p>`
+ :`<p class="hint">'하루' 교환은 매일 06:00, '주' 교환은 매주 월요일 06:00에 다시 채워집니다. 횟수는 캐릭터마다 따로 세고, <span class="srv">서버 공유</span> 교환만 서버 안 모든 캐릭터가 함께 셉니다. 아래 획득량은 고른 캐릭터 수를 곱한 최대치입니다.</p>
+ <p class="tiny">가공 시간은 시설 레벨별 수치 자료가 없어 시간 대신 '가공 몇 회분'으로 보여 줍니다.</p>`}</div>
+ ${g?'':bChain()+bProc()}
+ <div class="panel" id="ball"><div class="ph"><h2>${g?'주간 상점 전체':'전체 교환'}</h2><div class="row"><input type="search" id="bq" placeholder="아이템 · NPC · 지역 검색" value="${esc(S.bq)}" style="width:210px"><button class="btn sm" data-act="breset">초기화</button></div></div>
+ <div class="tabs">${g?tabs('bcur',[['all','모든 화폐'],['골드','골드'],['하트 토큰','하트 토큰']]):tabs('bm',[['all','이름 전체'],['o','받는 것으로'],['i','내는 것으로']])}</div>
+ <div class="tabs" style="padding-top:0">${tabs('br',[['all','전체 지역'],...(g?SREG:BREG).map(r=>[r,r])])}</div>
+ ${g?'':`<div class="tabs" style="padding-top:0">${tabs('bp',[['all','모든 주기'],['일','하루'],['주','주간']])}</div>`}
+ <p class="hint">아이템을 누르면 그 이름으로 검색합니다. 검색어는 두 탭이 함께 씁니다. ${g?'<span class="mat">재료<em>⚙</em></span> = 가공 레시피에 쓰이는 재료.':'<span class="mat made">테두리 강조</span> = 가공 레시피로도 만드는 재료.'}</p></div>
+ <div id="blist">${g?shopList():barterList()}</div>
+ <p class="tiny">출처: <a href="${BARTER_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/특별 상점' 상점(물물교환/주간재료)</a> (문서 수정 ${BARTER_SRC[1]}, 수집 ${BARTER_DATE}) · ${g?'주간 구매 표 원문 그대로 · nipponhashi와 겹치는 1건(크리스텔 성수) 일치 · 여관 하트 토큰 상점은 이 표에 없어 빠져 있습니다':`<a href="${BARTER_NH}" target="_blank" rel="noopener">nipponhashi 물물교환 DB</a>와 대조, 횟수·공유 범위가 다른 항목은 더 최신인 나무위키 기준 · 넥슨은 교환표를 공식 공개하지 않습니다`}</p>`}
 
 /* ===== 페이지: 주간 체크리스트 ===== */
 const HR=36e5,DAYMS=864e5,KST=9*HR;let wArm=0;
@@ -888,6 +1043,7 @@ function pgAbout(){return `<div class="panel"><h2>데이터 출처</h2><div clas
  <div><b>숙련 연계 계산식 · 보너스표</b><div class="hint">공식 ${LINK_SRC.map(([n,u,d,w])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a> (${d} 게시, ${w})`).join(' · ')} · 확인일 ${LINK_DATE} · 이후 업데이트 노트에 수치 변경 없음 · ★ 없음~★10 × 1~20강 전부 수록</div></div>
  <div><b>가공 레시피</b><div class="hint"><a href="${PROC_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 재료 가공</a> (문서 수정 ${PROC_SRC[1]}, 수집 ${PROC_DATE}) · 6개 시설 ${PROC.length}개 레시피 전부 수록 · 공식 업데이트 노트 ${PROC_CHK.map(([d,id,w])=>`<a href="https://mabinogimobile.nexon.com/News/Update/${id}" target="_blank" rel="noopener">${d}</a>(${w})`).join(' · ')}와 대조 · '백금 강괴'는 공식 표기 · 가공 시간은 시설 레벨별 단축 수치가 없어 미수록</div></div>
  <div><b>물물교환</b><div class="hint"><a href="${BARTER_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/특별 상점' 상점(물물교환/주간재료)</a> (문서 수정 ${BARTER_SRC[1]}, 수집 ${BARTER_DATE}) · 9개 지역 ${BARTER.length}건 전부 수록, 원문 표와 SHA-256 대조 일치 · <a href="${BARTER_NH}" target="_blank" rel="noopener">nipponhashi 물물교환 DB</a>와 대조해 횟수·공유 범위가 다른 항목은 더 최신인 나무위키 기준 · 넥슨은 교환표를 공식 공개하지 않습니다</div></div>
+ <div><b>NPC 주간 상점</b><div class="hint">같은 문서의 골드·하트 토큰 주간 구매 표 · 7개 지역 ${SHOP.length}건 전부 수록, 원문 표와 SHA-256 대조 일치 · nipponhashi와 겹치는 1건(크리스텔 성수) 일치 · 여관 하트 토큰 상점은 이 표에 없어 미수록</div></div>
  <div><b>채집물 · 필요 레벨 · 획득 아이템</b><div class="hint"><a href="${GATH_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 채집 계열</a> (문서 수정 ${GATH_SRC[1]}, 수집 ${GATH_DATE}) · 생활 스킬 ${GSK.length}종 채집물 ${GATH.filter(r=>r[1]).length}개 전부 수록 · 최대 레벨·신규 채집물 11종은 <a href="https://mabinogimobile.nexon.com/News/Update/3480721" target="_blank" rel="noopener">공식 6/25 노트</a>와 대조 · 옥수수 Lv.1, 동쪽 호수 낚시터 황금 도구 상자(낫)는 게임 내 확인 · 공식 노트의 서쪽 호수 낚시터 황금 도구 상자(호미)는 확인되지 않아 미수록</div></div>
  <div><b>주간 체크리스트</b><div class="hint">공식 에린 가이드 120개·업데이트 노트 45개 전수 검색으로 근거가 확인된 ${WEEKLY.length}개 항목 · 확인일 ${WK_DATE} · 매주 월요일 06:00(한국 시간) 자동 초기화 · 레이드 보스 목록은 <a href="${NX}Info/Guide/2839865" target="_blank" rel="noopener">레이드 가이드</a> 기준(${RAID_DATE}). 레이드가 바뀌면 WEEKLY의 레이드 항목과 RAID_DATE를 갱신 · 후보 출처였던 nipponhashi 트래커의 '생활 스킬 주간 과제'·'필드 보스 막타'는 공식 근거가 없어 제외</div></div>
  <div><b>소울스트림 생산 구간 · 주간 구매 가격</b><div class="hint">공식 <a href="${NX}Info/Guide/3481548" target="_blank" rel="noopener">소울스트림 가이드</a>(2026-07-16 기준, 이후 노트에 수치 변경 없음) · 확인일 ${SOUL_DATE} · 첫 구매 10,000골드·회차마다 +20·소울별 독립 계산은 게임 내 확인 · 구간 안의 정확한 생산량, 별·멤버십 증가량, 별 지도는 공식 자료가 없어 미수록</div></div></div>
@@ -905,7 +1061,7 @@ const ICO={class:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>
 const svg=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k]}</svg>`;
 const NAV=[['class','정보','직업 정보'],['rune','정보','룬 역검색'],['cmp','정보','직업 비교'],['week','도구','주간 체크리스트'],['link','도구','숙련 연계'],['soul','도구','소울스트림'],['gear','도구','장비 비교'],['proc','생활','가공 레시피'],['gath','생활','채집 바로찾기'],['barter','생활','물물교환'],['about','기타','출처 · 갱신']];
 const TABS={class:'직업',week:'숙제',link:'숙련',proc:'가공',gath:'채집'};
-const PAGES={barter:['물물교환',`NPC 물물교환 ${BARTER.length}건을 아이템·NPC·지역으로 찾고, 가공 대신 교환으로 얻는 재료를 캐릭터 수에 맞춰 계산합니다.`,pgBarter],class:['직업 정보','21개 직업의 주·부 스탯·개조·세공·장신구 세팅과 부위별 룬 사용 순위를 한눈에 봅니다.',pgClass],rune:['룬 역검색','룬을 고르면 어떤 직업이 몇 위로 쓰는지 자동으로 정리합니다.',pgRune],cmp:['직업 비교','두 직업의 세팅과 룬 TOP3를 나란히 비교하고 공통 룬을 찾습니다.',pgCmp],week:['주간 체크리스트','매주 월요일 06:00에 자동으로 초기화되는 주간 숙제입니다. 공식 가이드·업데이트 노트로 확인된 항목만 담았습니다.',pgWeek],link:['숙련 연계','공식 보너스표를 성급·강화 단계별로 조회하고, 무기 수치로 숙련 연계 추가 공격력을 자동 계산합니다.',pgLink],soul:['소울스트림','게임 화면의 소울 값 몇 개만 옮겨 적으면 주당 생산량, 다음 구간까지 남은 합계, 이번 주 구매 비용을 계산합니다.',pgSoul],proc:['가공 레시피','6개 가공 시설의 레시피 91개를 검색하고, 재료를 눌러 가공 단계를 따라갑니다.',pgProc],gath:['채집 바로찾기','아이템을 검색하면 어느 채집물에서 몇 레벨부터 얻는지 자동으로 정리합니다.',pgGath],gear:['장비 비교','숫자 몇 개로 성능 개선·보관·분해를 바로 판정합니다.',pgGear],about:['출처 · 갱신','데이터 출처, 기준일, 갱신 방법입니다.',pgAbout]};
+const PAGES={barter:['물물교환',`NPC 물물교환 ${BARTER.length}건과 골드 주간 상점 ${SHOP.length}건을 아이템·NPC·지역으로 찾고, 가공 대신 교환으로 얻는 재료를 캐릭터 수에 맞춰 계산합니다.`,pgBarter],class:['직업 정보','21개 직업의 주·부 스탯·개조·세공·장신구 세팅과 부위별 룬 사용 순위를 한눈에 봅니다.',pgClass],rune:['룬 역검색','룬을 고르면 어떤 직업이 몇 위로 쓰는지 자동으로 정리합니다.',pgRune],cmp:['직업 비교','두 직업의 세팅과 룬 TOP3를 나란히 비교하고 공통 룬을 찾습니다.',pgCmp],week:['주간 체크리스트','매주 월요일 06:00에 자동으로 초기화되는 주간 숙제입니다. 공식 가이드·업데이트 노트로 확인된 항목만 담았습니다.',pgWeek],link:['숙련 연계','공식 보너스표를 성급·강화 단계별로 조회하고, 무기 수치로 숙련 연계 추가 공격력을 자동 계산합니다.',pgLink],soul:['소울스트림','게임 화면의 소울 값 몇 개만 옮겨 적으면 주당 생산량, 다음 구간까지 남은 합계, 이번 주 구매 비용을 계산합니다.',pgSoul],proc:['가공 레시피','6개 가공 시설의 레시피 91개를 검색하고, 재료를 눌러 가공 단계를 따라갑니다.',pgProc],gath:['채집 바로찾기','아이템을 검색하면 어느 채집물에서 몇 레벨부터 얻는지 자동으로 정리합니다.',pgGath],gear:['장비 비교','숫자 몇 개로 성능 개선·보관·분해를 바로 판정합니다.',pgGear],about:['출처 · 갱신','데이터 출처, 기준일, 갱신 방법입니다.',pgAbout]};
 function render(){if(!PAGES[S.page])S.page='class';const P=PAGES[S.page];$('pt').textContent=P[0];$('ps').textContent=P[1];$('page').innerHTML=P[2]();if(S.page==='gear')gearJudge();if(S.page==='link')linkCalc();if(S.page==='soul')soulCalc();
  document.querySelectorAll('.nav[data-nav],.tab[data-nav]').forEach(b=>b.classList.toggle('on',b.dataset.nav===S.page));$('morebtn').classList.toggle('on',!TABS[S.page]);$('eb').textContent='MABINOGI MOBILE · '+NAV.find(n=>n[0]===S.page)[1]}
 function go(p){S.page=p;save();$('sheet').hidden=true;render();window.scrollTo({top:0});if($('page').animate&&!matchMedia('(prefers-reduced-motion: reduce)').matches)$('page').animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:220,easing:'cubic-bezier(.2,.7,.2,1)'})}
@@ -932,11 +1088,13 @@ document.addEventListener('click',e=>{const t=e.target;let el;
  if(el=t.closest('[data-gs]')){S.gs=el.dataset.gs;save();return render()}
  if(el=t.closest('[data-gq]')){S.gq=el.dataset.gq;S.gs='all';save();render();return window.scrollTo({top:0,behavior:'smooth'})}
  if(el=t.closest('[data-goproc]')){S.pq=el.dataset.goproc;S.pf='all';S.pl=0;return go('proc')}
+ if(el=t.closest('[data-bt]')){S.bt=el.dataset.bt;if(!(S.bt==='g'?SREG:BREG).includes(S.br))S.br='all';save();return render()}
+ if(el=t.closest('[data-bcur]')){S.bcur=el.dataset.bcur;save();return render()}
  if(el=t.closest('[data-bm]')){S.bm=el.dataset.bm;save();return render()}
  if(el=t.closest('[data-br]')){S.br=el.dataset.br;save();return render()}
  if(el=t.closest('[data-bp]')){S.bp=el.dataset.bp;save();return render()}
- if(el=t.closest('[data-bq]')){S.bq=el.dataset.bq;S.bm='all';S.br='all';S.bp='all';save();render();return $('ball').scrollIntoView({behavior:'smooth'})}
- if(el=t.closest('[data-act="breset"]')){S.bq='';S.bm='all';S.br='all';S.bp='all';save();return render()}
+ if(el=t.closest('[data-bq]')){S.bq=el.dataset.bq;S.bm='all';S.br='all';S.bp='all';S.bcur='all';save();render();return $('ball').scrollIntoView({behavior:'smooth'})}
+ if(el=t.closest('[data-act="breset"]')){S.bq='';S.bm='all';S.br='all';S.bp='all';S.bcur='all';save();return render()}
  if(el=t.closest('[data-charm]')){const id=el.dataset.charm;S.charm=S.charm.includes(id)?S.charm.filter(x=>x!==id):[...S.charm,id];save();return render()}
  if(el=t.closest('[data-act="charmreset"]')){S.charm=[];save();toast('새 부캐 매력 루틴을 시작합니다.');return render()}
  if(el=t.closest('[data-act="greset"]')){S.gq='';S.gs='all';save();return render()}
@@ -949,7 +1107,7 @@ document.addEventListener('input',e=>{const el=e.target;
  if(el.id==='rq'){S.rq=el.value;save();const pos=el.selectionStart;render();const n=$('rq');n.focus();n.setSelectionRange(pos,pos);return}
  if(el.id==='pq'){S.pq=el.value;save();$('plist').innerHTML=procList();return}
  if(el.id==='gq'){S.gq=el.value;save();$('glist').innerHTML=gatherList();return}
- if(el.id==='bq'){S.bq=el.value;save();$('blist').innerHTML=barterList();return}
+ if(el.id==='bq'){S.bq=el.value;save();$('blist').innerHTML=S.bt==='g'?shopList():barterList();return}
  if(el.closest('#soulq'))return soulCalc();
  if(el.closest('#lq'))return linkCalc();
  if(el.closest('#gq'))return gearJudge()});
