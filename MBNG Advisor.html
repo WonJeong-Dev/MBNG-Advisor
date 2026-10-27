@@ -128,16 +128,18 @@ main{padding:22px 16px calc(98px + env(safe-area-inset-bottom))}.panel{padding:1
 <aside class="side"><div class="logo"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4M17 19h4"/></svg></i><div><b>MBNG Advisor</b><small>Mabinogi Mobile · v3</small></div></div>
 <nav id="nav" class="snav" aria-label="페이지"></nav>
 <div class="sidebottom"><a class="btn sm ext" href="https://mabimobi.life/codex/runes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>룬 도감 열기</a>
-<div class="sidefoot">룬 통계 기준일 <b id="dd"></b><br>출처: mabimobi.life<br>저장: 이 브라우저 (자동)</div></div></aside>
-<header class="mtop"><div class="logo"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4M17 19h4"/></svg></i><div><b>MBNG Advisor</b></div></div><a class="iconbtn" href="https://mabimobi.life/codex/runes" target="_blank" rel="noopener" aria-label="룬 도감 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></header>
+<div class="sidefoot">게임 기준 <b id="pv"></b><br>룬 통계 기준일 <b id="dd"></b><br>출처: mabimobi.life<br>저장: 이 브라우저 (자동)</div></div></aside>
+<header class="mtop"><div class="logo"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4M17 19h4"/></svg></i><div><b>MBNG Advisor</b><small id="pvm"></small></div></div><a class="iconbtn" href="https://mabimobi.life/codex/runes" target="_blank" rel="noopener" aria-label="룬 도감 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></header>
 <main><div id="stale"></div><div class="eyebrow" id="eb">MABINOGI MOBILE</div><h1 class="h1" id="pt"></h1><p class="desc" id="ps"></p><div id="page"></div>
-<div class="footer">MBNG Advisor 3.0 · 비공식 개인용 도구 · 데이터가 21개 직업 전부 갖춰진 기능만 수록 · 룬 순위는 유저 사용 통계이며 패치에 따라 바뀝니다</div></main>
+<div class="footer">MBNG Advisor 3.0 · <span id="pvf"></span> · 비공식 개인용 도구 · 데이터가 21개 직업 전부 갖춰진 기능만 수록 · 룬 순위는 유저 사용 통계이며 패치에 따라 바뀝니다</div></main>
 </div>
 <nav class="tabbar" id="tabbar" aria-label="주요 페이지"></nav>
 <div class="sheet" id="sheet" hidden><div class="sheet-bg" data-act="more"></div><div class="sheet-card" id="sheetnav"></div></div>
 <div id="toast" class="toast" hidden role="status"></div>
 <script>
 'use strict';
+/* 마지막으로 대조한 공식 업데이트 노트 [이름, 글 번호, 확인일] — 새 노트를 대조하면 교체 */
+const PATCH=['10/22(목)','3567319','2026-10-27'];
 const KEY='mbng_advisor_v3',OLD_KEY='erin_hub_v3',RUNE_URL='https://mabimobi.life/codex/runes',DATA_DATE='2026-10-27',STALE_DAYS=30;
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -696,6 +698,7 @@ function gearJudge(){if(!$('gres'))return;const v=id=>Math.max(0,Number($(id).va
 
 /* ===== 페이지: 출처 · 갱신 ===== */
 function pgAbout(){return `<div class="panel"><h2>데이터 출처</h2><div class="stack mt10">
+ <div><b>게임 버전 기준</b><div class="hint">공식 <a href="https://mabinogimobile.nexon.com/News/Update/${PATCH[1]}" target="_blank" rel="noopener">${PATCH[0]} 업데이트 노트</a>까지 대조 · 확인일 ${PATCH[2]} · 이후 패치 내용은 반영되지 않았을 수 있습니다</div></div>
  <div><b>룬 사용 순위</b><div class="hint">mabimobi.life 룬 도감의 직업별 통계 (무기·엠블럼·방어구 상위 10, 장신구 상위 9) · 기준일 ${DATA_DATE} · 21개 직업 전부 수록</div></div>
  <div><b>스킬 개조 · 세공 · 장신구 세팅</b><div class="hint">사용자 제공 직업별 개조/세공/악세 표 · 21개 직업 전부 수록</div></div>
  <div><b>주·부 스탯</b><div class="hint">${STAT_SRC}의 'main'·'sub' 항목 · 확인일 ${STAT_DATE} (문서 수정 2026-08-20~10-25) · 21개 직업 전부 수록 (기본 직업 6종은 부 스탯 없음)</div></div>
@@ -771,6 +774,8 @@ $('nav').innerHTML=NAV.map((n,i)=>(!i||NAV[i-1][1]!==n[1]?`<div class="nlabel">$
 $('tabbar').innerHTML=Object.entries(TABS).map(([id,lb])=>`<button class="tab" data-nav="${id}">${svg(id)}<span>${lb}</span></button>`).join('')+`<button class="tab" id="morebtn" data-act="more" aria-label="더보기">${svg('more')}<span>더보기</span></button>`;
 $('sheetnav').innerHTML=NAV.filter(n=>!TABS[n[0]]).map(navBtn).join('')+`<a class="nav" href="${RUNE_URL}" target="_blank" rel="noopener">${svg('ext')}<span>룬 도감 열기 (mabimobi.life)</span></a>`;
 $('dd').textContent=DATA_DATE;
+const patchA=`<a href="https://mabinogimobile.nexon.com/News/Update/${PATCH[1]}" target="_blank" rel="noopener">${PATCH[0]} 업데이트</a>`;
+$('pv').innerHTML=patchA;$('pvm').textContent=`${PATCH[0]} 업데이트 기준`;$('pvf').innerHTML=`${patchA} 기준 (확인 ${PATCH[2]})`;
 checkWeek();
 setInterval(()=>{if(checkWeek()&&S.page==='week')render();else if($('wcd'))$('wcd').textContent=wcd()},6e4);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&checkWeek()&&S.page==='week')render()});
