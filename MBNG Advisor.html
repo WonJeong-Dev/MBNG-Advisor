@@ -103,6 +103,10 @@ tr.cur,tr.cur:hover{background:var(--accent-w);box-shadow:inset 3px 0 0 var(--ac
 .tcls{display:grid;gap:5px}.tpk{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--txt)}.tpk .lvb{min-width:0}
 .trow{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:start;padding:11px 0;border-bottom:1px solid var(--line)}.trow:last-child{border-bottom:0}
 .tcn{background:none;border:0;padding:2px 0 0;text-align:left;font-weight:700;color:var(--fc);font-size:13.5px}.tl{display:grid;gap:4px;min-width:0}
+.ptag{display:inline-block;font-size:10.5px;font-weight:600;padding:0 6px;border-radius:6px;background:var(--bg3);border:1px solid var(--line);color:var(--muted);margin-left:5px;vertical-align:1px;white-space:nowrap}
+.pcr{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}.pcr:last-child{border-bottom:0}
+.panel:has(>.pcr){container-type:inline-size}@container (max-width:520px){.pcr{grid-template-columns:minmax(0,1fr);gap:2px}}
+.pgr{display:grid;grid-template-columns:64px 64px minmax(0,1fr);gap:10px;align-items:baseline}.pgr b{font-weight:600}
 .lvb{min-width:46px;font-size:11px;font-weight:600;padding:3px 7px;border-radius:7px;background:var(--bg3);border:1px solid var(--line);color:var(--muted);text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}
 .pres{background:none;border:0;padding:0;color:var(--txt);font-weight:600;text-align:left}.pres:hover{color:var(--accent)}.pres em,.mat em{font-style:normal;color:var(--subtle);font-weight:500;margin-left:4px}
 .mat{border:1px solid var(--line2);background:var(--bg2);color:var(--txt);border-radius:8px;padding:3px 9px;font-size:12px;display:inline-block;transition:border-color .15s,background-color .15s}.mat:hover{border-color:var(--line3);background:var(--bg3)}
@@ -771,6 +775,117 @@ const FBT_LINKS=[['x','에반 마이너 갤러리 「석궁사수 랭커의 시�
 ['w','디시 「검방 짧은 가이드」','https://gall.dcinside.com/mgallery/board/view/?id=mabinogimobile&no=1647335','날짜 표기 없음'],
 ['w','나무위키 전사 문서 패시브(투지·기회 포착)','https://namu.wiki/w/%EC%A0%84%EC%82%AC(%EB%A7%88%EB%B9%84%EB%85%B8%EA%B8%B0%20%EB%AA%A8%EB%B0%94%EC%9D%BC)','2026-09-21 수정 · 시즌2']];
 
+/* ===== 데이터: 펫 추천 (2026-10-29 확인) =====
+   종별 고유 동행 능력치: 나무위키 '마비노기 모바일/아이템' 9.1 펫 (문서 수정 2026-09-17 16:43, 수집 2026-10-29) 75종 전부, 원문 표 SHA-256 22ab81f6… 대조 일치
+   표기 정리 2건: 도토리 햄스터 '뻐른 스킬'→'빠른 스킬'(nipponhashi도 오타로 판단), 여름산책 포메라니안 '강타강화'→'강타 강화'. 콜라보 표기 [ ]는 셋째 칸으로 분리
+   nipponhashi 펫 도감(pets.ko.json)과 겹치는 66종은 조합 모두 일치, 9종(돼지·게코 도마뱀·삵)은 나무위키에만 있음
+   등급(최대 레벨·스킬 수)·승급: 나무위키 같은 문단 · 승급 후 종·고유 능력 유지: nipponhashi 펫·탈것 페이지
+   [이름, 고유 동행 능력치 2개(원문 순서), 콜라보('' = 없음)] */
+const PET_DATE='2026-10-29';
+const PET=[['두색털 고양이','공격력,치명타',''],
+['갈색 레서판다','공격력,브레이크',''],
+['진회색 햄스터','궁극기,급소 회피',''],
+['갈색 시추','스킬 위력,브레이크',''],
+['회갈색 아기 올빼미','브레이크,강타 강화',''],
+['진회색 아기 늑대','브레이크,공격력',''],
+['회색 라쿤','방어력,피해 감소',''],
+['갈색 토끼','연타 강화,공격력',''],
+['은회색 포메라니안','회복력,추가 체력',''],
+['연갈색 아기 여우','연타 강화,강타 강화',''],
+['회색 아기 곰','콤보 강화,치명타',''],
+['골든 리트리버','공격력,치명타',''],
+['얼룩 고양이','공격력,치명타',''],
+['노랑 고양이','연타 강화,강타 강화',''],
+['회갈색 노르웨이 숲 고양이','브레이크,공격력',''],
+['얼룩 아기 돼지','강타 강화,빠른 공격',''],
+['얼룩 게코 도마뱀','공격력,콤보 강화',''],
+['삼색털 고양이','공격력,광역 강화',''],
+['연갈색 레서판다','치명타,공격력',''],
+['흰 햄스터','연타 강화,브레이크',''],
+['흰 시추','강타 강화,공격력',''],
+['회색 아기 올빼미','브레이크,궁극기',''],
+['청회색 아기 늑대','연타 강화,공격력',''],
+['진갈색 라쿤','방어력,피해 감소',''],
+['회색 토끼','강타 강화,공격력',''],
+['까만 포메라니안','피해 감소,급소 회피',''],
+['갈색 아기 여우','연타 강화,강타 강화',''],
+['갈색 아기 곰','치명타,연타 강화',''],
+['까만 리트리버','브레이크,강타 강화',''],
+['리본 노르웨이 숲 고양이','추가타,빠른 스킬',''],
+['살구색 아기 돼지','치명타,브레이크',''],
+['리본 게코 도마뱀','연타 강화,궁극기',''],
+['갈색 고양이','치명타,연타 강화',''],
+['크림색 레서판다','스킬 위력,궁극기',''],
+['갈색 햄스터','공격력,피해 감소',''],
+['회색 시추','연타 강화,스킬 위력',''],
+['갈색 아기 올빼미','빠른 공격,빠른 스킬',''],
+['흰 아기 늑대','방어력,추가 체력',''],
+['연갈색 라쿤','피해 감소,급소 회피',''],
+['얼룩 토끼','공격력,스킬 위력',''],
+['블랙탄 포메라니안','강타 강화,공격력',''],
+['흰 아기 여우','브레이크,궁극기',''],
+['까만 아기 곰','회복력,추가 체력',''],
+['진갈색 리트리버','공격력,광역 강화',''],
+['케이프 노르웨이 숲 고양이','연타 강화,공격력',''],
+['갈색 아기 돼지','연타 강화,빠른 스킬',''],
+['줄무늬 게코 도마뱀','스킬 위력,브레이크',''],
+['턱시도 고양이','브레이크,공격력',''],
+['붉은 레서판다','연타 강화,추가타',''],
+['골든 햄스터','스킬 위력,빠른 스킬',''],
+['연갈색 시추','치명타,추가타',''],
+['흰 아기 올빼미','추가타,공격력',''],
+['까만 아기 늑대','공격력,스킬 위력',''],
+['연회색 라쿤','치명타,연타 강화',''],
+['흰 토끼','추가타,공격력',''],
+['갈색 포메라니안','공격력,광역 강화',''],
+['까만 아기 여우','빠른 공격,빠른 스킬',''],
+['흰 아기 곰','콤보 강화,치명타',''],
+['흰 리트리버','추가타,공격력',''],
+['프릴 노르웨이 숲 고양이','치명타,강타 강화',''],
+['로얄 아기 돼지','공격력,스킬 위력',''],
+['리틀 드래곤 게코 도마뱀','강타 강화,스킬 위력',''],
+['여름산책 포메라니안','강타 강화,공격력',''],
+['피크닉 아기 곰','회복력,추가 체력',''],
+['달맞이 토끼','공격력,스킬 위력',''],
+['까만 아기 올빼미','빠른 공격,빠른 스킬',''],
+['스노우맨 라쿤','피해 감소,급소 회피',''],
+['윈터 램프 아기 여우','브레이크,궁극기',''],
+['설빔 고양이','치명타,연타 강화',''],
+['피크닉 아기 토끼','공격력,스킬 위력',''],
+['얼룩 삵','연타 강화,공격력',''],
+['폼폼푸린 러버 시추','치명타,추가타','산리오캐릭터즈'],
+['해피 머시룸 라쿤','치명타,연타 강화','메이플스토리'],
+['아이스 페페와 아기곰','콤보 강화,치명타','메이플스토리'],
+['도토리 햄스터','스킬 위력,빠른 스킬','바람의나라']];
+const PET_GRADE=[['고급',33,'없음'],['레어',38,'일반 1'],['엘리트',43,'일반 2'],['에픽',48,'고유 1 + 일반 2'],['전설',53,'고유 1 + 일반 3']];
+/* 직업별 추천: 칭호와 같은 직업 자료(나무위키 '각인 재설정' 19개 직업 · 석궁사수 시즌2 공략 · 전사 시즌2 이전 자료)의 추천 보조 능력치와 펫의 동행 능력치 2개가 몇 개 맞는지로 고름.
+   같으면 1순위 능력치를 앞에 둠. 빠른 스킬·스킬 위력처럼 시즌 스킬 때문에 5000까지만 챙기는 능력치가 붙은 펫은 '5000 전' 대안으로 둠. 펫 직접 언급(마법사·격투가)은 그대로 따름
+   공격력이 붙은 조합은 넣지 않음(레벨 상한 85 이후 효율 하락이 KR 중론, nipponhashi 펫 도감)
+   [직업, 추천 조합, 대안 조합('' = 없음), 대안 조건, 근거, 출처 키] · 출처 n: 나무위키 각 직업 문서 · m: nipponhashi 마법사 메타(시즌2) + 나무위키 · x·w: 칭호와 같음 */
+const PET_CLS=[['전사','치명타+강타 강화','치명타+추가타','추가타를 더 챙길 때','치명타 다음 강타·추가타(시즌2 이전 자료 4건 일치) · 시즌2 패시브: 강타·추가타 적중 시 투지 추가','w'],
+['검술사','치명타+연타 강화','치명타+강타 강화','강타 위주 세팅일 때','치명타 1순위(펫까지 치명타 세팅이어야 딜이 나옴) · 시즌2는 시즌 스킬 검은 칼날 때문에 연타가 강타보다 우선','n'],
+['대검전사','치명타+강타 강화','치명타+추가타','냉혹함 엠블럼일 때','치명타 최우선 · 강타 5000(시즌 스킬) 필수 · 연타는 투자 이유 없음 · 추가타는 냉혹함 엠블럼이면 효율 급증','n'],
+['기사','치명타+추가타','추가타+빠른 스킬','빠른 스킬 5000 전','치명타 최우선 · 치확 상한(8000~10000) 뒤 남은 스탯은 추가타 · 빠른 스킬 5000(시즌 스킬) 권장','n'],
+['힐러','치명타+추가타','연타 강화+스킬 위력','스킬 위력 5000 전','치명타 최우선 · 추가타 발동 시 피해 증가(소생 패시브) · 스킬 위력 5000(시즌 스킬) · 연타는 가성비 스탯','n'],
+['사제','치명타+강타 강화','치명타+추가타','강타 5000을 채운 뒤','강타 5000(시즌 스킬) 최우선 · 치명타 · 추가타로도 타오르는 빛이 발동해 5000 이상 유리','n'],
+['수도사','치명타+추가타','추가타+빠른 스킬','빠른 스킬 5000 전','빠른 스킬 5000(시즌 스킬) 1순위 · 치명타 8000 · 시즌2 중반 공식 패치로 추가타 다다익선','n'],
+['암흑술사','치명타+연타 강화','연타 강화+추가타','치명타 8000~10000을 채운 뒤','연타 5000(시즌 스킬) 최우선 · 치명타 8000~10000 · 남은 스탯은 추가타','n'],
+['마법사','스킬 위력+빠른 스킬','치명타+연타 강화','빠른 스킬 5000을 장비로 채웠을 때','시즌2부터 스킬 위력·빠른 스킬이 치명타·추가타·연타·강타보다 우선, 치명타 펫보다 스킬 위력 햄스터 펫 · 빠른 스킬 5000(시즌 스킬)','m'],
+['화염술사','치명타+강타 강화','강타 강화+스킬 위력','스킬 위력 5000 전','치명타 1순위(치명타마다 열기 추가 수급) · 스킬 위력 5000(시즌 스킬) 2순위 · 그다음 강타','n'],
+['빙결술사','치명타+추가타','스킬 위력+브레이크','스킬 위력 5000 전','스킬 위력 5000(시즌 스킬) 1순위 · 치명타 8000 · 추가타는 동결이 빨라져 다른 직업보다 효율이 좋음 · 브레이크는 어비스 랭킹전용','n'],
+['전격술사','치명타+강타 강화','치명타+추가타','추가타 1000~2000을 맞출 때','치명타 최우선(3000~4000) · 패시브상 강타 비율이 높아야 유리 · 추가타 발동 딜 증폭 패시브','n'],
+['궁수','치명타+추가타','치명타+브레이크','브레이크 5000을 채울 때','추가타 최소 5400(몰매닻 고점 7500+) · 브레이크 5000+ · 치명타 3순위','n'],
+['석궁사수','치명타+연타 강화','치명타+추가타','추가타 2500 미달 시','치명타 8500+ · 추가타 2500+ · 남은 스탯은 연타(시즌2 공략 2건)','x'],
+['장궁병','치명타+강타 강화','강타 강화+스킬 위력','치명타가 충분할 때','강타 5000(시즌 스킬) 1순위 · 남은 스탯은 치명타 · 스킬 위력은 있어서 나쁠 것 없음','n'],
+['악사','치명타+연타 강화','연타 강화+스킬 위력','스킬 위력 5000 전','치명타 최우선 · 연타 패시브가 있어 강타보다 연타 우선 · 스킬 위력 5000(시즌 스킬)','n'],
+['음유시인','치명타+연타 강화','연타 강화+추가타','치명타를 8000에서 멈출 때','연타 5000(시즌 스킬) 최우선 · 치명타 · 자체 치확 보정이 커서 치명타 8000 뒤 추가타','n'],
+['댄서','치명타+연타 강화','연타 강화+강타 강화','강타가 99% 터지는 세팅일 때','연타 발동 99% 이상 · 치명타 최우선(현란함·아득한 빛) · 강타 발동률은 세팅 완성도에 따라 다름','n'],
+['도적','치명타+연타 강화','연타 강화+추가타','치명타 8000~10000을 채운 뒤','연타 5000(시즌 스킬) 최우선 · 치명타 · 치확 상한 뒤 남은 스탯은 추가타','n'],
+['듀얼블레이드','치명타+연타 강화','','','연타 5000(시즌 스킬) 최우선 · 치명타','n'],
+['격투가','치명타+강타 강화','치명타+추가타','추가타를 더 챙길 때','펫 직접 언급: 놀숲(치강)·시추(치추) · 브레이크가 필요하면 놀숲→올빼미(브강), 시추→돼지(치브)로 교체 · 강타 5000(시즌 스킬)','n']];
+const PET_REF={n:['나무위키 각 직업 문서','2026-10-27 수집 · 시즌2'],m:['nipponhashi 마법사 메타(시즌2)','https://mabinogimobile.nipponhashi.com/ko/meta/mage/'],x:FBT_REF.x,w:FBT_REF.w};
+const PET_SRC=['https://namu.wiki/w/%EB%A7%88%EB%B9%84%EB%85%B8%EA%B8%B0%20%EB%AA%A8%EB%B0%94%EC%9D%BC/%EC%95%84%EC%9D%B4%ED%85%9C','2026-09-17'];
+
 /* ===== 데이터: 주간 체크리스트 (공식 에린 가이드·업데이트 노트, 2026-10-27 확인 · 매주 월요일 06:00 KST 초기화) =====
    [id, 그룹, 이름, [[세부 이름, 주간 최대]], 설명, [[출처 경로, 출처 이름]]] · 적용 범위(캐릭터/계정/서버)는 사용자 요청으로 표시하지 않음
    아르바이트: 요일 아르바이트는 클리어 시 매일 06시에 새로 생겨 주간 상한이 없으므로 제외(가이드 2751073, 2025-12-18 기준)
@@ -805,12 +920,12 @@ const SOUL_PRICE=[[1,600,10000,20],[601,1200,22000,50],[1201,1800,52000,100],[18
 const CHARM=[['face','얼굴 장식 선택','외모 바꾸기에서 얼굴 장식 선택. 안경은 던바튼 NPC 시몬의 의상점에서 캐릭터당 1회 구매 가능'],['fashion','패션 장비 착용','가진 것 중 희귀도가 가장 높은 것으로. [매력] 화면이 더 높은 희귀도로 교체를 추천'],['pet','동행 펫 지정',''],['ride','탈것 장착',''],['title','매력을 올려 주는 타이틀 장착',''],['check','성장 가이드 → [매력] 화면 확인','타이틀·스텔라그램·펫·탈것·패션 항목별 매력 현황에서 빠진 곳 찾기']];
 
 /* ===== 상태 ===== */
-let S={page:'class',sel:'석궁사수',fam:'all',q:'',view:'card',fav:[],all:false,rp:'w',rq:'',rsel:'',ca:'석궁사수',cb:'궁수',ls:8,lall:false,lh:0,lk:{},pq:'',pf:'all',pl:0,gq:'',gs:'all',wk:{},wedit:false,soul:{},charm:[],bq:'',bm:'all',br:'all',bp:'all',bc:1,bt:'x',bcur:'all',tf:'all'};
+let S={page:'class',sel:'석궁사수',fam:'all',q:'',view:'card',fav:[],all:false,rp:'w',rq:'',rsel:'',ca:'석궁사수',cb:'궁수',ls:8,lall:false,lh:0,lk:{},pq:'',pf:'all',pl:0,gq:'',gs:'all',wk:{},wedit:false,soul:{},charm:[],bq:'',bm:'all',br:'all',bp:'all',bc:1,bt:'x',bcur:'all',tf:'all',ptf:'all'};
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(OLD_KEY)||'{}'))}catch(e){}
 if(!Array.isArray(S.fav))S.fav=[];if(!RUNES[S.sel])S.sel='석궁사수';
 S.lk=Object.assign({b1:0,r1:0,b2:0,r2:0,st:8,lv:15},S.lk&&typeof S.lk==='object'?S.lk:{});if(!LK[S.lk.st])S.lk.st=8;if(!LK[0][S.lk.lv-1])S.lk.lv=15;if(!LK[S.ls])S.ls=8;
 if(S.pf!=='all'&&!PFAC.includes(S.pf))S.pf='all';if(!(S.pl>=0&&S.pl<=6))S.pl=0;if(typeof S.pq!=='string')S.pq='';
-if(S.gs!=='all'&&!GSK.some(g=>g[0]===S.gs))S.gs='all';if(S.tf!=='all'&&!CF[S.tf])S.tf='all';if(typeof S.gq!=='string')S.gq='';
+if(S.gs!=='all'&&!GSK.some(g=>g[0]===S.gs))S.gs='all';if(S.tf!=='all'&&!CF[S.tf])S.tf='all';if(S.ptf!=='all'&&!CF[S.ptf])S.ptf='all';if(typeof S.gq!=='string')S.gq='';
 if(typeof S.bq!=='string')S.bq='';if(!['all','o','i'].includes(S.bm))S.bm='all';if(S.br!=='all'&&!BARTER.concat(SHOP).some(r=>r[0]===S.br))S.br='all';if(!['x','g'].includes(S.bt))S.bt='x';if(!['all','골드','하트 토큰'].includes(S.bcur))S.bcur='all';if(!['all','일','주'].includes(S.bp))S.bp='all';if(!(Number.isInteger(S.bc)&&S.bc>=1&&S.bc<=20))S.bc=1;
 S.wk=Object.assign({key:'',c:{},hide:[]},S.wk&&typeof S.wk==='object'?S.wk:{});if(!S.wk.c||typeof S.wk.c!=='object')S.wk.c={};if(!Array.isArray(S.wk.hide))S.wk.hide=[];if(S.wk.v!==2){delete S.wk.c['job.0'];delete S.wk.c['job.1'];S.wk.v=2}if(![1,2,3,4,5].includes(S.wpet))S.wpet=5;
 {const o=S.soul&&typeof S.soul==='object'?S.soul:{},a=x=>[0,1,2].map(i=>Array.isArray(x)&&typeof x[i]==='string'?x[i]:'');S.soul={r:a(o.r),s:a(o.s),p:a(o.p),alt:typeof o.alt==='string'?o.alt:''}}if(!Array.isArray(S.charm))S.charm=[];
@@ -850,6 +965,7 @@ function classDetail(n){const c=findC(n),fav=S.fav.includes(n),lim=S.all?10:5;
  <div class="ch">주·부 스탯 (${STAT_SRC} · ${STAT_DATE})</div><div class="row"><span class="tiny">주</span>${stChip(STAT[n])}<span class="tiny">부</span>${stChip(SUB[n],1)}</div>
  <div class="stack mt10"><div class="row" style="flex-wrap:nowrap;align-items:start"><span class="tiny" style="flex:none;width:76px;padding-top:4px">같은 조합</span>${clsChips(sameCombo(n))}</div><div class="row" style="flex-wrap:nowrap;align-items:start"><span class="tiny" style="flex:none;width:76px;padding-top:4px">같은 주 스탯</span>${clsChips(sameMain(n))}</div></div>
  ${(()=>{const r=FBT_CLS.find(x=>x[0]===n);return r?`<div class="ch">추천 막타 칭호 · 보조 능력치(치명타·강타 강화 등) 기준 <button class="linkbtn" data-nav="fbt">필드 보스 칭호 보기 →</button></div><div class="stack"><div>${fbtName(r[1])}</div><div class="tiny">${r[2]?`대안 ${fbtName(r[2])} ${esc(r[3])}`:'대안 없음'}</div></div>`:''})()}
+ ${(()=>{const r=PET_CLS.find(x=>x[0]===n);return r?`<div class="ch">추천 펫 · 고유 동행 능력치 기준 <button class="linkbtn" data-nav="pet">펫 추천 보기 →</button></div><div class="stack"><div>${petCombo(r[1])}</div><div class="tiny">${petNames(r[1])}</div><div class="tiny">${r[2]?`대안 ${petCombo(r[2])} ${esc(r[3])}`:'대안 없음'}</div></div>`:''})()}
  <div class="ch">스킬 개조 (강조 = 개조할 스킬 번호)</div><div class="grid2"><div><div class="tiny">세팅 #1</div>${modRow(c[2])}</div>${c[3]?`<div><div class="tiny">세팅 #2</div>${modRow(c[3])}</div>`:''}</div>
  <div class="ch">세공 우선순위 (⟳ = 쿨타임 세공)</div><div class="crafts">${c[4].split(',').map((t,i)=>`<div><small>${i+1}순위</small>${craft(t)}</div>`).join('')}</div>
  <div class="ch">장신구 룬 세팅</div><div class="stack"><div><div class="tiny">세팅 #1</div>${accSet(c[5])}</div>${c[6]?`<div><div class="tiny">세팅 #2</div>${accSet(c[6])}</div>`:''}</div>
@@ -996,6 +1112,54 @@ function pgBarter(){const tabs=(k,a)=>a.map(([v,l])=>`<button class="tabbtn ${S[
  <div id="blist">${g?shopList():barterList()}</div>
  <p class="tiny">출처: <a href="${BARTER_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/특별 상점' 상점(물물교환/주간재료)</a> (문서 수정 ${BARTER_SRC[1]}, 수집 ${BARTER_DATE}) · ${g?'주간 구매 표 원문 그대로 · nipponhashi와 겹치는 1건(크리스텔 성수) 일치 · 여관 하트 토큰 상점은 이 표에 없어 빠져 있습니다':`<a href="${BARTER_NH}" target="_blank" rel="noopener">nipponhashi 물물교환 DB</a>와 대조, 횟수·공유 범위가 다른 항목은 더 최신인 나무위키 기준 · 넥슨은 교환표를 공식 공개하지 않습니다`}</p>`}
 
+/* ===== 페이지: 펫 추천 ===== */
+const PST=['치명타','연타 강화','강타 강화','추가타','스킬 위력','빠른 스킬','브레이크','궁극기','빠른 공격','콤보 강화','광역 강화','공격력','방어력','피해 감소','급소 회피','회복력','추가 체력'];
+const petKey=c=>c.split(/[,+]/).sort((a,b)=>PST.indexOf(a)-PST.indexOf(b)).join('+');
+const PETG=PET.reduce((g,p)=>{(g[petKey(p[1])]=g[petKey(p[1])]||[]).push(p);return g},{});
+const petNm=p=>esc(p[0])+(p[2]?`<span class="ptag">${esc(p[2])}</span>`:'');
+const petCombo=k=>`<span class="tpk">${k.split('+').map(esc).join(' + ')}</span>`;
+const petNames=k=>PETG[k].map(petNm).join(' · ');
+function petCard(k){const pk=PET_CLS.filter(r=>r[1]===k).map(r=>r[0]),al=PET_CLS.filter(r=>r[2]===k).map(r=>r[0]);
+ return `<div class="tcard"><div class="tt"><b>${k.split('+').map(esc).join(' + ')}</b></div>
+ <div class="tiny">${PETG[k].length}종</div>
+ <div class="fxs">${PETG[k].map(p=>`<span class="fx">${petNm(p)}</span>`).join('')}</div>
+ <div class="tcls"><span class="tiny">추천 직업 ${pk.length}</span><div class="chips">${pk.length?pk.map(fcChip).join(''):'<span class="tiny">없음</span>'}</div></div>
+ <div class="tcls"><span class="tiny">대안으로 쓰는 직업 ${al.length}</span><div class="chips">${al.length?al.map(fcChip).join(''):'<span class="tiny">없음</span>'}</div></div></div>`}
+const petSrc=r=>r[5]==='n'?`<a href="${nwUrl(r[0])}" target="_blank" rel="noopener">${PET_REF.n[0]}</a>`:r[5]==='m'?`<a href="${PET_REF.m[1]}" target="_blank" rel="noopener">${PET_REF.m[0]}</a> · <a href="${nwUrl(r[0])}" target="_blank" rel="noopener">나무위키</a>`:`<a href="#petsrc">${PET_REF[r[5]][0]}</a>`;
+function petRow(r){const c=findC(r[0]);
+ return `<div class="trow"><button class="tcn" data-cls="${esc(r[0])}" data-go="1" style="--fc:${CF[c[1]][1]}">${esc(r[0])}</button><div class="tl">
+ <div>${petCombo(r[1])}</div>
+ <div class="tiny">${petNames(r[1])}</div>
+ <div class="tiny">${r[2]?`대안 ${petCombo(r[2])} ${esc(r[3])}`:'대안 없음'}</div>
+ <div class="tiny">${esc(r[4])} · 출처: ${petSrc(r)}</div></div></div>`}
+function pgPet(){const fam=[['all','전체'],...Object.entries(CF).map(([k,v])=>[k,v[0]])],L=PET_CLS.filter(r=>S.ptf==='all'||findC(r[0])[1]===S.ptf);
+ const used=[...new Set(PET_CLS.flatMap(r=>[r[1],r[2]]).filter(Boolean))].sort((a,b)=>PET_CLS.filter(r=>r[1]===b).length-PET_CLS.filter(r=>r[1]===a).length||PET_CLS.filter(r=>r[2]===b).length-PET_CLS.filter(r=>r[2]===a).length);
+ const all=Object.keys(PETG).sort((a,b)=>{const x=a.split('+').map(t=>PST.indexOf(t)),y=b.split('+').map(t=>PST.indexOf(t));return x[0]-y[0]||x[1]-y[1]});
+ return `<div class="panel"><div class="ph"><h2>펫 동행 능력치 ${PET.length}종</h2><span class="tiny">확인 ${PET_DATE}</span></div>
+ <p class="hint">펫을 동행으로 두면 힘·솜씨·지력·의지·행운과 함께, 종마다 정해진 고유 동행 능력치 2개를 증폭해 줍니다. 최대 레벨이 높은 등급일수록 보너스가 커집니다. 같은 등급 3마리로 승급해도 종과 고유 동행 능력치는 그대로라서, 낮은 등급이라도 원하는 종을 모아 승급하는 것이 정석입니다. 승급은 실패할 수 있고, 재료로 쓴 펫은 결과와 관계없이 사라집니다.</p>
+ <div class="stack"><div class="pgr tiny"><span>등급</span><span>최대 레벨</span><span>스킬 슬롯</span></div>${PET_GRADE.map(([g,lv,sk])=>`<div class="pgr"><span class="hint">${g}</span><b>Lv.${lv}</b><span class="hint">${sk}</span></div>`).join('')}</div>
+ <p class="tiny mt10">전설은 에픽 3마리를 승급해서만 얻습니다(유료 상품은 태생 에픽까지). 증폭 수치는 게임 안에만 표시되어 넣지 않았습니다.</p></div>
+ <div class="tgrid">${used.map(petCard).join('')}</div>
+ <div class="panel"><div class="ph"><h2>직업별 추천 펫</h2><span class="tiny">${PET_CLS.length}개 직업</span></div>
+ <div class="tabs">${fam.map(([k,l])=>`<button class="tabbtn ${S.ptf===k?'on':''}" data-ptf="${k}">${l}</button>`).join('')}</div>
+ <p class="hint">각 직업 자료가 추천하는 보조 능력치(치명타·강타 강화 등)와 펫의 고유 동행 능력치 2개가 몇 개 맞는지로 골랐습니다. 같으면 1순위 능력치를 앞에 뒀고, 펫을 직접 언급한 자료(마법사·격투가)는 그대로 따랐습니다. 빠른 스킬·스킬 위력처럼 시즌 스킬 때문에 5000까지만 챙기는 능력치가 붙은 펫은 '5000 전' 대안으로 뒀습니다.</p>
+ ${L.map(petRow).join('')}</div>
+ <div class="panel"><h2>펫을 고를 때</h2><div class="stack mt10">
+ <div class="hint"><b>종결 조합</b> 치명타 + 연타 강화. KR 커뮤니티가 꼽는 최상위 조합입니다(nipponhashi 펫 도감).</div>
+ <div class="hint"><b>공격력이 붙은 펫</b> 캐릭터 레벨 상한이 85로 오른 뒤 공격력 계열 동행 능력치는 효율이 크게 떨어졌다는 것이 KR 중론이라(nipponhashi 펫 도감), 직업별 추천에서 뺐습니다.</div>
+ <div class="hint"><b>룬 조건</b> 횃불(화상 대상 치명타)·쇄빙(빙결 대상 추가타)·영혼 수확자(정신 도트 대상) 룬은 그 상태를 거는 펫이나 파티원이 있어야 켜집니다(nipponhashi 직업 메타). 어떤 종·스킬이 어떤 상태를 거는지는 모든 종에 대한 자료가 없어 넣지 않았습니다.</div>
+ <div class="hint"><b>넣지 않은 것</b> 종별 고유 스킬(에픽부터 사용), 펫 스킬 속성, 증폭 수치 — 모든 종에 대한 공개 자료가 없습니다.</div></div></div>
+ <div class="panel"><div class="ph"><h2>전체 ${PET.length}종 · 조합 ${all.length}개</h2><span class="tiny">나무위키 펫 목록 순서와 관계없이 조합별로 묶음</span></div>
+ ${all.map(k=>`<div class="pcr"><span class="hint">${k.split('+').map(esc).join(' + ')}</span><span>${petNames(k)}</span></div>`).join('')}</div>
+ <div class="panel" id="petsrc"><h2>출처</h2><div class="stack mt10">
+ <div class="hint">종별 고유 동행 능력치·등급·승급: <a href="${PET_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/아이템' 펫</a>(문서 수정 ${PET_SRC[1]}, 수집 ${PET_DATE}) · ${PET.length}종 전부, 원문 표와 SHA-256 대조 일치 · 표기 정리 2건('뻐른 스킬'→'빠른 스킬', '강타강화'→'강타 강화')</div>
+ <div class="hint">교차 확인: <a href="https://mabinogimobile.nipponhashi.com/ko/pets/" target="_blank" rel="noopener">nipponhashi 펫·탈것</a> — 겹치는 66종 조합 모두 일치, 9종은 나무위키에만 있음 · 승급 후 종·고유 능력 유지, 종결 조합·공격력 펫 평가도 이 도감</div>
+ <div class="hint">직업별 추천: 나무위키 각 직업 문서 '각인 재설정'(2026-10-27 수집, 시즌2) · 펫 언급: 검술사(문서 수정 2026-10-15)·격투가(2026-10-17) 문서 · 마법사: <a href="${PET_REF.m[1]}" target="_blank" rel="noopener">nipponhashi 마법사 메타</a>(시즌2 변경 항목)</div>
+ <div class="hint">석궁사수(나무위키 칸이 비어 있어 시즌2 공략으로 대체): ${FBT_LINKS.filter(l=>l[0]==='x').map(l=>`<a href="${l[2]}" target="_blank" rel="noopener">${l[1]}</a>(${l[3]})`).join(' · ')}</div>
+ <div class="hint">전사(시즌2 명시 자료가 없어 시즌2 이전 자료 4건 일치 + 시즌2 패시브로 판단): ${FBT_LINKS.filter(l=>l[0]==='w').map(l=>`<a href="${l[2]}" target="_blank" rel="noopener">${l[1]}</a>(${l[3]})`).join(' · ')}</div>
+ <div class="hint">룬 조건: <a href="https://mabinogimobile.nipponhashi.com/ko/meta/" target="_blank" rel="noopener">nipponhashi 직업 메타</a>의 횃불·쇄빙·영혼 수확자 설명</div>
+ </div></div>`}
+
 /* ===== 페이지: 필드 보스 칭호 ===== */
 const fbtOf=no=>FBT.find(t=>t[0]===no);
 const fbtName=no=>{const t=fbtOf(no);return `<span class="tpk"><span class="lvb">${t[0]}</span>${esc(t[1])}</span>`};
@@ -1137,6 +1301,7 @@ function pgAbout(){return `<div class="panel"><h2>데이터 출처</h2><div clas
  <div><b>숙련 연계 계산식 · 보너스표</b><div class="hint">공식 ${LINK_SRC.map(([n,u,d,w])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a> (${d} 게시, ${w})`).join(' · ')} · 확인일 ${LINK_DATE} · 이후 업데이트 노트에 수치 변경 없음 · ★ 없음~★10 × 1~20강 전부 수록</div></div>
  <div><b>가공 레시피</b><div class="hint"><a href="${PROC_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 재료 가공</a> (문서 수정 ${PROC_SRC[1]}, 수집 ${PROC_DATE}) · 6개 시설 ${PROC.length}개 레시피 전부 수록 · 공식 업데이트 노트 ${PROC_CHK.map(([d,id,w])=>`<a href="https://mabinogimobile.nexon.com/News/Update/${id}" target="_blank" rel="noopener">${d}</a>(${w})`).join(' · ')}와 대조 · '백금 강괴'는 공식 표기 · 가공 시간은 시설 레벨별 단축 수치가 없어 미수록</div></div>
  <div><b>필드 보스 칭호</b><div class="hint">칭호 6종 효과: 사용자 게임 캡처·나무위키 타이틀 문서(2026-10-09)·nipponhashi 타이틀 도감 일치 · 보스·선행 조건: 공식 필드 보스 가이드(2026-06-29) · 직업별 추천(보조 능력치 기준): 나무위키 각 직업 문서 '각인 재설정'(2026-10-27 수집) 19개 직업, 석궁사수는 시즌2 공략 2건, 전사는 시즌2 이전 자료 4건 일치 + 시즌2 패시브(사용자 결정 2026-10-27) · 21개 직업 전부 수록</div></div>
+ <div><b>펫 추천</b><div class="hint">종별 고유 동행 능력치: <a href="${PET_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/아이템' 펫</a>(문서 수정 ${PET_SRC[1]}, 수집 ${PET_DATE}) ${PET.length}종 전부, 원문 표와 SHA-256 대조 일치 · nipponhashi 펫 도감과 겹치는 66종 모두 일치 · 직업별 추천: 칭호와 같은 직업 자료(나무위키 '각인 재설정' 19개 직업, 석궁사수 시즌2 공략, 전사 시즌2 이전 자료) + 펫 직접 언급(마법사 nipponhashi 시즌2, 검술사·격투가 나무위키) · 고유 스킬·펫 스킬 속성·증폭 수치는 모든 종의 자료가 없어 미수록 · 21개 직업 전부 수록</div></div>
  <div><b>물물교환</b><div class="hint"><a href="${BARTER_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/특별 상점' 상점(물물교환/주간재료)</a> (문서 수정 ${BARTER_SRC[1]}, 수집 ${BARTER_DATE}) · 9개 지역 ${BARTER.length}건 전부 수록, 원문 표와 SHA-256 대조 일치 · <a href="${BARTER_NH}" target="_blank" rel="noopener">nipponhashi 물물교환 DB</a>와 대조해 횟수·공유 범위가 다른 항목은 더 최신인 나무위키 기준 · 넥슨은 교환표를 공식 공개하지 않습니다</div></div>
  <div><b>NPC 주간 상점</b><div class="hint">같은 문서의 골드·하트 토큰 주간 구매 표 · 7개 지역 ${SHOP.length}건 전부 수록, 원문 표와 SHA-256 대조 일치 · nipponhashi와 겹치는 1건(크리스텔 성수) 일치 · 여관 하트 토큰 상점은 이 표에 없어 미수록</div></div>
  <div><b>채집물 · 필요 레벨 · 획득 아이템</b><div class="hint"><a href="${GATH_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 채집 계열</a> (문서 수정 ${GATH_SRC[1]}, 수집 ${GATH_DATE}) · 생활 스킬 ${GSK.length}종 채집물 ${GATH.filter(r=>r[1]).length}개 전부 수록 · 최대 레벨·신규 채집물 11종은 <a href="https://mabinogimobile.nexon.com/News/Update/3480721" target="_blank" rel="noopener">공식 6/25 노트</a>와 대조 · 옥수수 Lv.1, 동쪽 호수 낚시터 황금 도구 상자(낫)는 게임 내 확인 · 공식 노트의 서쪽 호수 낚시터 황금 도구 상자(호미)는 확인되지 않아 미수록</div></div>
@@ -1147,16 +1312,16 @@ function pgAbout(){return `<div class="panel"><h2>데이터 출처</h2><div clas
  <div class="panel"><h2>수록 기준</h2><p class="hint">21개 직업 전부에 대해 데이터가 갖춰진 기능만 넣었습니다. 채집물 위치(지역), 가공 시간, 시설 업그레이드 재료는 현재 기준 완전한 자료가 확보되지 않아 제외했습니다.</p></div>`}
 
 /* ===== 라우팅 ===== */
-const ICO={class:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',rune:'<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9.5 3 12 9l2.5-6M12 9v12"/>',fbt:'<path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',cmp:'<path d="m8 3-4 4 4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
+const ICO={pet:'<circle cx="5.5" cy="10.5" r="2"/><circle cx="9.5" cy="5.5" r="2"/><circle cx="14.5" cy="5.5" r="2"/><circle cx="18.5" cy="10.5" r="2"/><path d="M12 12c-3 0-6 4.5-6 7 0 1.6 1.3 2.4 2.8 2 1.1-.3 2.1-.6 3.2-.6s2.1.3 3.2.6c1.5.4 2.8-.4 2.8-2 0-2.5-3-7-6-7z"/>',class:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',rune:'<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9.5 3 12 9l2.5-6M12 9v12"/>',fbt:'<path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',cmp:'<path d="m8 3-4 4 4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
  link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',gear:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
  proc:'<path d="M2 20h20"/><path d="M4 20V10l5 3v-3l5 3V6l6 4v10"/>',gath:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.2-6"/>',
  week:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="m9 15 2 2 4-4"/>',check:'<path d="M20 6 9 17l-5-5"/>',
  soul:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/>',
  barter:'<path d="M4 8h15l-4-4"/><path d="M20 16H5l4 4"/>',about:'<circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/>',more:'<circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/>',ext:'<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>'};
 const svg=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k]}</svg>`;
-const NAV=[['class','정보','직업 정보'],['rune','정보','룬 역검색'],['cmp','정보','직업 비교'],['fbt','정보','필드 보스 칭호'],['week','도구','주간 체크리스트'],['link','도구','숙련 연계'],['soul','도구','소울스트림'],['gear','도구','장비 비교'],['proc','생활','가공 레시피'],['gath','생활','채집 바로찾기'],['barter','생활','물물교환'],['about','기타','출처 · 갱신']];
+const NAV=[['class','정보','직업 정보'],['rune','정보','룬 역검색'],['cmp','정보','직업 비교'],['fbt','정보','필드 보스 칭호'],['pet','정보','펫 추천'],['week','도구','주간 체크리스트'],['link','도구','숙련 연계'],['soul','도구','소울스트림'],['gear','도구','장비 비교'],['proc','생활','가공 레시피'],['gath','생활','채집 바로찾기'],['barter','생활','물물교환'],['about','기타','출처 · 갱신']];
 const TABS={class:'직업',week:'숙제',link:'숙련',proc:'가공',gath:'채집'};
-const PAGES={fbt:['필드 보스 칭호','필드 보스 6종 막타 칭호의 보조 능력치(치명타·강타 강화 등) 효과와, 21개 직업에 가장 효율적인 칭호를 근거와 함께 보여 줍니다.',pgFbt],barter:['물물교환',`NPC 물물교환 ${BARTER.length}건과 골드 주간 상점 ${SHOP.length}건을 아이템·NPC·지역으로 찾고, 가공 대신 교환으로 얻는 재료를 캐릭터 수에 맞춰 계산합니다.`,pgBarter],class:['직업 정보','21개 직업의 주·부 스탯·개조·세공·장신구 세팅과 부위별 룬 사용 순위를 한눈에 봅니다.',pgClass],rune:['룬 역검색','룬을 고르면 어떤 직업이 몇 위로 쓰는지 자동으로 정리합니다.',pgRune],cmp:['직업 비교','두 직업의 세팅과 룬 TOP3를 나란히 비교하고 공통 룬을 찾습니다.',pgCmp],week:['주간 체크리스트','매주 월요일 06:00에 자동으로 초기화되는 주간 숙제입니다. 공식 가이드·업데이트 노트로 확인된 항목만 담았습니다.',pgWeek],link:['숙련 연계','공식 보너스표를 성급·강화 단계별로 조회하고, 무기 수치로 숙련 연계 추가 공격력을 자동 계산합니다.',pgLink],soul:['소울스트림','게임 화면의 소울 값 몇 개만 옮겨 적으면 주당 생산량, 다음 구간까지 남은 합계, 이번 주 구매 비용을 계산합니다.',pgSoul],proc:['가공 레시피','6개 가공 시설의 레시피 91개를 검색하고, 재료를 눌러 가공 단계를 따라갑니다.',pgProc],gath:['채집 바로찾기','아이템을 검색하면 어느 채집물에서 몇 레벨부터 얻는지 자동으로 정리합니다.',pgGath],gear:['장비 비교','숫자 몇 개로 성능 개선·보관·분해를 바로 판정합니다.',pgGear],about:['출처 · 갱신','데이터 출처, 기준일, 갱신 방법입니다.',pgAbout]};
+const PAGES={pet:['펫 추천',`펫 ${PET.length}종의 고유 동행 능력치(치명타·연타 강화 등)를 조합별로 묶고, 21개 직업에 가장 효율적인 펫을 근거와 함께 보여 줍니다.`,pgPet],fbt:['필드 보스 칭호','필드 보스 6종 막타 칭호의 보조 능력치(치명타·강타 강화 등) 효과와, 21개 직업에 가장 효율적인 칭호를 근거와 함께 보여 줍니다.',pgFbt],barter:['물물교환',`NPC 물물교환 ${BARTER.length}건과 골드 주간 상점 ${SHOP.length}건을 아이템·NPC·지역으로 찾고, 가공 대신 교환으로 얻는 재료를 캐릭터 수에 맞춰 계산합니다.`,pgBarter],class:['직업 정보','21개 직업의 주·부 스탯·개조·세공·장신구 세팅과 부위별 룬 사용 순위를 한눈에 봅니다.',pgClass],rune:['룬 역검색','룬을 고르면 어떤 직업이 몇 위로 쓰는지 자동으로 정리합니다.',pgRune],cmp:['직업 비교','두 직업의 세팅과 룬 TOP3를 나란히 비교하고 공통 룬을 찾습니다.',pgCmp],week:['주간 체크리스트','매주 월요일 06:00에 자동으로 초기화되는 주간 숙제입니다. 공식 가이드·업데이트 노트로 확인된 항목만 담았습니다.',pgWeek],link:['숙련 연계','공식 보너스표를 성급·강화 단계별로 조회하고, 무기 수치로 숙련 연계 추가 공격력을 자동 계산합니다.',pgLink],soul:['소울스트림','게임 화면의 소울 값 몇 개만 옮겨 적으면 주당 생산량, 다음 구간까지 남은 합계, 이번 주 구매 비용을 계산합니다.',pgSoul],proc:['가공 레시피','6개 가공 시설의 레시피 91개를 검색하고, 재료를 눌러 가공 단계를 따라갑니다.',pgProc],gath:['채집 바로찾기','아이템을 검색하면 어느 채집물에서 몇 레벨부터 얻는지 자동으로 정리합니다.',pgGath],gear:['장비 비교','숫자 몇 개로 성능 개선·보관·분해를 바로 판정합니다.',pgGear],about:['출처 · 갱신','데이터 출처, 기준일, 갱신 방법입니다.',pgAbout]};
 function render(){if(!PAGES[S.page])S.page='class';const P=PAGES[S.page];$('pt').textContent=P[0];$('ps').textContent=P[1];$('page').innerHTML=P[2]();if(S.page==='gear')gearJudge();if(S.page==='link')linkCalc();if(S.page==='soul')soulCalc();
  document.querySelectorAll('.nav[data-nav],.tab[data-nav]').forEach(b=>b.classList.toggle('on',b.dataset.nav===S.page));$('morebtn').classList.toggle('on',!TABS[S.page]);$('eb').textContent='MABINOGI MOBILE · '+NAV.find(n=>n[0]===S.page)[1]}
 function go(p){S.page=p;save();$('sheet').hidden=true;render();window.scrollTo({top:0});if($('page').animate&&!matchMedia('(prefers-reduced-motion: reduce)').matches)$('page').animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:220,easing:'cubic-bezier(.2,.7,.2,1)'})}
@@ -1184,6 +1349,7 @@ document.addEventListener('click',e=>{const t=e.target;let el;
  if(el=t.closest('[data-gq]')){S.gq=el.dataset.gq;S.gs='all';save();render();return window.scrollTo({top:0,behavior:'smooth'})}
  if(el=t.closest('[data-goproc]')){S.pq=el.dataset.goproc;S.pf='all';S.pl=0;return go('proc')}
  if(el=t.closest('[data-tf]')){S.tf=el.dataset.tf;save();return render()}
+ if(el=t.closest('[data-ptf]')){S.ptf=el.dataset.ptf;save();return render()}
  if(el=t.closest('[data-bt]')){S.bt=el.dataset.bt;if(!(S.bt==='g'?SREG:BREG).includes(S.br))S.br='all';save();return render()}
  if(el=t.closest('[data-bcur]')){S.bcur=el.dataset.bcur;save();return render()}
  if(el=t.closest('[data-bm]')){S.bm=el.dataset.bm;save();return render()}
