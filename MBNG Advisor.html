@@ -107,6 +107,27 @@ tr.cur,tr.cur:hover{background:var(--accent-w);box-shadow:inset 3px 0 0 var(--ac
 .pcr{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}.pcr:last-child{border-bottom:0}
 .panel:has(>.pcr){container-type:inline-size}@container (max-width:520px){.pcr{grid-template-columns:minmax(0,1fr);gap:2px}}
 .pgr{display:grid;grid-template-columns:64px 64px minmax(0,1fr);gap:10px;align-items:baseline}.pgr b{font-weight:600}
+.mkhead{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px 12px;margin-bottom:12px}.mkkey{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;max-width:520px;margin-top:10px}.mkkey input{width:100%}.mknote{margin:10px 0 6px;padding:9px 13px;font-size:12.5px}.mknote .linkbtn{color:#ecd9a8;text-decoration:underline}
+.mktools{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:0 12px;align-items:start}.mktools input{width:100%}.mktools .tabs{padding-bottom:10px}
+.panel:has(>#mtop){container-type:inline-size}@container (max-width:560px){.mktools{grid-template-columns:minmax(0,1fr)}.mktools input{order:-1;margin-bottom:8px}}
+.mlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));column-gap:24px}.mlist.one{grid-template-columns:minmax(0,1fr)}
+.mrow{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:10px;align-items:center;width:100%;min-width:0;background:none;border:0;border-bottom:1px solid var(--line);padding:9px 4px;text-align:left;color:var(--txt);transition:background-color .12s}
+button.mrow:hover{background:rgba(255,255,255,.03)}.mrow.mp{align-items:start}.mrow.mhit{background:var(--accent-w);box-shadow:inset 3px 0 0 var(--accent)}
+.mic{width:36px;height:36px;border-radius:9px;background:var(--bg2);border:1px solid var(--line);object-fit:contain;display:block;flex:none}
+.mn{display:grid;gap:1px;min-width:0}.mn b{font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mp .mn b{white-space:normal}.mn b em{font-style:normal;color:var(--subtle);font-weight:500}.mn .tiny{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mp .mn .tiny{white-space:normal}
+.mv{display:grid;justify-items:end;gap:1px;font-variant-numeric:tabular-nums;white-space:nowrap}.mv b{font-size:14px;font-weight:700}.mch{font-size:11.5px;color:var(--subtle);font-variant-numeric:tabular-nums;white-space:nowrap}.mup{color:var(--red)!important}.mdn{color:var(--accent2)!important}.mpos{color:var(--accent)}.mneg{color:var(--red)}
+.mkp{color:var(--gold)!important}
+.mstrip{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:8px}.mcell{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:11px;padding:7px 9px;text-align:left;color:var(--txt);min-width:0}.mcell:hover{border-color:var(--line3)}.mcell .mic{width:28px;height:28px;border-radius:7px}.mcell .mn b{font-size:12px;font-weight:500;color:var(--muted)}.mcv{display:flex;justify-content:space-between;align-items:baseline;gap:6px}.mcv i{font-style:normal;font-weight:700;font-variant-numeric:tabular-nums}
+.panel:has(>.mstrip){container-type:inline-size}@container (max-width:520px){.mstrip{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:158px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}}
+.mdlg{border:1px solid var(--line2);border-radius:18px;background:var(--bg1);color:var(--txt);width:min(720px,calc(100vw - 20px));max-height:calc(100dvh - 24px);padding:0;overflow:auto;box-shadow:0 30px 80px -20px rgba(0,0,0,.8)}.mdlg::backdrop{background:rgba(0,0,0,.62)}
+.mdin{padding:18px;display:grid;gap:14px;min-width:0}.mdh{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center}.mdh .mic{width:44px;height:44px}.mdt{display:grid;min-width:0}.mdt b{font-size:17px;font-weight:700;letter-spacing:-.015em;line-height:1.35}
+.mstats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.mstats div{background:var(--bg2);border:1px solid var(--line);border-radius:11px;padding:8px 10px;display:grid;gap:1px;min-width:0}.mstats b{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mverd{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline;background:var(--accent-w);border:1px solid var(--accent-l);border-radius:11px;padding:9px 12px}.mverd b{font-weight:700;white-space:nowrap}
+.mchart{position:relative;min-height:120px;touch-action:pan-y;outline-offset:4px}.mchart svg{display:block;max-width:100%}.mg{stroke:var(--line);stroke-width:1}.mt{fill:var(--subtle);font-size:11px;font-variant-numeric:tabular-nums}.ml{fill:var(--muted);font-size:11.5px;font-weight:600}
+.ma{fill:var(--accent);fill-opacity:.1;stroke:none}.ml1,.ml2{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}.ml1{stroke:var(--accent)}.ml2{stroke:var(--accent2)}.me{fill:var(--accent);stroke:var(--bg1);stroke-width:2}.mcl{stroke:var(--line3);stroke-width:1}.mcd{stroke:var(--bg1);stroke-width:2}.mcd.d1{fill:var(--accent)}.mcd.d2{fill:var(--accent2)}
+.mtip{position:absolute;top:22px;display:grid;gap:1px;background:var(--bg3);border:1px solid var(--line2);border-radius:9px;padding:6px 10px;font-size:11.5px;color:var(--muted);pointer-events:none;white-space:nowrap}.mtip b{font-size:13.5px;color:var(--txt);font-variant-numeric:tabular-nums}.mtip[hidden]{display:none}
+.mtbl summary{cursor:pointer;width:max-content}.mtbl[open] summary{margin-bottom:6px}.mtbl .tablewrap{max-height:220px}.mcr{font-size:12.5px;line-height:1.55;padding-bottom:8px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.mcr:last-child{border-bottom:0;padding-bottom:0}
+@media(max-width:560px){.mstats{grid-template-columns:repeat(3,minmax(0,1fr))}.mdin{padding:14px}.mverd{grid-template-columns:minmax(0,1fr);gap:2px}}
 .lvb{min-width:46px;font-size:11px;font-weight:600;padding:3px 7px;border-radius:7px;background:var(--bg3);border:1px solid var(--line);color:var(--muted);text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}
 .pres{background:none;border:0;padding:0;color:var(--txt);font-weight:600;text-align:left}.pres:hover{color:var(--accent)}.pres em,.mat em{font-style:normal;color:var(--subtle);font-weight:500;margin-left:4px}
 .mat{border:1px solid var(--line2);background:var(--bg2);color:var(--txt);border-radius:8px;padding:3px 9px;font-size:12px;display:inline-block;transition:border-color .15s,background-color .15s}.mat:hover{border-color:var(--line3);background:var(--bg3)}
@@ -920,7 +941,7 @@ const SOUL_PRICE=[[1,600,10000,20],[601,1200,22000,50],[1201,1800,52000,100],[18
 const CHARM=[['face','얼굴 장식 선택','외모 바꾸기에서 얼굴 장식 선택. 안경은 던바튼 NPC 시몬의 의상점에서 캐릭터당 1회 구매 가능'],['fashion','패션 장비 착용','가진 것 중 희귀도가 가장 높은 것으로. [매력] 화면이 더 높은 희귀도로 교체를 추천'],['pet','동행 펫 지정',''],['ride','탈것 장착',''],['title','매력을 올려 주는 타이틀 장착',''],['check','성장 가이드 → [매력] 화면 확인','타이틀·스텔라그램·펫·탈것·패션 항목별 매력 현황에서 빠진 곳 찾기']];
 
 /* ===== 상태 ===== */
-let S={page:'class',sel:'석궁사수',fam:'all',q:'',view:'card',fav:[],all:false,rp:'w',rq:'',rsel:'',ca:'석궁사수',cb:'궁수',ls:8,lall:false,lh:0,lk:{},pq:'',pf:'all',pl:0,gq:'',gs:'all',wk:{},wedit:false,soul:{},charm:[],bq:'',bm:'all',br:'all',bp:'all',bc:1,bt:'x',bcur:'all',tf:'all',ptf:'all'};
+let S={page:'class',sel:'석궁사수',fam:'all',q:'',view:'card',fav:[],all:false,rp:'w',rq:'',rsel:'',ca:'석궁사수',cb:'궁수',ls:8,lall:false,lh:0,lk:{},pq:'',pf:'all',pl:0,gq:'',gs:'all',wk:{},wedit:false,soul:{},charm:[],bq:'',bm:'all',br:'all',bp:'all',bc:1,bt:'x',bcur:'all',tf:'all',ptf:'all',mt:'board',mr:'pct_change_24h_desc',mc:'all',mq:'',mpf:'all',mb:'buy',mw:[],mrg:30};
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(OLD_KEY)||'{}'))}catch(e){}
 if(!Array.isArray(S.fav))S.fav=[];if(!RUNES[S.sel])S.sel='석궁사수';
 S.lk=Object.assign({b1:0,r1:0,b2:0,r2:0,st:8,lv:15},S.lk&&typeof S.lk==='object'?S.lk:{});if(!LK[S.lk.st])S.lk.st=8;if(!LK[0][S.lk.lv-1])S.lk.lv=15;if(!LK[S.ls])S.ls=8;
@@ -1033,8 +1054,8 @@ function linkCalc(){if(!$('lres'))return;const v=id=>Math.max(0,Number($(id).val
 const pname=s=>s.replace(/ x\d+$/,''),ns=s=>String(s).replace(/\s+/g,'').toLowerCase();
 const PMADE=new Set(PROC.map(r=>pname(r[2]))),PDUP=PROC.reduce((m,r)=>{const k=r[0]+pname(r[2]);(m[k]=m[k]||[]).push(r[1]);return m},{});
 function prow(r){const k=pname(r[2]),qt=r[2].slice(k.length+1),o=PDUP[r[0]+k].filter(l=>l!==r[1]);
- return `<div class="prow"><span class="lvb">Lv.${r[1]}</span><div><button class="pres" data-pq="${esc(k)}">${esc(k)}${qt?`<em>${esc(qt)}</em>`:''}</button>${o.length?`<div class="tiny">같은 결과물 Lv.${o.join(', Lv.')} 레시피 있음</div>`:''}</div>
- <div class="chips mats">${r[3].split(' + ').map(m=>{const b=pname(m);return `<button class="mat ${PMADE.has(b)?'made':''}" data-pq="${esc(b)}">${esc(b)}<em>${esc(m.slice(b.length+1))}</em></button>`}).join('')}</div></div>`}
+ return `<div class="prow"><span class="lvb">Lv.${r[1]}</span><div><button class="pres" data-pq="${esc(k)}">${esc(k)}${qt?`<em>${esc(qt)}</em>`:''}${mkTag(k)}</button>${o.length?`<div class="tiny">같은 결과물 Lv.${o.join(', Lv.')} 레시피 있음</div>`:''}</div>
+ <div class="chips mats">${r[3].split(' + ').map(m=>{const b=pname(m);return `<button class="mat ${PMADE.has(b)?'made':''}" data-pq="${esc(b)}">${esc(b)}<em>${esc(m.slice(b.length+1))}</em>${mkTag(b)}</button>`}).join('')}</div></div>`}
 function procList(){const q=ns(S.pq),L=PROC.filter(r=>(S.pf==='all'||r[0]===S.pf)&&(!S.pl||r[1]===S.pl)&&(!q||ns(r[2]+r[3]).includes(q)));
  if(!L.length)return '<div class="empty">조건에 맞는 레시피가 없습니다.</div>';
  return `<p class="tiny">${L.length}개 레시피</p>`+PFAC.map(f=>{const g=L.filter(r=>r[0]===f);return g.length?`<div class="panel"><div class="ph"><h2>${f} 가공 시설</h2><span class="tiny">${g.length}개</span></div>${g.map(prow).join('')}</div>`:''}).join('')}
@@ -1075,7 +1096,7 @@ const PRUN=PROC.reduce((m,r,i)=>{const k=pname(r[2]).replace(/\(.+\)$/,'');if(!m
 const TIER=['철괴','강철괴','합금강괴','특수강괴','은합금괴','운철괴','백금 강괴'];
 const bwk=b=>b.l.n*b.o[1]*(b.l.srv?1:S.bc)*(b.l.p==='일'?7:1);
 const blimB=l=>l.n?`${l.srv?'<span class="srv">서버 공유</span>':''}${l.p==='일'?'하루':'주'} ${l.n}회`:'제한 없음';
-const bchip=(it,out)=>`<button class="mat ${out&&PRUN[it[0]]?'made':''}" data-bq="${esc(it[0])}">${esc(it[0])}<em>x${it[1].toLocaleString()}</em>${it[2]?`<em>${esc(it[2])}</em>`:''}</button>`;
+const bchip=(it,out)=>`<button class="mat ${out&&PRUN[it[0]]?'made':''}" data-bq="${esc(it[0])}">${esc(it[0])}<em>x${it[1].toLocaleString()}</em>${it[2]?`<em>${esc(it[2])}</em>`:''}${mkTag(it[0])}</button>`;
 const btrade=b=>`<div class="bx">${bchip(b.i)}<span class="arr">→</span>${bchip(b.o,1)}</div>`;
 const brow=b=>`<div class="brow"><span class="lvb">${esc(b.npc)}</span>${btrade(b)}<span class="blim">${blimB(b.l)}</span></div>`;
 const bamt=b=>{const w=bwk(b);return b.l.p==='일'?`하루 ${r1(w/7)}개 · 주 ${r1(w)}개`:`주 ${r1(w)}개`};
@@ -1302,6 +1323,7 @@ function pgAbout(){return `<div class="panel"><h2>데이터 출처</h2><div clas
  <div><b>숙련 연계 계산식 · 보너스표</b><div class="hint">공식 ${LINK_SRC.map(([n,u,d,w])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a> (${d} 게시, ${w})`).join(' · ')} · 확인일 ${LINK_DATE} · 이후 업데이트 노트에 수치 변경 없음 · ★ 없음~★10 × 1~20강 전부 수록</div></div>
  <div><b>가공 레시피</b><div class="hint"><a href="${PROC_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 재료 가공</a> (문서 수정 ${PROC_SRC[1]}, 수집 ${PROC_DATE}) · 6개 시설 ${PROC.length}개 레시피 전부 수록 · 공식 업데이트 노트 ${PROC_CHK.map(([d,id,w])=>`<a href="https://mabinogimobile.nexon.com/News/Update/${id}" target="_blank" rel="noopener">${d}</a>(${w})`).join(' · ')}와 대조 · '백금 강괴'는 공식 표기 · 가공 시간은 시설 레벨별 단축 수치가 없어 미수록</div></div>
  <div><b>필드 보스 칭호</b><div class="hint">칭호 6종 효과: 사용자 게임 캡처·나무위키 타이틀 문서(2026-10-09)·nipponhashi 타이틀 도감 일치 · 보스·선행 조건: 공식 필드 보스 가이드(2026-06-29) · 직업별 추천(보조 능력치 기준): 나무위키 각 직업 문서 '각인 재설정'(2026-10-27 수집) 19개 직업, 석궁사수는 시즌2 공략 2건, 전사는 시즌2 이전 자료 4건 일치 + 시즌2 패시브(사용자 결정 2026-10-27) · 21개 직업 전부 수록</div></div>
+ <div><b>거래소 시세</b><div class="hint"><a href="https://mabimobi.life/openapi" target="_blank" rel="noopener">모비라이프 OpenAPI</a> · API 키를 넣은 브라우저에서만 불러옵니다 · 시세는 실제보다 10~20분 늦을 수 있습니다 · 재배포 금지 약관에 따라 시세를 저장소에 올리지 않습니다 · 수수료 15%는 게임 화면 확인(2026-10-27) · 가공 수익은 거래소에 없는 재료를 0으로 계산하고 가공 시간은 반영하지 않습니다 · 잔영·해연·드래케인 장비 제작비는 재료표 출처가 없어 미수록</div></div>
  <div><b>펫 추천</b><div class="hint">종별 고유 동행 능력치: <a href="${PET_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/아이템' 펫</a>(문서 수정 ${PET_SRC[1]}, 수집 ${PET_DATE}) ${PET.length}종 전부, 원문 표와 SHA-256 대조 일치 · nipponhashi 펫 도감과 겹치는 66종 모두 일치 · 직업별 추천: 칭호와 같은 직업 자료(나무위키 '각인 재설정' 19개 직업, 석궁사수 시즌2 공략, 전사 시즌2 이전 자료) + 펫 직접 언급(마법사 nipponhashi 시즌2, 검술사·격투가 나무위키) · 고유 스킬·펫 스킬 속성·증폭 수치는 모든 종의 자료가 없어 미수록 · 21개 직업 전부 수록</div></div>
  <div><b>물물교환</b><div class="hint"><a href="${BARTER_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/특별 상점' 상점(물물교환/주간재료)</a> (문서 수정 ${BARTER_SRC[1]}, 수집 ${BARTER_DATE}) · 9개 지역 ${BARTER.length}건 전부 수록, 원문 표와 SHA-256 대조 일치 · <a href="${BARTER_NH}" target="_blank" rel="noopener">nipponhashi 물물교환 DB</a>와 대조해 횟수·공유 범위가 다른 항목은 더 최신인 나무위키 기준 · 넥슨은 교환표를 공식 공개하지 않습니다</div></div>
  <div><b>NPC 주간 상점</b><div class="hint">같은 문서의 골드·하트 토큰 주간 구매 표 · 7개 지역 ${SHOP.length}건 전부 수록, 원문 표와 SHA-256 대조 일치 · nipponhashi와 겹치는 1건(크리스텔 성수) 일치 · 여관 하트 토큰 상점은 이 표에 없어 미수록</div></div>
@@ -1312,18 +1334,146 @@ function pgAbout(){return `<div class="panel"><h2>데이터 출처</h2><div clas
  <div class="panel"><h2>룬 데이터 갱신 방법</h2><p class="hint">룬 순위는 대형 패치나 유저 연구에 따라 바뀝니다. 기준일로부터 ${STALE_DAYS}일이 지나면 상단에 갱신 권장 배너가 뜹니다.</p><ol class="hint"><li>룬 도감에서 직업별 통계 화면을 캡처합니다(부위별 목록 끝까지).</li><li>Claude에 캡처를 첨부하고 "MBNG Advisor의 RAW 룬 데이터와 DATA_DATE만 교체해줘"라고 요청합니다.</li><li>받은 데이터 블록으로 파일의 해당 부분만 바꿔 저장합니다.</li></ol></div>
  <div class="panel"><h2>수록 기준</h2><p class="hint">21개 직업 전부에 대해 데이터가 갖춰진 기능만 넣었습니다. 채집물 위치(지역), 가공 시간, 시설 업그레이드 재료는 현재 기준 완전한 자료가 확보되지 않아 제외했습니다.</p></div>`}
 
+/* ===== 페이지: 거래소 (모비라이프 OpenAPI, 2026-11-01 확인) =====
+   키는 사용자가 이 브라우저에 직접 넣고 localStorage의 MK_KEY에만 둔다(S에 넣지 않음). 브라우저가 API를 직접 호출한다
+   약관: 재배포 금지 → 시세를 저장소에 올리지 않는다. 한도: 키당 분 30회·일 5,000회(문서 화면 기준, 명세 수치는 더 넉넉). 시세는 실제보다 10~20분 늦다
+   손익: 수수료 15%(게임 화면 2026-10-27). 거래소에 없는 재료는 직접 모은다고 보고 0으로 계산. 가공 시간은 자료가 없어 넣지 않음 */
+const MK_API='https://open.mabimobi.life/v1',MK_KEY='mbng_mobilife_key',MK_CACHE='mbng_market_cache',MK_TTL=6e5,MK_FEE=.15,MK_MAXCALL=24,MK_MINC=20,MK_PINS=20;
+const MK_SORT=[['pct_change_24h_desc','급등'],['pct_change_24h_asc','급락'],['count_change_24h_asc','품귀'],['count_change_24h_desc','재입고']];
+const MK_CATS=['아이템','무기','방어구','장신구','도구','펫 장비','데코'],MK_TABS=[['board','시세판'],['proc','가공 수익'],['trade','교환 차익'],['watch','관심 품목']],MK_RG=[[7,'7일'],[30,'30일'],[90,'90일']];
+const MK={list:[],name:{},seen:{},at:0,upd:'',err:'',busy:false,bad:false,calls:[],pause:0,q:new Map(),h:new Map(),t:0,sel:0,run:0,view:null};
+if(!MK_TABS.some(x=>x[0]===S.mt))S.mt='board';if(!MK_SORT.some(x=>x[0]===S.mr))S.mr=MK_SORT[0][0];if(S.mc!=='all'&&!MK_CATS.includes(S.mc))S.mc='all';if(S.mpf!=='all'&&!PFAC.includes(S.mpf))S.mpf='all';if(!['buy','own'].includes(S.mb))S.mb='buy';if(!MK_RG.some(x=>x[0]===S.mrg))S.mrg=30;if(!Array.isArray(S.mw))S.mw=[];if(typeof S.mq!=='string')S.mq='';
+const mkk=()=>{try{return localStorage.getItem(MK_KEY)||''}catch(e){return ''}};
+const mkz=s=>String(s).replace(/\s+/g,''),mkn=n=>n==null?'—':Number(n).toLocaleString('ko-KR');
+const mkp=v=>v==null?'—':(v>0?'▲ ':v<0?'▼ ':'')+(Math.abs(v)>=1000?Math.round(Math.abs(v)).toLocaleString('ko-KR'):Math.abs(v).toFixed(1))+'%';
+const mkc=v=>!v?'':v>0?'mup':'mdn',mksg=n=>(n>0?'+':n<0?'−':'')+Math.abs(Math.round(n)).toLocaleString('ko-KR');
+const mkName=s=>String(s).replace('%RuneTier, ','');
+const mkCompact=v=>v>=1e4?(v/1e4).toFixed(v>=1e5?0:1).replace(/\.0$/,'')+'만':Math.round(v).toLocaleString('ko-KR');
+const mkIcon=x=>{const u=String(x&&x.icon_url||'');return /^https:\/\/cdn\.mabimobi\.life\//.test(u)?`<img class="mic" src="${esc(u)}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">`:'<span class="mic"></span>'};
+const mkTime=(iso,f='t')=>{const d=new Date(new Date(iso).getTime()+324e5);if(isNaN(d))return '';const p=n=>String(n).padStart(2,'0'),md=`${d.getUTCMonth()+1}/${d.getUTCDate()}`,h=p(d.getUTCHours()),t=`${h}:${p(d.getUTCMinutes())}`;return f==='d'?md:f==='h'?`${md} ${h}시`:f==='m'?`${md} ${t}`:t};
+const mkFind=n=>MK.name[mkz(n)]||MK.name[mkz(String(n).replace(/\(.+\)$/,''))];
+const mkTag=n=>{const x=mkk()&&mkFind(n);return x&&x.min_price?`<em class="mkp">시세 ${mkn(x.min_price)}</em>`:''};
+const mkPit=s=>{const m=s.trim().match(/^(.*?) x([\d,]+)(?:\(.+\))?$/);return m?[m[1],+m[2].replace(/,/g,'')]:[s.trim(),1]};
+function mkIngest(L){const t=Date.now();for(const x of L)MK.seen[x.kind_id]=Object.assign(x,{_t:t})}
+function mkIndex(L){MK.list=L;MK.name={};for(const x of L)MK.name[mkz(x.name)]=x}
+try{const c=JSON.parse(localStorage.getItem(MK_CACHE)||'null');if(c&&Array.isArray(c.list)&&mkk()){MK.at=c.at;MK.upd=c.upd;mkIngest(c.list);mkIndex(c.list)}}catch(e){}
+async function mkGet(p){const now=Date.now();MK.calls=MK.calls.filter(t=>now-t<6e4);
+ if(MK.pause>now||MK.calls.length>=MK_MAXCALL)throw new Error('호출이 많아 잠시 쉬고 있습니다. 1분 뒤 다시 시도해 주세요.');
+ MK.calls.push(now);let r;try{r=await fetch(MK_API+p,{headers:{Authorization:'Bearer '+mkk()}})}catch(e){throw new Error('모비라이프에 연결하지 못했습니다. 네트워크를 확인해 주세요.')}
+ if(r.status===401||r.status===403){MK.bad=true;throw new Error('API 키가 거부되었습니다. 키를 다시 연결해 주세요.')}
+ if(r.status===429){MK.pause=now+6e4;throw new Error('호출 한도에 도달했습니다. 1분 뒤 자동으로 다시 시도합니다.')}
+ if(!r.ok)throw new Error(`시세를 불러오지 못했습니다(${r.status}).`);return r.json()}
+async function mkPins(){for(const p of S.mw){const x=MK.seen[p.k];if(x&&Date.now()-x._t<MK_TTL)continue;const j=await mkGet(`/market/prices?search=${encodeURIComponent(p.n)}&limit=20`);mkIngest(j.data)}}
+async function mkLoad(force){if(!mkk()||MK.busy||MK.bad||(!force&&Date.now()-MK.at<MK_TTL))return;MK.busy=true;mkPaintStat();
+ try{const L=[],ids=new Set();let upd='';for(let o=0;;o+=100){const j=await mkGet(`/market/prices?parent_category=${encodeURIComponent('아이템')}&limit=100&offset=${o}`);for(const x of j.data)if(!ids.has(x.kind_id)){ids.add(x.kind_id);L.push(x)}upd=j.last_updated_at||upd;if(j.data.length<100)break}
+  MK.at=Date.now();MK.upd=upd;MK.err='';mkIngest(L);mkIndex(L);try{localStorage.setItem(MK_CACHE,JSON.stringify({at:MK.at,upd,list:L}))}catch(e){}
+  await mkPins()}catch(e){MK.err=e.message}finally{MK.busy=false;mkPaint()}}
+async function mkFetch(key,path){const c=MK.q.get(key);if(c&&Date.now()-c.at<MK_TTL)return c.data;const j=await mkGet(path);mkIngest(j.data);MK.q.set(key,{at:Date.now(),data:j.data});return j.data}
+const mkRank=(L,q)=>{const z=mkz(q).toLowerCase(),s=n=>{const t=mkz(n).toLowerCase();return t===z?0:t.startsWith(z)?1:2};return L.slice().sort((a,b)=>s(a.name)-s(b.name)||b.total_count-a.total_count)};
+const mkViewKey=()=>{const q=S.mq.trim();return q?`s|${S.mc}|${q}`:`r|${S.mr}|${S.mc}`};
+async function mkBoard(){const q=S.mq.trim();if(/[ㄱ-ㅎㅏ-ㅣ]$/.test(q))return;const cat=S.mc==='all'?'':`&parent_category=${encodeURIComponent(S.mc)}`,key=mkViewKey(),run=++MK.run;
+ if(!MK.q.has(key)){MK.view=null;mkPaintRes()}
+ try{const d=await mkFetch(key,q?`/market/prices?search=${encodeURIComponent(q)}&limit=40${cat}`:`/market/prices?sort=${S.mr}&min_count=${MK_MINC}&limit=30${cat}`);if(run===MK.run){MK.view=q?mkRank(d,q):d;MK.err=''}}catch(e){if(run===MK.run){MK.err=e.message;if(!MK.view)MK.view=[]}}
+ if(run===MK.run)mkPaint()}
+function mkEnter(){if(!mkk())return;mkLoad();if(S.mt==='board')mkBoard();if(S.mt==='watch')mkPins().then(mkPaint,e=>{MK.err=e.message;mkPaint()})}
+function mkTick(){if(document.hidden||!mkk()||MK.bad||!['market','proc','barter'].includes(S.page))return;mkLoad();if(S.page==='market'&&S.mt==='board'&&!$('mdlg')?.open){const c=MK.q.get(mkViewKey());if(c&&Date.now()-c.at>=MK_TTL)mkBoard()}}
+setInterval(mkTick,3e4);document.addEventListener('visibilitychange',mkTick);
+async function mkConnect(){const el=$('mkk'),m=$('mkm'),v=(el&&el.value||'').trim();if(!/^ml_[\w-]+$/.test(v)){m.textContent='ml_로 시작하는 API 키를 붙여넣어 주세요.';return}m.textContent='키를 확인하는 중입니다.';
+ try{const r=await fetch(MK_API+'/market/categories',{headers:{Authorization:'Bearer '+v}});if(!r.ok)throw new Error(r.status===401||r.status===403?'키가 거부되었습니다. 모비라이프에서 키를 다시 확인해 주세요.':`연결하지 못했습니다(${r.status}).`);
+  try{localStorage.setItem(MK_KEY,v)}catch(e){throw new Error('이 브라우저에 키를 저장하지 못했습니다. 비공개 창이면 일반 창에서 시도해 주세요.')}MK.bad=false;MK.err='';MK.at=0;render()}catch(e){m.textContent=e.message==='Failed to fetch'?'모비라이프에 연결하지 못했습니다. 네트워크를 확인해 주세요.':e.message}}
+function mkOff(){if(!confirm('이 브라우저에서 API 키와 저장된 시세를 지울까요?'))return;try{localStorage.removeItem(MK_KEY);localStorage.removeItem(MK_CACHE)}catch(e){}Object.assign(MK,{list:[],name:{},seen:{},at:0,upd:'',err:'',bad:false,view:null});MK.q.clear();MK.h.clear();render()}
+const mkHit=p=>{const x=MK.seen[p.k];return !!(p.t&&x&&x.min_price&&(p.d==='up'?x.min_price>=p.t:x.min_price<=p.t))};
+const mkStat=()=>MK.busy?'시세를 갱신하는 중입니다.':MK.upd?`시세 기준 ${mkTime(MK.upd)} · 10분마다 갱신 · 단위 데카`:'시세를 불러오는 중입니다.';
+const mkTabs=()=>{const h=S.mw.filter(mkHit).length;return MK_TABS.map(([k,l])=>`<button class="tabbtn ${S.mt===k?'on':''}" data-mt="${k}">${l}${k==='watch'&&S.mw.length?` ${S.mw.length}`:''}${k==='watch'&&h?` · 도달 ${h}`:''}</button>`).join('')};
+const mkErr=()=>MK.err?`<div class="notice mknote">${esc(MK.err)}${MK.bad?' <button class="linkbtn" data-mkc="off">키 다시 연결</button>':''}</div>`:'';
+const mkAlert=()=>{const L=S.mw.filter(mkHit);return L.length?`<div class="notice mknote"><b>목표가 도달</b>${L.map(p=>`<button class="linkbtn" data-mi="${Number(p.k)}">${esc(mkName(p.n))} ${mkn(MK.seen[p.k].min_price)}</button>`).join('')}</div>`:''};
+function mkPaintStat(){if($('mstat'))$('mstat').textContent=mkStat()}
+function mkPaintRes(){if($('mres'))$('mres').innerHTML=mkRes()}
+function mkPaint(){mkPaintStat();if($('merr'))$('merr').innerHTML=mkErr()+mkAlert();if($('mtabs'))$('mtabs').innerHTML=mkTabs();mkPaintRes();if(S.page==='proc'&&$('plist'))$('plist').innerHTML=procList();if(S.page==='barter'&&$('blist'))$('blist').innerHTML=S.bt==='g'?shopList():barterList()}
+function mkRow(x,m){const c=m==='c'?x.count_change_24h:x.pct_change_24h,so=x.is_sold_out||!x.min_price;
+ return `<button class="mrow" data-mi="${Number(x.kind_id)}">${mkIcon(x)}<span class="mn"><b>${esc(mkName(x.name))}</b><span class="tiny">${esc(x.parent_category)} · ${so?'품절':'재고 '+mkn(x.total_count)}</span></span><span class="mv"><b>${so?'품절':mkn(x.min_price)}</b><span class="mch ${mkc(c)}">${m==='c'?'재고 ':''}${mkp(c)}</span></span></button>`}
+function mkStrip(){const o=n=>/영혼석$/.test(n)?0:/마력석$/.test(n)?1:2,L=MK.list.filter(x=>/(영혼석|마력석|용비늘)$/.test(x.name)).sort((a,b)=>o(a.name)-o(b.name)||a.name.localeCompare(b.name,'ko'));if(!L.length)return '';
+ return `<div class="panel"><div class="ph"><h2>장비 제작 재료</h2><span class="tiny">영혼석 · 마력석 · 용비늘 최저가와 24시간 변화</span></div><div class="mstrip">${L.map(x=>`<button class="mcell" data-mi="${Number(x.kind_id)}">${mkIcon(x)}<span class="mn"><b>${esc(x.name)}</b><span class="mcv"><i>${mkn(x.min_price)}</i><span class="mch ${mkc(x.pct_change_24h)}">${mkp(x.pct_change_24h)}</span></span></span></button>`).join('')}</div></div>`}
+function mkBoardHtml(){const q=S.mq.trim(),m=S.mr.startsWith('count')?'c':'p',lab=MK_SORT.find(s=>s[0]===S.mr)[1];
+ const body=!MK.view?'<div class="empty">시세를 불러오는 중입니다.</div>':MK.view.length?`<div class="mlist">${MK.view.map(x=>mkRow(x,q?'p':m)).join('')}</div>`:'<div class="empty">조건에 맞는 품목이 없습니다.</div>';
+ return `${q?'':mkStrip()}<div class="panel"><div class="ph"><h2>${q?`'${esc(q)}' 검색 결과`:`${lab} 상위 30`}</h2><span class="tiny">${q?`${MK.view?MK.view.length:0}개 · 24시간 변화`:`매물 ${MK_MINC}개 이상 · 24시간 ${m==='c'?'재고':'가격'} 변화 기준`}</span></div>${body}</div>`}
+const mkOwn=()=>S.mb==='own';
+function mkProcData(){const O=[];for(const r of PROC){const [n,q]=mkPit(r[2]),p=mkFind(n);if(!p||!p.min_price)continue;const ms=r[3].split(' + ').map(mkPit).map(([a,c])=>({a,c,x:mkFind(a)})),paid=ms.filter(m=>m.x&&m.x.min_price),free=ms.filter(m=>!(m.x&&m.x.min_price)),sale=q*p.min_price,buy=paid.reduce((t,m)=>t+m.c*m.x.min_price,0);O.push({r,n,q,p,paid,free,sale,buy,net:mkOwn()?(sale-buy)*(1-MK_FEE):sale*(1-MK_FEE)-buy})}return O.sort((a,b)=>b.net-a.net)}
+function mkProcRow(o){const lst=(L,f)=>L.map(f).join(' + ');
+ return `<button class="mrow mp" data-mi="${Number(o.p.kind_id)}">${mkIcon(o.p)}<span class="mn"><b>${esc(o.n)} <em>x${o.q}</em></b><span class="tiny">${o.r[0]} 가공 Lv.${o.r[1]} · 재고 ${mkn(o.p.total_count)} · 24시간 재고 ${mkp(o.p.count_change_24h)}</span><span class="tiny">판매 ${mkn(o.sale)}${o.paid.length?` · ${mkOwn()?'보유 재료 가치':'구매 재료'} ${mkn(o.buy)} (${esc(lst(o.paid,m=>`${m.a} x${m.c}`))})`:''}${o.free.length?` · 직접 ${esc(lst(o.free,m=>`${m.a} x${m.c}`))}`:''}${!mkOwn()&&o.buy>o.sale?' · 완성품을 사는 편이 저렴':''}</span></span><span class="mv"><b class="${o.net>=0?'mpos':'mneg'}">${mksg(o.net)}</b><span class="tiny">1회 순이익</span></span></button>`}
+function mkProcHtml(){if(!MK.list.length)return '<div class="panel"><div class="empty">시세를 불러오는 중입니다.</div></div>';const A=mkProcData(),L=A.filter(o=>S.mpf==='all'||o.r[0]===S.mpf),w=L.filter(o=>o.net>=0).length;
+ return `<div class="panel"><div class="ph"><h2>가공 수익 ${L.length}개</h2><span class="tiny">이익 ${w} · 손해 ${L.length-w}</span></div><p class="hint">결과물이 거래소에 있는 레시피만 계산합니다. 수수료 15%를 뺐고, 거래소에 없는 재료는 직접 모은다고 보고 0으로 넣었습니다. 가공 시간은 시설 레벨별 자료가 없어 빠져 있고, 재고가 많은 품목은 올려도 바로 안 팔릴 수 있습니다. 결과물이 거래소에 없는 ${PROC.length-A.length}개는 제외했습니다.</p>${L.length?`<div class="mlist one">${L.map(mkProcRow).join('')}</div>`:'<div class="empty">이 시설의 레시피는 결과물이 거래소에 없습니다.</div>'}</div>`}
+function mkTradeData(){const O=[];for(const b of BX){const o=mkFind(b.o[0]),i=mkFind(b.i[0]);if(!o||!i||!o.min_price||!i.min_price)continue;const sell=b.o[1]*o.min_price,cost=b.i[1]*i.min_price,gain=sell*(1-MK_FEE)-cost,n=b.l.n*(b.l.srv?1:S.bc)*(b.l.p==='일'?7:1);O.push({b,o,i,gain,save:sell-cost,week:gain>0?gain*n:0})}return O.sort((a,b)=>b.gain-a.gain)}
+function mkTradeRow(o){const b=o.b;return `<button class="mrow mp" data-mi="${Number(o.o.kind_id)}">${mkIcon(o.o)}<span class="mn"><b>${esc(b.i[0])} <em>x${b.i[1]}</em> → ${esc(b.o[0])} <em>x${b.o[1]}</em></b><span class="tiny">${esc(b.reg)} ${esc(b.npc)} · ${b.l.srv?'서버 공유 ':''}${b.l.p==='일'?'하루':'주'} ${b.l.n}회</span><span class="tiny">내는 것 ${mkn(i0(o))} · 받는 것 ${mkn(o0(o))} · 내가 쓰면 ${mksg(o.save)}${o.week?` · 주 최대 ${mksg(o.week)}`:''}</span></span><span class="mv"><b class="${o.gain>=0?'mpos':'mneg'}">${mksg(o.gain)}</b><span class="tiny">1회 차익</span></span></button>`}
+const i0=o=>o.b.i[1]*o.i.min_price,o0=o=>o.b.o[1]*o.o.min_price;
+function mkTradeHtml(){if(!MK.list.length)return '<div class="panel"><div class="empty">시세를 불러오는 중입니다.</div></div>';const L=mkTradeData(),w=L.filter(o=>o.gain>0).length;
+ return `<div class="panel"><div class="ph"><h2>교환 차익 ${L.length}건</h2><span class="tiny">이익 ${w} · 손해 ${L.length-w}</span></div><p class="hint">내는 것을 거래소에서 사서 교환하고, 받은 것을 팔았을 때의 차익입니다(수수료 15% 반영). '내가 쓰면'은 받는 것을 직접 쓸 때 거래소 구매보다 아끼는 금액입니다. 내는 것과 받는 것이 모두 거래소에 있는 교환만 계산합니다.</p>${L.length?`<div class="mlist one">${L.map(mkTradeRow).join('')}</div>`:'<div class="empty">계산할 수 있는 교환이 없습니다.</div>'}</div>`}
+function mkWatchRow(p){const x=MK.seen[p.k],h=mkHit(p),g=p.t?`목표 ${mkn(p.t)} ${p.d==='up'?'이상':'이하'}${h?' 도달':''}`:'목표가 없음';if(!x)return `<div class="mrow"><span class="mic"></span><span class="mn"><b>${esc(mkName(p.n))}</b><span class="tiny">시세를 불러오는 중입니다.</span></span><span class="mv"><b>—</b><span class="mch">—</span></span></div>`;
+ return `<button class="mrow ${h?'mhit':''}" data-mi="${Number(p.k)}">${mkIcon(x)}<span class="mn"><b>${esc(mkName(x.name))}</b><span class="tiny">재고 ${mkn(x.total_count)} · ${g}</span></span><span class="mv"><b>${x.min_price?mkn(x.min_price):'품절'}</b><span class="mch ${mkc(x.pct_change_24h)}">${mkp(x.pct_change_24h)}</span></span></button>`}
+function mkWatchHtml(){return `<div class="panel"><div class="ph"><h2>관심 품목 ${S.mw.length}개</h2><span class="tiny">최대 ${MK_PINS}개 · 이 브라우저에 저장</span></div>${S.mw.length?`<div class="mlist">${S.mw.map(mkWatchRow).join('')}</div>`:'<div class="empty">시세판에서 품목을 눌러 관심 품목에 추가하세요. 목표가를 정하면 도달했을 때 이 페이지 맨 위에 표시합니다.</div>'}</div>`}
+const mkRes=()=>S.mt==='proc'?mkProcHtml():S.mt==='trade'?mkTradeHtml():S.mt==='watch'?mkWatchHtml():mkBoardHtml();
+const mkChips=(k,a)=>a.map(([v,l])=>`<button class="tabbtn ${String(S[k])===String(v)?'on':''}" data-${k}="${esc(v)}">${esc(l)}</button>`).join('');
+function mkTop(){if(S.mt==='proc')return `<div class="tabs">${mkChips('mb',[['buy','재료를 사서 만들 때'],['own','재료를 이미 갖고 있을 때']])}</div><div class="tabs" style="padding-bottom:0">${mkChips('mpf',[['all','전체'],...PFAC.map(f=>[f,f])])}</div>`;
+ if(S.mt==='trade')return `<label class="wslot tiny">캐릭터 수 <select id="bc" style="width:76px">${Array.from({length:20},(_,i)=>`<option value="${i+1}" ${S.bc===i+1?'selected':''}>${i+1}명</option>`).join('')}</select></label>`;
+ if(S.mt==='watch')return '';
+ return `<div class="mktools"><div class="tabs">${mkChips('mr',MK_SORT)}</div><input type="search" id="mq" placeholder="거래소 전 품목 검색" value="${esc(S.mq)}"></div><div class="tabs" style="padding-bottom:0">${mkChips('mc',[['all','전체'],...MK_CATS.map(c=>[c,c])])}</div>`}
+function mkSetup(){const c=[['시세판','급등·급락·품귀·재입고 순위와 전 품목 검색, 장비 제작 재료 시세'],['시세 상세','최대 90일 가격·재고 차트, 지금 가격이 싼 편인지 판단, 최근 월드 채팅 언급'],['가공 수익','레시피별 1회 순이익과 재료를 사서 만들 때의 손익'],['교환 차익','물물교환으로 얻는 차익과 캐릭터 수별 주간 최대치'],['관심 품목','품목을 고정하고 목표가에 닿으면 표시']];
+ return `<div class="panel hl"><h2>거래소 연결</h2><p class="hint">시세는 모비라이프 OpenAPI에서 받아옵니다. 키는 이 브라우저에만 저장되고 모비라이프로만 전송됩니다. 다른 기기에서는 그 기기에서 한 번 더 넣어 주세요.</p>
+ <ol class="hint"><li><a href="https://mabimobi.life/openapi" target="_blank" rel="noopener">모비라이프 OpenAPI</a>에서 로그인하고 API 키를 발급합니다.</li><li>키를 아래에 붙여넣고 연결을 누릅니다.</li></ol>
+ <div class="mkkey"><input type="password" id="mkk" placeholder="ml_로 시작하는 API 키" autocomplete="off" spellcheck="false" aria-label="모비라이프 API 키"><button class="btn primary" data-mkc="connect">연결</button></div><p class="tiny" id="mkm" role="status"></p></div>
+ <div class="tgrid">${c.map(([t,d])=>`<div class="tcard"><div class="tt"><b>${t}</b></div><div class="tiny">${d}</div></div>`).join('')}</div>`}
+function pgMarket(){if(!mkk())return mkSetup();
+ return `<div class="panel"><div class="mkhead"><span class="tiny" id="mstat">${esc(mkStat())}</span><div class="row"><button class="btn sm" data-mkc="refresh">새로고침</button><button class="btn sm" data-mkc="off">키 해제</button></div></div><div id="merr">${mkErr()}${mkAlert()}</div><div class="tabs" id="mtabs">${mkTabs()}</div><div id="mtop">${mkTop()}</div></div><div id="mres">${mkRes()}</div><p class="tiny">시세 출처: <a href="https://mabimobi.life/openapi" target="_blank" rel="noopener">모비라이프 OpenAPI</a> · 시세는 실제보다 10~20분 늦을 수 있습니다 · 재배포 금지 약관에 따라 시세는 이 브라우저에만 저장합니다.</p>`}
+/* 시세 상세 창 */
+function mkDlg(){let d=$('mdlg');if(!d){d=document.createElement('dialog');d.id='mdlg';d.className='mdlg';document.body.appendChild(d)}return d}
+function mkPin(k){const p=S.mw.find(w=>w.k===k);return `<button class="btn sm ${p?'primary':''}" data-mpin="${k}">${p?'★ 관심 품목':'☆ 관심 품목에 추가'}</button>${p?`<label class="wslot tiny">목표가 <input id="mtg" inputmode="numeric" value="${p.t||''}" placeholder="데카" style="width:96px;height:30px"></label><span class="row" style="gap:6px">${[['down','이하'],['up','이상']].map(([v,l])=>`<button class="tabbtn ${(p.d||'down')===v?'on':''}" data-mdir="${v}">${l}</button>`).join('')}</span>`:''}`}
+function mkOpen(k){const x=MK.seen[k];if(!x)return;MK.sel=k;const d=mkDlg(),cell=(l,v,c='')=>`<div><span class="tiny">${l}</span><b class="${c}">${v}</b></div>`;
+ d.innerHTML=`<div class="mdin"><div class="mdh">${mkIcon(x)}<div class="mdt"><b>${esc(mkName(x.name))}</b><span class="tiny">${esc(x.parent_category)}</span></div><button class="btn sm" data-mclose="1" aria-label="닫기">닫기</button></div>
+ <div class="mstats">${cell('최저가',x.min_price?mkn(x.min_price):'품절')}${cell('재고',mkn(x.total_count))}${cell('1시간',mkp(x.pct_change_1h),mkc(x.pct_change_1h))}${cell('24시간',mkp(x.pct_change_24h),mkc(x.pct_change_24h))}${cell('7일',mkp(x.pct_change_7d),mkc(x.pct_change_7d))}</div>
+ <div id="mver"></div><div class="tabs" style="padding:0" id="mrgs">${mkChips('mrg',MK_RG)}</div><div class="mchart" id="mchart"></div><div id="mtable"></div>
+ <div class="row" id="mpin">${mkPin(k)}</div><div><div class="ch" style="margin-top:0">최근 7일 월드 채팅 언급</div><div id="mchat" class="stack"></div></div></div>`;
+ if(!d.open)d.showModal();mkHist(k);mkChat(k,x.name)}
+async function mkHistGet(k,n){const key=k+'|'+n,c=MK.h.get(key);if(c&&Date.now()-c.at<MK_TTL)return c.j;const j=await mkGet(`/market/prices/history?kind_id=${k}&days=${n}`);MK.h.set(key,{at:Date.now(),j});return j}
+async function mkHist(k){const w=$('mchart');if(!w)return;w.innerHTML='<div class="tiny">시세 이력을 불러오는 중입니다.</div>';$('mtable').innerHTML='';
+ try{const j=await mkHistGet(k,S.mrg);if(MK.sel!==k||!$('mchart'))return;mkDraw(j);mkVerd(S.mrg===30?j:await mkHistGet(k,30),k)}catch(e){if(MK.sel===k&&$('mchart'))$('mchart').innerHTML=`<div class="tiny">${esc(e.message)}</div>`}}
+async function mkChat(k,name){const w=$('mchat');if(!w)return;w.innerHTML='<div class="tiny">불러오는 중입니다.</div>';const now=new Date,st=new Date(now-6048e5),q=name.replace(/\(.*$/,'').trim();
+ try{const j=await mkGet(`/world-chat/search?q=${encodeURIComponent(q)}&scope=message&channel=all&limit=5&start_time=${st.toISOString()}&end_time=${now.toISOString()}`);if(MK.sel!==k||!$('mchat'))return;
+  $('mchat').innerHTML=j.data.length?j.data.map(m=>`<div class="mcr"><span class="tiny">${esc(m.server_name)} · ${esc(mkTime(m.received_at,'m'))} · ${esc(m.player_name)}</span><div>${esc(m.message)}</div></div>`).join(''):'<div class="tiny">최근 7일 동안 언급이 없습니다.</div>'}catch(e){if(MK.sel===k&&$('mchat'))$('mchat').innerHTML=`<div class="tiny">${esc(e.message)}</div>`}}
+function mkVerd(j,k){const e=$('mver'),x=MK.seen[k],P=(j.points||[]).filter(p=>p.close!=null),c=P.map(p=>p.close);if(!e||!x)return;if(c.length<7){e.innerHTML='<div class="tiny">최근 30일 이력이 부족해 판단하지 않습니다.</div>';return}
+ const cur=x.min_price,lo=Math.min(...c),hi=Math.max(...c),avg=Math.round(c.reduce((a,b)=>a+b,0)/c.length),c0=P[0].count_close,c1=P[P.length-1].count_close,tr=c0?` · 재고 30일 전보다 ${mkp((c1-c0)/c0*100)}`:'';
+ if(lo===hi){e.innerHTML=`<div class="mverd"><b>변동 없음</b><span class="hint">최근 30일 종가가 모두 ${mkn(lo)}입니다. 이 가격에 매물이 몰려 있으면 올려도 늦게 팔릴 수 있습니다${tr}</span></div>`;return}
+ if(!cur){e.innerHTML=`<div class="mverd"><b>품절</b><span class="hint">최근 30일 최저 ${mkn(lo)} · 평균 ${mkn(avg)} · 최고 ${mkn(hi)}${tr}</span></div>`;return}
+ const r=Math.round(c.filter(v=>v<cur).length/c.length*100),lab=r<=20?'싼 편':r>=80?'비싼 편':'보통';
+ e.innerHTML=`<div class="mverd"><b>${lab}</b><span class="hint">최근 30일 종가의 ${r}%가 지금보다 쌌습니다 · 최저 ${mkn(lo)} · 평균 ${mkn(avg)} · 최고 ${mkn(hi)}${tr}</span></div>`}
+function mkDraw(j){const w=$('mchart'),P=(j.points||[]).filter(p=>p.close!=null);if(!w)return;if(P.length<2){w.innerHTML='<div class="tiny">이 기간의 시세 이력이 부족합니다.</div>';return}
+ const W=Math.max(280,Math.floor(w.clientWidth)),L=48,R=12,T=18,H1=150,G=34,H2=52,B=22,H=T+H1+G+H2+B,n=P.length-1,X=i=>L+(W-L-R)*i/n,hr=j.resolution!=='daily';
+ const lab=p=>mkTime(p.time,hr?'h':'d'),cnt=p=>p.count_close??0;
+ const sc=(v,t,h)=>{let lo=Math.min(...v),hi=Math.max(...v);if(lo===hi){const d=Math.max(1,lo*.02);lo-=d;hi+=d}const pad=(hi-lo)*.08;lo-=pad;hi+=pad;return{lo,hi,y:x=>t+h-(x-lo)/(hi-lo)*h}};
+ const sp=sc(P.map(p=>p.close),T,H1),ss=sc(P.map(cnt),T+H1+G,H2),path=(s,f)=>P.map((p,i)=>`${i?'L':'M'}${X(i).toFixed(1)} ${s.y(f(p)).toFixed(1)}`).join('');
+ const grid=(s,fr)=>fr.map(f=>{const v=s.lo+(s.hi-s.lo)*f,y=s.y(v).toFixed(1);return `<line class="mg" x1="${L}" x2="${W-R}" y1="${y}" y2="${y}"/><text class="mt" x="${L-8}" y="${(+y+4).toFixed(1)}" text-anchor="end">${mkCompact(v)}</text>`}).join('');
+ const xl=[[0,'start'],[Math.round(n/2),'middle'],[n,'end']].map(([i,a])=>`<text class="mt" x="${X(i).toFixed(1)}" y="${H-5}" text-anchor="${a}">${esc(lab(P[i]))}</text>`).join('');
+ const end=P[n];w.tabIndex=0;w.setAttribute('role','img');w.setAttribute('aria-label',`${j.name} 가격 차트, 마지막 ${mkn(end.close)}`);
+ w.innerHTML=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-hidden="true"><text class="ml" x="${L}" y="11">가격(종가)</text><text class="ml" x="${L}" y="${T+H1+G-7}">재고</text>${grid(sp,[.1,.5,.9])}${grid(ss,[.15,.85])}
+ <path class="ma" d="${path(sp,p=>p.close)}L${X(n).toFixed(1)} ${T+H1}L${X(0).toFixed(1)} ${T+H1}Z"/><path class="ml1" d="${path(sp,p=>p.close)}"/><path class="ml2" d="${path(ss,cnt)}"/>
+ <circle class="me" cx="${X(n).toFixed(1)}" cy="${sp.y(end.close).toFixed(1)}" r="4"/>${xl}<g class="mcx" style="display:none"><line class="mcl" y1="${T}" y2="${H-B}"/><circle class="mcd d1" r="4"/><circle class="mcd d2" r="4"/></g></svg><div class="mtip" hidden></div>`;
+ const g=w.querySelector('.mcx'),li=g.querySelector('.mcl'),d1=g.querySelector('.d1'),d2=g.querySelector('.d2'),tip=w.querySelector('.mtip');let cur=n;
+ const show=i=>{cur=i;const p=P[i],x=X(i);g.style.display='';li.setAttribute('x1',x);li.setAttribute('x2',x);d1.setAttribute('cx',x);d1.setAttribute('cy',sp.y(p.close));d2.setAttribute('cx',x);d2.setAttribute('cy',ss.y(cnt(p)));tip.hidden=false;tip.textContent='';const v=document.createElement('b');v.textContent=`${mkn(p.close)} 데카`;const m=document.createElement('span');m.textContent=`재고 ${mkn(cnt(p))}`;const t=document.createElement('span');t.textContent=lab(p);tip.append(v,m,t);const tw=tip.offsetWidth;tip.style.left=Math.max(0,Math.min(W-tw,x+10>W-tw?x-tw-10:x+10))+'px'},hide=()=>{g.style.display='none';tip.hidden=true};
+ const at=e=>{const r=w.getBoundingClientRect();return Math.max(0,Math.min(n,Math.round(((e.clientX-r.left)-L)/(W-L-R)*n)))};
+ w.onpointermove=e=>show(at(e));w.onpointerdown=e=>show(at(e));w.onpointerleave=hide;w.onblur=hide;w.onkeydown=e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();show(Math.max(0,Math.min(n,cur+(e.key==='ArrowLeft'?-1:1))))}};
+ $('mtable').innerHTML=`<details class="mtbl"><summary class="tiny">표로 보기</summary><div class="tablewrap"><table class="lt"><thead><tr><th>시각</th><th class="num">가격</th><th class="num">재고</th></tr></thead><tbody>${P.slice(-30).reverse().map(p=>`<tr><td>${esc(lab(p))}</td><td class="num">${mkn(p.close)}</td><td class="num">${mkn(cnt(p))}</td></tr>`).join('')}</tbody></table></div></details>`}
+
 /* ===== 라우팅 ===== */
-const ICO={pet:'<circle cx="5.5" cy="10.5" r="2"/><circle cx="9.5" cy="5.5" r="2"/><circle cx="14.5" cy="5.5" r="2"/><circle cx="18.5" cy="10.5" r="2"/><path d="M12 12c-3 0-6 4.5-6 7 0 1.6 1.3 2.4 2.8 2 1.1-.3 2.1-.6 3.2-.6s2.1.3 3.2.6c1.5.4 2.8-.4 2.8-2 0-2.5-3-7-6-7z"/>',class:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',rune:'<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9.5 3 12 9l2.5-6M12 9v12"/>',fbt:'<path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',cmp:'<path d="m8 3-4 4 4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
+const ICO={market:'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',pet:'<circle cx="5.5" cy="10.5" r="2"/><circle cx="9.5" cy="5.5" r="2"/><circle cx="14.5" cy="5.5" r="2"/><circle cx="18.5" cy="10.5" r="2"/><path d="M12 12c-3 0-6 4.5-6 7 0 1.6 1.3 2.4 2.8 2 1.1-.3 2.1-.6 3.2-.6s2.1.3 3.2.6c1.5.4 2.8-.4 2.8-2 0-2.5-3-7-6-7z"/>',class:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',rune:'<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9.5 3 12 9l2.5-6M12 9v12"/>',fbt:'<path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',cmp:'<path d="m8 3-4 4 4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
  link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',gear:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
  proc:'<path d="M2 20h20"/><path d="M4 20V10l5 3v-3l5 3V6l6 4v10"/>',gath:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.2-6"/>',
  week:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="m9 15 2 2 4-4"/>',check:'<path d="M20 6 9 17l-5-5"/>',
  soul:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/>',
  barter:'<path d="M4 8h15l-4-4"/><path d="M20 16H5l4 4"/>',about:'<circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/>',more:'<circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/>',ext:'<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>'};
 const svg=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k]}</svg>`;
-const NAV=[['class','정보','직업 정보'],['rune','정보','룬 역검색'],['cmp','정보','직업 비교'],['fbt','정보','필드 보스 칭호'],['pet','정보','펫 추천'],['week','도구','주간 체크리스트'],['link','도구','숙련 연계'],['soul','도구','소울스트림'],['gear','도구','장비 비교'],['proc','생활','가공 레시피'],['gath','생활','채집 바로찾기'],['barter','생활','물물교환'],['about','기타','출처 · 갱신']];
+const NAV=[['class','정보','직업 정보'],['rune','정보','룬 역검색'],['cmp','정보','직업 비교'],['fbt','정보','필드 보스 칭호'],['pet','정보','펫 추천'],['week','도구','주간 체크리스트'],['link','도구','숙련 연계'],['soul','도구','소울스트림'],['gear','도구','장비 비교'],['market','생활','거래소'],['proc','생활','가공 레시피'],['gath','생활','채집 바로찾기'],['barter','생활','물물교환'],['about','기타','출처 · 갱신']];
 const TABS={class:'직업',week:'숙제',link:'숙련',proc:'가공',gath:'채집'};
-const PAGES={pet:['펫 추천',`펫 ${PET.length}종의 고유 동행 능력치(치명타·연타 강화 등)를 조합별로 묶고, 21개 직업에 가장 효율적인 펫을 근거와 함께 보여 줍니다.`,pgPet],fbt:['필드 보스 칭호','필드 보스 6종 막타 칭호의 보조 능력치(치명타·강타 강화 등) 효과와, 21개 직업에 가장 효율적인 칭호를 근거와 함께 보여 줍니다.',pgFbt],barter:['물물교환',`NPC 물물교환 ${BARTER.length}건과 골드 주간 상점 ${SHOP.length}건을 아이템·NPC·지역으로 찾고, 가공 대신 교환으로 얻는 재료를 캐릭터 수에 맞춰 계산합니다.`,pgBarter],class:['직업 정보','21개 직업의 주·부 스탯·개조·세공·장신구 세팅과 부위별 룬 사용 순위를 한눈에 봅니다.',pgClass],rune:['룬 역검색','룬을 고르면 어떤 직업이 몇 위로 쓰는지 자동으로 정리합니다.',pgRune],cmp:['직업 비교','두 직업의 세팅과 룬 TOP3를 나란히 비교하고 공통 룬을 찾습니다.',pgCmp],week:['주간 체크리스트','매주 월요일 06:00에 자동으로 초기화되는 주간 숙제입니다. 공식 가이드·업데이트 노트로 확인된 항목만 담았습니다.',pgWeek],link:['숙련 연계','공식 보너스표를 성급·강화 단계별로 조회하고, 무기 수치로 숙련 연계 추가 공격력을 자동 계산합니다.',pgLink],soul:['소울스트림','게임 화면의 소울 값 몇 개만 옮겨 적으면 주당 생산량, 다음 구간까지 남은 합계, 이번 주 구매 비용을 계산합니다.',pgSoul],proc:['가공 레시피','6개 가공 시설의 레시피 91개를 검색하고, 재료를 눌러 가공 단계를 따라갑니다.',pgProc],gath:['채집 바로찾기','아이템을 검색하면 어느 채집물에서 몇 레벨부터 얻는지 자동으로 정리합니다.',pgGath],gear:['장비 비교','숫자 몇 개로 성능 개선·보관·분해를 바로 판정합니다.',pgGear],about:['출처 · 갱신','데이터 출처, 기준일, 갱신 방법입니다.',pgAbout]};
-function render(){if(!PAGES[S.page])S.page='class';const P=PAGES[S.page];$('pt').textContent=P[0];$('ps').textContent=P[1];$('page').innerHTML=P[2]();if(S.page==='gear')gearJudge();if(S.page==='link')linkCalc();if(S.page==='soul')soulCalc();
+const PAGES={market:['거래소','거래소 전 품목의 시세와 급등·급락·품귀를 보고, 가공 수익과 물물교환 차익을 현재 시세로 계산합니다.',pgMarket],pet:['펫 추천',`펫 ${PET.length}종의 고유 동행 능력치(치명타·연타 강화 등)를 조합별로 묶고, 21개 직업에 가장 효율적인 펫을 근거와 함께 보여 줍니다.`,pgPet],fbt:['필드 보스 칭호','필드 보스 6종 막타 칭호의 보조 능력치(치명타·강타 강화 등) 효과와, 21개 직업에 가장 효율적인 칭호를 근거와 함께 보여 줍니다.',pgFbt],barter:['물물교환',`NPC 물물교환 ${BARTER.length}건과 골드 주간 상점 ${SHOP.length}건을 아이템·NPC·지역으로 찾고, 가공 대신 교환으로 얻는 재료를 캐릭터 수에 맞춰 계산합니다.`,pgBarter],class:['직업 정보','21개 직업의 주·부 스탯·개조·세공·장신구 세팅과 부위별 룬 사용 순위를 한눈에 봅니다.',pgClass],rune:['룬 역검색','룬을 고르면 어떤 직업이 몇 위로 쓰는지 자동으로 정리합니다.',pgRune],cmp:['직업 비교','두 직업의 세팅과 룬 TOP3를 나란히 비교하고 공통 룬을 찾습니다.',pgCmp],week:['주간 체크리스트','매주 월요일 06:00에 자동으로 초기화되는 주간 숙제입니다. 공식 가이드·업데이트 노트로 확인된 항목만 담았습니다.',pgWeek],link:['숙련 연계','공식 보너스표를 성급·강화 단계별로 조회하고, 무기 수치로 숙련 연계 추가 공격력을 자동 계산합니다.',pgLink],soul:['소울스트림','게임 화면의 소울 값 몇 개만 옮겨 적으면 주당 생산량, 다음 구간까지 남은 합계, 이번 주 구매 비용을 계산합니다.',pgSoul],proc:['가공 레시피','6개 가공 시설의 레시피 91개를 검색하고, 재료를 눌러 가공 단계를 따라갑니다.',pgProc],gath:['채집 바로찾기','아이템을 검색하면 어느 채집물에서 몇 레벨부터 얻는지 자동으로 정리합니다.',pgGath],gear:['장비 비교','숫자 몇 개로 성능 개선·보관·분해를 바로 판정합니다.',pgGear],about:['출처 · 갱신','데이터 출처, 기준일, 갱신 방법입니다.',pgAbout]};
+function render(){if(!PAGES[S.page])S.page='class';const P=PAGES[S.page];$('pt').textContent=P[0];$('ps').textContent=P[1];$('page').innerHTML=P[2]();if(S.page==='gear')gearJudge();if(S.page==='link')linkCalc();if(S.page==='soul')soulCalc();if(S.page==='market')mkEnter();else if(S.page==='proc'||S.page==='barter')mkLoad();
  document.querySelectorAll('.nav[data-nav],.tab[data-nav]').forEach(b=>b.classList.toggle('on',b.dataset.nav===S.page));$('morebtn').classList.toggle('on',!TABS[S.page]);$('eb').textContent='MABINOGI MOBILE · '+NAV.find(n=>n[0]===S.page)[1]}
 function go(p){S.page=p;save();$('sheet').hidden=true;render();window.scrollTo({top:0});if($('page').animate&&!matchMedia('(prefers-reduced-motion: reduce)').matches)$('page').animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:220,easing:'cubic-bezier(.2,.7,.2,1)'})}
 
@@ -1351,6 +1501,18 @@ document.addEventListener('click',e=>{const t=e.target;let el;
  if(el=t.closest('[data-goproc]')){S.pq=el.dataset.goproc;S.pf='all';S.pl=0;return go('proc')}
  if(el=t.closest('[data-tf]')){S.tf=el.dataset.tf;save();return render()}
  if(el=t.closest('[data-ptf]')){S.ptf=el.dataset.ptf;save();return render()}
+ if(t.id==='mdlg'){t.close();return}
+ if(el=t.closest('[data-mclose]')){$('mdlg').close();return}
+ if(el=t.closest('[data-mi]')){mkOpen(+el.dataset.mi);return}
+ if(el=t.closest('[data-mkc]')){const a=el.dataset.mkc;if(a==='connect')return mkConnect();if(a==='off')return mkOff();MK.q.clear();MK.at=0;mkLoad(true);if(S.mt==='board')mkBoard();return}
+ if(el=t.closest('[data-mt]')){S.mt=el.dataset.mt;save();return render()}
+ if(el=t.closest('[data-mr]')){S.mr=el.dataset.mr;S.mq='';save();return render()}
+ if(el=t.closest('[data-mc]')){S.mc=el.dataset.mc;save();return render()}
+ if(el=t.closest('[data-mpf]')){S.mpf=el.dataset.mpf;save();return render()}
+ if(el=t.closest('[data-mb]')){S.mb=el.dataset.mb;save();return render()}
+ if(el=t.closest('[data-mrg]')){S.mrg=+el.dataset.mrg;save();$('mrgs').innerHTML=mkChips('mrg',MK_RG);mkHist(MK.sel);return}
+ if(el=t.closest('[data-mpin]')){const k=+el.dataset.mpin,i=S.mw.findIndex(w=>w.k===k),x=MK.seen[k];if(i>=0)S.mw.splice(i,1);else if(S.mw.length>=MK_PINS)toast('관심 품목은 최대 '+MK_PINS+'개입니다.');else if(x)S.mw.push({k,n:x.name,t:0,d:'down'});save();$('mpin').innerHTML=mkPin(k);mkPaint();return}
+ if(el=t.closest('[data-mdir]')){const p=S.mw.find(w=>w.k===MK.sel);if(p){p.d=el.dataset.mdir;save();$('mpin').innerHTML=mkPin(MK.sel);mkPaint()}return}
  if(el=t.closest('[data-bt]')){S.bt=el.dataset.bt;if(!(S.bt==='g'?SREG:BREG).includes(S.br))S.br='all';save();return render()}
  if(el=t.closest('[data-bcur]')){S.bcur=el.dataset.bcur;save();return render()}
  if(el=t.closest('[data-bm]')){S.bm=el.dataset.bm;save();return render()}
@@ -1371,6 +1533,8 @@ document.addEventListener('input',e=>{const el=e.target;
  if(el.id==='pq'){S.pq=el.value;save();$('plist').innerHTML=procList();return}
  if(el.id==='gq'){S.gq=el.value;save();$('glist').innerHTML=gatherList();return}
  if(el.id==='bq'){S.bq=el.value;save();$('blist').innerHTML=S.bt==='g'?shopList():barterList();return}
+ if(el.id==='mq'){S.mq=el.value;save();clearTimeout(MK.t);MK.t=setTimeout(mkBoard,350);return}
+ if(el.id==='mtg'){const p=S.mw.find(w=>w.k===MK.sel);if(p){p.t=Number(el.value.replace(/\D/g,''))||0;save();mkPaint()}return}
  if(el.closest('#soulq'))return soulCalc();
  if(el.closest('#lq'))return linkCalc();
  if(el.closest('#gq'))return gearJudge()});
@@ -1378,7 +1542,7 @@ document.addEventListener('change',e=>{const el=e.target;if(el.id==='ca'||el.id=
  if(el.id==='lst'||el.id==='llv'){linkCalc();S.ls=S.lk.st;save();render()}
  if(el.id==='wpet'){S.wpet=+el.value;save();render()}
  if(el.id==='bc'){S.bc=+el.value;save();render()}});
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList?.contains('ccard'))e.target.click();if(e.key==='Escape')$('sheet').hidden=true});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList?.contains('ccard'))e.target.click();if(e.key==='Enter'&&e.target.id==='mkk')mkConnect();if(e.key==='Escape')$('sheet').hidden=true});
 
 /* ===== 시작 ===== */
 const navBtn=([id,,lb])=>`<button class="nav" data-nav="${id}">${svg(id)}<span>${lb}</span></button>`;
