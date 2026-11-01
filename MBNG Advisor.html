@@ -76,7 +76,7 @@ tr.cur,tr.cur:hover{background:var(--accent-w);box-shadow:inset 3px 0 0 var(--ac
 .sk-r{background:rgba(242,147,140,.14);color:#f6aaa4}.sk-g{background:rgba(111,227,160,.13);color:#8ce8b4}.sk-y{background:rgba(230,197,107,.14);color:#ecd28a}.sk-p{background:rgba(239,159,198,.14);color:#f3b4d3}.sk-s{background:rgba(159,179,200,.14);color:#b7c6d6}.sk-b{background:rgba(143,186,245,.14);color:#a9c9f8}.sk-v{background:rgba(173,159,242,.15);color:#c2b7f6}.sk-o{background:rgba(243,172,112,.14);color:#f6be8d}.sk-x{background:rgba(255,255,255,.07);color:var(--muted)}
 .mods{display:flex;gap:5px;align-items:center;margin-top:6px}.mods small{width:14px;color:var(--subtle);font-weight:600}
 .mods i{font-style:normal;width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:var(--bg2);border:1px solid var(--line);color:#4f5664;font-size:12px;font-weight:600}.mods i.on{background:var(--accent-w);border-color:var(--accent-l);color:var(--accent)}
-.crafts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.crafts div{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 4px;text-align:center}.crafts small{display:block;font-size:10.5px;color:var(--subtle);margin-bottom:5px}
+.bld{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px 10px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}.bld:first-child{padding-top:0}.bld:last-child{border-bottom:0;padding-bottom:0}.bh{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:8px;min-width:0}.bh .tiny{flex:none}.bl{line-height:26px}.bld .mods:first-child{margin-top:0}.gt{display:grid;grid-template-columns:10px minmax(0,1fr);gap:4px 8px;align-items:center}.gt small{font-size:11px;color:var(--subtle);font-weight:600}.gt div{display:flex;gap:4px;min-width:0}
 .rset{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,max-content);justify-content:start;gap:6px;align-items:center}.rn2{background:rgba(173,159,242,.1);color:#cfc6fa;border:1px solid rgba(173,159,242,.28);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:600}.rn2 em{font-style:normal;color:var(--subtle);font-weight:500;font-size:10.5px;margin:0 4px}
 .tg{font-size:10.5px;font-weight:600;padding:1px 6px;border-radius:6px;border:1px solid;white-space:nowrap;flex:none}
 .tg-d{color:#f6aaa4;border-color:rgba(242,147,140,.4);background:rgba(242,147,140,.1)}.tg-l{color:#ecd28a;border-color:rgba(230,197,107,.4);background:rgba(230,197,107,.1)}.tg-a{color:#c2b7f6;border-color:rgba(173,159,242,.4);background:rgba(173,159,242,.1)}
@@ -172,7 +172,7 @@ main{padding:22px 16px calc(98px + env(safe-area-inset-bottom))}.panel{padding:1
 .sheet-card{position:absolute;left:8px;right:8px;bottom:calc(74px + env(safe-area-inset-bottom));background:var(--bg2);border:1px solid var(--line2);border-radius:18px;padding:8px;display:grid;gap:2px;box-shadow:0 -24px 60px -24px rgba(0,0,0,.85);animation:up .2s var(--ease)}
 .sheet-card .nav{height:46px;font-size:14px}.sheet-card .nav:hover{background:var(--bg3)}
 .toast{left:16px;right:16px;bottom:calc(86px + env(safe-area-inset-bottom))}
-.prow{grid-template-columns:52px minmax(0,1fr)}.prow .mats{grid-column:1/-1}.wrow{grid-template-columns:1fr}.wsubs{justify-content:flex-start}.wtime{text-align:left}.grid2,.grid3{grid-template-columns:1fr}.crafts{grid-template-columns:1fr 1fr}}
+.prow{grid-template-columns:52px minmax(0,1fr)}.prow .mats{grid-column:1/-1}.wrow{grid-template-columns:1fr}.wsubs{justify-content:flex-start}.wtime{text-align:left}.grid2,.grid3{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -199,31 +199,66 @@ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 function toast(m){const el=$('toast');el.textContent=m;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2600)}
 async function copyText(t){try{await navigator.clipboard.writeText(t);toast('클립보드에 복사했습니다.')}catch(e){const ta=document.createElement('textarea');ta.value=t;document.body.append(ta);ta.select();try{document.execCommand('copy');toast('복사했습니다.')}catch(_){toast('복사가 제한된 브라우저입니다.')}ta.remove()}}
 
-/* ===== 데이터: 직업 기본 · 개조 · 세공 · 장신구 세팅 (사용자 제공 표) ===== */
+/* ===== 데이터: 직업 기본 ===== */
 const CF={warrior:['전사 계열','#f2938c'],healer:['힐러 계열','#8fbaf5'],mage:['마법사 계열','#ad9ff2'],archer:['궁수 계열','#f3ac70'],bard:['음유시인 계열','#e6c56b'],rogue:['도적 계열','#ef9fc6']};
 const SKC={강타:'r',연타:'g',보조:'y',방해:'p',이동:'s',원소:'b',소환:'v',생존:'o'};
 const CLS=[
-['전사','warrior','246','','강타,방해,이동,생존','돌격+붕괴+패기/검투사',''],
-['검술사','warrior','456','','강타,보조,이동,연타','관통+평정+일섬/맹렬',''],
-['대검전사','warrior','456/156','','강타,보조,강타쿨,보조쿨','탄력+광전사+절단',''],
-['기사','warrior','156/135','','강타,보조,연타,소환','돌파+용기+지진',''],
-['힐러','healer','345','','보조,연타,소환,보조쿨','물결/고동침+가호+광륜',''],
-['사제','healer','235','','보조,강타,방해,보조쿨','집행+심판+성전/결속',''],
-['수도사','healer','123','','보조,연타,이동,방해','인과+뇌정+등불',''],
-['암흑술사','healer','135','134','방해,소환,보조,연타','절제+구속+광기','절제+구속+나락'],
-['마법사','mage','123','','원소,방해,강타,소환','우레+운석+빙창/서리가시',''],
-['빙결술사','mage','456','145','원소,소환,생존,강타','북풍+빙하+설원','빙검+빙하+설원'],
-['화염술사','mage','136','135','원소,강타,연타,방해','폭격+청염+분출',''],
-['전격술사','mage','245','256','원소,강타,보조,방해','폭풍우+도관+섬광','천둥+도관+섬광'],
-['궁수','archer','156','135','연타,강타,방해,보조','치명적/몰아침+매+닻','몰아침/재빠른+나선+닻'],
-['석궁사수','archer','246/146','234','강타,원소,연타,원소쿨','꿰뚫음+화약+산탄','꿰뚫음+반전+균열/산탄'],
-['장궁병','archer','236','','방해,강타,연타,방해쿨','초음파+돌개+호응',''],
-['악사','bard','345','235','방해,연타,강타,보조','조율+속주+종장','조율+매혹+종장/순환'],
-['음유시인','bard','346/134','','방해,보조,강타,연타','합주+무아+기만/급습',''],
-['댄서','bard','135/356','','연타,이동,강타,보조','환호+발걸음+전환',''],
-['도적','rogue','134','234','방해,강타,이동,연타','닻+땅거미+폭발','닻+교활함+폭발'],
-['듀얼블레이드','rogue','145/456','456','연타,이동,강타,보조','천침+강화+교차','열상+속행+교차'],
-['격투가','rogue','456','145','강타,이동,보조,강타쿨','전진+승천+강격','약점+승천+열혈']];
+['전사','warrior'],
+['검술사','warrior'],
+['대검전사','warrior'],
+['기사','warrior'],
+['힐러','healer'],
+['사제','healer'],
+['수도사','healer'],
+['암흑술사','healer'],
+['마법사','mage'],
+['빙결술사','mage'],
+['화염술사','mage'],
+['전격술사','mage'],
+['궁수','archer'],
+['석궁사수','archer'],
+['장궁병','archer'],
+['악사','bard'],
+['음유시인','bard'],
+['댄서','bard'],
+['도적','rogue'],
+['듀얼블레이드','rogue'],
+['격투가','rogue']];
+
+/* ===== 데이터: 빌드별 개조 · 세공 · 장신구 룬 (2026-11-01 캡처) =====
+   mabimobi.life 보석 & 세공 시뮬레이터 직업 변경 가이드의 전체 빌드 표(사용자 캡처). 세 글자 빌드명은 앱 장신구 룬 이름으로 풀어 저장
+   [직업, 장신구 룬, 구분, 개조(대안은 /), 세공 순위(>로 순위, =로 동순위)]
+   기존 값 유지: 음유시인 개조·장신구 룬(페이지 345·재치, 치트시트 346·기만, 재치 사용률 9%), 기사 개조(페이지 135, 치트시트 대표 156) */
+const BLD_DATE='2026-11-01',BLD_URL='https://mabimobi.life/calculator/gem-simulator/class-change';
+const BLD=[
+['전사','패기+돌격+붕괴','','246','강타=방해>생존=이동>보조'],
+['검술사','관통+평정+일섬','','456','강타>보조>이동'],
+['대검전사','절단+탄력+광전사','','456/156','보조=강타>보조쿨>강타쿨'],
+['기사','돌파+용기+지진','','156/135','강타=보조>연타>생존=소환'],
+['힐러','물결+가호+광륜','','345','보조>연타>소환'],
+['사제','집행+심판+성전','','235','보조>강타=방해>보조쿨=강타쿨'],
+['수도사','인과+뇌정+등불','','123','보조=연타>이동>방해'],
+['암흑술사','절제+구속+광기','','135','방해=소환>보조=연타>강타'],
+['마법사','우레+운석+빙창','','123','원소>강타=방해>소환'],
+['빙결술사','빙하+북풍+설원','','456','원소>소환>생존'],
+['빙결술사','빙검+빙하+설원','','145','원소=소환=강타'],
+['화염술사','청염+폭격+분출','연타','136','원소=강타=연타'],
+['화염술사','청염+폭격+분출','방해','136','원소=강타=방해'],
+['전격술사','폭풍우+도관+섬광','','245','원소>강타>보조'],
+['전격술사','천둥+도관+섬광','','256','원소=강타=보조>방해'],
+['궁수','몰아침+매+닻','','156','연타>강타=방해>보조=이동'],
+['석궁사수','꿰뚫음+반전+균열','압축','234','원소>강타>연타'],
+['석궁사수','꿰뚫음+화약+산탄','지속','346/146','원소>강타>연타'],
+['장궁병','초음파+돌개+호응','','236','방해>강타>연타'],
+['악사','조율+순환/속주+종장','','345','방해>연타=강타>보조'],
+['악사','조율+매혹+순환','','235','방해=연타=보조'],
+['음유시인','합주+무아+기만/급습','','346/134','방해>보조>강타=연타'],
+['댄서','전환+발걸음+환호','','135/356','연타>이동>강타'],
+['도적','덫+땅거미+폭발','단일','134','방해>강타>이동'],
+['도적','덫+교활함+폭발','다수','234','방해=강타=연타'],
+['듀얼블레이드','천침+강화+교차','','145','연타>이동=보조=강타'],
+['듀얼블레이드','천침+질주+속행','오토','156/145','연타=이동=강타'],
+['격투가','전진+승천+강격','','456','강타=이동>보조>강타쿨=이동쿨']];
 
 /* ===== 데이터: 직업 주·부 스탯 (나무위키 각 직업 문서 상단 정보 상자 'main'·'sub', 2026-10-27 확인 · 문서 수정 2026-08-20~10-25) =====
    기본 직업 6종(전사·궁수·마법사·힐러·음유시인·도적)은 정보 상자에 'sub'가 없는 = 부 스탯이 없는 직업(사용자 확인) → '없음' */
@@ -253,7 +288,7 @@ const RAW={
 '음유시인':{w:'대군주+:용:66,타오르는 영광:빛:19,죽음:특:8,햇살+:빛:1,광채+:빛:1,암운+:어:0,바위 칼날:용:3,두 갈래 뿔:용:1,억눌린 충동:어:0,추적자:용:0',e:'영원한 밤:어:43,해방:어:39,위대함:용:5,고결함:빛:3,원정대:0,초월:빛:1,침묵:어:0,백금 천칭:빛:0,태초:용:0,빛바랜 별:용:9',a:'무아+:98,합주+:98,변주+:48,기만+:35,재치+:9,화음+:1,조롱+:4,급습+:5,즉흥+:0',r:'긍지:빛:85,바다뱀+:용:74,무너진 경계:어:63,금 간 봉인:어:56,교차하는 사슬:어:52,잿빛 장막:어:22,첫 번째 서약:빛:19,오팔 성배:빛:11,승전:빛:8,용 사냥꾼:특:14'},
 '댄서':{w:'바위 칼날:용:82,광채+:빛:6,죽음:특:9,햇살+:빛:1,거대한 분노:용:0,억눌린 충동:어:1,타오르는 영광:빛:1,오랜 광기:어:0,부패+:어:0,대군주+:용:0',e:'해방:어:52,영원한 밤:어:20,초월:빛:22,빛바랜 별:용:5,위대함:용:1,백금 천칭:빛:0,고결함:빛:0,침묵:어:0,원정대:0,태초:용:0',a:'전환+:99,발걸음+:99,환호+:99,갈채+:1,다가옴+:0,간결함+:0,정열+:0,나비+:0,산뜻함+:0',r:'공허:어:80,계승자:용:74,교차하는 사슬:어:49,오팔 성배:빛:59,무너진 경계:어:61,금 간 봉인:어:30,첫 번째 서약:빛:38,숲 길잡이:용:20,별바라기:용:8,용 사냥꾼:특:16'},
 '악사':{w:'바위 칼날:용:78,죽음:특:14,광채+:빛:4,계시+:빛:1,억눌린 충동:어:1,오랜 광기:어:0,두 갈래 뿔:용:0,창백한 기수:어:0,타오르는 영광:빛:1,대군주+:용:0',e:'영원한 밤:어:62,해방:어:30,빛바랜 별:용:4,초월:빛:4,위대함:용:1,태초:용:0,원정대:0,고결함:빛:0,백금 천칭:빛:0,침묵:어:0',a:'조율+:95,종장+:89,순환+:85,속주+:13,매혹+:10,박애+:1,흥성+:3,이중주+:0,공명+:0',r:'무너진 경계:어:78,칼바람:용:75,금 간 봉인:어:66,교차하는 사슬:어:57,계승자:용:51,뼈 인장:어:20,용 사냥꾼:특:19,잿빛 장막:어:4,바다뱀+:용:4,숲 길잡이:용:6'},
-'도적':{w:'바위 칼날:용:73,죽음:특:12,두 갈래 뿔:용:6,부패+:어:4,햇살+:빛:0,억눌린 충동:어:1,광채+:빛:0,대군주+:용:0,불꽃으로 새긴 문장:특:0,암운+:어:0',e:'초월:빛:56,영원한 밤:어:22,해방:어:10,백금 천칭:빛:6,위대함:용:1,고결함:빛:0,빛바랜 별:용:6,침묵:어:0,태초:용:0,원정대:0',a:'폭발+:98,땅거미+:88,닻+:96,교활함+:8,독무+:3,투척+:3,독성+:1,치밀함+:1,주입+:1',r:'열의+:빛:83,작열하는:빛:82,무너진 경계:어:59,첫 번째 서약:빛:56,금 간 봉인:어:42,교차하는 사슬:어:28,잠들지 않는 불:용:6,용 사냥꾼:특:17,수호자:빛:18,무형:특:4'},
+'도적':{w:'바위 칼날:용:73,죽음:특:12,두 갈래 뿔:용:6,부패+:어:4,햇살+:빛:0,억눌린 충동:어:1,광채+:빛:0,대군주+:용:0,불꽃으로 새긴 문장:특:0,암운+:어:0',e:'초월:빛:56,영원한 밤:어:22,해방:어:10,백금 천칭:빛:6,위대함:용:1,고결함:빛:0,빛바랜 별:용:6,침묵:어:0,태초:용:0,원정대:0',a:'폭발+:98,땅거미+:88,덫+:96,교활함+:8,독무+:3,투척+:3,독성+:1,치밀함+:1,주입+:1',r:'열의+:빛:83,작열하는:빛:82,무너진 경계:어:59,첫 번째 서약:빛:56,금 간 봉인:어:42,교차하는 사슬:어:28,잠들지 않는 불:용:6,용 사냥꾼:특:17,수호자:빛:18,무형:특:4'},
 '격투가':{w:'타오르는 영광:빛:45,광채+:빛:30,죽음:특:14,억눌린 충동:어:2,햇살+:빛:3,두 갈래 뿔:용:0,계시+:빛:0,바위 칼날:용:5,눈부신 잔영:빛:0,창백한 기수:어:0',e:'영원한 밤:어:54,위대함:용:37,원정대:5,빛바랜 별:용:2,초월:빛:0,백금 천칭:빛:0,고결함:빛:1,해방:어:0,태초:용:0,침묵:어:0',a:'승천+:99,전진+:69,강격+:41,열혈+:57,약점+:30,순발력+:1,격파+:0,충돌+:0,도약+:0',r:'금 간 봉인:어:73,무너진 경계:어:74,첫 번째 서약:빛:60,승전:빛:23,공허:어:39,오팔 성배:빛:43,흐릿한 형상:어:21,별바라기:용:22,잠들지 않는 불:용:16,용 사냥꾼:특:18'},
 '듀얼블레이드':{w:'바위 칼날:용:82,죽음:특:13,타오르는 영광:빛:2,광채+:빛:0,햇살+:빛:0,억눌린 충동:어:1,암운+:어:0,두 갈래 뿔:용:0,대군주+:용:0,거대한 분노:용:0',e:'해방:어:71,영원한 밤:어:25,초월:빛:2,고결함:빛:0,백금 천칭:빛:0,태초:용:0,침묵:어:0,위대함:용:0,빛바랜 별:용:1,원정대:0',a:'천침+:98,교차+:96,강화+:95,질주+:3,열상+:1,회오리+:1,속행+:3,보름달+:0,기본+:0',r:'무한한 탐욕:어:83,무너진 경계:어:74,계승자:용:63,승전:빛:49,교차하는 사슬:어:39,별바라기:용:25,오팔 성배:빛:45,잠들지 않는 불:용:18,금 간 봉인:어:18,용 사냥꾼:특:15'}};
 const PARTS=[['w','무기'],['e','엠블럼'],['a','장신구'],['r','방어구']];
@@ -962,6 +997,12 @@ const findC=n=>CLS.find(c=>c[0]===n)||CLS[0];
 const craft=t=>{const cd=t.endsWith('쿨'),b=cd?t.slice(0,-1):t;return `<span class="sk sk-${SKC[b]||'x'}">${esc(b)}${cd?' ⟳':''}</span>`};
 const modRow=s=>s?s.split('/').map((o,i,a)=>`<div class="mods">${a.length>1?`<small>${'ABC'[i]}</small>`:''}${[1,2,3,4,5,6].map(n=>`<i class="${o.includes(n)?'on':''}">${n}</i>`).join('')}</div>`).join(''):'';
 const accSet=s=>s?`<div class="rset">${s.split('+').map(p=>`<span class="rn2">${p.split('/').map(esc).join('<em>또는</em>')}</span>`).join('<span class="tiny">+</span>')}</div>`:'';
+const bldOf=n=>BLD.filter(b=>b[0]===n),gemT=s=>s.split('>').map(t=>t.split('=')),gemAll=s=>s.split(/[>=]/),gemTxt=s=>s.replace(/>/g,' > ');
+const bldAbbr=s=>s.split('+').reduce((a,p)=>a.flatMap(x=>p.split('/').map(y=>x+y[0])),['']).join(' ');
+const gemRows=s=>`<div class="gt">${gemT(s).map((t,i)=>`<small>${i+1}</small><div>${t.map(craft).join('')}</div>`).join('')}</div>`;
+const gemLine=s=>gemT(s).map(t=>t.map(craft).join('')).join('<span class="tiny">›</span>');
+const bldRow=b=>`<div class="bld"><div class="bh">${accSet(b[1])}${b[2]?`<span class="tiny">${esc(b[2])}</span>`:''}</div><span class="tiny bl">개조</span><div>${modRow(b[3])}</div><span class="tiny bl">세공</span>${gemRows(b[4])}</div>`;
+const bldList=n=>`<div>${bldOf(n).map(bldRow).join('')}</div>`;
 const TG={용:['d','용'],빛:['l','빛'],어:['a','어둠']};
 const tag=t=>TG[t]?`<span class="tg tg-${TG[t][0]}">${TG[t][1]}</span>`:'';
 const rname=r=>`<span class="rname ${r.t==='특'?'sp':''}">${esc(r.n)}</span>`;
@@ -977,28 +1018,27 @@ const ORD=['힘','솜씨','지력','의지','행운','없음'],COMBOS=[...new Se
 const clsChips=a=>a.length?`<div class="chips">${a.map(x=>`<button class="chip" data-cls="${esc(x)}">${esc(x)}</button>`).join('')}</div>`:'<span class="tiny">해당 직업 없음</span>';
 const famTabs=()=>[['all','전체'],...Object.entries(CF).map(([k,v])=>[k,v[0]]),['fav','★ 즐겨찾기']];
 function cText(n){const c=findC(n),R=RUNES[n],t3=pk=>R[pk].slice(0,3).map(r=>r.n).join(', ');
- return [`[${n}] ${CF[c[1]][0]}`,`스탯: 주 ${STAT[n]} / 부 ${SUB[n]}`,`개조: ${c[2]}${c[3]?' | '+c[3]:''}`,`세공: ${c[4].split(',').join(' > ')}`,`장신구 세팅: ${c[5]}${c[6]?' | '+c[6]:''}`,`무기 룬 TOP3: ${t3('w')}`,`엠블럼 룬 TOP3: ${t3('e')}`,`장신구 룬 TOP3: ${t3('a')}`,`방어구 룬 TOP3: ${t3('r')}`,`(룬 통계 mabimobi.life · ${DATA_DATE})`].join('\n')}
+ return [`[${n}] ${CF[c[1]][0]}`,`스탯: 주 ${STAT[n]} / 부 ${SUB[n]}`,...bldOf(n).map(b=>`빌드${b[2]?`(${b[2]})`:''}: ${b[1]} | 개조 ${b[3]} | 세공 ${gemTxt(b[4])}`),`무기 룬 TOP3: ${t3('w')}`,`엠블럼 룬 TOP3: ${t3('e')}`,`장신구 룬 TOP3: ${t3('a')}`,`방어구 룬 TOP3: ${t3('r')}`,`(룬 통계 mabimobi.life · ${DATA_DATE})`].join('\n')}
 
 /* ===== 페이지: 직업 정보 ===== */
-function filtered(){const q=(S.q||'').trim().toLowerCase();return CLS.filter(c=>(S.fam==='all'||(S.fam==='fav'?S.fav.includes(c[0]):c[1]===S.fam))&&(!q||[c[0],CF[c[1]][0],STAT[c[0]],SUB[c[0]],c[4],c[5],c[6],...PARTS.flatMap(([pk])=>RUNES[c[0]][pk].slice(0,3).map(r=>r.n))].join(' ').toLowerCase().includes(q)))}
+function filtered(){const q=(S.q||'').trim().toLowerCase();return CLS.filter(c=>(S.fam==='all'||(S.fam==='fav'?S.fav.includes(c[0]):c[1]===S.fam))&&(!q||[c[0],CF[c[1]][0],STAT[c[0]],SUB[c[0]],...bldOf(c[0]).flatMap(b=>[b[1],bldAbbr(b[1]),b[2],b[4]]),...PARTS.flatMap(([pk])=>RUNES[c[0]][pk].slice(0,3).map(r=>r.n))].join(' ').toLowerCase().includes(q)))}
 function classList(){const arr=filtered();if(!arr.length)return '<div class="empty">조건에 맞는 직업이 없습니다.</div>';
- if(S.view==='table')return `<div class="panel"><div class="tablewrap"><table style="min-width:1100px"><thead><tr><th>직업</th><th>주 스탯</th><th>부 스탯</th><th>개조</th><th>세공 1→4</th><th>무기 1위</th><th>엠블럼 1위</th><th>장신구 TOP3</th><th>방어구 TOP3</th></tr></thead><tbody>${arr.map(c=>{const n=c[0];return `<tr class="click ${n===S.sel?'cur':''}" data-cls="${esc(n)}"><td><b style="color:${CF[c[1]][1]}">${S.fav.includes(n)?'★ ':''}${esc(n)}</b></td><td>${stChip(STAT[n])}</td><td>${stChip(SUB[n],1)}</td><td class="tiny">${esc(c[2])}${c[3]?' | '+esc(c[3]):''}</td><td><div class="row" style="gap:3px;flex-wrap:nowrap">${c[4].split(',').map(craft).join('')}</div></td><td class="tiny">${esc(topR(n,'w').n)} ${topR(n,'w').p}%</td><td class="tiny">${esc(topR(n,'e').n)} ${topR(n,'e').p}%</td><td class="tiny">${RUNES[n].a.slice(0,3).map(r=>esc(r.n)).join(' · ')}</td><td class="tiny">${RUNES[n].r.slice(0,3).map(r=>esc(r.n)).join(' · ')}</td></tr>`}).join('')}</tbody></table></div></div>`;
+ if(S.view==='table')return `<div class="panel"><div class="tablewrap"><table style="min-width:1100px"><thead><tr><th>직업</th><th>주 스탯</th><th>부 스탯</th><th>개조 (첫 빌드)</th><th>세공 (첫 빌드)</th><th>무기 1위</th><th>엠블럼 1위</th><th>장신구 TOP3</th><th>방어구 TOP3</th></tr></thead><tbody>${arr.map(c=>{const n=c[0],b=bldOf(n)[0];return `<tr class="click ${n===S.sel?'cur':''}" data-cls="${esc(n)}"><td><b style="color:${CF[c[1]][1]}">${S.fav.includes(n)?'★ ':''}${esc(n)}</b></td><td>${stChip(STAT[n])}</td><td>${stChip(SUB[n],1)}</td><td class="tiny">${esc(b[3])}</td><td><div class="row" style="gap:3px;flex-wrap:nowrap">${gemLine(b[4])}</div></td><td class="tiny">${esc(topR(n,'w').n)} ${topR(n,'w').p}%</td><td class="tiny">${esc(topR(n,'e').n)} ${topR(n,'e').p}%</td><td class="tiny">${RUNES[n].a.slice(0,3).map(r=>esc(r.n)).join(' · ')}</td><td class="tiny">${RUNES[n].r.slice(0,3).map(r=>esc(r.n)).join(' · ')}</td></tr>`}).join('')}</tbody></table></div></div>`;
  if(S.view==='stat')return COMBOS.map(k=>{const g=arr.filter(c=>combo(c[0])===k),[m,s]=k.split('/');return g.length?`<div class="sgh">${stChip(m)}${s==='없음'?'<span class="tiny">부 스탯 없음</span>':stChip(s,1)}<span class="tiny">· ${g.length}개 직업</span></div><div class="cgrid">${g.map(card).join('')}</div>`:''}).join('');
  return `<div class="cgrid">${arr.map(card).join('')}</div>`}
-function card(c){const n=c[0];return `<div class="ccard ${n===S.sel?'on':''}" data-cls="${esc(n)}" style="--fc:${CF[c[1]][1]}" role="button" tabindex="0"><div class="chead"><div class="ct"><b>${S.fav.includes(n)?'<span style="color:var(--gold)">★</span> ':''}${esc(n)}</b><span class="tiny">${esc(CF[c[1]][0])}</span></div><span class="cst">${stat(n)}</span></div><div class="ccrafts">${c[4].split(',').map(craft).join('')}</div><div class="mini"><span>무기 ${esc(topR(n,'w').n)}</span><span>엠블럼 ${esc(topR(n,'e').n)}</span></div><div class="tiny">${RUNES[n].a.slice(0,3).map(r=>esc(r.n)).join(' · ')}</div></div>`}
+function card(c){const n=c[0];return `<div class="ccard ${n===S.sel?'on':''}" data-cls="${esc(n)}" style="--fc:${CF[c[1]][1]}" role="button" tabindex="0"><div class="chead"><div class="ct"><b>${S.fav.includes(n)?'<span style="color:var(--gold)">★</span> ':''}${esc(n)}</b><span class="tiny">${esc(CF[c[1]][0])}</span></div><span class="cst">${stat(n)}</span></div><div class="ccrafts">${gemAll(bldOf(n)[0][4]).slice(0,4).map(craft).join('')}</div><div class="mini"><span>무기 ${esc(topR(n,'w').n)}</span><span>엠블럼 ${esc(topR(n,'e').n)}</span></div><div class="tiny">${RUNES[n].a.slice(0,3).map(r=>esc(r.n)).join(' · ')}</div></div>`}
 function classDetail(n){const c=findC(n),fav=S.fav.includes(n),lim=S.all?10:5;
  return `<div class="panel hl"><div class="between"><div><div class="eyebrow" style="color:${CF[c[1]][1]}">${CF[c[1]][0]}</div><div class="big">${esc(n)}</div></div><div class="row"><button class="btn sm" data-fav="${esc(n)}">${fav?'★ 즐겨찾기됨':'☆ 즐겨찾기'}</button><button class="btn sm" data-copy="${esc(n)}">📋 세팅 복사</button></div></div>
  <div class="ch">주·부 스탯 (${STAT_SRC} · ${STAT_DATE})</div><div class="row"><span class="tiny">주</span>${stChip(STAT[n])}<span class="tiny">부</span>${stChip(SUB[n],1)}</div>
  <div class="stack mt10"><div class="row" style="flex-wrap:nowrap;align-items:start"><span class="tiny" style="flex:none;width:76px;padding-top:4px">같은 조합</span>${clsChips(sameCombo(n))}</div><div class="row" style="flex-wrap:nowrap;align-items:start"><span class="tiny" style="flex:none;width:76px;padding-top:4px">같은 주 스탯</span>${clsChips(sameMain(n))}</div></div>
  ${(()=>{const r=FBT_CLS.find(x=>x[0]===n);return r?`<div class="ch">추천 막타 칭호 · 보조 능력치(치명타·강타 강화 등) 기준 <button class="linkbtn" data-nav="fbt">필드 보스 칭호 보기 →</button></div><div class="stack"><div>${fbtName(r[1])}</div><div class="tiny">${r[2]?`대안 ${fbtName(r[2])} ${esc(r[3])}`:'대안 없음'}</div></div>`:''})()}
  ${(()=>{const r=PET_CLS.find(x=>x[0]===n);return r?`<div class="ch">추천 펫 · 고유 동행 능력치 기준 <button class="linkbtn" data-nav="pet">펫 추천 보기 →</button></div><div class="stack"><div>${petCombo(r[1])}</div><div class="tiny">${petNames(r[1])}</div><div class="tiny">${r[2]?`대안 ${petCombo(r[2])} ${esc(r[3])}`:'대안 없음'}</div></div>`:''})()}
- <div class="ch">스킬 개조 (강조 = 개조할 스킬 번호)</div><div class="grid2"><div><div class="tiny">세팅 #1</div>${modRow(c[2])}</div>${c[3]?`<div><div class="tiny">세팅 #2</div>${modRow(c[3])}</div>`:''}</div>
- <div class="ch">세공 우선순위 (⟳ = 쿨타임 세공)</div><div class="crafts">${c[4].split(',').map((t,i)=>`<div><small>${i+1}순위</small>${craft(t)}</div>`).join('')}</div>
- <div class="ch">장신구 룬 세팅</div><div class="stack"><div><div class="tiny">세팅 #1</div>${accSet(c[5])}</div>${c[6]?`<div><div class="tiny">세팅 #2</div>${accSet(c[6])}</div>`:''}</div>
+ <div class="between ch" style="margin-top:18px"><span>빌드별 개조 · 세공 · 장신구 룬</span><a class="btn sm" href="${BLD_URL}" target="_blank" rel="noopener">세공 시뮬레이터 ↗</a></div><p class="tiny" style="margin:-4px 0 10px">강조 = 개조할 스킬 번호 · ⟳ = 쿨타임 세공 · 같은 번호 = 동순위 · mabimobi.life · ${BLD_DATE}</p>
+ ${bldList(n)}
  ${rcDetail(n)}
  <div class="between ch" style="margin-top:18px"><span>룬 사용 순위</span><span class="row"><button class="linkbtn" data-act="all">${S.all?'상위 5개만':'전체 순위 보기'}</button><a class="btn sm" href="${RUNE_URL}" target="_blank" rel="noopener">최신 룬 통계 ↗</a></span></div><p class="tiny" style="margin:-4px 0 10px">mabimobi.life · ${DATA_DATE}</p>
  <div class="grid2">${PARTS.map(([pk,pl])=>`<div class="rbox"><div class="tiny b">${pl}</div>${runeList(n,pk,lim)}</div>`).join('')}</div>
- <p class="tiny mt10">순위는 사이트 표시 순서이며, 사용률은 해당 직업 유저 중 그 룬을 쓰는 비율입니다. 장신구·방어구는 여러 개를 함께 쓰므로 합이 100%를 넘습니다.</p></div>`}
+ <p class="tiny mt10">순위는 사용률 순이며, 사용률은 해당 직업 유저 중 그 룬을 쓰는 비율입니다. 장신구·방어구는 여러 개를 함께 쓰므로 합이 100%를 넘습니다.</p></div>`}
 function pgClass(){return `<div class="panel"><div class="ph"><h2>직업 ${CLS.length}종</h2><div class="row"><input type="search" id="q" placeholder="직업 · 스탯 · 룬 · 세공 검색" value="${esc(S.q)}" style="width:210px"><button class="btn sm ${S.view==='card'?'primary':''}" data-view="card">카드</button><button class="btn sm ${S.view==='stat'?'primary':''}" data-view="stat">스탯별</button><button class="btn sm ${S.view==='table'?'primary':''}" data-view="table">표</button></div></div>
  <div class="tabs">${famTabs().map(([k,l])=>`<button class="tabbtn ${S.fam===k?'on':''}" data-fam="${k}">${esc(l)}</button>`).join('')}</div>
  <div class="row tiny">세공 색상: ${Object.keys(SKC).map(craft).join(' ')}</div></div>
@@ -1022,8 +1062,7 @@ function pgRune(){if(S.rp==='sig')return pgRuneSig();const pk=S.rp,st=runeStats(
 function pgCmp(){const A=findC(S.ca),B=findC(S.cb),opt=v=>CLS.map(c=>`<option ${c[0]===v?'selected':''}>${esc(c[0])}</option>`).join(''),common=pk=>{const a=new Set(RUNES[A[0]][pk].slice(0,3).map(r=>r.n));return new Set(RUNES[B[0]][pk].slice(0,3).map(r=>r.n).filter(n=>a.has(n)))};
  const cs=Object.fromEntries(PARTS.map(([pk])=>[pk,common(pk)])),cnt=Object.values(cs).reduce((s,x)=>s+x.size,0);
  const col=c=>`<div class="panel"><div class="eyebrow" style="color:${CF[c[1]][1]}">${CF[c[1]][0]}</div><div class="big">${esc(c[0])}</div><div class="row mt10"><span class="tiny">주</span>${stChip(STAT[c[0]])}<span class="tiny">부</span>${stChip(SUB[c[0]],1)}</div>
- <div class="ch">개조</div><div>${modRow(c[2])}</div><div class="ch">세공</div><div class="crafts">${c[4].split(',').map((t,i)=>`<div><small>${i+1}</small>${craft(t)}</div>`).join('')}</div>
- <div class="ch">장신구 세팅</div>${accSet(c[5])}
+ <div class="ch">빌드별 개조 · 세공 · 장신구 룬</div>${bldList(c[0])}
  <div class="stack mt10">${PARTS.map(([pk,pl])=>`<div class="rbox"><div class="tiny b">${pl} TOP3</div>${runeList(c[0],pk,3,cs[pk])}</div>`).join('')}</div></div>`;
  return `<div class="panel"><div class="ph"><h2>두 직업 나란히 보기</h2><span class="tiny">룬 TOP3 공통 <b style="color:var(--accent)">${cnt}개</b> (초록 테두리)</span></div><div class="grid2"><div class="field"><label>직업 A</label><select id="ca">${opt(A[0])}</select></div><div class="field"><label>직업 B</label><select id="cb">${opt(B[0])}</select></div></div>
  <p class="tiny mt10">공통 룬이 많을수록 같은 룬 장비를 두 직업이 함께 활용하기 쉽습니다(무기·엠블럼은 같은 클래스끼리만 성능 개선 가능).</p></div><div class="grid2">${col(A)}${col(B)}</div>`}
@@ -1326,7 +1365,7 @@ function pgAbout(){return `<div class="panel"><h2>데이터 출처</h2><div clas
  <div><b>게임 버전 기준</b><div class="hint">공식 <a href="https://mabinogimobile.nexon.com/News/Update/${PATCH[1]}" target="_blank" rel="noopener">${PATCH[0]} 업데이트 노트</a>까지 대조 · 확인일 ${PATCH[2]} · 이후 패치 내용은 반영되지 않았을 수 있습니다</div></div>
  <div><b>룬 사용 순위</b><div class="hint">mabimobi.life 룬 도감의 직업별 통계 (무기·엠블럼·방어구 상위 10, 장신구 상위 9) · 사용률 순으로 정렬 · 기준일 ${DATA_DATE} · 21개 직업 전부 수록</div></div>
  <div><b>룬 경합 · 교체 신호</b><div class="hint"><a href="${RC_URL}" target="_blank" rel="noopener">황산갈매기 자료실 대시보드</a>의 주간 채용률 중 조합별 경합 두 룬의 최근 ${RC_W.length}주 · 기준 ${RC_DATE} · 21개 직업 × 4개 부위 전부 수록 · 판단 기준은 2026년 8~10월 교체 70건으로 시험 · 갱신은 요청 시 수동</div></div>
- <div><b>스킬 개조 · 세공 · 장신구 세팅</b><div class="hint">사용자 제공 직업별 개조/세공/악세 표 · 21개 직업 전부 수록</div></div>
+ <div><b>빌드별 개조 · 세공 · 장신구 룬</b><div class="hint"><a href="${BLD_URL}" target="_blank" rel="noopener">mabimobi.life 보석 &amp; 세공 시뮬레이터</a> 직업 변경 가이드의 전체 빌드 표(캡처) · 기준일 ${BLD_DATE} · 21개 직업 ${BLD.length}개 빌드 전부 수록 · 음유시인 개조·장신구 룬과 기사 개조는 치트시트·룬 사용률과 달라 기존 값 유지</div></div>
  <div><b>주·부 스탯</b><div class="hint">${STAT_SRC}의 'main'·'sub' 항목 · 확인일 ${STAT_DATE} (문서 수정 2026-08-20~10-25) · 21개 직업 전부 수록 (기본 직업 6종은 부 스탯 없음)</div></div>
  <div><b>숙련 연계 계산식 · 보너스표</b><div class="hint">공식 ${LINK_SRC.map(([n,u,d,w])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a> (${d} 게시, ${w})`).join(' · ')} · 확인일 ${LINK_DATE} · 이후 업데이트 노트에 수치 변경 없음 · ★ 없음~★10 × 1~20강 전부 수록</div></div>
  <div><b>가공 레시피</b><div class="hint"><a href="${PROC_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 재료 가공</a> (문서 수정 ${PROC_SRC[1]}, 수집 ${PROC_DATE}) · 6개 시설 ${PROC.length}개 레시피 전부 수록 · 공식 업데이트 노트 ${PROC_CHK.map(([d,id,w])=>`<a href="https://mabinogimobile.nexon.com/News/Update/${id}" target="_blank" rel="noopener">${d}</a>(${w})`).join(' · ')}와 대조 · '백금 강괴'는 공식 표기 · 가공 시간은 시설 레벨별 단축 수치가 없어 미수록</div></div>
