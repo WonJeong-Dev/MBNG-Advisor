@@ -76,7 +76,7 @@ tr.cur,tr.cur:hover{background:var(--accent-w);box-shadow:inset 3px 0 0 var(--ac
 .sk-r{background:rgba(242,147,140,.14);color:#f6aaa4}.sk-g{background:rgba(111,227,160,.13);color:#8ce8b4}.sk-y{background:rgba(230,197,107,.14);color:#ecd28a}.sk-p{background:rgba(239,159,198,.14);color:#f3b4d3}.sk-s{background:rgba(159,179,200,.14);color:#b7c6d6}.sk-b{background:rgba(143,186,245,.14);color:#a9c9f8}.sk-v{background:rgba(173,159,242,.15);color:#c2b7f6}.sk-o{background:rgba(243,172,112,.14);color:#f6be8d}.sk-x{background:rgba(255,255,255,.07);color:var(--muted)}
 .mods{display:flex;gap:5px;align-items:center;margin-top:6px}.mods small{width:14px;color:var(--subtle);font-weight:600}
 .mods i{font-style:normal;width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:var(--bg2);border:1px solid var(--line);color:#4f5664;font-size:12px;font-weight:600}.mods i.on{background:var(--accent-w);border-color:var(--accent-l);color:var(--accent)}
-.bld{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px 10px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}.bld:first-child{padding-top:0}.bld:last-child{border-bottom:0;padding-bottom:0}.bh{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:8px;min-width:0}.bh .tiny{flex:none}.bl{line-height:26px}.bld .mods:first-child{margin-top:0}.gt{display:grid;grid-template-columns:10px minmax(0,1fr);gap:4px 8px;align-items:center}.gt small{font-size:11px;color:var(--subtle);font-weight:600}.gt div{display:flex;gap:4px;min-width:0}
+.bld{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px 10px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}.bld:first-child{padding-top:0}.bld:last-child{border-bottom:0;padding-bottom:0}.bh{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;gap:8px;min-width:0}.bh b{font-size:12.5px;font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bh .tiny{flex:none}.br{grid-column:1/-1;min-width:0}.bl{line-height:26px}.bld .mods:first-child{margin-top:0}.gt{display:grid;grid-template-columns:10px minmax(0,1fr);gap:4px 8px;align-items:center}.gt small{font-size:11px;color:var(--subtle);font-weight:600}.gt div{display:flex;gap:4px;min-width:0}
 .rset{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,max-content);justify-content:start;gap:6px;align-items:center}.rn2{background:rgba(173,159,242,.1);color:#cfc6fa;border:1px solid rgba(173,159,242,.28);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:600}.rn2 em{font-style:normal;color:var(--subtle);font-weight:500;font-size:10.5px;margin:0 4px}
 .tg{font-size:10.5px;font-weight:600;padding:1px 6px;border-radius:6px;border:1px solid;white-space:nowrap;flex:none}
 .tg-d{color:#f6aaa4;border-color:rgba(242,147,140,.4);background:rgba(242,147,140,.1)}.tg-l{color:#ecd28a;border-color:rgba(230,197,107,.4);background:rgba(230,197,107,.1)}.tg-a{color:#c2b7f6;border-color:rgba(173,159,242,.4);background:rgba(173,159,242,.1)}
@@ -225,40 +225,46 @@ const CLS=[
 ['듀얼블레이드','rogue'],
 ['격투가','rogue']];
 
-/* ===== 데이터: 빌드별 개조 · 세공 · 장신구 룬 (2026-08-15 커뮤니티 참고표, 2026-11-01 캡처) =====
-   mabimobi.life 보석 & 세공 시뮬레이터 직업 변경 가이드의 전체 빌드 표(사용자 캡처). 페이지 표기: 커뮤니티 참고표(2026-08-15 작성) 기준이며 최신 밸런스로 다시 확인한 값이 아님. 세 글자 빌드명은 앱 장신구 룬 이름으로 풀어 저장
-   [직업, 장신구 룬, 구분, 개조(대안은 /), 세공 순위(>로 순위, =로 동순위)]
-   기존 값 유지: 음유시인 개조·장신구 룬(페이지 345·재치, 치트시트 346·기만, 재치 사용률 9%), 기사 개조(페이지 135, 치트시트 대표 156) */
-const BLD_DATE='2026-08-15',BLD_URL='https://mabimobi.life/calculator/gem-simulator/class-change';
+/* ===== 데이터: 빌드별 개조 · 세공 · 장신구 룬 (컨닝페이퍼 2026-10-10 갱신본, 2026-11-02 수집) =====
+   황산갈매기 자료실 컨닝페이퍼(erinndata.pages.dev/cheatsheet/, robots.txt 전체 허용)의 실전 세팅 중 개조·세공이 모두 적힌 세팅만 저장
+   [직업, 장신구 룬, 쓰임, 개조(대안은 /), 세공 순위(>로 순위, =로 동순위), 기준]
+   예외: 궁수 첫 빌드·대검전사 세공은 나무위키 2026-11-01 수정본, 암흑술사 4순위 연타는 기존 값, 음유시인 룬은 사용자 승인으로 기만/변주/급습 묶음
+   mabimobi.life 세공 시뮬레이터 빌드 표는 2026-08-15 작성 커뮤니티 참고표라 쓰지 않음 */
+const BLD_DATE='2026-10-10',BLD_URL='https://erinndata.pages.dev/cheatsheet/';
 const BLD=[
-['전사','패기+돌격+붕괴','','246','강타=방해>생존=이동>보조'],
-['검술사','관통+평정+일섬','','456','강타>보조>이동'],
-['대검전사','절단+탄력+광전사','','456/156','보조=강타>보조쿨>강타쿨'],
-['기사','돌파+용기+지진','','156/135','강타=보조>연타>생존=소환'],
-['힐러','물결+가호+광륜','','345','보조>연타>소환'],
-['사제','집행+심판+성전','','235','보조>강타=방해>보조쿨=강타쿨'],
-['수도사','인과+뇌정+등불','','123','보조=연타>이동>방해'],
-['암흑술사','절제+구속+광기','','135','방해=소환>보조=연타>강타'],
-['마법사','우레+운석+빙창','','123','원소>강타=방해>소환'],
-['빙결술사','빙하+북풍+설원','','456','원소>소환>생존'],
-['빙결술사','빙검+빙하+설원','','145','원소=소환=강타'],
-['화염술사','청염+폭격+분출','연타','136','원소=강타=연타'],
-['화염술사','청염+폭격+분출','방해','136','원소=강타=방해'],
-['전격술사','폭풍우+도관+섬광','','245','원소>강타>보조'],
-['전격술사','천둥+도관+섬광','','256','원소=강타=보조>방해'],
-['궁수','몰아침+매+닻','','156','연타>강타=방해>보조=이동'],
-['석궁사수','꿰뚫음+반전+균열','압축','234','원소>강타>연타'],
-['석궁사수','꿰뚫음+화약+산탄','지속','346/146','원소>강타>연타'],
-['장궁병','초음파+돌개+호응','','236','방해>강타>연타'],
-['악사','조율+순환/속주+종장','','345','방해>연타=강타>보조'],
-['악사','조율+매혹+순환','','235','방해=연타=보조'],
-['음유시인','합주+무아+기만/변주/급습','','346/134','방해>보조>강타=연타'],
-['댄서','전환+발걸음+환호','','135/356','연타>이동>강타'],
-['도적','덫+땅거미+폭발','단일','134','방해>강타>이동'],
-['도적','덫+교활함+폭발','다수','234','방해=강타=연타'],
-['듀얼블레이드','천침+강화+교차','','145','연타>이동=보조=강타'],
-['듀얼블레이드','천침+질주+속행','오토','156/145','연타=이동=강타'],
-['격투가','전진+승천+강격','','456','강타=이동>보조>강타쿨=이동쿨']];
+['전사','붕괴+돌격+패기','보스·레이드·어비스','246','강타>방해>이동','10월 제보'],
+['전사','붕괴+돌격+검투사','잡몹방·보스 몰이','246','강타>방해>생존','10월 제보'],
+['검술사','관통+평정+일섬','콘텐츠 무관','456','강타>연타=이동=보조','09.07 세팅'],
+['대검전사','탄력+광전사+절단','기본','156','강타>보조>강타쿨>보조쿨','10월 제보·나무위키 11-01'],
+['대검전사','탄력+광전사+절단','어비스·기갱','456','강타>보조>강타쿨>보조쿨','10월 제보·나무위키 11-01'],
+['기사','돌파+용기+지진','어비스·기갱 정배','156','강타>보조>연타','10월 제보'],
+['기사','돌파+용기+지진','기본 개조','135','강타>보조>연타','09.07 세팅'],
+['기사','돌파+용기+격돌','어비스 브레이크 딜','156','강타>보조>연타','10월 제보'],
+['힐러','광륜+가호+물결','기본','345','보조=연타>보조쿨=소환','09.07 세팅'],
+['사제','집행+성전+심판','브레이크 폭딜','235','강타>보조>방해','10월 제보'],
+['사제','날개+성전+심판','지속딜·오토','235/135','강타>보조>방해','10월 제보'],
+['수도사','인과+뇌정+등불','기본','123','보조>연타>이동','10월 제보'],
+['암흑술사','절제+구속+광기','기본','135','방해>소환>보조>연타','10월 제보'],
+['마법사','운석+우레+빙창','어비스·레이드','123','원소=방해=강타','09.07 세팅'],
+['마법사','운석+우레+서리가시','사냥터','123','원소=방해=강타','09.07 세팅'],
+['빙결술사','빙하+설원+북풍','기본','456','원소>소환>생존>강타','10월 제보'],
+['빙결술사','빙하+빙검+북풍','콘텐츠 무관','145','원소=소환>강타=생존','10월 제보'],
+['화염술사','폭격+분출+청염','기본','136','원소=강타>연타=방해','09.07 세팅'],
+['화염술사','폭격+불기둥+청염','막보스 기갱','123','원소>강타>방해','10월 제보'],
+['전격술사','섬광+폭풍우+도관','기본','245','원소>강타>보조','10월 제보'],
+['궁수','닻+매+몰아침','어비스·레이드·기갱','156','연타>강타=방해>보조>이동','10월 제보·나무위키 11-01'],
+['궁수','닻+매+나선','오토·어비스 뺑이','156','연타>방해','10월 제보'],
+['궁수','닻+재빠른+나선','일반 사냥','156','연타>방해','10월 제보'],
+['석궁사수','꿰뚫음+화약+산탄','딜 고점','346/134/234','원소>강타>연타','10월 제보'],
+['석궁사수','꿰뚫음+균열+반전','오토 편의','234/246','원소>강타>연타','10월 제보'],
+['장궁병','초음파+돌개+호응','기본','236/234','강타=방해=연타','09.07 세팅'],
+['악사','조율+순환+종장','기본','345','방해=강타=연타','09.07 세팅'],
+['음유시인','무아+합주+기만/변주/급습','기본','346','방해>보조>강타=연타','10월 제보'],
+['댄서','발걸음+전환+환호','기본','135/356','이동>연타=강타>보조','10월 제보·개조 09.07'],
+['도적','폭발+덫+땅거미','기본','134/234','방해>강타>이동','09.07 세팅'],
+['듀얼블레이드','천침+교차+강화','기본','145','연타>이동=보조=강타','09.07 세팅'],
+['격투가','승천+전진+강격','수동·한방딜','456/145','강타=이동=보조','09.07 세팅'],
+['격투가','승천+약점+열혈','오토','145','강타=이동=보조','09.07 세팅']];
 
 /* ===== 데이터: 직업 주·부 스탯 (나무위키 각 직업 문서 상단 정보 상자 'main'·'sub', 2026-10-27 확인 · 문서 수정 2026-08-20~10-25) =====
    기본 직업 6종(전사·궁수·마법사·힐러·음유시인·도적)은 정보 상자에 'sub'가 없는 = 부 스탯이 없는 직업(사용자 확인) → '없음' */
@@ -998,10 +1004,10 @@ const craft=t=>{const cd=t.endsWith('쿨'),b=cd?t.slice(0,-1):t;return `<span cl
 const modRow=s=>s?s.split('/').map((o,i,a)=>`<div class="mods">${a.length>1?`<small>${'ABC'[i]}</small>`:''}${[1,2,3,4,5,6].map(n=>`<i class="${o.includes(n)?'on':''}">${n}</i>`).join('')}</div>`).join(''):'';
 const accSet=s=>s?`<div class="rset">${s.split('+').map(p=>`<span class="rn2">${p.split('/').map(esc).join('<em>또는</em>')}</span>`).join('<span class="tiny">+</span>')}</div>`:'';
 const bldOf=n=>BLD.filter(b=>b[0]===n),gemT=s=>s.split('>').map(t=>t.split('=')),gemAll=s=>s.split(/[>=]/),gemTxt=s=>s.replace(/>/g,' > ');
-const bldAbbr=s=>s.split('+').reduce((a,p)=>a.flatMap(x=>p.split('/').map(y=>x+y[0])),['']).join(' ');
+const bldAbbr=s=>s.split('+').reduce((a,p)=>a.flatMap(x=>p.split('/').map(y=>[...x,y[0]])),[[]]).flatMap(([a,b,c])=>[a+b+c,a+c+b,b+a+c,b+c+a,c+a+b,c+b+a]).join(' ');
 const gemRows=s=>`<div class="gt">${gemT(s).map((t,i)=>`<small>${i+1}</small><div>${t.map(craft).join('')}</div>`).join('')}</div>`;
 const gemLine=s=>gemT(s).map(t=>t.map(craft).join('')).join('<span class="tiny">›</span>');
-const bldRow=b=>`<div class="bld"><div class="bh">${accSet(b[1])}${b[2]?`<span class="tiny">${esc(b[2])}</span>`:''}</div><span class="tiny bl">개조</span><div>${modRow(b[3])}</div><span class="tiny bl">세공</span>${gemRows(b[4])}</div>`;
+const bldRow=b=>`<div class="bld"><div class="bh"><b>${esc(b[2])}</b><span class="tiny">${esc(b[5])}</span></div><div class="br">${accSet(b[1])}</div><span class="tiny bl">개조</span><div>${modRow(b[3])}</div><span class="tiny bl">세공</span>${gemRows(b[4])}</div>`;
 const bldList=n=>`<div>${bldOf(n).map(bldRow).join('')}</div>`;
 const TG={용:['d','용'],빛:['l','빛'],어:['a','어둠']};
 const tag=t=>TG[t]?`<span class="tg tg-${TG[t][0]}">${TG[t][1]}</span>`:'';
@@ -1018,7 +1024,7 @@ const ORD=['힘','솜씨','지력','의지','행운','없음'],COMBOS=[...new Se
 const clsChips=a=>a.length?`<div class="chips">${a.map(x=>`<button class="chip" data-cls="${esc(x)}">${esc(x)}</button>`).join('')}</div>`:'<span class="tiny">해당 직업 없음</span>';
 const famTabs=()=>[['all','전체'],...Object.entries(CF).map(([k,v])=>[k,v[0]]),['fav','★ 즐겨찾기']];
 function cText(n){const c=findC(n),R=RUNES[n],t3=pk=>R[pk].slice(0,3).map(r=>r.n).join(', ');
- return [`[${n}] ${CF[c[1]][0]}`,`스탯: 주 ${STAT[n]} / 부 ${SUB[n]}`,...bldOf(n).map(b=>`빌드${b[2]?`(${b[2]})`:''}: ${b[1]} | 개조 ${b[3]} | 세공 ${gemTxt(b[4])}`),`무기 룬 TOP3: ${t3('w')}`,`엠블럼 룬 TOP3: ${t3('e')}`,`장신구 룬 TOP3: ${t3('a')}`,`방어구 룬 TOP3: ${t3('r')}`,`(룬 통계 mabimobi.life · ${DATA_DATE})`].join('\n')}
+ return [`[${n}] ${CF[c[1]][0]}`,`스탯: 주 ${STAT[n]} / 부 ${SUB[n]}`,...bldOf(n).map(b=>`빌드(${b[2]}): ${b[1]} | 개조 ${b[3]} | 세공 ${gemTxt(b[4])} | ${b[5]}`),`무기 룬 TOP3: ${t3('w')}`,`엠블럼 룬 TOP3: ${t3('e')}`,`장신구 룬 TOP3: ${t3('a')}`,`방어구 룬 TOP3: ${t3('r')}`,`(룬 통계 mabimobi.life · ${DATA_DATE})`].join('\n')}
 
 /* ===== 페이지: 직업 정보 ===== */
 function filtered(){const q=(S.q||'').trim().toLowerCase();return CLS.filter(c=>(S.fam==='all'||(S.fam==='fav'?S.fav.includes(c[0]):c[1]===S.fam))&&(!q||[c[0],CF[c[1]][0],STAT[c[0]],SUB[c[0]],...bldOf(c[0]).flatMap(b=>[b[1],bldAbbr(b[1]),b[2],b[4]]),...PARTS.flatMap(([pk])=>RUNES[c[0]][pk].slice(0,3).map(r=>r.n))].join(' ').toLowerCase().includes(q)))}
@@ -1033,7 +1039,7 @@ function classDetail(n){const c=findC(n),fav=S.fav.includes(n),lim=S.all?10:5;
  <div class="stack mt10"><div class="row" style="flex-wrap:nowrap;align-items:start"><span class="tiny" style="flex:none;width:76px;padding-top:4px">같은 조합</span>${clsChips(sameCombo(n))}</div><div class="row" style="flex-wrap:nowrap;align-items:start"><span class="tiny" style="flex:none;width:76px;padding-top:4px">같은 주 스탯</span>${clsChips(sameMain(n))}</div></div>
  ${(()=>{const r=FBT_CLS.find(x=>x[0]===n);return r?`<div class="ch">추천 막타 칭호 · 보조 능력치(치명타·강타 강화 등) 기준 <button class="linkbtn" data-nav="fbt">필드 보스 칭호 보기 →</button></div><div class="stack"><div>${fbtName(r[1])}</div><div class="tiny">${r[2]?`대안 ${fbtName(r[2])} ${esc(r[3])}`:'대안 없음'}</div></div>`:''})()}
  ${(()=>{const r=PET_CLS.find(x=>x[0]===n);return r?`<div class="ch">추천 펫 · 고유 동행 능력치 기준 <button class="linkbtn" data-nav="pet">펫 추천 보기 →</button></div><div class="stack"><div>${petCombo(r[1])}</div><div class="tiny">${petNames(r[1])}</div><div class="tiny">${r[2]?`대안 ${petCombo(r[2])} ${esc(r[3])}`:'대안 없음'}</div></div>`:''})()}
- <div class="between ch" style="margin-top:18px"><span>빌드별 개조 · 세공 · 장신구 룬</span><a class="btn sm" href="${BLD_URL}" target="_blank" rel="noopener">세공 시뮬레이터 ↗</a></div><p class="tiny" style="margin:-4px 0 10px">강조 = 개조할 스킬 번호 · ⟳ = 쿨타임 세공 · 같은 번호 = 동순위 · mabimobi.life 커뮤니티 참고표 · ${BLD_DATE} 작성</p>
+ <div class="between ch" style="margin-top:18px"><span>빌드별 개조 · 세공 · 장신구 룬</span><a class="btn sm" href="${BLD_URL}" target="_blank" rel="noopener">컨닝페이퍼 ↗</a></div><p class="tiny" style="margin:-4px 0 10px">강조 = 개조할 스킬 번호 · ⟳ = 쿨타임 세공 · 같은 번호 = 동순위 · 황산갈매기 자료실 컨닝페이퍼 · ${BLD_DATE} 갱신</p>
  ${bldList(n)}
  ${rcDetail(n)}
  <div class="between ch" style="margin-top:18px"><span>룬 사용 순위</span><span class="row"><button class="linkbtn" data-act="all">${S.all?'상위 5개만':'전체 순위 보기'}</button><a class="btn sm" href="${RUNE_URL}" target="_blank" rel="noopener">최신 룬 통계 ↗</a></span></div><p class="tiny" style="margin:-4px 0 10px">mabimobi.life · ${DATA_DATE}</p>
@@ -1365,7 +1371,7 @@ function pgAbout(){return `<div class="panel"><h2>데이터 출처</h2><div clas
  <div><b>게임 버전 기준</b><div class="hint">공식 <a href="https://mabinogimobile.nexon.com/News/Update/${PATCH[1]}" target="_blank" rel="noopener">${PATCH[0]} 업데이트 노트</a>까지 대조 · 확인일 ${PATCH[2]} · 이후 패치 내용은 반영되지 않았을 수 있습니다</div></div>
  <div><b>룬 사용 순위</b><div class="hint">mabimobi.life 룬 도감의 직업별 통계 (무기·엠블럼·방어구 상위 10, 장신구 상위 9) · 사용률 순으로 정렬 · 기준일 ${DATA_DATE} · 21개 직업 전부 수록</div></div>
  <div><b>룬 경합 · 교체 신호</b><div class="hint"><a href="${RC_URL}" target="_blank" rel="noopener">황산갈매기 자료실 대시보드</a>의 주간 채용률 중 조합별 경합 두 룬의 최근 ${RC_W.length}주 · 기준 ${RC_DATE} · 21개 직업 × 4개 부위 전부 수록 · 판단 기준은 2026년 8~10월 교체 70건으로 시험 · 갱신은 요청 시 수동</div></div>
- <div><b>빌드별 개조 · 세공 · 장신구 룬</b><div class="hint"><a href="${BLD_URL}" target="_blank" rel="noopener">mabimobi.life 보석 &amp; 세공 시뮬레이터</a> 직업 변경 가이드의 전체 빌드 표 · 커뮤니티 참고표 ${BLD_DATE} 작성, 페이지 표기상 최신 밸런스로 다시 확인한 값이 아님 · 2026-11-01 캡처 · 21개 직업 ${BLD.length}개 빌드 전부 수록 · 음유시인 개조·장신구 룬과 기사 개조는 치트시트·룬 사용률과 달라 기존 값 유지</div></div>
+ <div><b>빌드별 개조 · 세공 · 장신구 룬</b><div class="hint"><a href="${BLD_URL}" target="_blank" rel="noopener">황산갈매기 자료실 컨닝페이퍼</a>의 실전 세팅 중 개조·세공이 모두 적힌 세팅 · ${BLD_DATE} 갱신본, 2026-11-02 수집 · 21개 직업 ${BLD.length}개 빌드 전부 수록 · 빌드마다 10월 제보·09.07 세팅 기준 표시 · 궁수 첫 빌드와 대검전사 세공은 나무위키 2026-11-01 수정본</div></div>
  <div><b>주·부 스탯</b><div class="hint">${STAT_SRC}의 'main'·'sub' 항목 · 확인일 ${STAT_DATE} (문서 수정 2026-08-20~10-25) · 21개 직업 전부 수록 (기본 직업 6종은 부 스탯 없음)</div></div>
  <div><b>숙련 연계 계산식 · 보너스표</b><div class="hint">공식 ${LINK_SRC.map(([n,u,d,w])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a> (${d} 게시, ${w})`).join(' · ')} · 확인일 ${LINK_DATE} · 이후 업데이트 노트에 수치 변경 없음 · ★ 없음~★10 × 1~20강 전부 수록</div></div>
  <div><b>가공 레시피</b><div class="hint"><a href="${PROC_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 재료 가공</a> (문서 수정 ${PROC_SRC[1]}, 수집 ${PROC_DATE}) · 6개 시설 ${PROC.length}개 레시피 전부 수록 · 공식 업데이트 노트 ${PROC_CHK.map(([d,id,w])=>`<a href="https://mabinogimobile.nexon.com/News/Update/${id}" target="_blank" rel="noopener">${d}</a>(${w})`).join(' · ')}와 대조 · '백금 강괴'는 공식 표기 · 가공 시간은 시설 레벨별 단축 수치가 없어 미수록</div></div>
