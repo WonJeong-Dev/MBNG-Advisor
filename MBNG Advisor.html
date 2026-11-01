@@ -225,11 +225,11 @@ const CLS=[
 ['듀얼블레이드','rogue'],
 ['격투가','rogue']];
 
-/* ===== 데이터: 빌드별 개조 · 세공 · 장신구 룬 (2026-11-01 캡처) =====
-   mabimobi.life 보석 & 세공 시뮬레이터 직업 변경 가이드의 전체 빌드 표(사용자 캡처). 세 글자 빌드명은 앱 장신구 룬 이름으로 풀어 저장
+/* ===== 데이터: 빌드별 개조 · 세공 · 장신구 룬 (2026-08-15 커뮤니티 참고표, 2026-11-01 캡처) =====
+   mabimobi.life 보석 & 세공 시뮬레이터 직업 변경 가이드의 전체 빌드 표(사용자 캡처). 페이지 표기: 커뮤니티 참고표(2026-08-15 작성) 기준이며 최신 밸런스로 다시 확인한 값이 아님. 세 글자 빌드명은 앱 장신구 룬 이름으로 풀어 저장
    [직업, 장신구 룬, 구분, 개조(대안은 /), 세공 순위(>로 순위, =로 동순위)]
    기존 값 유지: 음유시인 개조·장신구 룬(페이지 345·재치, 치트시트 346·기만, 재치 사용률 9%), 기사 개조(페이지 135, 치트시트 대표 156) */
-const BLD_DATE='2026-11-01',BLD_URL='https://mabimobi.life/calculator/gem-simulator/class-change';
+const BLD_DATE='2026-08-15',BLD_URL='https://mabimobi.life/calculator/gem-simulator/class-change';
 const BLD=[
 ['전사','패기+돌격+붕괴','','246','강타=방해>생존=이동>보조'],
 ['검술사','관통+평정+일섬','','456','강타>보조>이동'],
@@ -252,7 +252,7 @@ const BLD=[
 ['장궁병','초음파+돌개+호응','','236','방해>강타>연타'],
 ['악사','조율+순환/속주+종장','','345','방해>연타=강타>보조'],
 ['악사','조율+매혹+순환','','235','방해=연타=보조'],
-['음유시인','합주+무아+기만/급습','','346/134','방해>보조>강타=연타'],
+['음유시인','합주+무아+기만/변주/급습','','346/134','방해>보조>강타=연타'],
 ['댄서','전환+발걸음+환호','','135/356','연타>이동>강타'],
 ['도적','덫+땅거미+폭발','단일','134','방해>강타>이동'],
 ['도적','덫+교활함+폭발','다수','234','방해=강타=연타'],
@@ -1033,7 +1033,7 @@ function classDetail(n){const c=findC(n),fav=S.fav.includes(n),lim=S.all?10:5;
  <div class="stack mt10"><div class="row" style="flex-wrap:nowrap;align-items:start"><span class="tiny" style="flex:none;width:76px;padding-top:4px">같은 조합</span>${clsChips(sameCombo(n))}</div><div class="row" style="flex-wrap:nowrap;align-items:start"><span class="tiny" style="flex:none;width:76px;padding-top:4px">같은 주 스탯</span>${clsChips(sameMain(n))}</div></div>
  ${(()=>{const r=FBT_CLS.find(x=>x[0]===n);return r?`<div class="ch">추천 막타 칭호 · 보조 능력치(치명타·강타 강화 등) 기준 <button class="linkbtn" data-nav="fbt">필드 보스 칭호 보기 →</button></div><div class="stack"><div>${fbtName(r[1])}</div><div class="tiny">${r[2]?`대안 ${fbtName(r[2])} ${esc(r[3])}`:'대안 없음'}</div></div>`:''})()}
  ${(()=>{const r=PET_CLS.find(x=>x[0]===n);return r?`<div class="ch">추천 펫 · 고유 동행 능력치 기준 <button class="linkbtn" data-nav="pet">펫 추천 보기 →</button></div><div class="stack"><div>${petCombo(r[1])}</div><div class="tiny">${petNames(r[1])}</div><div class="tiny">${r[2]?`대안 ${petCombo(r[2])} ${esc(r[3])}`:'대안 없음'}</div></div>`:''})()}
- <div class="between ch" style="margin-top:18px"><span>빌드별 개조 · 세공 · 장신구 룬</span><a class="btn sm" href="${BLD_URL}" target="_blank" rel="noopener">세공 시뮬레이터 ↗</a></div><p class="tiny" style="margin:-4px 0 10px">강조 = 개조할 스킬 번호 · ⟳ = 쿨타임 세공 · 같은 번호 = 동순위 · mabimobi.life · ${BLD_DATE}</p>
+ <div class="between ch" style="margin-top:18px"><span>빌드별 개조 · 세공 · 장신구 룬</span><a class="btn sm" href="${BLD_URL}" target="_blank" rel="noopener">세공 시뮬레이터 ↗</a></div><p class="tiny" style="margin:-4px 0 10px">강조 = 개조할 스킬 번호 · ⟳ = 쿨타임 세공 · 같은 번호 = 동순위 · mabimobi.life 커뮤니티 참고표 · ${BLD_DATE} 작성</p>
  ${bldList(n)}
  ${rcDetail(n)}
  <div class="between ch" style="margin-top:18px"><span>룬 사용 순위</span><span class="row"><button class="linkbtn" data-act="all">${S.all?'상위 5개만':'전체 순위 보기'}</button><a class="btn sm" href="${RUNE_URL}" target="_blank" rel="noopener">최신 룬 통계 ↗</a></span></div><p class="tiny" style="margin:-4px 0 10px">mabimobi.life · ${DATA_DATE}</p>
@@ -1365,7 +1365,7 @@ function pgAbout(){return `<div class="panel"><h2>데이터 출처</h2><div clas
  <div><b>게임 버전 기준</b><div class="hint">공식 <a href="https://mabinogimobile.nexon.com/News/Update/${PATCH[1]}" target="_blank" rel="noopener">${PATCH[0]} 업데이트 노트</a>까지 대조 · 확인일 ${PATCH[2]} · 이후 패치 내용은 반영되지 않았을 수 있습니다</div></div>
  <div><b>룬 사용 순위</b><div class="hint">mabimobi.life 룬 도감의 직업별 통계 (무기·엠블럼·방어구 상위 10, 장신구 상위 9) · 사용률 순으로 정렬 · 기준일 ${DATA_DATE} · 21개 직업 전부 수록</div></div>
  <div><b>룬 경합 · 교체 신호</b><div class="hint"><a href="${RC_URL}" target="_blank" rel="noopener">황산갈매기 자료실 대시보드</a>의 주간 채용률 중 조합별 경합 두 룬의 최근 ${RC_W.length}주 · 기준 ${RC_DATE} · 21개 직업 × 4개 부위 전부 수록 · 판단 기준은 2026년 8~10월 교체 70건으로 시험 · 갱신은 요청 시 수동</div></div>
- <div><b>빌드별 개조 · 세공 · 장신구 룬</b><div class="hint"><a href="${BLD_URL}" target="_blank" rel="noopener">mabimobi.life 보석 &amp; 세공 시뮬레이터</a> 직업 변경 가이드의 전체 빌드 표(캡처) · 기준일 ${BLD_DATE} · 21개 직업 ${BLD.length}개 빌드 전부 수록 · 음유시인 개조·장신구 룬과 기사 개조는 치트시트·룬 사용률과 달라 기존 값 유지</div></div>
+ <div><b>빌드별 개조 · 세공 · 장신구 룬</b><div class="hint"><a href="${BLD_URL}" target="_blank" rel="noopener">mabimobi.life 보석 &amp; 세공 시뮬레이터</a> 직업 변경 가이드의 전체 빌드 표 · 커뮤니티 참고표 ${BLD_DATE} 작성, 페이지 표기상 최신 밸런스로 다시 확인한 값이 아님 · 2026-11-01 캡처 · 21개 직업 ${BLD.length}개 빌드 전부 수록 · 음유시인 개조·장신구 룬과 기사 개조는 치트시트·룬 사용률과 달라 기존 값 유지</div></div>
  <div><b>주·부 스탯</b><div class="hint">${STAT_SRC}의 'main'·'sub' 항목 · 확인일 ${STAT_DATE} (문서 수정 2026-08-20~10-25) · 21개 직업 전부 수록 (기본 직업 6종은 부 스탯 없음)</div></div>
  <div><b>숙련 연계 계산식 · 보너스표</b><div class="hint">공식 ${LINK_SRC.map(([n,u,d,w])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a> (${d} 게시, ${w})`).join(' · ')} · 확인일 ${LINK_DATE} · 이후 업데이트 노트에 수치 변경 없음 · ★ 없음~★10 × 1~20강 전부 수록</div></div>
  <div><b>가공 레시피</b><div class="hint"><a href="${PROC_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 재료 가공</a> (문서 수정 ${PROC_SRC[1]}, 수집 ${PROC_DATE}) · 6개 시설 ${PROC.length}개 레시피 전부 수록 · 공식 업데이트 노트 ${PROC_CHK.map(([d,id,w])=>`<a href="https://mabinogimobile.nexon.com/News/Update/${id}" target="_blank" rel="noopener">${d}</a>(${w})`).join(' · ')}와 대조 · '백금 강괴'는 공식 표기 · 가공 시간은 시설 레벨별 단축 수치가 없어 미수록</div></div>
