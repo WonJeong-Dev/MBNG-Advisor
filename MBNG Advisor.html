@@ -980,11 +980,12 @@ function pgClass(){return `<div class="panel"><div class="ph"><h2>직업 ${CLS.l
 /* ===== 페이지: 룬 역검색 ===== */
 function runeStats(pk){const m=new Map();CLS.forEach(c=>RUNES[c[0]][pk].forEach(r=>{if(!m.has(r.n))m.set(r.n,{n:r.n,t:r.t,rows:[]});m.get(r.n).rows.push({c:c[0],fam:c[1],rk:r.rk,p:r.p})}));
  return [...m.values()].map(x=>({...x,top1:x.rows.filter(r=>r.rk===1).length,top3:x.rows.filter(r=>r.rk<=3).length,avg:Math.round(x.rows.reduce((s,r)=>s+r.p,0)/CLS.length)})).sort((a,b)=>b.top1-a.top1||b.top3-a.top3||b.avg-a.avg)}
-function pgRune(){const pk=S.rp,st=runeStats(pk),q=(S.rq||'').trim().toLowerCase(),list=st.filter(x=>!q||x.n.toLowerCase().includes(q)),sel=st.find(x=>x.n===S.rsel)||st[0],rows=sel.rows.slice().sort((a,b)=>a.rk-b.rk||b.p-a.p);
+function runeRows(st,sel){const q=ns(S.rq||'');return st.filter(x=>!q||ns(x.n).includes(q)).map(x=>`<tr class="click ${x.n===sel.n?'cur':''}" data-rsel="${esc(x.n)}"><td><span class="row" style="gap:6px;flex-wrap:nowrap">${tag(x.t)}${rname(x)}</span></td><td class="num">${x.top1}</td><td class="num">${x.top3}</td><td class="num">${x.avg}%</td></tr>`).join('')||'<tr><td colspan="4" class="tiny">검색 결과가 없습니다.</td></tr>'}
+function pgRune(){const pk=S.rp,st=runeStats(pk),sel=st.find(x=>x.n===S.rsel)||st[0],rows=sel.rows.slice().sort((a,b)=>a.rk-b.rk||b.p-a.p);
  return `<div class="panel"><div class="ph"><h2>룬 역검색</h2><a class="btn sm" href="${RUNE_URL}" target="_blank" rel="noopener">룬 도감에서 효과 보기 ↗</a></div><p class="hint">룬을 고르면 그 룬을 쓰는 직업과 순위·사용률을 자동으로 정리합니다. 왼쪽 목록은 "1위로 채택한 직업 수" 순입니다.</p>
  <div class="tabs">${PARTS.map(([k,l])=>`<button class="tabbtn ${pk===k?'on':''}" data-rp="${k}">${l}</button>`).join('')}</div></div>
  <div class="layout2"><div class="panel"><div class="ph"><h2>${PARTS.find(p=>p[0]===pk)[1]} 룬 ${st.length}종</h2><input type="search" id="rq" placeholder="룬 이름 검색" value="${esc(S.rq)}" style="width:170px"></div>
- <div class="tablewrap"><table style="min-width:420px"><thead><tr><th>룬</th><th class="num">1위 직업</th><th class="num">TOP3 직업</th><th class="num">평균 사용률</th></tr></thead><tbody>${list.map(x=>`<tr class="click ${x.n===sel.n?'cur':''}" data-rsel="${esc(x.n)}"><td><span class="row" style="gap:6px;flex-wrap:nowrap">${tag(x.t)}${rname(x)}</span></td><td class="num">${x.top1}</td><td class="num">${x.top3}</td><td class="num">${x.avg}%</td></tr>`).join('')||'<tr><td colspan="4" class="tiny">검색 결과가 없습니다.</td></tr>'}</tbody></table></div></div>
+ <div class="tablewrap"><table style="min-width:420px"><thead><tr><th>룬</th><th class="num">1위 직업</th><th class="num">TOP3 직업</th><th class="num">평균 사용률</th></tr></thead><tbody id="rlist">${runeRows(st,sel)}</tbody></table></div></div>
  <div class="cdet"><div class="panel hl"><div class="row">${tag(sel.t)}<span class="big ${sel.t==='특'?'sp':''}">${esc(sel.n)}</span></div><p class="hint">${CLS.length}개 직업 중 ${sel.rows.length}개 직업의 순위표에 등장 · 1위 ${sel.top1}개 · TOP3 ${sel.top3}개</p>
  <div class="tablewrap"><table style="min-width:300px"><thead><tr><th>직업</th><th class="num">순위</th><th>사용률</th></tr></thead><tbody>${rows.map(r=>`<tr class="click" data-cls="${esc(r.c)}" data-go="class"><td><b style="color:${CF[r.fam][1]}">${esc(r.c)}</b></td><td class="num"><span class="rk ${r.rk<=3?'rk'+r.rk:''}" style="display:inline-grid">${r.rk}</span></td><td><div class="row" style="flex-wrap:nowrap"><span class="bar" style="width:110px"><i style="width:${r.p}%"></i></span><b class="tiny" style="color:var(--gold)">${r.p}%</b></div></td></tr>`).join('')}</tbody></table></div>
  <p class="tiny mt10">직업을 누르면 해당 직업 상세로 이동합니다.</p></div></div></div>`}
@@ -1366,7 +1367,7 @@ document.addEventListener('click',e=>{const t=e.target;let el;
  if(el=t.closest('[data-act="wreset"]')){if(wArm&&Date.now()-wArm<4000){wArm=0;S.wk.c={};save();toast('이번 주 체크를 모두 해제했습니다.')}else{wArm=Date.now();setTimeout(()=>{if(wArm&&Date.now()-wArm>=4000){wArm=0;if(S.page==='week')render()}},4100)}return render()}});
 document.addEventListener('input',e=>{const el=e.target;
  if(el.id==='q'){S.q=el.value;save();$('clist').innerHTML=classList();return}
- if(el.id==='rq'){S.rq=el.value;save();const pos=el.selectionStart;render();const n=$('rq');n.focus();n.setSelectionRange(pos,pos);return}
+ if(el.id==='rq'){S.rq=el.value;save();const st=runeStats(S.rp);$('rlist').innerHTML=runeRows(st,st.find(x=>x.n===S.rsel)||st[0]);return}
  if(el.id==='pq'){S.pq=el.value;save();$('plist').innerHTML=procList();return}
  if(el.id==='gq'){S.gq=el.value;save();$('glist').innerHTML=gatherList();return}
  if(el.id==='bq'){S.bq=el.value;save();$('blist').innerHTML=S.bt==='g'?shopList():barterList();return}
