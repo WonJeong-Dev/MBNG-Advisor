@@ -168,6 +168,18 @@ button.mrow:hover{background:rgba(255,255,255,.03)}.mrow.mp{align-items:start}.m
 .hlc{grid-area:c;display:grid;justify-items:end;gap:1px}.hlc b{font-size:31px;line-height:1.12;font-weight:700;letter-spacing:-.025em;font-variant-numeric:tabular-nums}.hole[data-st=soon] .hlc b,.hole[data-st=open] .hlc b{color:var(--hc)}.hlm{grid-area:t;margin:0;font-size:12.5px;line-height:1.6;color:var(--muted)}.hlb{position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--hc);opacity:.65;transform-origin:left;transform:scaleX(var(--p,0))}
 @container (max-width:680px){.hlg{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"h c" "t t";gap:13px 12px;padding:14px 16px 15px}.hlc b{font-size:27px}}
 .hdlg{width:min(480px,calc(100vw - 20px))}.hdh{display:flex;justify-content:space-between;align-items:center;gap:10px}.hdh b{font-size:17px;font-weight:700;letter-spacing:-.015em}.hdl{margin:0;padding-left:18px;display:grid;gap:5px}
+.mdul{margin:0;padding-left:18px;display:grid;gap:5px}.mdul li{line-height:1.65}.rbox .mdul{margin-top:8px}.mdsrc{margin:12px 0 0;line-height:1.7}.mdsrc a{color:var(--muted)}
+.mdsel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.mdg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}@container (min-width:760px){.mdg{grid-template-columns:repeat(9,minmax(0,1fr))}}.mdg input{width:100%}
+.mdsum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.mdsum>div{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:grid;gap:2px;min-width:0}.mdsum b{font-size:16px;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mdl,.pfl{container-type:inline-size;display:grid}.mdr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:6px 14px;padding:10px 0;border-bottom:1px solid var(--line)}.mdr:last-child,.pfr:last-child{border-bottom:0}.mdr>div{display:grid;gap:2px;align-content:start;min-width:0}.mdr b{font-size:13px;font-weight:600}.mdr .tiny{overflow-wrap:anywhere}
+@container (max-width:560px){.mdr{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.mdr>div:first-child{grid-column:1/-1}}
+.mdo{margin:0;padding:0;list-style:none;display:grid;counter-reset:md}.mdo li{counter-increment:md;display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:3px 10px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}.mdo li:last-child{border-bottom:0}.mdo li::before{content:counter(md);grid-row:1/3;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}.mdo li>b{font-size:13px;font-weight:600;min-width:0}.mdo li>.num{grid-column:3;grid-row:1;font-size:13px;font-weight:600}.mdo li>.tiny{grid-column:2/4}
+.mdtag{display:inline-block;font-size:10.5px;font-weight:600;padding:1px 7px;margin-left:6px;border-radius:6px;border:1px solid rgba(240,205,122,.35);background:rgba(240,205,122,.08);color:var(--gold);white-space:nowrap;vertical-align:1px}
+.pfr{display:grid;grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:4px 16px;padding:11px 0;border-bottom:1px solid var(--line)}.pfr>b{font-size:13px;font-weight:600}.pfr>div{display:grid;gap:3px;min-width:0}.pft{justify-self:start;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:7px;background:var(--bg3);color:var(--txt)}.pft.t-ch{color:var(--gold)}.pft.t-up{color:var(--accent)}.pft.t-keep{color:var(--accent2)}.pft.t-gone{color:var(--red)}
+@container (max-width:520px){.pfr{grid-template-columns:minmax(0,1fr)}}
+.pfg{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}.pfc{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:14px 15px;display:grid;gap:10px;align-content:start;min-width:0}.pfc>b{font-size:13.5px;font-weight:600}.pfc dl{display:grid;grid-template-columns:34px minmax(0,1fr);gap:7px 10px;margin:0}.pfc dt{font-size:11.5px;color:var(--subtle);font-weight:600;line-height:1.65}.pfc dd{margin:0;font-size:12.5px;color:var(--muted);line-height:1.65;min-width:0}.pfc dd.tiny{font-size:11.5px;color:var(--subtle)}.pfc dd a{color:var(--subtle)}
+.sheet-card{max-height:calc(100vh - 110px);overflow-y:auto}
+@media(max-width:960px){.mdg2{grid-template-columns:minmax(0,1fr)}}#mdq{container-type:inline-size}@container (max-width:520px){.mdsum{grid-template-columns:minmax(0,1fr)}.mdsum>div{grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:10px}}
 @keyframes up{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
 @media(max-width:1100px){.layout2{grid-template-columns:1fr}.cdet{position:static}}
 @media(max-width:760px){.app{display:block}.side{display:none}
@@ -1398,6 +1410,7 @@ function pgAbout(){return `<div class="panel"><h2>데이터 출처</h2><div clas
  <div><b>필드 보스 칭호</b><div class="hint">칭호 6종 효과: 사용자 게임 캡처·나무위키 타이틀 문서(2026-10-09)·nipponhashi 타이틀 도감 일치 · 보스·선행 조건: 공식 필드 보스 가이드(2026-06-29) · 직업별 추천(보조 능력치 기준): 나무위키 각 직업 문서 '각인 재설정'(2026-10-27 수집) 19개 직업, 석궁사수는 시즌2 공략 2건, 전사는 시즌2 이전 자료 4건 일치 + 시즌2 패시브(사용자 결정 2026-10-27) · 21개 직업 전부 수록</div></div>
  <div><b>거래소 시세</b><div class="hint"><a href="https://mabimobi.life/openapi" target="_blank" rel="noopener">모비라이프 OpenAPI</a> · API 키를 넣은 브라우저에서만 불러옵니다 · 시세는 실제보다 10~20분 늦을 수 있습니다 · 재배포 금지 약관에 따라 시세를 저장소에 올리지 않습니다 · 수수료 15%는 게임 화면 확인(2026-10-27) · 가공 수익은 거래소에 없는 재료를 0으로 계산하고 가공 시간은 반영하지 않습니다 · 장비 제작비의 재료표는 나오몰리 화면 사용자 캡처(2026-11-01) 76종, 총 제작비 74건 대조 일치, 장신구는 나무위키 대조 · 드래케인 무기는 완제품 매물이 거의 없어 미수록</div></div>
  <div><b>어비스 구멍 타이머</b><div class="hint">주기·지속 시간·타운맵 표시: <a href="${HOLE_SRC}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/사냥터'</a> · 기준 시각 2026-11-01 14:58: 사용자 제공, 10/29 채팅 제보와 일치 · 점검 시작 06:00: 공식 10/22·10/29 정기점검 공지 · 점검마다 시각이 바뀌는 점과 첫 어구 시간대: 모비라이프 OpenAPI 월드 채팅 7~10월 제보 대조 · 확인 ${HOLE_DATE} · 심층 구멍 서버별 개수는 공개 API가 없어 미수록</div></div>
+ <div><b>잔영·해연 로드맵 · 성능 개선</b><div class="hint">규칙: 공식 <a href="${NX}Info/Guide/3481543" target="_blank" rel="noopener">마도 저항 가이드</a>(2026-08-13 기준)·<a href="${NX}Info/Guide/2751105" target="_blank" rel="noopener">연금술 가이드</a>(2026-09-17 기준)·각인 강화·인장·감정 가이드, 업데이트 노트 6/25·7/2·8/13·9/17·10/15, 에린 노트 10/15·11/3, CM노트 7/16 · 감정 단계 수치(잔영 140→420, 해연 420→700, 무기 2배)는 넥슨 미공개라 <a href="https://arca.live/b/mabimobile/184182243" target="_blank" rel="noopener">아카라이브 표</a>(2026-09-26)·반지 글(2026-07-03)과 <a href="https://erinndata.pages.dev/calc/" target="_blank" rel="noopener">황산갈매기 계산기</a>(2026-10-13 시세 기준 판)가 일치하는 값 · 부위별 순서는 API 키를 넣은 브라우저에서 거래소 최저가로 계산 · 다른 종류 장비로 이력을 쌓는 방법, 해연 레시피 사용 여부에 따른 차이, 저주 확률, 초과 피해의 중간값 계산식은 공식 근거가 없어 미수록 · 정리 ${MD_DATE}</div></div>
  <div><b>에픽 펫 추천</b><div class="hint">에픽 구성: 공식 10/15 펫 럭키박스 안내 18종 + 승급 펫 1종 · 동행 능력치: <a href="${PET_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/아이템' 펫</a>(문서 수정 ${PET_SRC[1]}) ${PET.length-3}종, 쉽독·담비·수달은 아카라이브 게임 캡처·옵션 표 · 직업별 추천: 컨닝페이퍼 스탯 목표 + 나무위키 직업·능력치 문서 + 직업별 공략·제보 · 고유 스킬은 전체 자료가 없어 6종만 표시 · 21개 직업 전부 수록, 확인 ${PET_DATE}</div></div>
  <div><b>물물교환</b><div class="hint"><a href="${BARTER_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/특별 상점' 상점(물물교환/주간재료)</a> (문서 수정 ${BARTER_SRC[1]}, 수집 ${BARTER_DATE}) · 9개 지역 ${BARTER.length}건 전부 수록, 원문 표와 SHA-256 대조 일치 · <a href="${BARTER_NH}" target="_blank" rel="noopener">nipponhashi 물물교환 DB</a>와 대조해 횟수·공유 범위가 다른 항목은 더 최신인 나무위키 기준 · 넥슨은 교환표를 공식 공개하지 않습니다</div></div>
  <div><b>물물교환 가성비 순위</b><div class="hint">교환 후보: <a href="${BBEST_SRC[0]}" target="_blank" rel="noopener">${BBEST_SRC[1]}</a>(2026-07-11) 7건 + 시세로 찾은 1건 · 교환 내용은 나무위키 표 기준 · 순서는 ${BBEST_DATE} 시세로 정했고 시세를 연결하면 그 자리에서 다시 정렬 · 시세 값은 저장소에 넣지 않음</div></div>
@@ -1519,6 +1532,111 @@ const CRAFT=[['잔영','숏소드','무기','백금강괴 x3 + 최상급 목재+
 ['해연','페리도트 네크리스','장신구','세공된 페리도트ZZ x1 + 백금강괴 x4 + 포식의 마력석 x5 + 심해의 마력석 x5 + 망령의 영혼석 x30 + 원념의 영혼석 x30 + 삼림의 영혼석 x50 + 파동의 영혼석 x75'],
 ['해연','페리도트 링','장신구','세공된 페리도트ZZ x1 + 백금강괴 x4 + 허상의 마력석 x8 + 원념의 영혼석 x55 + 야생의 영혼석 x40 + 공명의 영혼석 x60']];
 
+/* ===== 데이터·페이지: 잔영·해연 로드맵 · 성능 개선 (2026-11-04 정리) =====
+   공식: 마도 저항 가이드(2026-08-13 기준)·연금술 가이드(2026-09-17 기준)·각인 강화 가이드(2026-04-23 기준)·인장 가이드(2026-09-17 기준)·감정 가이드(2025-06-19 기준),
+   업데이트 노트 6/25(마도 저항 도입, 룬다 어비스 해연 전리품)·7/2(잔영 무기 제작법)·8/13(초과 피해 최대 50%, 상위 장비 저주 해제 물약 2개, 레시피 제작 미감정 장비 거래 1회)·9/17(간단히 개선하기, 채팅 시스템 탭)·10/15(재료 추천 순서, 캠프파이어 저주 해제, 잠금 시 감정 불가),
+   에린 노트 10/15(펫 원정대 저주 해제 물약)·11/3(시즌3 12월, 마도 저항 의견 내부 검토, 빅 캠프파이어 Q&A), CM노트 7/16(성능 개선 시 수리, 방어구 추천 설정)
+   감정 단계 수치(잔영 140→420 +28 11회, 해연 420→700 +14 21회, 무기 2배, 반지 두 칸 공유)는 넥슨 미공개라 아카라이브 2026-09-26 표·2026-07-03 글과 황산갈매기 계산기(2026-10-13 시세 기준 판)가 일치하는 값
+   다른 직업 무기·다른 재질 방어구로 이력이 쌓이는지는 공식 문구('동일한 장비')와 달라 계산에 넣지 않는다. 성능 개선 저주 확률은 NEXON NOW에 항목이 없다(2026-11-04 확인) */
+const MD_DATE='2026-11-04',MD_T={잔영:[140,420,28],해연:[420,700,14]},MD_ARM=['비늘 갑옷','가죽 갑옷','전투복'],MD_AP=['투구','상의','장갑','하의','신발'];
+const MD_W=CRAFT.filter(r=>r[0]==='잔영'&&r[2]==='무기').map(r=>r[1]);
+const MD_SRC={mado:['Info/Guide/3481543','공식 마도 저항 가이드','2026-08-13 기준'],alch:['Info/Guide/2751105','공식 연금술 가이드','2026-09-17 기준'],enh:['Info/Guide/2751136','공식 각인 강화 가이드','2026-04-23 기준'],seal:['Info/Guide/3481542','공식 인장 가이드','2026-09-17 기준'],appr:['Info/Guide/2751079','공식 감정·판매 가이드','2025-06-19 기준'],
+ n625:['News/Update/3480721','6/25 업데이트 노트','2026-06-24 게시'],n702:['News/Update/3489835','7/2 업데이트 노트','2026-07-01 게시'],n813:['News/Update/3521707','8/13 업데이트 노트','2026-08-12 게시'],n917:['News/Update/3545062','9/17 업데이트 노트','2026-09-16 게시'],n1015:['News/Update/3563175','10/15 업데이트 노트','2026-10-14 게시'],
+ d1015:['News/Devnote/3563156','10/15 에린 노트','2026-10-14 게시'],d1103:['News/Devnote/3574742','11/5 업데이트 미리보기 에린 노트','2026-11-03 게시'],cm716:['News/Devnote/3501174','CM노트 시즌2 꿀팁 모음집','2026-07-16 게시'],
+ arT:['https://arca.live/b/mabimobile/184182243','아카라이브 잔영·해연 표','2026-09-26'],arR:['https://arca.live/b/mabimobile/175762282','아카라이브 반지 감정 순서 글','2026-07-03'],hsg:['https://erinndata.pages.dev/calc/','황산갈매기 자료실 마도 저항 계산기','2026-10-13 시세 기준 판'],now:['https://now.nexon.com/service/mabinogimobile','NEXON NOW 확률 안내 목록','2026-11-04 확인']};
+const mdL=k=>{const[u,n,d]=MD_SRC[k];return `<a href="${/^https/.test(u)?u:NX+u}" target="_blank" rel="noopener">${n}</a>(${d})`},mdS=(...k)=>`<p class="tiny mdsrc">근거: ${k.map(mdL).join(' · ')}</p>`;
+{const o=S.md&&typeof S.md==='object'?S.md:{},v=o.v&&typeof o.v==='object'?o.v:{};S.md={w:MD_W.includes(o.w)?o.w:MD_W[0],a:MD_ARM.includes(o.a)?o.a:MD_ARM[0],v:{}};
+ for(const [k,u,c] of [['무기',2,1],...MD_AP.map(p=>[p,1,1]),['목걸이',1,1],['반지',1,2]])S.md.v[k]=Array.from({length:c},(_,i)=>{const n=Array.isArray(v[k])?Math.floor(Number(v[k][i])):0;return n>0?Math.min(n,700*u):0})}
+const mdSlots=()=>[['무기',S.md.w,2,1],...MD_AP.map(p=>[p,`${S.md.a} ${p}`,1,1]),['목걸이','페리도트 네크리스',1,1],['반지','페리도트 링',1,2]];
+const mdNext=(c,u,t)=>{const[a,b,s]=MD_T[t];return c<a*u?a*u:Math.min(b*u,c+s*u)},mdSum=V=>V.reduce((a,b)=>a+b,0);
+function mdBuy(V,u,t){const n=mdNext(Math.max(...V),u,t),i=V.indexOf(Math.min(...V));if(n>V[i])V[i]=n}
+/* 부위 하나를 두 구간으로 나눈다: 1단계는 모든 칸이 해연 최솟값(420, 무기 840)에 닿을 때까지 잔영만·해연 먼저·해연만 중 가장 싼 경로, 2단계는 해연으로 최댓값까지 */
+function mdPlan(V0,u,pJ,pH){const lo=420*u,hi=700*u,R={cur:mdSum(V0),max:hi*V0.length,p1:null,p2:null,alt:[]};let V=V0;
+ if(Math.min(...V0)<lo){const run=(h,id)=>{const W=V0.slice();let nH=0,nJ=0;if(h)while((h>1?Math.min(...W):Math.max(...W))<lo&&nH<3){mdBuy(W,u,'해연');nH++}while(Math.min(...W)<lo&&nJ<40){mdBuy(W,u,'잔영');nJ++}return{id,nH,nJ,W,ok:(!nJ||pJ>0)&&(!nH||pH>0),cost:nH*pH+nJ*pJ,gain:mdSum(W)-R.cur}};
+  R.alt=[run(0,'j'),run(1,'h'),run(2,'hh')];const C=R.alt.filter(o=>o.ok).sort((a,b)=>a.cost-b.cost||b.gain-a.gain);R.p1=C[0]||{blk:1};if(C[0])V=C[0].W}
+ if(!R.p1||!R.p1.blk){const W=V.slice();let n=0;while(Math.min(...W)<hi&&n<60){mdBuy(W,u,'해연');n++}if(n)R.p2=pH>0?{nH:n,cost:n*pH,gain:mdSum(W)-mdSum(V)}:{blk:1}}
+ return R}
+const mdPx=(t,n)=>{const x=MK.gear[mkz(`${t}의 ${n}ZZ`)];return x&&!x.is_sold_out&&x.min_price?x.min_price:0};
+const mdHow=o=>o.nH&&o.nJ?`해연 ${o.nH}개 먼저 + 잔영 ${o.nJ}개`:o.nH?`해연 ${o.nH}개`:`잔영 ${o.nJ}개`,mdRate=(c,g)=>g>0?(c/g).toLocaleString('ko-KR',{maximumFractionDigits:c/g<10?1:0}):'0';
+function mdEnter(){mdPaint();if(mkk()&&!MK.bad)mkCraft()}
+function mdPaint(){const el=$('mdres');if(!el)return;
+ if(!mkk()){el.innerHTML='<div class="empty">거래소 API 키를 연결하면 부위마다 가장 싼 방법과 순서를 지금 시세로 계산합니다. <button class="linkbtn" data-nav="market">거래소에서 키 연결 →</button></div>';return}
+ const c=MK.q.get('g|해연');if(!c||!Object.keys(MK.gear).length){el.innerHTML=MK.err?mkErr():'<div class="empty">시세를 불러오는 중입니다.</div>';return}
+ const R=mdSlots().map(([k,n,u])=>{const pJ=mdPx('잔영',n),pH=mdPx('해연',n);return{k,n,u,pJ,pH,...mdPlan(S.md.v[k],u,pJ,pH)}});
+ const G=[],O=[],done=new Set();R.forEach(r=>{if(r.p1&&!r.p1.blk)G.push({r,ph:1,...r.p1});if(r.p2&&!r.p2.blk)G.push({r,ph:2,...r.p2})});
+ while(G.length){const av=G.filter(g=>g.ph===1||!r1(g.r)||done.has(g.r.k)),g=av.reduce((a,b)=>b.cost/b.gain<a.cost/a.gain?b:a);G.splice(G.indexOf(g),1);if(g.ph===1)done.add(g.r.k);O.push(g)}
+ function r1(r){return r.p1&&!r.p1.blk}
+ const cur=mdSum(R.map(r=>r.cur)),max=mdSum(R.map(r=>r.max)),S1=O.filter(g=>g.ph===1),all=mdSum(O.map(g=>g.cost)),one=mdSum(S1.map(g=>g.cost)),blk=R.filter(r=>(r.p1&&r.p1.blk)||(r.p2&&r.p2.blk)).map(r=>r.k);let cum=0;
+ const s1=r=>{if(!r.p1)return '<b>완료</b><span class="tiny">이미 해연 최솟값 이상입니다</span>';if(r.p1.blk)return '<b>매물 없음</b><span class="tiny">잔영·해연 최저가가 모두 없어 계산하지 못했습니다</span>';const j=r.alt[0],h=r.alt.filter(o=>o.ok&&o.nH).sort((a,b)=>a.cost-b.cost)[0];return `<b>${mdHow(r.p1)} · ${mkn(r.p1.cost)}</b><span class="tiny">+${mkn(r.p1.gain)} · 잔영만 ${j.ok?mkn(j.cost):'매물 없음'} · 해연 쓰면 ${h?mkn(h.cost):'매물 없음'}</span>`};
+ const s2=r=>!r.p2?(r.p1&&r.p1.blk?'<b>계산 안 함</b><span class="tiny">1단계를 계산하지 못했습니다</span>':'<b>최대</b><span class="tiny">더 오르지 않습니다</span>'):r.p2.blk?'<b>해연 매물 없음</b><span class="tiny">해연 최저가가 없어 계산하지 못했습니다</span>':`<b>해연 ${r.p2.nH}개 · ${mkn(r.p2.cost)}</b><span class="tiny">+${mkn(r.p2.gain)} · 마도 저항 1당 ${mdRate(r.p2.cost,r.p2.gain)}</span>`;
+ el.innerHTML=`<div class="mdsum"><div><span class="tiny">장비 마도 저항 지금 → 최대</span><b>${mkn(cur)} → ${mkn(max)}</b></div><div><span class="tiny">1단계만 모두 하면</span><b>${mkn(one)}데카</b></div><div><span class="tiny">최대까지 모두 하면</span><b>${mkn(all)}데카</b></div></div>
+ <div class="ch">부위별 계산 · 1단계는 모든 칸을 420(무기 840)까지, 2단계는 해연으로 최대까지</div><div class="mdl">${R.map(r=>`<div class="mdr"><div><b>${r.k}</b><span class="tiny">${esc(r.n)} · 잔영 ${r.pJ?mkn(r.pJ):'매물 없음'} · 해연 ${r.pH?mkn(r.pH):'매물 없음'}</span><span class="tiny">지금 ${S.md.v[r.k].map(mkn).join(' · ')} / 최대 ${mkn(r.max)}</span></div><div>${s1(r)}</div><div>${s2(r)}</div></div>`).join('')}</div>
+ <div class="ch">추천 순서 · 마도 저항 1당 데카가 낮은 구간부터</div>${O.length?`<ol class="mdo">${O.map(g=>{cum+=g.cost;return `<li><b>${g.r.k} ${g.ph}단계${g.ph===2?'<span class="mdtag" title="마도 저항 규칙은 공식 검토 중이라 12월 빅 캠프파이어 발표 뒤에 정하는 편이 안전합니다">발표 뒤 결정 권장</span>':''}</b><span class="num">${mkn(g.cost)}</span><span class="tiny">${g.ph===1?mdHow(g):`해연 ${g.nH}개`} → +${mkn(g.gain)} · 마도 저항 1당 ${mdRate(g.cost,g.gain)}데카 · 누적 ${mkn(cum)}데카</span></li>`}).join('')}</ol>`:'<div class="empty">모든 부위가 최대입니다.</div>'}
+ <p class="tiny mt10">시세를 불러온 시각 ${mkTime(new Date(c.at).toISOString())} · 시세는 실제보다 10~20분 늦을 수 있습니다 · 단위 데카 · 거래소 최저가 매물만 더한 값입니다(제작비는 <button class="linkbtn" data-act="mdcraft" data-t="잔영">장비 제작비</button>에서 비교). 같은 종류 장비로만 이력을 쌓는다고 보고 계산했고, 룬의 마도 저항은 넣지 않았습니다. 장비마다 감정 때 정해지는 기본 성능이 달라 최저가 매물이 지금 장비보다 약할 수 있습니다.${blk.length?` 매물이 없어 빠진 부위: ${blk.join(', ')}.`:''}</p>`}
+function pgMado(){const sel=(id,L,v)=>`<select id="${id}">${L.map(x=>`<option ${x===v?'selected':''}>${esc(x)}</option>`).join('')}</select>`;
+ const inp=mdSlots().flatMap(([k,,,c])=>Array.from({length:c},(_,i)=>{const l=k+(c>1?' '+(i+1):'');return `<div class="field"><label>${l}</label><input inputmode="numeric" data-mv="${k}" data-mx="${i}" value="${S.md.v[k][i]||''}" placeholder="0" aria-label="${l} 지금까지 얻은 가장 높은 마도 저항"></div>`})).join('');
+ return `<div class="panel hl"><div class="ph"><h2>먼저 알아 둘 것</h2><span class="tiny">정리 ${MD_DATE}</span></div>
+ <ul class="mdul hint"><li>공식 에린 노트(11/3)에 따르면 시즌 3는 12월에 시작합니다. 개발팀은 마도 저항 관련 의견을 내부에서 검토하고 있고, 12월 '빅 캠프파이어' Q&A에서 답하겠다고 밝혔습니다. 일정은 따로 공지합니다.</li><li>검토 결과에 따라 마도 저항 규칙이 바뀔 수 있으므로, 지금은 바뀌어도 남는 투자를 먼저 하고 큰 지출은 발표를 보고 정하는 쪽이 손해 위험이 가장 적습니다.</li></ul>
+ <div class="grid2 mdg2 mt10"><div class="rbox"><b>바뀌어도 남는 것</b><ul class="mdul hint"><li>본 장비의 각인 강화: 성능 개선을 해도 누적 강화 포인트가 결과 장비로 그대로 이어집니다.</li><li>인장: 장비가 아니라 장비 슬롯에 적용되므로 장비를 바꿔도 그 슬롯에 남습니다.</li></ul></div><div class="rbox"><b>발표에 따라 달라질 수 있는 것</b><ul class="mdul hint"><li>마도 저항 수치·필요 수치·압력 등 검토 대상인 마도 저항 규칙 전반.</li><li>해연을 20번 이상 반복하는 2단계는 부위마다 큰돈이 듭니다. 지금 들어갈 콘텐츠에 필요한 만큼만 올리고, 나머지는 발표 뒤에 정하세요.</li></ul></div></div>${mdS('d1103','enh','seal')}</div>
+ <div class="panel"><div class="ph"><h2>잔영과 해연, 무엇을 먼저</h2><span class="tiny">감정할 때마다 붙는 마도 저항</span></div>
+ <div class="tablewrap"><table><thead><tr><th>구분</th><th class="num">무기</th><th class="num">그 외 부위</th></tr></thead><tbody><tr><td>잔영<div class="tiny">11번 오름</div></td><td class="num">280 → 840<div class="tiny">+56씩</div></td><td class="num">140 → 420<div class="tiny">+28씩</div></td></tr><tr><td>해연<div class="tiny">21번 오름</div></td><td class="num">840 → 1,400<div class="tiny">+28씩</div></td><td class="num">420 → 700<div class="tiny">+14씩</div></td></tr></tbody></table></div>
+ <ul class="mdul hint mt10"><li>그 외 부위는 투구·상의·장갑·하의·신발·목걸이·반지입니다. 같은 장비를 새로 얻을 때마다(감정된 채로 얻거나 미감정을 감정) 다음 단계 수치가 붙습니다. 단계 수치는 넥슨이 공개하지 않아, 서로 일치하는 커뮤니티 자료 두 곳의 값을 씁니다.</li>
+ <li>잔영의 최댓값이 해연의 최솟값과 같습니다. 잔영을 끝까지 올린 뒤 해연을 얻으면 434(무기 868)부터 붙고, 잔영 없이 해연부터 얻으면 420(무기 840)부터 붙습니다.</li>
+ <li>그래서 부위마다 첫 구간은 <b class="b">잔영 11개와 해연 1개가 같은 결과</b>입니다. 둘 중 싼 쪽을 고르면 됩니다. 그 뒤로는 해연만 오르고, 최대까지 해연 20개가 더 필요합니다.</li>
+ <li>반지는 두 칸이 같은 이력을 함께 씁니다. <b class="b">해연 반지를 먼저 감정</b>한 뒤 잔영 반지를 감정하면 잔영 반지에도 420이 붙어, 해연 1개와 잔영 1개로 두 칸이 모두 420이 됩니다. 잔영만으로 두 칸을 420으로 채우려면 12개가 듭니다.</li>
+ <li>이 페이지는 같은 종류(같은 무기, 같은 재질의 같은 부위)끼리 이력이 쌓인다고 보고 계산합니다. 다른 직업 무기나 다른 재질 방어구로 쌓는 방법은 공식 문구('동일한 장비')와 달라 넣지 않았습니다.</li></ul>${mdS('mado','arT','arR','hsg')}</div>
+ <div class="panel" id="mdq"><div class="ph"><h2>부위별 순서 계산</h2><span class="tiny">거래소 최저가 기준</span></div>
+ <p class="hint">내 직업 무기와 방어구 재질을 고르고, 부위마다 지금까지 얻은 장비 중 가장 높은 마도 저항을 넣으세요(처음이면 비워 둡니다). 반지는 장착한 두 반지를 각각 넣습니다.</p>
+ <div class="mdsel mt10"><div class="field"><label>무기</label>${sel('mdw',MD_W,S.md.w)}</div><div class="field"><label>방어구 재질</label>${sel('mda',MD_ARM,S.md.a)}</div></div>
+ <div class="mdg mt10">${inp}</div><div class="mt10" id="mdres"></div></div>
+ <div class="panel"><div class="ph"><h2>본 장비로 옮기기</h2><span class="tiny"><button class="linkbtn" data-nav="perf">성능 개선 자세히 →</button></span></div>
+ <ul class="mdul hint"><li>성능 개선을 하면 재료와 대상 중 더 높은 마도 저항이 결과 장비에 적용됩니다. 룬을 각인하고 강화한 본 장비를 대상으로, 마도 저항이 높은 잔영·해연 장비를 재료로 씁니다.</li>
+ <li>대상의 누적 강화 포인트는 그대로 이어지고, 재료에 쌓인 강화 포인트는 사라집니다.</li>
+ <li>기본 성능·이름·외형은 재료 것으로 바뀝니다. 재료의 기본 성능(감정 때 정해짐)이 본 장비보다 낮지 않은지 먼저 보세요.</li>
+ <li>성능 개선은 할 때마다 정해진 확률로 저주가 걸릴 수 있습니다. 중간 단계 장비를 하나씩 옮기기보다 쓸 만큼 모였을 때 가장 높은 장비로 한 번에 옮기면 저주를 푸는 횟수가 줄어듭니다.</li></ul>${mdS('mado','enh','alch')}</div>
+ <div class="grid2 mdg2"><div class="panel"><h2>준비물</h2><ul class="mdul hint mt10"><li><b class="b">잔영 장비</b>: 제작법으로 만들거나 거래소에서 삽니다. 재료와 제작비는 <button class="linkbtn" data-act="mdcraft" data-t="잔영">잔영 장비 제작비</button>에 있습니다.</li>
+ <li><b class="b">해연 장비</b>: 룬다 어비스 타임어택 전리품으로 '해연의 장비'와 '해연의 장비 레시피'가 나오고, 제작하거나 거래소에서 살 수도 있습니다. 레시피로 만든 미감정 장비는 데카 거래소에 한 번 올릴 수 있습니다. <button class="linkbtn" data-act="mdcraft" data-t="해연">해연 장비 제작비</button></li>
+ <li><b class="b">저주 해제 물약</b>: 성능 개선 뒤 저주에 대비합니다. 상위 등급 장비는 한 번에 2개가 듭니다. 펫 원정대 추가 전리품으로도 나옵니다.</li>
+ <li><b class="b">★9 에픽 이상 룬</b>: 각인하면 룬에서도 마도 저항이 붙고, 장비 수치와 합산됩니다.</li></ul>${mdS('n625','n702','n813','d1015','mado')}</div>
+ <div class="panel"><h2>주의할 점</h2><ul class="mdul hint mt10"><li>반지에 해연을 쓸 거라면 해연부터 감정하세요. 잔영을 먼저 감정하면 같은 결과에 잔영이 더 듭니다. 잔영만 12개 쓰는 쪽이 더 쌀 때도 있으니 위 계산을 보세요.</li>
+ <li>잠근 장비는 감정하기 버튼을 쓸 수 없습니다(10/15부터). 미감정 장비를 잠가 두었다면 풀고 감정하세요.</li>
+ <li>판매하거나 버린 장비는 1시간 안에 NPC 상점 [재매입] 탭에서 다시 살 수 있고, 30개가 넘으면 오래된 것부터 지워집니다.</li>
+ <li>각인 강화한 장비를 성능 개선 재료로 쓰면 그 강화 포인트는 사라집니다. 자동 넣기는 강화·엘리트 이상·인챈트 장비를 재료로 추천하지 않지만, 직접 고를 때는 확인하세요.</li>
+ <li>마도 저항이 콘텐츠의 필요 수치보다 낮으면 입장할 수 없습니다. 파티장이 조건을 채우면 파티원은 함께 들어갈 수 있습니다.</li></ul>${mdS('arR','n1015','appr','enh','alch','mado')}</div></div>
+ <div class="panel"><div class="ph"><h2>마도 저항 기본</h2><span class="tiny">확인: 메인 화면 왼쪽 위 프로필</span></div>
+ <div class="grid2 mdg2"><ul class="mdul hint"><li>★9 에픽 이상 룬을 각인하거나, 마도 저항이 붙은 특정 장비(도감에서 확인)로 얻습니다. 장비와 룬의 수치는 합산됩니다.</li><li>콘텐츠의 마도 압력보다 낮으면 주는 피해가 줄고 받는 피해가 늘어납니다. 같거나 높으면 불이익이 없습니다.</li><li>압력을 넘은 만큼 최종 피해가 늘어나며 최대 50%입니다(8/13에 40%에서 상향). 압력이 없는 콘텐츠에도 이 증가가 적용됩니다.</li></ul>
+ <div class="tablewrap"><table><thead><tr><th>압력을 넘은 수치</th><th class="num">최종 피해 증가</th></tr></thead><tbody>${[[500,'4.1%'],[1000,'7.9%'],[2000,'14.6%'],[4000,'25%'],[8000,'37.5%']].map(([a,b])=>`<tr><td>${mkn(a)}</td><td class="num">${b}</td></tr>`).join('')}</tbody></table><p class="tiny">공식 예시 5개입니다. 사이 값의 계산식은 공개되지 않아 넣지 않았습니다.</p></div></div>${mdS('mado','n813')}</div>`}
+function pgPerf(){const row=(n,c,t,d,s)=>`<div class="pfr"><b>${n}</b><div><span class="pft t-${c}">${t}</span><span class="hint">${d}</span><span class="tiny">${s}</span></div></div>`;
+ const cs=(t,a,b,s)=>`<div class="pfc"><b>${t}</b><dl><dt>상황</dt><dd>${a}</dd><dt>결과</dt><dd>${b}</dd><dt>근거</dt><dd class="tiny">${s}</dd></dl></div>`;
+ return `<div class="panel hl"><div class="ph"><h2>성능 개선 한눈에</h2><span class="tiny">정리 ${MD_DATE}</span></div>
+ <p class="hint">성능 개선은 룬이 각인된 장비(대상)에 다른 장비(재료)를 합쳐, 대상의 각인 강화를 잃지 않고 재료의 기본 성능을 옮기는 연금술입니다. [메뉴 → 연금술 → 성능 개선]이나 장착한 장비 카드의 [성능 개선] 버튼으로 엽니다.</p>
+ <div class="grid2 mdg2 mt10"><div class="rbox"><b>대상 자리에 둘 장비</b><p class="hint">룬을 각인하고 각인 강화를 해 둔 본 장비입니다. 강화 포인트가 결과 장비로 이어집니다.</p></div><div class="rbox"><b>재료 자리에 둘 장비</b><p class="hint">기본 성능·보석 슬롯·마도 저항 중 대상보다 나은 것이 있는 장비입니다. 재료는 없어집니다.</p></div></div>
+ <div class="row mt10"><button class="linkbtn" data-nav="gear">숫자로 바로 판정하기: 장비 비교 →</button><button class="linkbtn" data-nav="mado">잔영·해연 로드맵 →</button></div>${mdS('alch','enh')}</div>
+ <div class="panel"><div class="ph"><h2>바뀌는 것과 남는 것</h2><span class="tiny">공식 안내에 적힌 항목만</span></div><div class="pfl">
+ ${row('기본 성능(공격력·방어력)','ch','재료 것으로 바뀜','재료 장비의 기본 성능이 대상에 적용됩니다.',mdL('alch'))}
+ ${row('장비 이름·외형','ch','재료 것으로 바뀜','재질이 다른 방어구를 재료로 쓰면 이름과 외형도 그 방어구로 바뀝니다.',mdL('alch'))}
+ ${row('보석 슬롯','up','재료가 더 많을 때만 늘어남','재료 장비의 보석 슬롯이 대상보다 많으면 슬롯도 함께 적용됩니다.',mdL('alch'))}
+ ${row('마도 저항','up','둘 중 높은 값','재료와 대상 중 더 높은 마도 저항이 남습니다. 마도 저항이 낮은 재료를 써도 깎이지 않습니다.',mdL('mado'))}
+ ${row('대상의 각인 강화','keep','그대로 이어짐','대상에 쌓인 강화 포인트가 결과 장비로 그대로 옮겨집니다.',mdL('enh')+' · '+mdL('alch'))}
+ ${row('재료 장비','gone','없어지고 강화도 사라짐','재료로 쓴 장비는 소모되고, 재료에 쌓인 강화 포인트는 보존되지 않습니다.',mdL('enh')+' · '+mdL('n917'))}
+ ${row('내구도','up','수리됨','성능이 개선되면서 장비도 함께 수리됩니다.',mdL('cm716'))}
+ ${row('저주','gone','확률로 걸림','성능 개선 때 정해진 확률로 장비가 저주받을 수 있습니다. 확률은 공개되지 않았습니다(확률 안내 목록에 성능 개선 항목 없음).',mdL('alch')+' · '+mdL('now'))}
+ ${row('엠블럼','keep','마법 효과 유지','룬이 각인된 엠블럼에 같은 클래스의 마스터 엠블럼을 재료로 쓰면, 각인과 인챈트 등 마법 효과를 유지한 채 마스터 엠블럼이 됩니다.',mdL('alch'))}</div></div>
+ <div class="panel"><h2>재료 고르는 방법</h2><ul class="mdul hint mt10"><li><b class="b">간단히 개선하기</b>: 장착한 장비를 개선할 재료가 있으면 연금술 [성능 개선]이나 장비 카드에서 이 화면이 먼저 뜹니다. 추천 재료를 넣은 결과를 미리 보여 주고, 원하지 않는 부위는 선택을 해제할 수 있습니다. 표시되는 예상 전투력은 실제와 다를 수 있습니다.</li>
+ <li><b class="b">자세히 개선하기</b>: 재료를 직접 고르는 화면입니다. 간단히 개선하기에서 [자세히 개선하기]를 누르거나, 간단히 개선할 대상이 없을 때 열립니다.</li>
+ <li><b class="b">자동 추천에서 빠지는 장비</b>: 재료 자동 넣기는 각인 강화된 장비, 엘리트 희귀도 이상 장비, 인챈트된 장비를 재료로 추천하지 않습니다.</li>
+ <li><b class="b">추천 순서(10/15부터)</b>: 대상보다 기본 능력치가 같거나 높은 재료 중 마도 저항이 가장 높은 장비를 먼저, 그다음 기본 능력치가 가장 높은 장비를 추천합니다.</li>
+ <li><b class="b">방어구 추천 규칙</b>: [메뉴 → 환경 설정 → 게임 → 연금술]에서 고릅니다. '클래스 방어구 우선'은 클래스와 어울리지 않는 재질이라도 성능이 더 좋으면 추천하고, '클래스 방어구만 추천'은 내 클래스에 맞는 재질만 추천합니다.</li></ul>${mdS('alch','n917','n1015','cm716')}</div>
+ <div class="panel"><div class="ph"><h2>헷갈리는 경우</h2><span class="tiny">예시 수치는 설명용입니다</span></div><div class="pfg">
+ ${cs('마도 저항 좋은 재료와 기본 성능 좋은 재료가 따로 있을 때','재료 A는 마도 저항이 높고, 재료 B는 기본 능력치가 더 높습니다. 둘 다 대상보다 기본 능력치가 같거나 높습니다.','A로 먼저 개선하고 B로 이어서 개선하면 기본 성능은 B 것이 되고 마도 저항은 높은 A 값이 남습니다. 게임 추천도 이 순서입니다. 예시: 대상 방어력 1,000·마도 저항 420 → A(1,050·700) → B(1,200·434) → 결과 1,200·700.',mdL('n1015')+' · '+mdL('mado')+' · '+mdL('alch'))}
+ ${cs('마도 저항이 더 낮은 재료를 쓸 때','대상의 마도 저항은 700이고, 기본 능력치가 더 높은 재료의 마도 저항은 420입니다.','마도 저항은 700이 그대로 남고, 기본 성능만 재료 것으로 바뀝니다.',mdL('mado')+' · '+mdL('alch'))}
+ ${cs('재료의 보석 슬롯이 더 많을 때','대상은 보석 슬롯 2칸, 재료는 3칸입니다.','결과 장비는 재료처럼 3칸이 됩니다. 공식 안내에서 슬롯이 바뀌는 경우는 재료 쪽 슬롯이 더 많을 때뿐입니다.',mdL('alch'))}
+ ${cs('강화한 장비를 재료로 넣었을 때','각인 강화를 해 둔 예전 장비를 새 장비의 재료로 넣으려 합니다.','재료의 강화 포인트는 사라지고 결과 장비에는 대상의 강화 포인트만 남습니다. 강화한 장비는 대상 자리에 두세요. 자동 넣기는 이런 장비를 추천하지 않지만, 자세히 개선하기에서 직접 고를 때는 확인이 필요합니다.',mdL('enh')+' · '+mdL('alch'))}
+ ${cs('개선 뒤 저주가 걸렸을 때','성능 개선 결과 장비가 저주받았습니다.','저주 해제 물약으로 풉니다. 3594~3983 무기 같은 상위 등급 장비는 2개가 듭니다. 각인 강화에 성공해도 저주가 풀리고, 10/15부터는 캠프파이어에 앉아 있으면 일정 시간마다 확률로 장착 장비 1개가 풀립니다. 모두 성능 개선 뒤에는 저주받은 장비를 한 번에 해제할 수 있고, 물약은 펫 원정대 추가 전리품으로도 나옵니다.',mdL('n813')+' · '+mdL('enh')+' · '+mdL('n1015')+' · '+mdL('cm716')+' · '+mdL('d1015'))}
+ ${cs('다른 재질 방어구가 재료로 추천될 때','내 클래스와 어울리지 않는 재질의 방어구가 추천 재료로 나옵니다.','방어구 추천 규칙이 \'클래스 방어구 우선\'이면 성능이 더 좋을 때 이렇게 추천됩니다. 개선하면 이름과 외형이 그 방어구로 바뀝니다. 내 재질만 원하면 \'클래스 방어구만 추천\'으로 바꾸세요.',mdL('alch')+' · '+mdL('cm716'))}
+ ${cs('엠블럼을 마스터 엠블럼으로 바꿀 때','각인·인챈트를 해 둔 엠블럼이 있고, 같은 클래스의 마스터 엠블럼을 얻었습니다.','기존 엠블럼을 대상으로, 마스터 엠블럼을 재료로 개선하면 각인과 인챈트 등 마법 효과를 유지한 채 마스터 엠블럼이 됩니다.',mdL('alch'))}
+ ${cs('무엇을 재료로 썼는지 다시 보고 싶을 때','여러 부위를 한꺼번에 개선한 뒤 어떤 장비가 재료로 들어갔는지 확인하고 싶습니다.','채팅 [시스템] 탭에 승급·합성·성능 개선에 쓴 아이템이 기록됩니다. 에픽 이상만 남고, 다시 접속하면 기록이 지워집니다.',mdL('n917'))}</div></div>`}
+
 /* ===== 룬 경합: 부위별 마지막 칸 vs 다음 순위 =====
    과거 시험(2026-08~10, 교체 70건): 교체 권장 4주 안 교체 9건 중 9건 · 장기 추세 6주 안 교체 10건 중 9건(격차 8%p 초과만 보면 4건 중 3건, 그 격차대 전체는 96건 중 5건) · 주시 47건 중 24건 · 1주 역전의 15%는 다음 주 되돌아감 */
 const RC_N={w:1,e:1,a:3,r:5},RC_ST={rec:['교체 권장','--red'],long:['장기 추세','--gold'],done:['교체 확정','--accent'],flip:['역전 1주차','--orange'],watch:['주시','--accent2'],close:['접전','--muted'],ok:['안정','--subtle']},RC_ORD=Object.keys(RC_ST);
@@ -1588,7 +1706,8 @@ async function mkBoard(){const q=S.mq.trim();if(/[ㄱ-ㅎㅏ-ㅣ]$/.test(q))retu
  if(run===MK.run)mkPaint()}
 async function mkCraft(){try{for(const t of ['잔영','해연']){const d=await mkFetch('g|'+t,`/market/prices?search=${encodeURIComponent(t+'의')}&limit=100`);for(const x of d)MK.gear[mkz(x.name)]=x}MK.err=''}catch(e){MK.err=e.message}mkPaint()}
 function mkEnter(){if(!mkk())return;mkLoad();if(S.mt==='board')mkBoard();if(S.mt==='craft')mkCraft();if(S.mt==='watch')mkPins().then(mkPaint,e=>{MK.err=e.message;mkPaint()})}
-function mkTick(){if(document.hidden||!mkk()||MK.bad||!['market','proc','barter'].includes(S.page))return;mkLoad();mkLiqRun();if(S.page==='market'&&S.mt==='board'&&!$('mdlg')?.open){const c=MK.q.get(mkViewKey());if(c&&Date.now()-c.at>=MK_TTL)mkBoard()}if(S.page==='market'&&S.mt==='craft'&&!$('mdlg')?.open){const c=MK.q.get('g|해연');if(!c||Date.now()-c.at>=MK_TTL)mkCraft()}}
+function mkTick(){if(S.page==='mado'&&!document.hidden&&mkk()&&!MK.bad){const c=MK.q.get('g|해연');if(!c||Date.now()-c.at>=MK_TTL)mkCraft();return}
+ if(document.hidden||!mkk()||MK.bad||!['market','proc','barter'].includes(S.page))return;mkLoad();mkLiqRun();if(S.page==='market'&&S.mt==='board'&&!$('mdlg')?.open){const c=MK.q.get(mkViewKey());if(c&&Date.now()-c.at>=MK_TTL)mkBoard()}if(S.page==='market'&&S.mt==='craft'&&!$('mdlg')?.open){const c=MK.q.get('g|해연');if(!c||Date.now()-c.at>=MK_TTL)mkCraft()}}
 setInterval(mkTick,3e4);document.addEventListener('visibilitychange',mkTick);
 async function mkConnect(){const el=$('mkk'),m=$('mkm'),v=(el&&el.value||'').trim();if(!/^ml_[\w-]+$/.test(v)){m.textContent='ml_로 시작하는 API 키를 붙여넣어 주세요.';return}m.textContent='키를 확인하는 중입니다.';
  try{const r=await fetch(MK_API+'/market/categories',{headers:{Authorization:'Bearer '+v}});if(!r.ok)throw new Error(r.status===401||r.status===403?'키가 거부되었습니다. 모비라이프에서 키를 다시 확인해 주세요.':`연결하지 못했습니다(${r.status}).`);
@@ -1601,7 +1720,7 @@ const mkErr=()=>MK.err?`<div class="notice mknote">${esc(MK.err)}${MK.bad?' <but
 const mkAlert=()=>{const L=S.mw.filter(mkHit);return L.length?`<div class="notice mknote"><b>목표가 도달</b>${L.map(p=>`<button class="linkbtn" data-mi="${Number(p.k)}">${esc(mkName(p.n))} ${mkn(mkPx(p.k).min_price)}</button>`).join('')}</div>`:''};
 function mkPaintStat(){if($('mstat'))$('mstat').textContent=mkStat()}
 function mkPaintRes(){if($('mres'))$('mres').innerHTML=mkRes();mkLiqRun()}
-function mkPaint(){mkPaintStat();if($('merr'))$('merr').innerHTML=mkErr()+mkAlert();if($('mtabs'))$('mtabs').innerHTML=mkTabs();mkPaintRes();if(S.page==='proc'&&$('plist'))$('plist').innerHTML=procList();if(S.page==='barter'&&$('blist'))$('blist').innerHTML=S.bt==='g'?shopList():barterList();if(S.page==='barter'&&$('bbest'))$('bbest').innerHTML=bBest();mkLiqRun()}
+function mkPaint(){mkPaintStat();if($('merr'))$('merr').innerHTML=mkErr()+mkAlert();if($('mtabs'))$('mtabs').innerHTML=mkTabs();mkPaintRes();if(S.page==='proc'&&$('plist'))$('plist').innerHTML=procList();if(S.page==='barter'&&$('blist'))$('blist').innerHTML=S.bt==='g'?shopList():barterList();if(S.page==='barter'&&$('bbest'))$('bbest').innerHTML=bBest();if(S.page==='mado')mdPaint();mkLiqRun()}
 function mkRow(x,m){const c=m==='c'?x.count_change_24h:x.pct_change_24h,so=x.is_sold_out||!x.min_price;
  return `<button class="mrow" data-mi="${Number(x.kind_id)}" data-mr="${x._r}">${mkIcon(x)}<span class="mn"><b>${esc(mkName(x.name))}</b><span class="tiny">${esc(x.parent_category)} · ${so?'품절':'재고 '+mkn(x.total_count)}</span></span><span class="mv"><b>${so?'품절':mkn(x.min_price)}</b><span class="mch ${mkc(c)}">${m==='c'?'재고 ':''}${mkp(c)}</span></span></button>`}
 function mkStrip(){const o=n=>/영혼석$/.test(n)?0:/마력석$/.test(n)?1:2,L=MK.list.filter(x=>/(영혼석|마력석|용비늘)$/.test(x.name)).sort((a,b)=>o(a.name)-o(b.name)||a.name.localeCompare(b.name,'ko'));if(!L.length)return '';
@@ -1702,17 +1821,17 @@ function mkDraw(j){const w=$('mchart'),P=(j.points||[]).filter(p=>p.close!=null)
  $('mtable').innerHTML=`<details class="mtbl"><summary class="tiny">표로 보기</summary><div class="tablewrap"><table class="lt"><thead><tr><th>시각</th><th class="num">가격</th><th class="num">재고</th></tr></thead><tbody>${P.slice(-30).reverse().map(p=>`<tr><td>${esc(lab(p))}</td><td class="num">${mkn(p.close)}</td><td class="num">${mkn(cnt(p))}</td></tr>`).join('')}</tbody></table></div></details>`}
 
 /* ===== 라우팅 ===== */
-const ICO={guide:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',market:'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',pet:'<circle cx="5.5" cy="10.5" r="2"/><circle cx="9.5" cy="5.5" r="2"/><circle cx="14.5" cy="5.5" r="2"/><circle cx="18.5" cy="10.5" r="2"/><path d="M12 12c-3 0-6 4.5-6 7 0 1.6 1.3 2.4 2.8 2 1.1-.3 2.1-.6 3.2-.6s2.1.3 3.2.6c1.5.4 2.8-.4 2.8-2 0-2.5-3-7-6-7z"/>',class:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',rune:'<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9.5 3 12 9l2.5-6M12 9v12"/>',fbt:'<path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',cmp:'<path d="m8 3-4 4 4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
+const ICO={mado:'<path d="M12 3 3 7.5l9 4.5 9-4.5z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/>',perf:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.3 14h9.4"/>',guide:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',market:'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',pet:'<circle cx="5.5" cy="10.5" r="2"/><circle cx="9.5" cy="5.5" r="2"/><circle cx="14.5" cy="5.5" r="2"/><circle cx="18.5" cy="10.5" r="2"/><path d="M12 12c-3 0-6 4.5-6 7 0 1.6 1.3 2.4 2.8 2 1.1-.3 2.1-.6 3.2-.6s2.1.3 3.2.6c1.5.4 2.8-.4 2.8-2 0-2.5-3-7-6-7z"/>',class:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',rune:'<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9.5 3 12 9l2.5-6M12 9v12"/>',fbt:'<path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',cmp:'<path d="m8 3-4 4 4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
  link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',gear:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
  proc:'<path d="M2 20h20"/><path d="M4 20V10l5 3v-3l5 3V6l6 4v10"/>',gath:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.2-6"/>',
  week:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="m9 15 2 2 4-4"/>',check:'<path d="M20 6 9 17l-5-5"/>',
  soul:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/>',
  barter:'<path d="M4 8h15l-4-4"/><path d="M20 16H5l4 4"/>',about:'<circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/>',more:'<circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/>',ext:'<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>'};
 const svg=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k]}</svg>`;
-const NAV=[['class','정보','직업 정보'],['rune','정보','룬 역검색'],['cmp','정보','직업 비교'],['fbt','정보','필드 보스 칭호'],['pet','정보','에픽 펫 추천'],['week','도구','주간 체크리스트'],['guide','도구','신규 육성 준비물'],['link','도구','숙련 연계'],['soul','도구','소울스트림'],['gear','도구','장비 비교'],['market','생활','거래소'],['proc','생활','가공 레시피'],['gath','생활','채집 바로찾기'],['barter','생활','물물교환'],['about','기타','출처 · 갱신']];
+const NAV=[['class','정보','직업 정보'],['rune','정보','룬 역검색'],['cmp','정보','직업 비교'],['fbt','정보','필드 보스 칭호'],['pet','정보','에픽 펫 추천'],['mado','정보','잔영·해연 로드맵'],['perf','정보','성능 개선'],['week','도구','주간 체크리스트'],['guide','도구','신규 육성 준비물'],['link','도구','숙련 연계'],['soul','도구','소울스트림'],['gear','도구','장비 비교'],['market','생활','거래소'],['proc','생활','가공 레시피'],['gath','생활','채집 바로찾기'],['barter','생활','물물교환'],['about','기타','출처 · 갱신']];
 const TABS={class:'직업',week:'숙제',link:'숙련',proc:'가공',gath:'채집'};
-const PAGES={guide:['신규 육성 준비물','100레벨까지 키우는 스토리 과정의 필수 재료를 같은 재료끼리 합치고, 지금 가진 수량으로 어디까지 멈춤 없이 갈 수 있는지 계산합니다.',pgGuide],market:['거래소','거래소 전 품목의 시세와 급등·급락·품귀를 보고, 가공 수익과 장비 제작비, 물물교환 차익을 현재 시세로 계산합니다.',pgMarket],pet:['에픽 펫 추천','21개 직업별로 가장 효율 좋은 에픽 펫과 대안을 스탯 목표 근거와 함께 보여 줍니다.',pgPet],fbt:['필드 보스 칭호','필드 보스 6종 막타 칭호의 보조 능력치(치명타·강타 강화 등) 효과와, 21개 직업에 가장 효율적인 칭호를 근거와 함께 보여 줍니다.',pgFbt],barter:['물물교환',`가성비 좋은 교환 순위와 NPC 물물교환 ${BARTER.length}건, 골드 주간 상점 ${SHOP.length}건을 아이템·NPC·지역으로 찾고, 가공 대신 교환으로 얻는 재료를 캐릭터 수에 맞춰 계산합니다.`,pgBarter],class:['직업 정보','21개 직업의 주·부 스탯·개조·세공·장신구 세팅과 부위별 룬 사용 순위를 한눈에 봅니다.',pgClass],rune:['룬 역검색','룬을 고르면 어떤 직업이 몇 위로 쓰는지 자동으로 정리합니다.',pgRune],cmp:['직업 비교','두 직업의 세팅과 룬 TOP3를 나란히 비교하고 공통 룬을 찾습니다.',pgCmp],week:['주간 체크리스트','매주 월요일 06:00에 자동으로 초기화되는 주간 숙제입니다. 공식 가이드·업데이트 노트로 확인된 항목만 담았습니다.',pgWeek],link:['숙련 연계','공식 보너스표를 성급·강화 단계별로 조회하고, 무기 수치로 숙련 연계 추가 공격력을 자동 계산합니다.',pgLink],soul:['소울스트림','게임 화면의 소울 값 몇 개만 옮겨 적으면 주당 생산량, 다음 구간까지 남은 합계, 이번 주 구매 비용을 계산합니다.',pgSoul],proc:['가공 레시피','6개 가공 시설의 레시피 91개를 검색하고, 재료를 눌러 가공 단계를 따라갑니다.',pgProc],gath:['채집 바로찾기','아이템을 검색하면 어느 채집물에서 몇 레벨부터 얻는지 자동으로 정리합니다.',pgGath],gear:['장비 비교','숫자 몇 개로 성능 개선·보관·분해를 바로 판정합니다.',pgGear],about:['출처 · 갱신','데이터 출처, 기준일, 갱신 방법입니다.',pgAbout]};
-function render(){if(!PAGES[S.page])S.page='class';const P=PAGES[S.page];$('pt').textContent=P[0];$('ps').textContent=P[1];$('page').innerHTML=P[2]();if(S.page==='gear')gearJudge();if(S.page==='link')linkCalc();if(S.page==='soul')soulCalc();if(S.page==='guide')qPaint();if(S.page==='market'){mkEnter();mkLiqRun()}else if(S.page==='proc'||S.page==='barter'){mkLoad();mkLiqRun()}
+const PAGES={mado:['잔영·해연 로드맵','마도 저항을 올리는 잔영·해연 장비를 어느 부위부터 어떤 순서로 모을지, 공식 규칙과 지금 시세로 정리합니다.',pgMado],perf:['성능 개선','성능 개선을 하면 무엇이 바뀌고 무엇이 남는지, 헷갈리는 경우를 공식 근거와 예시로 정리합니다.',pgPerf],guide:['신규 육성 준비물','100레벨까지 키우는 스토리 과정의 필수 재료를 같은 재료끼리 합치고, 지금 가진 수량으로 어디까지 멈춤 없이 갈 수 있는지 계산합니다.',pgGuide],market:['거래소','거래소 전 품목의 시세와 급등·급락·품귀를 보고, 가공 수익과 장비 제작비, 물물교환 차익을 현재 시세로 계산합니다.',pgMarket],pet:['에픽 펫 추천','21개 직업별로 가장 효율 좋은 에픽 펫과 대안을 스탯 목표 근거와 함께 보여 줍니다.',pgPet],fbt:['필드 보스 칭호','필드 보스 6종 막타 칭호의 보조 능력치(치명타·강타 강화 등) 효과와, 21개 직업에 가장 효율적인 칭호를 근거와 함께 보여 줍니다.',pgFbt],barter:['물물교환',`가성비 좋은 교환 순위와 NPC 물물교환 ${BARTER.length}건, 골드 주간 상점 ${SHOP.length}건을 아이템·NPC·지역으로 찾고, 가공 대신 교환으로 얻는 재료를 캐릭터 수에 맞춰 계산합니다.`,pgBarter],class:['직업 정보','21개 직업의 주·부 스탯·개조·세공·장신구 세팅과 부위별 룬 사용 순위를 한눈에 봅니다.',pgClass],rune:['룬 역검색','룬을 고르면 어떤 직업이 몇 위로 쓰는지 자동으로 정리합니다.',pgRune],cmp:['직업 비교','두 직업의 세팅과 룬 TOP3를 나란히 비교하고 공통 룬을 찾습니다.',pgCmp],week:['주간 체크리스트','매주 월요일 06:00에 자동으로 초기화되는 주간 숙제입니다. 공식 가이드·업데이트 노트로 확인된 항목만 담았습니다.',pgWeek],link:['숙련 연계','공식 보너스표를 성급·강화 단계별로 조회하고, 무기 수치로 숙련 연계 추가 공격력을 자동 계산합니다.',pgLink],soul:['소울스트림','게임 화면의 소울 값 몇 개만 옮겨 적으면 주당 생산량, 다음 구간까지 남은 합계, 이번 주 구매 비용을 계산합니다.',pgSoul],proc:['가공 레시피','6개 가공 시설의 레시피 91개를 검색하고, 재료를 눌러 가공 단계를 따라갑니다.',pgProc],gath:['채집 바로찾기','아이템을 검색하면 어느 채집물에서 몇 레벨부터 얻는지 자동으로 정리합니다.',pgGath],gear:['장비 비교','숫자 몇 개로 성능 개선·보관·분해를 바로 판정합니다.',pgGear],about:['출처 · 갱신','데이터 출처, 기준일, 갱신 방법입니다.',pgAbout]};
+function render(){if(!PAGES[S.page])S.page='class';const P=PAGES[S.page];$('pt').textContent=P[0];$('ps').textContent=P[1];$('page').innerHTML=P[2]();if(S.page==='gear')gearJudge();if(S.page==='link')linkCalc();if(S.page==='soul')soulCalc();if(S.page==='guide')qPaint();if(S.page==='mado')mdEnter();if(S.page==='market'){mkEnter();mkLiqRun()}else if(S.page==='proc'||S.page==='barter'){mkLoad();mkLiqRun()}
  document.querySelectorAll('.nav[data-nav],.tab[data-nav]').forEach(b=>b.classList.toggle('on',b.dataset.nav===S.page));$('morebtn').classList.toggle('on',!TABS[S.page]);$('eb').textContent='MABINOGI MOBILE · '+NAV.find(n=>n[0]===S.page)[1]}
 function go(p){S.page=p;save();$('sheet').hidden=true;render();window.scrollTo({top:0});if($('page').animate&&!matchMedia('(prefers-reduced-motion: reduce)').matches)$('page').animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:220,easing:'cubic-bezier(.2,.7,.2,1)'})}
 
@@ -1743,6 +1862,7 @@ document.addEventListener('click',e=>{const t=e.target;let el;
  if(el=t.closest('[data-act="hole"]'))return holeOpen();
  if(el=t.closest('[data-act="hbset"]'))return holeSet();
  if(t.id==='hdlg'||t.closest('[data-hclose]'))return $('hdlg').close();
+ if(el=t.closest('[data-act="mdcraft"]')){S.mt='craft';S.mgt=el.dataset.t;S.mgp='all';return go('market')}
  if(el=t.closest('[data-nav]'))return go(el.dataset.nav);
  if(el=t.closest('[data-cls]')){S.sel=el.dataset.cls;save();if(el.dataset.go)return go('class');render();if(innerWidth<1100)$('cdet')?.scrollIntoView({behavior:'smooth'});return}
  if(el=t.closest('[data-fam]')){S.fam=el.dataset.fam;save();return render()}
@@ -1812,11 +1932,13 @@ document.addEventListener('input',e=>{const el=e.target;
  if(el.id==='qlv'){S.qs.lv=Math.min(999,Number(el.value.replace(/\D/g,''))||0);save();return qPaint()}
  if(el.closest('#soulq'))return soulCalc();
  if(el.closest('#lq'))return linkCalc();
- if(el.closest('#gq'))return gearJudge()});
+ if(el.closest('#gq'))return gearJudge();
+ if(el.dataset.mv&&S.md.v[el.dataset.mv]){const k=el.dataset.mv,m=(k==='무기'?2:1)*700,n=Math.min(m,Number(el.value.replace(/\D/g,''))||0);if(n===m&&el.value!==String(m))el.value=m;S.md.v[k][+el.dataset.mx]=n;save();return mdPaint()}});
 document.addEventListener('change',e=>{const el=e.target;if(el.id==='ca'||el.id==='cb'){S[el.id]=el.value;save();render()}
  if(el.id==='lst'||el.id==='llv'){linkCalc();S.ls=S.lk.st;save();render()}
  if(el.id==='wpet'){S.wpet=+el.value;save();render()}
- if(el.id==='bc'){S.bc=+el.value;save();render()}});
+ if(el.id==='bc'){S.bc=+el.value;save();render()}
+ if(el.id==='mdw'&&MD_W.includes(el.value)||el.id==='mda'&&MD_ARM.includes(el.value)){S.md[el.id==='mdw'?'w':'a']=el.value;save();mdPaint()}});
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList?.contains('ccard'))e.target.click();if(e.key==='Enter'&&e.target.id==='mkk')mkConnect();if(e.key==='Enter'&&e.target.id==='hbi'){e.preventDefault();holeSet()}if(e.key==='Escape')$('sheet').hidden=true});
 
 /* ===== 시작 ===== */
