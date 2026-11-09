@@ -195,16 +195,23 @@ main{padding:22px 16px calc(98px + env(safe-area-inset-bottom))}.panel{padding:1
 .toast{left:16px;right:16px;bottom:calc(86px + env(safe-area-inset-bottom))}
 .prow{grid-template-columns:52px minmax(0,1fr)}.prow .mats{grid-column:1/-1}.wrow{grid-template-columns:1fr}.wsubs{justify-content:flex-start}.wtime{text-align:left}.grid2,.grid3{grid-template-columns:1fr}}
 /* 불길한 소환의 결계(매시 00:00~03:00): 결계 아이콘의 보라 팔레트 #4a0774 · #6601a2 · #9200ec · #a100fe · #eac6ff */
-html.omen{--bg:#0c0717;--bg1:#130b21;--bg2:#1a102c;--bg3:#231638;--line:rgba(234,198,255,.08);--line2:rgba(234,198,255,.14);--line3:rgba(234,198,255,.24)}
-html.omen body{background:var(--bg)}
+/* 타오르는 보라 결정: 바닥에서 일렁이는 불꽃(::before), 위로 떠오르는 결정 불티(::after), 빛나는 패널 테두리. 움직임은 transform·opacity만 써서 합성 단계에서 처리 */
+html.omen{--bg:#13061f;--bg1:#1b0a2d;--bg2:#240f3b;--bg3:#2e1549;--line:rgba(214,160,255,.13);--line2:rgba(214,160,255,.22);--line3:rgba(214,160,255,.34);--muted:#c3b6dc;--subtle:#a99ec4;--accent:#d39cff;--accent-h:#e4c0ff;--accent-w:rgba(211,156,255,.16);--accent-l:rgba(211,156,255,.5);--on-accent:#2b0649}
+html.omen body{background:radial-gradient(1300px 640px at 50% -300px,rgba(161,0,254,.42),transparent 70%) fixed,radial-gradient(1000px 560px at 50% 118%,rgba(102,1,162,.5),transparent 70%) fixed,var(--bg)}
 body::before,body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.4s ease}
-body::before{inset:-12%;background:radial-gradient(42% 38% at 58% 4%,rgba(161,0,254,.30),transparent 70%),radial-gradient(38% 46% at 96% 92%,rgba(102,1,162,.42),transparent 72%),radial-gradient(34% 40% at 6% 62%,rgba(146,0,236,.20),transparent 70%),radial-gradient(26% 30% at 30% 22%,rgba(234,198,255,.08),transparent 70%)}
-body::after{background-image:radial-gradient(1.2px 1.2px at 24px 38px,rgba(234,198,255,.7),transparent),radial-gradient(1px 1px at 140px 96px,rgba(234,198,255,.55),transparent),radial-gradient(1.4px 1.4px at 196px 172px,rgba(161,0,254,.8),transparent),radial-gradient(1px 1px at 72px 204px,rgba(234,198,255,.45),transparent);background-size:230px 230px}
-html.omen body::before{opacity:1;animation:omDrift 26s ease-in-out infinite alternate}
-html.omen body::after{opacity:.5;animation:omGlint 7s ease-in-out infinite alternate}
-@keyframes omDrift{from{transform:translate3d(-2.5%,-1.5%,0) scale(1.02)}to{transform:translate3d(2.5%,2%,0) scale(1.1)}}
-@keyframes omGlint{from{opacity:.28}to{opacity:.62}}
-html.omen .side{background:rgba(12,7,23,.55)}html.omen .mtop{background:rgba(12,7,23,.8)}html.omen .tabbar{background:rgba(16,9,28,.88)}
+body::before{inset:-4% -6% -3%;transform-origin:50% 100%;background:radial-gradient(26% 30% at 50% 104%,rgba(234,198,255,.42),transparent 70%),radial-gradient(48% 52% at 50% 108%,rgba(161,0,254,.66),transparent 72%),radial-gradient(30% 46% at 12% 104%,rgba(146,0,236,.55),transparent 70%),radial-gradient(30% 46% at 88% 104%,rgba(128,1,205,.6),transparent 70%),radial-gradient(20% 32% at 31% 101%,rgba(200,128,255,.34),transparent 70%),radial-gradient(20% 32% at 69% 101%,rgba(200,128,255,.32),transparent 70%),radial-gradient(44% 24% at 50% -2%,rgba(161,0,254,.38),transparent 70%)}
+body::after{inset:0 0 -280px;background-image:radial-gradient(1.7px 1.7px at 30px 40px,rgba(234,198,255,.95),transparent),radial-gradient(1.2px 1.2px at 150px 118px,rgba(234,198,255,.8),transparent),radial-gradient(2.2px 2.2px at 212px 202px,rgba(200,128,255,.95),transparent),radial-gradient(1.1px 1.1px at 88px 232px,rgba(234,198,255,.7),transparent),radial-gradient(1.6px 1.6px at 258px 70px,rgba(161,0,254,.95),transparent),radial-gradient(1.3px 1.3px at 186px 20px,rgba(234,198,255,.75),transparent);background-size:280px 280px}
+html.omen body::before{opacity:1;animation:omFlame 2.8s ease-in-out infinite alternate}
+html.omen body::after{opacity:1;animation:omRise 13s linear infinite,omGlint 2.6s ease-in-out infinite alternate}
+@keyframes omFlame{0%{transform:scale(1,1) translateY(0);opacity:.86}50%{transform:scale(1.03,1.08) translateY(-1%);opacity:1}100%{transform:scale(.99,1.15) translateY(-2%);opacity:.93}}
+@keyframes omRise{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-280px,0)}}
+@keyframes omGlint{from{opacity:.55}to{opacity:1}}
+html.omen .panel{background:linear-gradient(165deg,rgba(44,17,76,.86),rgba(21,8,38,.9) 62%);border-color:rgba(205,140,255,.3);box-shadow:inset 0 1px 0 rgba(234,198,255,.12),0 0 0 1px rgba(161,0,254,.1),0 22px 54px -26px rgba(161,0,254,.8)}
+html.omen .panel.hl{border-color:rgba(214,160,255,.56);background:linear-gradient(180deg,rgba(161,0,254,.18),transparent 240px),linear-gradient(165deg,rgba(44,17,76,.88),rgba(21,8,38,.92) 62%);box-shadow:inset 0 1px 0 rgba(234,198,255,.18),0 0 28px -6px rgba(161,0,254,.6),0 22px 54px -26px rgba(161,0,254,.85)}
+html.omen .hole{border-color:rgba(214,160,255,.45);box-shadow:inset 0 1px 0 rgba(234,198,255,.14),0 0 30px -8px rgba(161,0,254,.65)}
+html.omen .nav.on{box-shadow:inset 0 0 0 1px rgba(211,156,255,.38),0 0 18px -6px rgba(161,0,254,.9)}
+html.omen #pt{text-shadow:0 0 26px rgba(161,0,254,.7),0 0 2px rgba(234,198,255,.4)}
+html.omen .side{background:linear-gradient(180deg,rgba(30,11,52,.86),rgba(16,6,29,.82));-webkit-backdrop-filter:none;backdrop-filter:none;border-right-color:rgba(214,160,255,.18)}html.omen .mtop{background:rgba(22,8,38,.92);-webkit-backdrop-filter:none;backdrop-filter:none}html.omen .tabbar{background:rgba(24,9,42,.94);-webkit-backdrop-filter:none;backdrop-filter:none}
 html.omx *{transition:background-color 1.2s ease,border-color 1.2s ease!important}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -2094,7 +2101,7 @@ render();
 holeTick();setInterval(holeTick,1e3);document.addEventListener('visibilitychange',holeTick);
 /* 불길한 소환의 결계는 매시 정시에 나타나 03분에 시작한다(사용자 제공 2026-11-09). 그 3분 동안(한국 시간 기준 분) 화면을 결계 팔레트로 바꾼다 */
 let omenOn=null,omenT=0;
-function omenTick(){const on=new Date(Date.now()+KST).getUTCMinutes()<3;if(on===omenOn)return;const r=document.documentElement;if(omenOn!==null){r.classList.add('omx');clearTimeout(omenT);omenT=setTimeout(()=>r.classList.remove('omx'),1600)}omenOn=on;r.classList.toggle('omen',on);document.querySelector('meta[name="theme-color"]')?.setAttribute('content',on?'#0c0717':'#0b0c0f')}
+function omenTick(){const on=new Date(Date.now()+KST).getUTCMinutes()<3;if(on===omenOn)return;const r=document.documentElement;if(omenOn!==null){r.classList.add('omx');clearTimeout(omenT);omenT=setTimeout(()=>r.classList.remove('omx'),1600)}omenOn=on;r.classList.toggle('omen',on);document.querySelector('meta[name="theme-color"]')?.setAttribute('content',on?'#13061f':'#0b0c0f')}
 omenTick();setInterval(omenTick,1e3);
 </script>
 </body>
