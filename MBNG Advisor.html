@@ -131,7 +131,7 @@ button.mrow:hover{background:rgba(255,255,255,.03)}.mrow.mp{align-items:start}.m
 .ma{fill:var(--accent);fill-opacity:.1;stroke:none}.ml1,.ml2{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}.ml1{stroke:var(--accent)}.ml2{stroke:var(--accent2)}.me{fill:var(--accent);stroke:var(--bg1);stroke-width:2}.mcl{stroke:var(--line3);stroke-width:1}.mcd{stroke:var(--bg1);stroke-width:2}.mcd.d1{fill:var(--accent)}.mcd.d2{fill:var(--accent2)}
 .mtip{position:absolute;top:22px;display:grid;gap:1px;background:var(--bg3);border:1px solid var(--line2);border-radius:9px;padding:6px 10px;font-size:11.5px;color:var(--muted);pointer-events:none;white-space:nowrap}.mtip b{font-size:13.5px;color:var(--txt);font-variant-numeric:tabular-nums}.mtip[hidden]{display:none}
 #mvar:empty{display:none}.mvh{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:2px 10px;margin-bottom:8px}.mvh b{font-size:12.5px;font-weight:600}.mvl{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:6px}.mvr{position:relative;display:grid;gap:1px;justify-items:start;min-width:0;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:6px 10px;color:var(--txt);text-align:left;transition:border-color .15s}.mvr:hover{border-color:var(--line3)}.mvr.on{border-color:var(--accent-l);background:var(--accent-w)}.mvr b{font-size:13.5px;font-weight:700;font-variant-numeric:tabular-nums}.mvr .tiny{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mvr.tr::after{content:"이력";position:absolute;top:6px;right:8px;font-size:10px;font-weight:600;color:var(--accent2)}#mvnote{margin:4px 0 0}.mvx{margin:8px 0 0}
-.mtbl summary{cursor:pointer;width:max-content}.mtbl[open] summary{margin-bottom:6px}.mtbl .tablewrap{max-height:220px}.mcr{font-size:12.5px;line-height:1.55;padding-bottom:8px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.mcr:last-child{border-bottom:0;padding-bottom:0}
+.mtbl summary{cursor:pointer;width:max-content}.mtbl[open] summary{margin-bottom:6px}.mtbl .tablewrap{max-height:220px}.mcb{display:grid;gap:6px;justify-items:start}.mcr{font-size:12.5px;line-height:1.55;padding-bottom:8px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.mcr:last-child{border-bottom:0;padding-bottom:0}
 @media(max-width:560px){.mstats{grid-template-columns:repeat(3,minmax(0,1fr))}.mdin{padding:14px}.mverd{grid-template-columns:minmax(0,1fr);gap:2px}}
 .lvb{min-width:46px;font-size:11px;font-weight:600;padding:3px 7px;border-radius:7px;background:var(--bg3);border:1px solid var(--line);color:var(--muted);text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}
 .pres{background:none;border:0;padding:0;color:var(--txt);font-weight:600;text-align:left}.pres:hover{color:var(--accent)}.pres em,.mat em{font-style:normal;color:var(--subtle);font-weight:500;margin-left:4px}
@@ -1608,7 +1608,7 @@ const mdHow=o=>o.nH&&o.nJ?`해연 ${o.nH}개 먼저 + 잔영 ${o.nJ}개`:o.nH?`�
 function mdEnter(){mdPaint();if(mkk()&&!MK.bad)mkCraft()}
 function mdPaint(){const el=$('mdres');if(!el)return;
  if(!mkk()){el.innerHTML='<div class="empty">거래소 API 키를 연결하면 부위마다 가장 싼 방법과 순서를 지금 시세로 계산합니다. <button class="linkbtn" data-nav="market">거래소에서 키 연결 →</button></div>';return}
- const c=MK.q.get('g|해연');if(!c||!Object.keys(MK.gear).length){el.innerHTML=MK.err?mkErr():'<div class="empty">시세를 불러오는 중입니다.</div>';return}
+ const c=MK.q.get('g|해연');if(!c||!Object.keys(MK.gear).length){el.innerHTML=MK.err?mkErr():'<div class="empty" data-mkw="시세를 불러오는 중입니다.">시세를 불러오는 중입니다.</div>';return}
  const R=mdSlots().map(([k,n,u,,L])=>{const J=mdMin('잔영',L),H=mdMin('해연',L),pJ=mdPx('잔영',n),pH=mdPx('해연',n);return{k,n,u,J,H,pJ,pH,...mdPlan(S.md.v[k],u,{jc:J.p,hc:H.p,jo:pJ,ho:pH})}});
  const G=[],O=[],done=new Set();R.forEach(r=>{if(r.p1&&!r.p1.blk)G.push({r,ph:1,...r.p1});if(r.p2&&!r.p2.blk)G.push({r,ph:2,...r.p2})});
  while(G.length){const av=G.filter(g=>g.ph===1||!r1(g.r)||done.has(g.r.k)),g=av.reduce((a,b)=>b.cost/b.gain<a.cost/a.gain?b:a);G.splice(G.indexOf(g),1);if(g.ph===1)done.add(g.r.k);O.push(g)}
@@ -1782,10 +1782,10 @@ function pgRuneSig(){const A=CLS.flatMap(c=>PARTS.map(([k])=>{const x=RC[c[0]][k
    키는 사용자가 이 브라우저에 직접 넣고 localStorage의 MK_KEY에만 둔다(S에 넣지 않음). 브라우저가 API를 직접 호출한다
    약관: 재배포 금지 → 시세를 저장소에 올리지 않는다. 한도: 키당 분 30회·일 5,000회(문서 화면 기준, 명세 수치는 더 넉넉). 시세는 실제보다 10~20분 늦다
    손익: 수수료 15%(게임 화면 2026-10-27). 거래소에 없는 재료는 직접 모은다고 보고 0으로 계산. 가공 시간은 자료가 없어 넣지 않음 */
-const MK_API='https://open.mabimobi.life/v1',MK_KEY='mbng_mobilife_key',MK_CACHE='mbng_market_cache',MK_TTL=6e5,MK_FEE=.15,MK_MAXCALL=24,MK_MINC=20,MK_PINS=20;
+const MK_API='https://open.mabimobi.life/v1',MK_KEY='mbng_mobilife_key',MK_CACHE='mbng_market_cache',MK_TTL=6e5,MK_FEE=.15,MK_MAXCALL=28,MK_BGCAP=20,MK_MINC=20,MK_PINS=20;
 const MK_SORT=[['pct_change_24h_desc','급등'],['pct_change_24h_asc','급락'],['count_change_24h_asc','품귀'],['count_change_24h_desc','재입고']];
 const MK_CATS=['아이템','무기','방어구','장신구','도구','펫 장비','데코'],MK_TABS=[['board','시세판'],['proc','가공 수익'],['craft','장비 제작비'],['trade','교환 차익'],['watch','관심 품목']],MK_RG=[[7,'7일'],[30,'30일'],[90,'90일']];
-const MK={list:[],name:{},seen:{},at:0,upd:'',err:'',busy:false,bad:false,calls:[],pause:0,q:new Map(),h:new Map(),t:0,sel:0,run:0,view:null,gear:{},co:new Set(),liq:{},liqBusy:false,rows:new Map(),rid:0,vars:new Map(),selR:null,selV:null,selOK:null,selT:null};
+const MK={list:[],name:{},seen:{},at:0,upd:'',err:'',busy:false,bad:false,calls:[],pause:0,q:new Map(),h:new Map(),t:0,sel:0,run:0,view:null,gear:{},co:new Set(),liq:{},liqBusy:false,rows:new Map(),rid:0,vars:new Map(),lv:new Set(),cq:new Map(),wt:0,nw:0,selR:null,selV:null,selOK:null,selT:null};
 if(!MK_TABS.some(x=>x[0]===S.mt))S.mt='board';if(!MK_SORT.some(x=>x[0]===S.mr))S.mr=MK_SORT[0][0];if(S.mc!=='all'&&!MK_CATS.includes(S.mc))S.mc='all';if(S.mpf!=='all'&&!PFAC.includes(S.mpf))S.mpf='all';if(!['buy','own'].includes(S.mb))S.mb='buy';if(!MK_RG.some(x=>x[0]===S.mrg))S.mrg=30;if(!Array.isArray(S.mw))S.mw=[];if(typeof S.mq!=='string')S.mq='';if(!['잔영','해연'].includes(S.mgt))S.mgt='잔영';if(!['all','무기','방어구','장신구'].includes(S.mgp))S.mgp='all';if(!['use','sell'].includes(S.mgm))S.mgm='use';S.mgs=S.mgs?1:0;
 const mkk=()=>{try{return localStorage.getItem(MK_KEY)||''}catch(e){return ''}};
 const mkz=s=>String(s).replace(/\s+/g,''),mkn=n=>n==null?'—':Number(n).toLocaleString('ko-KR');
@@ -1800,24 +1800,33 @@ const mkTag=n=>{const x=mkk()&&mkFind(n);return x&&x.min_price?`<em class="mkp">
 const mkPit=s=>{const m=s.trim().match(/^(.*?) x([\d,]+)(?:\(.+\))?$/);return m?[m[1],+m[2].replace(/,/g,'')]:[s.trim(),1]};
 function mkIngest(L){const t=Date.now();for(const x of L){MK.seen[x.kind_id]=Object.assign(x,{_t:t,_r:++MK.rid});MK.rows.set(x._r,x)}if(MK.rows.size>8e3)for(const k of MK.rows.keys()){if(MK.rows.size<=6e3)break;MK.rows.delete(k)}}
 function mkIndex(L){MK.list=L;MK.name={};for(const x of L)MK.name[mkz(x.name)]=x}
-try{const c=JSON.parse(localStorage.getItem(MK_CACHE)||'null');if(c&&Array.isArray(c.list)&&mkk()){MK.at=c.at;MK.upd=c.upd;mkIngest(c.list);mkIndex(c.list)}}catch(e){}
-async function mkGet(p){const now=Date.now();MK.calls=MK.calls.filter(t=>now-t<6e4);
- if(MK.pause>now||MK.calls.length>=MK_MAXCALL)throw new Error('호출이 많아 잠시 쉬고 있습니다. 1분 뒤 다시 시도해 주세요.');
- MK.calls.push(now);let r;try{r=await fetch(MK_API+p,{headers:{Authorization:'Bearer '+mkk()}})}catch(e){throw new Error('모비라이프에 연결하지 못했습니다. 네트워크를 확인해 주세요.')}
- if(r.status===401||r.status===403){MK.bad=true;throw new Error('API 키가 거부되었습니다. 키를 다시 연결해 주세요.')}
- if(r.status===429){MK.pause=now+6e4;throw new Error('호출 한도에 도달했습니다. 1분 뒤 자동으로 다시 시도합니다.')}
- if(!r.ok)throw new Error(`시세를 불러오지 못했습니다(${r.status}).`);return r.json()}
-async function mkPins(){for(const p of S.mw){const x=MK.seen[p.k];if(x&&Date.now()-x._t<MK_TTL&&MK.vars.has(p.k))continue;await mkVars(p.k,p.n)}}
-async function mkLoad(force){if(!mkk()||MK.busy||MK.bad||(!force&&Date.now()-MK.at<MK_TTL))return;MK.busy=true;mkPaintStat();
- try{const L=[],ids=new Set();let upd='';for(let o=0;;o+=100){const j=await mkGet(`/market/prices?parent_category=${encodeURIComponent('아이템')}&limit=100&offset=${o}`);for(const x of j.data)if(!ids.has(x.kind_id)){ids.add(x.kind_id);L.push(x)}upd=j.last_updated_at||upd;if(j.data.length<100)break}
-  MK.at=Date.now();MK.upd=upd;MK.err='';mkIngest(L);mkIndex(L);try{localStorage.setItem(MK_CACHE,JSON.stringify({at:MK.at,upd,list:L}))}catch(e){}
-  await mkPins()}catch(e){MK.err=e.message}finally{MK.busy=false;mkPaint()}}
+const mkSig=v=>[v.min_price,v.total_count,v.pct_change_1h,v.pct_change_24h,v.count_change_24h].join();
+/* '아이템' 분류는 전체 목록을 받으므로 같은 kind_id의 행이 여럿이면 여기서 다 모인다. 그래서 재료 상세는 ★ 등급 검색을 따로 하지 않는다 */
+function mkSetList(R){const G=new Map();for(const x of R){const g=G.get(x.kind_id);if(!g)G.set(x.kind_id,[x]);else if(!g.some(v=>mkSig(v)===mkSig(x)))g.push(x)}
+ const L=[...G.values()].map(g=>g[0]);mkIngest([...G.values()].flatMap(g=>g.slice(1)));mkIngest(L);mkIndex(L);MK.lv=new Set(G.keys());for(const [k,g] of G)MK.vars.set(k,g);return L}
+try{const c=JSON.parse(localStorage.getItem(MK_CACHE)||'null');if(c&&Array.isArray(c.list)&&mkk()){MK.at=c.at;MK.upd=c.upd;mkSetList(c.list)}}catch(e){}
+/* 호출 한도: 문서 화면은 키당 1분 30번, 명세는 60번이라 낮은 쪽 아래로 앱이 1분 28번까지만 보낸다.
+   한도에 닿으면 오류 대신 자리가 날 때까지 기다린다(남은 초는 data-mkw 자리에 표시). 배경 갱신(bg)은 20번까지만 써서 직접 누른 품목 몫 8번을 남긴다 */
+const mkFree=(cap,now)=>{MK.calls=MK.calls.filter(t=>now-t<6e4);return MK.pause>now?MK.pause-now:MK.calls.length<cap?0:MK.calls[MK.calls.length-cap]+6e4-now};
+function mkWaitPaint(){const s=Math.ceil((MK.wt-Date.now())/1e3);document.querySelectorAll('[data-mkw]').forEach(e=>{e.textContent=MK.nw&&s>0?`호출 한도(1분 ${MK_MAXCALL}번)에 닿아 ${s}초 뒤 이어서 불러옵니다.`:e.dataset.mkw})}
+async function mkGet(p,bg){
+ for(let n=0;;n++){
+  for(;;){const now=Date.now(),w=mkFree(bg?MK_BGCAP:MK_MAXCALL,now);if(w<=0)break;if(bg){await mkWait(Math.min(w+50,3e4));continue}
+   MK.nw++;MK.wt=now+w;mkWaitPaint();try{await mkWait(Math.min(w+50,1e3))}finally{MK.nw--}if(!MK.nw)mkWaitPaint()}
+  MK.calls.push(Date.now());let r;try{r=await fetch(MK_API+p,{headers:{Authorization:'Bearer '+mkk()}})}catch(e){throw new Error('모비라이프에 연결하지 못했습니다. 네트워크를 확인해 주세요.')}
+  if(r.status===401||r.status===403){MK.bad=true;throw new Error('API 키가 거부되었습니다. 키를 다시 연결해 주세요.')}
+  if(r.status===429){MK.pause=Date.now()+6e4;if(!n)continue;throw new Error('모비라이프 호출 한도에 도달했습니다. 1분 뒤 다시 시도해 주세요.')}
+  if(!r.ok)throw new Error(`시세를 불러오지 못했습니다(${r.status}).`);return r.json()}}
+async function mkPins(bg){for(const p of S.mw){const x=MK.seen[p.k];if(x&&Date.now()-x._t<MK_TTL&&MK.vars.has(p.k))continue;await mkVars(p.k,p.n,bg)}}
+async function mkLoad(force,bg){if(!mkk()||MK.busy||MK.bad||(!force&&Date.now()-MK.at<MK_TTL))return;MK.busy=true;mkPaintStat();
+ try{const R=[];let upd='';for(let o=0;;o+=100){const j=await mkGet(`/market/prices?parent_category=${encodeURIComponent('아이템')}&limit=100&offset=${o}`,bg);R.push(...j.data);upd=j.last_updated_at||upd;if(j.data.length<100)break}
+  MK.at=Date.now();MK.upd=upd;MK.err='';mkSetList(R);try{localStorage.setItem(MK_CACHE,JSON.stringify({at:MK.at,upd,list:R}))}catch(e){}
+  await mkPins(bg)}catch(e){MK.err=e.message}finally{MK.busy=false;mkPaint()}}
 /* 무기·방어구·장신구는 같은 kind_id로 ★ 등급별 매물 여러 행이 오지만 ★ 값이 없고, 이력은 kind_id로만 조회되며 그중 한 등급만 따라간다(2026-11-03 확인).
    ★ 등급은 판금 갑옷 하의Z 게임 거래소 화면(★4~★10 7행, ★ 없는 기본 장비는 다른 kind_id)과 같은 시각 API 가격 7개가 모두 일치해 확인했다.
    이름 검색으로 세부 종류를 모으고, 이력의 마지막 가격·재고가 고른 행과 같을 때만 그래프를 보여 준다 */
-async function mkVars(k,n){const V=(await mkFetch('n|'+n,`/market/prices?search=${encodeURIComponent(n)}&limit=100`)).filter(v=>v.kind_id===k);if(V.length)MK.vars.set(k,V);return V}
+async function mkVars(k,n,bg){const V=(await mkFetch('n|'+n,`/market/prices?search=${encodeURIComponent(n)}&limit=100`,bg)).filter(v=>v.kind_id===k);if(V.length)MK.vars.set(k,V);return V}
 const mkPx=k=>{const V=MK.vars.get(k);if(!V||V.length<2)return MK.seen[k];const L=V.filter(v=>v.min_price);return L.length?L.reduce((a,b)=>a.min_price<=b.min_price?a:b):V[0]};
-const mkSig=v=>[v.min_price,v.total_count,v.pct_change_1h,v.pct_change_24h,v.count_change_24h].join();
 function mkVarHtml(x,V){const L=V.slice().sort((a,b)=>!a.min_price-!b.min_price||a.min_price-b.min_price||b.total_count-a.total_count);
  return `<div class="mvh"><b>★ 등급이 다른 매물 ${V.length}개</b><span class="tiny">가격순 · 관심 품목은 최저가 기준</span></div><div class="mvl">${L.map(v=>`<button class="mvr ${mkSig(v)===mkSig(x)?'on':''}" data-mi="${Number(v.kind_id)}" data-mr="${v._r}" data-ms="${esc(mkSig(v))}"><b>${v.min_price?mkn(v.min_price):'품절'}</b><span class="tiny">재고 ${mkn(v.total_count)} · ${mkp(v.pct_change_24h)}</span></button>`).join('')}</div><p class="tiny mvx">같은 이름 장비는 ★ 등급별로 따로 올라갑니다(판금 갑옷 하의Z 게임 화면 확인 2026-11-03). API가 ★ 값을 주지 않아 칸마다 몇 성인지는 표시하지 못합니다.</p><p class="tiny" id="mvnote"></p>`}
 function mkTrack(x,V,j){if(MK.selOK==null){const P=(j.points||[]).filter(p=>p.close!=null),l=P[P.length-1],m=v=>!!l&&v.min_price===l.close&&v.total_count===l.count_close,T=V.filter(m);MK.selOK=m(x)&&T.length<=1;MK.selT=T.length===1?T[0]:null}
@@ -1825,22 +1834,22 @@ function mkTrack(x,V,j){if(MK.selOK==null){const P=(j.points||[]).filter(p=>p.cl
  if(MK.selOK){if(n)n.textContent='그래프와 표는 이 등급의 이력입니다.';$('mrgs').style.display='';return true}
  $('mrgs').style.display='none';$('mchart').innerHTML='';$('mtable').innerHTML='';$('mver').innerHTML='';
  if(n)n.textContent=T?`이력은 kind_id로만 조회되고, 이 kind_id의 이력은 다른 등급(${T.min_price?mkn(T.min_price):'품절'} · 재고 ${mkn(T.total_count)})을 따라갑니다. 이 등급의 그래프는 볼 수 없습니다.`:'이 kind_id의 이력이 어느 등급의 것인지 현재 시세로 확인되지 않아 그래프를 숨겼습니다.';return false}
-async function mkFetch(key,path){const c=MK.q.get(key);if(c&&Date.now()-c.at<MK_TTL)return c.data;const j=await mkGet(path);mkIngest(j.data);MK.q.set(key,{at:Date.now(),data:j.data});return j.data}
+async function mkFetch(key,path,bg){const c=MK.q.get(key);if(c&&Date.now()-c.at<MK_TTL)return c.data;const j=await mkGet(path,bg);mkIngest(j.data);MK.q.set(key,{at:Date.now(),data:j.data});return j.data}
 const mkRank=(L,q)=>{const z=mkz(q).toLowerCase(),s=n=>{const t=mkz(n).toLowerCase();return t===z?0:t.startsWith(z)?1:2};return L.slice().sort((a,b)=>s(a.name)-s(b.name)||b.total_count-a.total_count)};
 const mkViewKey=()=>{const q=S.mq.trim();return q?`s|${S.mc}|${q}`:`r|${S.mr}|${S.mc}`};
-async function mkBoard(){const q=S.mq.trim();if(/[ㄱ-ㅎㅏ-ㅣ]$/.test(q))return;const cat=S.mc==='all'?'':`&parent_category=${encodeURIComponent(S.mc)}`,key=mkViewKey(),run=++MK.run;
+async function mkBoard(bg){const q=S.mq.trim();if(/[ㄱ-ㅎㅏ-ㅣ]$/.test(q))return;const cat=S.mc==='all'?'':`&parent_category=${encodeURIComponent(S.mc)}`,key=mkViewKey(),run=++MK.run;
  if(!MK.q.has(key)){MK.view=null;mkPaintRes()}
- try{const d=await mkFetch(key,q?`/market/prices?search=${encodeURIComponent(q)}&limit=40${cat}`:`/market/prices?sort=${S.mr}&min_count=${MK_MINC}&limit=30${cat}`);if(run===MK.run){MK.view=q?mkRank(d,q):d;MK.err=''}}catch(e){if(run===MK.run){MK.err=e.message;if(!MK.view)MK.view=[]}}
+ try{const d=await mkFetch(key,q?`/market/prices?search=${encodeURIComponent(q)}&limit=40${cat}`:`/market/prices?sort=${S.mr}&min_count=${MK_MINC}&limit=30${cat}`,bg);if(run===MK.run){MK.view=q?mkRank(d,q):d;MK.err=''}}catch(e){if(run===MK.run){MK.err=e.message;if(!MK.view)MK.view=[]}}
  if(run===MK.run)mkPaint()}
-async function mkCraft(){try{for(const t of ['잔영','해연']){const d=await mkFetch('g|'+t,`/market/prices?search=${encodeURIComponent(t+'의')}&limit=100`);for(const x of d)MK.gear[mkz(x.name)]=x}MK.err=''}catch(e){MK.err=e.message}mkPaint()}
+async function mkCraft(bg){try{for(const t of ['잔영','해연']){const d=await mkFetch('g|'+t,`/market/prices?search=${encodeURIComponent(t+'의')}&limit=100`,bg);for(const x of d)MK.gear[mkz(x.name)]=x}MK.err=''}catch(e){MK.err=e.message}mkPaint()}
 function mkEnter(){if(!mkk())return;mkLoad();if(S.mt==='board')mkBoard();if(S.mt==='craft')mkCraft();if(S.mt==='watch')mkPins().then(mkPaint,e=>{MK.err=e.message;mkPaint()})}
-function mkTick(){if(S.page==='mado'&&!document.hidden&&mkk()&&!MK.bad){const c=MK.q.get('g|해연');if(!c||Date.now()-c.at>=MK_TTL)mkCraft();return}
- if(document.hidden||!mkk()||MK.bad||!['market','proc','barter'].includes(S.page))return;mkLoad();mkLiqRun();if(S.page==='market'&&S.mt==='board'&&!$('mdlg')?.open){const c=MK.q.get(mkViewKey());if(c&&Date.now()-c.at>=MK_TTL)mkBoard()}if(S.page==='market'&&S.mt==='craft'&&!$('mdlg')?.open){const c=MK.q.get('g|해연');if(!c||Date.now()-c.at>=MK_TTL)mkCraft()}}
+function mkTick(){if(S.page==='mado'&&!document.hidden&&mkk()&&!MK.bad){const c=MK.q.get('g|해연');if(!c||Date.now()-c.at>=MK_TTL)mkCraft(1);return}
+ if(document.hidden||!mkk()||MK.bad||!['market','proc','barter'].includes(S.page))return;mkLoad(false,1);mkLiqRun();if(S.page==='market'&&S.mt==='board'&&!$('mdlg')?.open){const c=MK.q.get(mkViewKey());if(c&&Date.now()-c.at>=MK_TTL)mkBoard(1)}if(S.page==='market'&&S.mt==='craft'&&!$('mdlg')?.open){const c=MK.q.get('g|해연');if(!c||Date.now()-c.at>=MK_TTL)mkCraft(1)}}
 setInterval(mkTick,3e4);document.addEventListener('visibilitychange',mkTick);
 async function mkConnect(){const el=$('mkk'),m=$('mkm'),v=(el&&el.value||'').trim();if(!/^ml_[\w-]+$/.test(v)){m.textContent='ml_로 시작하는 API 키를 붙여넣어 주세요.';return}m.textContent='키를 확인하는 중입니다.';
  try{const r=await fetch(MK_API+'/market/categories',{headers:{Authorization:'Bearer '+v}});if(!r.ok)throw new Error(r.status===401||r.status===403?'키가 거부되었습니다. 모비라이프에서 키를 다시 확인해 주세요.':`연결하지 못했습니다(${r.status}).`);
   try{localStorage.setItem(MK_KEY,v)}catch(e){throw new Error('이 브라우저에 키를 저장하지 못했습니다. 비공개 창이면 일반 창에서 시도해 주세요.')}MK.bad=false;MK.err='';MK.at=0;render()}catch(e){m.textContent=e.message==='Failed to fetch'?'모비라이프에 연결하지 못했습니다. 네트워크를 확인해 주세요.':e.message}}
-function mkOff(){if(!confirm('이 브라우저에서 API 키와 저장된 시세를 지울까요?'))return;try{localStorage.removeItem(MK_KEY);localStorage.removeItem(MK_CACHE)}catch(e){}Object.assign(MK,{list:[],name:{},seen:{},at:0,upd:'',err:'',bad:false,view:null,gear:{}});MK.co.clear();MK.q.clear();MK.h.clear();MK.vars.clear();MK.rows.clear();render()}
+function mkOff(){if(!confirm('이 브라우저에서 API 키와 저장된 시세를 지울까요?'))return;try{localStorage.removeItem(MK_KEY);localStorage.removeItem(MK_CACHE)}catch(e){}Object.assign(MK,{list:[],name:{},seen:{},at:0,upd:'',err:'',bad:false,view:null,gear:{}});MK.co.clear();MK.q.clear();MK.h.clear();MK.vars.clear();MK.lv.clear();MK.cq.clear();MK.rows.clear();render()}
 const mkHit=p=>{const x=mkPx(p.k);return !!(p.t&&x&&x.min_price&&(p.d==='up'?x.min_price>=p.t:x.min_price<=p.t))};
 const mkStat=()=>MK.busy?'시세를 갱신하는 중입니다.':MK.upd?`시세 기준 ${mkTime(MK.upd)} · 10분마다 갱신 · 단위 데카`:'시세를 불러오는 중입니다.';
 const mkTabs=()=>{const h=S.mw.filter(mkHit).length;return MK_TABS.map(([k,l])=>`<button class="tabbtn ${S.mt===k?'on':''}" data-mt="${k}">${l}${k==='watch'&&S.mw.length?` ${S.mw.length}`:''}${k==='watch'&&h?` · 도달 ${h}`:''}</button>`).join('')};
@@ -1854,13 +1863,13 @@ function mkRow(x,m){const c=m==='c'?x.count_change_24h:x.pct_change_24h,so=x.is_
 function mkStrip(){const o=n=>/영혼석$/.test(n)?0:/마력석$/.test(n)?1:2,L=MK.list.filter(x=>/(영혼석|마력석|용비늘)$/.test(x.name)).sort((a,b)=>o(a.name)-o(b.name)||a.name.localeCompare(b.name,'ko'));if(!L.length)return '';
  return `<div class="panel"><div class="ph"><h2>장비 제작 재료</h2><span class="tiny">영혼석 · 마력석 · 용비늘 최저가와 24시간 변화</span></div><div class="mstrip">${L.map(x=>`<button class="mcell" data-mi="${Number(x.kind_id)}">${mkIcon(x)}<span class="mn"><b>${esc(x.name)}</b><span class="mcv"><i>${mkn(x.min_price)}</i><span class="mch ${mkc(x.pct_change_24h)}">${mkp(x.pct_change_24h)}</span></span></span></button>`).join('')}</div></div>`}
 function mkBoardHtml(){const q=S.mq.trim(),m=S.mr.startsWith('count')?'c':'p',lab=MK_SORT.find(s=>s[0]===S.mr)[1];
- const body=!MK.view?'<div class="empty">시세를 불러오는 중입니다.</div>':MK.view.length?`<div class="mlist">${MK.view.map(x=>mkRow(x,q?'p':m)).join('')}</div>`:'<div class="empty">조건에 맞는 품목이 없습니다.</div>';
+ const body=!MK.view?'<div class="empty" data-mkw="시세를 불러오는 중입니다.">시세를 불러오는 중입니다.</div>':MK.view.length?`<div class="mlist">${MK.view.map(x=>mkRow(x,q?'p':m)).join('')}</div>`:'<div class="empty">조건에 맞는 품목이 없습니다.</div>';
  return `${q?'':mkStrip()}<div class="panel"><div class="ph"><h2>${q?`'${esc(q)}' 검색 결과`:`${lab} 상위 30`}</h2><span class="tiny">${q?`${MK.view?MK.view.length:0}개 · 24시간 변화`:`매물 ${MK_MINC}개 이상 · 24시간 ${m==='c'?'재고':'가격'} 변화 기준`}</span></div>${body}</div>`}
 const mkOwn=()=>S.mb==='own';
 function mkProcData(){const O=[];for(const r of PROC){const [n,q]=mkPit(r[2]),p=mkFind(n);if(!p||!p.min_price)continue;const ms=r[3].split(' + ').map(mkPit).map(([a,c])=>({a,c,x:mkFind(a)})),paid=ms.filter(m=>m.x&&m.x.min_price),free=ms.filter(m=>!(m.x&&m.x.min_price)),sale=q*p.min_price,buy=paid.reduce((t,m)=>t+m.c*m.x.min_price,0);O.push({r,n,q,p,paid,free,sale,buy,net:mkOwn()?(sale-buy)*(1-MK_FEE):sale*(1-MK_FEE)-buy})}return O.sort((a,b)=>b.net-a.net)}
 function mkProcRow(o,top){const lst=(L,f)=>L.map(f).join(' + '),s=mkLiqOf(o.p);
  return `<button class="mrow mp" data-mi="${Number(o.p.kind_id)}">${mkIcon(o.p)}<span class="mn"><b>${esc(o.n)} <em>x${o.q}</em></b><span class="tiny">${o.r[0]} 가공 Lv.${o.r[1]}</span><span class="tiny">판매 ${mkn(o.sale)}${o.paid.length?` · ${mkOwn()?'보유 재료 가치':'구매 재료'} ${mkn(o.buy)} (${esc(lst(o.paid,m=>`${m.a} x${m.c}`))})`:''}${o.free.length?` · 직접 ${esc(lst(o.free,m=>`${m.a} x${m.c}`))}`:''}${!mkOwn()&&o.buy>o.sale?' · 완성품을 사는 편이 저렴':''}</span><span class="tiny">${s?mkLiqText(s):`${top?'판매 위험 확인 중 · ':''}재고 ${mkn(o.p.total_count)} · 24시간 재고 ${mkp(o.p.count_change_24h)}`}</span></span><span class="mv"><b class="${o.net>=0?'mpos':'mneg'}">${mksg(o.net)}</b><span class="tiny">1회 순이익</span></span></button>`}
-function mkProcHtml(){if(!MK.list.length)return '<div class="panel"><div class="empty">시세를 불러오는 중입니다.</div></div>';const A=mkProcData(),L=A.filter(o=>S.mpf==='all'||o.r[0]===S.mpf),w=L.filter(o=>o.net>=0).length,T=new Set(mkProcTop().map(o=>o.r));
+function mkProcHtml(){if(!MK.list.length)return '<div class="panel"><div class="empty" data-mkw="시세를 불러오는 중입니다.">시세를 불러오는 중입니다.</div></div>';const A=mkProcData(),L=A.filter(o=>S.mpf==='all'||o.r[0]===S.mpf),w=L.filter(o=>o.net>=0).length,T=new Set(mkProcTop().map(o=>o.r));
  return `<div class="panel"><div class="ph"><h2>가공 수익 ${L.length}개</h2><span class="tiny">이익 ${w} · 손해 ${L.length-w}</span></div><p class="hint">결과물이 거래소에 있는 레시피만 계산합니다. 수수료 15%를 뺐고, 거래소에 없는 재료는 직접 모은다고 보고 0으로 넣었습니다. 가공 시간은 시설 레벨별 자료가 없어 빠져 있습니다. 결과물이 거래소에 없는 ${PROC.length-A.length}개는 제외했습니다.</p><p class="hint">순이익은 결과물이 팔렸을 때의 값입니다. 거래소 등록 기간이 72시간이라 재고가 많은 품목은 안 팔리고 돌아올 수 있습니다. 순이익 상위 5건은 재고 이력으로 판매 위험을 보여 줍니다.</p><p class="tiny">${MK_LIQ_TIP}</p>${L.length?`<div class="mlist one">${L.map(o=>mkProcRow(o,T.has(o.r))).join('')}</div>`:'<div class="empty">이 시설의 레시피는 결과물이 거래소에 없습니다.</div>'}</div>`}
 const mkGn=r=>mkz(`${r[0]}의 ${r[1]}ZZ`),mkSoul=n=>/(영혼석|마력석)$/.test(n);
 function mkCraftData(){const O=[];for(const r of CRAFT){if(r[0]!==S.mgt||(S.mgp!=='all'&&r[2]!==S.mgp))continue;const g=MK.gear[mkGn(r)],ms=r[3].split(' + ').map(mkPit).map(([a,c])=>{const x=mkFind(a),on=!!(x&&x.min_price);return{a,c,x,on,inc:on&&(!S.mgs||mkSoul(a)),sum:on?c*x.min_price:0}}),cost=ms.reduce((t,m)=>t+(m.inc?m.sum:0),0),p=g&&!g.is_sold_out&&g.min_price||0;O.push({r,g,ms,cost,p,use:p?p-cost:null,sell:p?p*(1-MK_FEE)-cost:null})}const k=S.mgm==='sell'?'sell':'use';return O.sort((a,b)=>(b[k]??-Infinity)-(a[k]??-Infinity))}
@@ -1868,10 +1877,10 @@ const mkCraftMat=m=>{const i=`${m.x?mkIcon(m.x):'<span class="mic"></span>'}<spa
 function mkCraftRow(o){const r=o.r,id=mkGn(r),sell=S.mgm==='sell',v=sell?o.sell:o.use,lab=v==null?'매물 없음':sell?'판매 후 이익':v>=0?'제작이 저렴':'구매가 저렴',val=v==null?'—':sell?mksg(v):mkn(Math.abs(Math.round(v)));
  return `<details class="mgd" ${MK.co.has(id)?'open':''}><summary class="mrow" data-cr="${esc(id)}">${mkIcon(o.g)}<span class="mn"><b>${esc(r[1])}</b><span class="tiny">제작 ${mkn(o.cost)} · 구매 ${o.p?mkn(o.p):'없음'}</span></span><span class="mv"><b class="${v==null?'':v>=0?'mpos':'mneg'}">${val}</b><span class="tiny">${lab}</span></span></summary>
  <div class="mgb">${o.ms.map(mkCraftMat).join('')}<div class="mgf"><span class="tiny">${esc(r[2])} · 재고 ${o.g?mkn(o.g.total_count):'—'} · 24시간 ${o.g?mkp(o.g.pct_change_24h):'—'}</span>${o.g?`<button class="linkbtn" data-mi="${Number(o.g.kind_id)}">완제품 시세</button>`:''}</div></div></details>`}
-function mkCraftHtml(){if(!MK.list.length||!Object.keys(MK.gear).length)return '<div class="panel"><div class="empty">시세를 불러오는 중입니다.</div></div>';const L=mkCraftData(),sell=S.mgm==='sell',n=L.filter(o=>o.p).length,w=L.filter(o=>o.p&&(sell?o.sell:o.use)>=0).length;
+function mkCraftHtml(){if(!MK.list.length||!Object.keys(MK.gear).length)return '<div class="panel"><div class="empty" data-mkw="시세를 불러오는 중입니다.">시세를 불러오는 중입니다.</div></div>';const L=mkCraftData(),sell=S.mgm==='sell',n=L.filter(o=>o.p).length,w=L.filter(o=>o.p&&(sell?o.sell:o.use)>=0).length;
  return `<div class="panel"><div class="ph"><h2>${S.mgt} 장비 ${L.length}종</h2><span class="tiny">${sell?`이익 ${w} · 손해 ${n-w}`:`제작이 저렴 ${w} · 구매가 저렴 ${n-w}`}${L.length>n?` · 매물 없음 ${L.length-n}`:''}</span></div><p class="hint">'내가 쓸 때'는 재료를 사서 만드는 비용과 완제품 최저가를 비교하고, '팔 때'는 완제품 판매액에서 수수료 15%와 제작비를 뺍니다. 항목을 누르면 재료별 금액이 나옵니다. 장비는 품질에 따라 성능 범위가 달라서 최저가 매물이 직접 만든 장비와 같은 성능은 아닐 수 있습니다.</p><div class="mlist one">${L.map(mkCraftRow).join('')}</div><p class="tiny mt10">재료표: 나오몰리 화면(사용자 캡처 ${CRAFT_DATE}) · 장신구는 나무위키 대조 · 해연은 '레시피로 제작'을 쓰지 않는 기본 재료 · 세공된 페리도트는 거래소에 없어 0으로 계산 · 드래케인 무기는 완제품 매물이 거의 없어 제외</p></div>`}
 function mkTradeData(){const O=[];for(const b of BX){const o=mkFind(b.o[0]),i=mkFind(b.i[0]);if(!o||!i||!o.min_price||!i.min_price)continue;const sell=b.o[1]*o.min_price,cost=b.i[1]*i.min_price,gain=sell*(1-MK_FEE)-cost,n=b.l.n*(b.l.srv?1:S.bc)*(b.l.p==='일'?7:1);O.push({b,o,i,gain,save:sell-cost,week:gain>0?gain*n:0})}return O.sort((a,b)=>b.gain-a.gain)}
-/* 판매 위험: API에 거래량이 없어 재고 이력으로 판단한다(이익이 나는 교환과 가공 수익 상위 5건만 조회, 품목당 2회 호출)
+/* 판매 위험: API에 거래량이 없어 재고 이력으로 판단한다(이익이 나는 교환과 가공 수익 상위 5건만 조회, 품목당 2회 호출: 1일 분 단위 + 90일 일 단위. 90일은 시세 상세와 같은 캐시를 쓴다)
    재고 감소에는 판매와 등록 만료가 섞인다. 2026-11-02 26개 품목 7일 이력에서 재고 증가가 71~72시간 뒤 감소로 되돌아오고, 거래소 등록 기간 72시간은 게임 화면에서 확인했다(사용자 확인 2026-11-02, 공식 공지에는 없음)
    평균 머묾 = 지금 재고 ÷ 최근 24시간 신규 등록량. 같은 날 표본에서 시세가 매일 변하는 품목은 0.1~1.9일, 30일 내내 같은 가격인 재료는 2.2~3.9일 */
 const MK_LIQ_TTL=18e5,MK_LIQ_GAP=3e3,mkWait=ms=>new Promise(r=>setTimeout(r,ms));
@@ -1882,7 +1891,7 @@ const mkLiqOf=x=>x&&MK.liq[x.kind_id];
 const mkProcTop=()=>mkProcData().filter(o=>o.net>0&&(S.mpf==='all'||o.r[0]===S.mpf)).slice(0,5);
 const mkLiqNeed=()=>S.page==='market'&&S.mt==='proc'?mkProcTop().map(o=>o.p):S.page==='market'&&S.mt==='trade'?mkTradeData().filter(o=>o.gain>0).map(o=>o.o):S.page==='barter'&&S.bt!=='g'?bBestData().filter(x=>x.g>0).map(x=>mkFind(x.b.o[0])):[];
 async function mkLiqRun(){if(MK.liqBusy||!mkk()||MK.bad)return;MK.liqBusy=true;
- try{for(;;){const x=mkLiqNeed().find(v=>{const s=mkLiqOf(v);return !s||Date.now()-s.at>MK_LIQ_TTL});if(!x)break;const q=await mkHistGet(x.kind_id,1);await mkWait(MK_LIQ_GAP);const d=await mkHistGet(x.kind_id,30);MK.liq[x.kind_id]=mkLiqCalc(x,q,d);
+ try{for(;;){const x=mkLiqNeed().find(v=>{const s=mkLiqOf(v);return !s||Date.now()-s.at>MK_LIQ_TTL});if(!x)break;const q=await mkHistGet(x.kind_id,1,1);await mkWait(MK_LIQ_GAP);const d=mkCut(await mkHistGet(x.kind_id,90,1),30);MK.liq[x.kind_id]=mkLiqCalc(x,q,d);
   if(S.page==='market'&&(S.mt==='trade'||S.mt==='proc'))$('mres')&&($('mres').innerHTML=mkRes());else if(S.page==='barter'&&$('bbest'))$('bbest').innerHTML=bBest();await mkWait(MK_LIQ_GAP)}}catch(e){}
  MK.liqBusy=false}
 const MK_LIQ_TIP='정체: 30일 가격이 그대로이고 평균 2일 이상 머묾 · 활발: 평균 1일 미만, 또는 가격이 움직이고 1.5일 미만';
@@ -1890,7 +1899,7 @@ const mkLiqText=s=>{const l=mkLiqLab(s);return `판매 <b class="${l[1]}">${l[0]
 function mkLiqLine(o){if(o.gain<=0)return '판매 조회 안 함 · 사서 바꾸면 손해인 교환';const s=mkLiqOf(o.o);return s?mkLiqText(s):'판매 위험 확인 중'}
 function mkTradeRow(o){const b=o.b;return `<button class="mrow mp" data-mi="${Number(o.o.kind_id)}">${mkIcon(o.o)}<span class="mn"><b>${esc(b.i[0])} <em>x${b.i[1]}</em> → ${esc(b.o[0])} <em>x${b.o[1]}</em></b><span class="tiny">${esc(b.reg)} ${esc(b.npc)} · ${b.l.srv?'서버 공유 ':''}${b.l.p==='일'?'하루':'주'} ${b.l.n}회</span><span class="tiny">내는 것 ${mkn(i0(o))} · 받는 것 ${mkn(o0(o))} · 내가 쓰면 ${mksg(o.save)}${o.week?` · 주 최대 ${mksg(o.week)}`:''}</span><span class="tiny">${mkLiqLine(o)}</span></span><span class="mv"><b class="${o.gain>=0?'mpos':'mneg'}">${mksg(o.gain)}</b><span class="tiny">1회 차익</span></span></button>`}
 const i0=o=>o.b.i[1]*o.i.min_price,o0=o=>o.b.o[1]*o.o.min_price;
-function mkTradeHtml(){if(!MK.list.length)return '<div class="panel"><div class="empty">시세를 불러오는 중입니다.</div></div>';const L=mkTradeData(),w=L.filter(o=>o.gain>0).length,st=L.filter(o=>o.gain>0&&mkLiqOf(o.o)&&mkLiqLab(mkLiqOf(o.o))[0]==='정체').length;
+function mkTradeHtml(){if(!MK.list.length)return '<div class="panel"><div class="empty" data-mkw="시세를 불러오는 중입니다.">시세를 불러오는 중입니다.</div></div>';const L=mkTradeData(),w=L.filter(o=>o.gain>0).length,st=L.filter(o=>o.gain>0&&mkLiqOf(o.o)&&mkLiqLab(mkLiqOf(o.o))[0]==='정체').length;
  return `<div class="panel"><div class="ph"><h2>교환 차익 ${L.length}건</h2><span class="tiny">이익 ${w} · 손해 ${L.length-w}${st?` · 이익 중 판매 정체 ${st}`:''}</span></div><p class="hint">내는 것을 거래소에서 사서 교환하고, 받은 것을 팔았을 때의 차익입니다(수수료 15% 반영). '내가 쓰면'은 받는 것을 직접 쓸 때 거래소 구매보다 아끼는 금액입니다. 내는 것과 받는 것이 모두 거래소에 있는 교환만 계산합니다.</p><p class="hint">차익은 받은 것이 팔렸을 때의 값입니다. 거래소 자료에는 거래량이 없어서, 이익이 나는 교환만 재고 이력으로 판매 위험을 판단합니다. 평균 머묾은 지금 재고를 최근 24시간 신규 등록량으로 나눈 값입니다. 거래소 등록 기간이 72시간이라 3일에 가까울수록 안 팔리고 돌아올 위험이 큽니다.</p><p class="tiny">${MK_LIQ_TIP} · 주 최대는 전부 팔렸을 때의 값</p>${L.length?`<div class="mlist one">${L.map(mkTradeRow).join('')}</div>`:'<div class="empty">계산할 수 있는 교환이 없습니다.</div>'}</div>`}
 function mkWatchRow(p){const x=mkPx(p.k),vn=(MK.vars.get(p.k)||[]).length,h=mkHit(p),g=p.t?`목표 ${mkn(p.t)} ${p.d==='up'?'이상':'이하'}${h?' 도달':''}`:'목표가 없음';if(!x)return `<div class="mrow"><span class="mic"></span><span class="mn"><b>${esc(mkName(p.n))}</b><span class="tiny">시세를 불러오는 중입니다.</span></span><span class="mv"><b>—</b><span class="mch">—</span></span></div>`;
  return `<button class="mrow ${h?'mhit':''}" data-mi="${Number(p.k)}">${mkIcon(x)}<span class="mn"><b>${esc(mkName(x.name))}</b><span class="tiny">${vn>1?`★ 등급 ${vn}개 중 최저 · `:''}재고 ${mkn(x.total_count)} · ${g}</span></span><span class="mv"><b>${x.min_price?mkn(x.min_price):'품절'}</b><span class="mch ${mkc(x.pct_change_24h)}">${mkp(x.pct_change_24h)}</span></span></button>`}
@@ -1912,19 +1921,24 @@ function pgMarket(){if(!mkk())return mkSetup();
 /* 시세 상세 창 */
 function mkDlg(){let d=$('mdlg');if(!d){d=document.createElement('dialog');d.id='mdlg';d.className='mdlg';document.body.appendChild(d)}return d}
 function mkPin(k){const p=S.mw.find(w=>w.k===k);return `<button class="btn sm ${p?'primary':''}" data-mpin="${k}">${p?'★ 관심 품목':'☆ 관심 품목에 추가'}</button>${p?`<label class="wslot tiny">목표가 <input id="mtg" inputmode="numeric" value="${p.t||''}" placeholder="데카" style="width:96px;height:30px"></label><span class="row" style="gap:6px">${[['down','이하'],['up','이상']].map(([v,l])=>`<button class="tabbtn ${(p.d||'down')===v?'on':''}" data-mdir="${v}">${l}</button>`).join('')}</span>`:''}`}
-function mkOpen(k,r){const x=r&&r.kind_id===k?r:mkPx(k);if(!x)return;MK.sel=k;MK.selR=x;MK.selOK=null;MK.selT=null;MK.selV=mkVars(k,x.name).then(V=>V.length?V:[x],()=>[x]);const d=mkDlg(),cell=(l,v,c='')=>`<div><span class="tiny">${l}</span><b class="${c}">${v}</b></div>`;
+function mkOpen(k,r){const x=r&&r.kind_id===k?r:mkPx(k);if(!x)return;MK.sel=k;MK.selR=x;MK.selOK=null;MK.selT=null;MK.selV=(MK.lv.has(k)&&MK.vars.has(k)?Promise.resolve(MK.vars.get(k)):mkVars(k,x.name)).then(V=>V.length?V:[x],()=>[x]);const d=mkDlg(),cell=(l,v,c='')=>`<div><span class="tiny">${l}</span><b class="${c}">${v}</b></div>`;
  d.innerHTML=`<div class="mdin"><div class="mdh">${mkIcon(x)}<div class="mdt"><b>${esc(mkName(x.name))}</b><span class="tiny">${esc(x.parent_category)}</span></div><button class="btn sm" data-mclose="1" aria-label="닫기">닫기</button></div>
  <div class="mstats">${cell('최저가',x.min_price?mkn(x.min_price):'품절')}${cell('재고',mkn(x.total_count))}${cell('1시간',mkp(x.pct_change_1h),mkc(x.pct_change_1h))}${cell('24시간',mkp(x.pct_change_24h),mkc(x.pct_change_24h))}${cell('7일',mkp(x.pct_change_7d),mkc(x.pct_change_7d))}</div>
  <div id="mvar"></div><div id="mver"></div><div class="tabs" style="padding:0" id="mrgs">${mkChips('mrg',MK_RG)}</div><div class="mchart" id="mchart"></div><div id="mtable"></div>
- <div class="row" id="mpin">${mkPin(k)}</div><div><div class="ch" style="margin-top:0">최근 7일 월드 채팅 언급</div><div id="mchat" class="stack"></div></div></div>`;
- if(!d.open)d.showModal();mkHist(k);mkChat(k,x.name)}
-async function mkHistGet(k,n){const key=k+'|'+n,c=MK.h.get(key);if(c&&Date.now()-c.at<MK_TTL)return c.j;const j=await mkGet(`/market/prices/history?kind_id=${k}&days=${n}`);MK.h.set(key,{at:Date.now(),j});return j}
-async function mkHist(k){const w=$('mchart'),x=MK.selR;if(!w)return;w.innerHTML='<div class="tiny">시세 이력을 불러오는 중입니다.</div>';$('mtable').innerHTML='';
+ <div class="row" id="mpin">${mkPin(k)}</div><div><div class="ch" style="margin-top:0">최근 7일 월드 채팅 언급</div><div id="mchat" class="stack">${mkChatBtn()}</div></div></div>`;
+ if(!d.open)d.showModal();mkHist(k);const c=MK.cq.get(mkChatQ(x.name));if(c&&Date.now()-c.at<MK_TTL)mkChat(k,x.name)}
+/* 이력 해상도는 days로 자동 선택된다: 7일은 시간 단위 167개, 30일·90일은 둘 다 일 단위(31개·90개, 2026-11-02 실제 응답).
+   그래서 90일을 한 번 받아 30일 그래프와 30일 판단을 잘라 쓰고, 7일만 따로 부른다 */
+async function mkHistGet(k,n,bg){const key=k+'|'+n,c=MK.h.get(key);if(c&&Date.now()-c.at<MK_TTL)return c.j;const j=await mkGet(`/market/prices/history?kind_id=${k}&days=${n}`,bg);MK.h.set(key,{at:Date.now(),j});return j}
+const mkCut=(j,d)=>{const t=Date.now()-(d+1)*864e5;return Object.assign({},j,{points:(j.points||[]).filter(p=>Date.parse(p.time)>t)})};
+const mkLoadTxt=t=>`<div class="tiny" data-mkw="${t}">${t}</div>`;
+async function mkHist(k){const w=$('mchart'),x=MK.selR;if(!w)return;w.innerHTML=mkLoadTxt('시세 이력을 불러오는 중입니다.');mkWaitPaint();$('mtable').innerHTML='';
  const V=await MK.selV;if(MK.selR!==x||!$('mchart'))return;if(V.length>1&&!$('mvar').innerHTML)$('mvar').innerHTML=mkVarHtml(x,V);
- try{const j=await mkHistGet(k,S.mrg);if(MK.selR!==x||!$('mchart'))return;if(V.length>1&&!mkTrack(x,V,j))return;mkDraw(j);mkVerd(S.mrg===30?j:await mkHistGet(k,30),x)}catch(e){if(MK.selR===x&&$('mchart'))$('mchart').innerHTML=`<div class="tiny">${esc(e.message)}</div>`}}
-async function mkChat(k,name){const w=$('mchat');if(!w)return;w.innerHTML='<div class="tiny">불러오는 중입니다.</div>';const now=new Date,st=new Date(now-6048e5),q=name.replace(/\(.*$/,'').trim();
- try{const j=await mkGet(`/world-chat/search?q=${encodeURIComponent(q)}&scope=message&channel=all&limit=5&start_time=${st.toISOString()}&end_time=${now.toISOString()}`);if(MK.sel!==k||!$('mchat'))return;
-  $('mchat').innerHTML=j.data.length?j.data.map(m=>`<div class="mcr"><span class="tiny">${esc(m.server_name)} · ${esc(mkTime(m.received_at,'m'))} · ${esc(m.player_name)}</span><div>${esc(m.message)}</div></div>`).join(''):'<div class="tiny">최근 7일 동안 언급이 없습니다.</div>'}catch(e){if(MK.sel===k&&$('mchat'))$('mchat').innerHTML=`<div class="tiny">${esc(e.message)}</div>`}}
+ try{const j=S.mrg===7?await mkHistGet(k,7):mkCut(await mkHistGet(k,90),S.mrg);if(MK.selR!==x||!$('mchart'))return;if(V.length>1&&!mkTrack(x,V,j))return;mkDraw(j);mkVerd(mkCut(await mkHistGet(k,90),30),x)}catch(e){if(MK.selR===x&&$('mchart'))$('mchart').innerHTML=`<div class="tiny">${esc(e.message)}</div>`}}
+const mkChatQ=n=>n.replace(/\(.*$/,'').trim(),mkChatBtn=()=>'<div class="mcb"><button class="btn sm" data-mchat="1">채팅 언급 불러오기</button><span class="tiny">호출을 아끼려고 누를 때만 불러옵니다.</span></div>';
+async function mkChat(k,name){const w=$('mchat');if(!w)return;const q=mkChatQ(name),c=MK.cq.get(q),show=j=>{if(MK.sel===k&&$('mchat'))$('mchat').innerHTML=j.data.length?j.data.map(m=>`<div class="mcr"><span class="tiny">${esc(m.server_name)} · ${esc(mkTime(m.received_at,'m'))} · ${esc(m.player_name)}</span><div>${esc(m.message)}</div></div>`).join(''):'<div class="tiny">최근 7일 동안 언급이 없습니다.</div>'};
+ if(c&&Date.now()-c.at<MK_TTL)return show(c.j);w.innerHTML=mkLoadTxt('불러오는 중입니다.');mkWaitPaint();const now=new Date,st=new Date(now-6048e5);
+ try{const j=await mkGet(`/world-chat/search?q=${encodeURIComponent(q)}&scope=message&channel=all&limit=5&start_time=${st.toISOString()}&end_time=${now.toISOString()}`);MK.cq.set(q,{at:Date.now(),j});show(j)}catch(e){if(MK.sel===k&&$('mchat'))$('mchat').innerHTML=`<div class="tiny">${esc(e.message)}</div>${mkChatBtn()}`}}
 function mkVerd(j,x){const e=$('mver'),P=(j.points||[]).filter(p=>p.close!=null),c=P.map(p=>p.close);if(!e||!x)return;if(c.length<7){e.innerHTML='<div class="tiny">최근 30일 이력이 부족해 판단하지 않습니다.</div>';return}
  const cur=x.min_price,lo=Math.min(...c),hi=Math.max(...c),avg=Math.round(c.reduce((a,b)=>a+b,0)/c.length),c0=P[0].count_close,c1=P[P.length-1].count_close,tr=c0?` · 재고 30일 전보다 ${mkp((c1-c0)/c0*100)}`:'';
  if(lo===hi){e.innerHTML=`<div class="mverd"><b>변동 없음</b><span class="hint">최근 30일 종가가 모두 ${mkn(lo)}입니다. 이 가격에 매물이 몰려 있으면 올려도 늦게 팔릴 수 있습니다${tr}</span></div>`;return}
@@ -2033,6 +2047,7 @@ document.addEventListener('click',e=>{const t=e.target;let el;
  if(t.id==='mdlg'){t.close();return}
  if(el=t.closest('[data-mclose]')){$('mdlg').close();return}
  if(el=t.closest('[data-mi]')){mkOpen(+el.dataset.mi,MK.rows.get(+el.dataset.mr));return}
+ if(el=t.closest('[data-mchat]')){if(MK.selR)mkChat(MK.sel,MK.selR.name);return}
  if(el=t.closest('[data-cr]')){const k=el.dataset.cr;MK.co.has(k)?MK.co.delete(k):MK.co.add(k);return}
  if(el=t.closest('[data-mgt]')){S.mgt=el.dataset.mgt;save();return render()}
  if(el=t.closest('[data-mgp]')){S.mgp=el.dataset.mgp;save();return render()}
