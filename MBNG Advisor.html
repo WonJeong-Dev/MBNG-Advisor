@@ -1425,7 +1425,7 @@ function gearJudge(){if(!$('gres'))return;const v=id=>Math.max(0,Number($(id).va
  $('gres').innerHTML=`<div class="verdict" style="color:${c}">${t}</div><p class="hint">${why}</p><div class="row tiny">기본 수치 ${s(db)} · 보석 슬롯 ${s(ds)} · 마도 저항 ${s(dr)}</div>`}
 
 /* ===== 페이지: 출처 · 갱신 ===== */
-function pgAbout(){return `<div class="panel hl"><div class="ph"><h2>개발자용 데이터 API</h2><span class="tiny">키 없음 · CC BY 4.0</span></div><p class="hint">넥슨 공식 공개 글과 게임 화면 직접 확인만 근거로 한 데이터를 JSON으로 공개합니다. 값마다 출처가 붙고, 공식 글을 1시간마다 감시해 관련 변경이 올라오면 해당 데이터를 '재확인 필요'로 표시합니다. 이 앱의 같은 화면도 같은 원본에서 만들어집니다.</p><div class="row mt10"><a class="btn sm" href="api/" target="_blank" rel="noopener">API 문서</a><a class="btn sm" href="api/v1/status.json" target="_blank" rel="noopener">데이터별 최신 여부</a></div></div>
+function pgAbout(){return `<div class="panel hl"><div class="ph"><h2>개발자용 데이터 API</h2><span class="tiny">키 없음 · CC BY 4.0</span></div><p class="hint">넥슨 공식 공개 글과 게임 화면 직접 확인만 근거로 한 데이터를 JSON으로 공개합니다. 값마다 출처가 붙고, 공식 글을 감시해 관련 변경이 올라오면 해당 데이터를 '재확인 필요'로 표시합니다. 이 앱의 같은 화면도 같은 원본에서 만들어집니다.</p><div class="row mt10"><a class="btn sm" href="api/" target="_blank" rel="noopener">API 문서</a><a class="btn sm" href="api/v1/status.json" target="_blank" rel="noopener">데이터별 최신 여부</a></div></div>
  <div class="panel"><h2>데이터 출처</h2><div class="stack mt10">
  <div><b>게임 버전 기준</b><div class="hint">공식 <a href="https://mabinogimobile.nexon.com/News/Update/${PATCH[1]}" target="_blank" rel="noopener">${PATCH[0]} 업데이트 노트</a>까지 대조 · 확인일 ${PATCH[2]} · 이후 패치 내용은 반영되지 않았을 수 있습니다</div></div>
  <div><b>룬 사용 순위</b><div class="hint">mabimobi.life 룬 도감의 직업별 통계 (무기·엠블럼·방어구 상위 10, 장신구 상위 9) · 사용률 순으로 정렬 · 기준일 ${DATA_DATE} · 21개 직업 전부 수록</div></div>

@@ -129,7 +129,7 @@ out['api/v1/index.json'] = J({
 });
 out['api/v1/status.json'] = J({
   ...head, updated_at: UPDATED,
-  monitoring: { boards: Object.keys(watch.boards || {}).map(b => OFF + b), pages: Object.keys(watch.pages || {}), interval: '1시간(GitHub Actions 예약 실행, 실제 간격은 GitHub 사정에 따라 늦어질 수 있음)', not_monitored: ['NEXON NOW(로봇 접근 금지, 사람이 확인)'] },
+  monitoring: { boards: Object.keys(watch.boards || {}).map(b => OFF + b), pages: Object.keys(watch.pages || {}), interval: watch.runner?.interval || '정해지지 않음', runner: watch.runner?.where || '', not_monitored: ['NEXON NOW(로봇 접근 금지, 사람이 확인)'] },
   datasets: Object.fromEntries(ids.map(id => [id, { verified_at: D[id].verified_at, ...ST[id] }]))
 });
 out['api/v1/changes.json'] = J({ ...head, changes: [...changes].sort((a, b) => b.date.localeCompare(a.date)) });

@@ -1,4 +1,8 @@
 {
+  "runner": {
+    "where": "운영자 PC(한국). 넥슨 공식 사이트가 해외 접속(GitHub Actions)에는 한국어 목록을 주지 않음",
+    "interval": "운영자가 실행할 때(자동 예약 준비 중)"
+  },
   "boards": {
     "News/Devnote": {
       "seen": {

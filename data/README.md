@@ -18,11 +18,11 @@
 | `schemas.json` | 표별 레코드 형식(JSON Schema). 빌드가 검사하고 `openapi.json`에 싣습니다 |
 | `sources.json` | 출처 사전 |
 | `changes.json` | 값 변경·재확인 기록 |
-| `watch.json` | 공식 글 감시 상태(본 글, 가이드 본문 해시, 감지한 사건). `tools/watch-official.mjs`만 씁니다 |
+| `watch.json` | 공식 글 감시 상태(본 글, 가이드 본문 해시, 감지한 사건)와 실행 정보(`runner`). `tools/watch-official.mjs`가 씁니다. 넥슨 공식 사이트가 해외 접속에는 한국어 목록을 주지 않아 GitHub Actions가 아니라 한국 PC에서 `tools/watch-local.ps1`로 돌립니다 |
 
 ## 갱신 절차
 
-1. 감시가 사건을 남기면 해당 데이터의 상태가 `check_needed`가 됩니다(이슈와 디스코드 알림).
+1. 감시가 사건을 남기면 해당 데이터의 상태가 `check_needed`가 됩니다(GitHub 이슈 알림).
 2. 공식 글을 읽거나 게임에서 확인합니다.
 3. 값이 바뀌었으면 `datasets/<id>.json`의 레코드와 `src`를 고치고, 필요하면 `sources.json`에 출처를 더합니다.
 4. 출처와 다시 대조했으면 `verified_at`을 그날로 바꿉니다. 대조 없이 무관한 글로 판단만 했으면 사건 key를 `reviewed`에 넣습니다.

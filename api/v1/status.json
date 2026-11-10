@@ -27,7 +27,8 @@
       "guide-3481548",
       "guide-3558754"
     ],
-    "interval": "1시간(GitHub Actions 예약 실행, 실제 간격은 GitHub 사정에 따라 늦어질 수 있음)",
+    "interval": "운영자가 실행할 때(자동 예약 준비 중)",
+    "runner": "운영자 PC(한국). 넥슨 공식 사이트가 해외 접속(GitHub Actions)에는 한국어 목록을 주지 않음",
     "not_monitored": [
       "NEXON NOW(로봇 접근 금지, 사람이 확인)"
     ]
