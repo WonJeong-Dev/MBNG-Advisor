@@ -82,7 +82,7 @@ for (const board of BOARDS) {
   const html = await get(OFF + board);
   if (!html) continue;
   const L = parseList(html, board);
-  if (!L.length) { console.warn(`목록을 읽지 못함 ${board} (구조 변경 가능성)`); continue }
+  if (!L.length) { console.warn(`목록을 읽지 못함 ${board} (길이 ${html.length}, 제목 ${(html.match(/<title>([^<]*)/) || [])[1] || '없음'}, 글 표시 ${(html.match(/data-threadid/g) || []).length}개)`); continue }
   const B = state.boards[board] || (state.boards[board] = { seen: {} });
   for (const p of L) {
     const prev = B.seen[p.id];
