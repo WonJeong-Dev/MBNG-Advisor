@@ -164,7 +164,7 @@ paths['/v1/status.json'] = get('최신 여부', '데이터별 상태. 공식 글
 paths['/v1/changes.json'] = get('변경 이력', '데이터 값이 바뀌거나 재확인한 기록(최신순)', { type: 'object', properties: { changes: { type: 'array', items: { $ref: '#/components/schemas/Change' } } } }, '안내');
 paths['/v1/sources.json'] = get('출처 사전', '모든 출처. 종류는 넥슨 공식 공개 글(official)과 게임 화면 직접 확인(ingame)뿐이다', { type: 'object', properties: { sources: { type: 'array', items: { $ref: '#/components/schemas/Source' } } } }, '안내');
 for (const id of ids) paths[`/v1/${id}.json`] = get(D[id].title, D[id].description, envelope(id), '데이터');
-const desc = rd('api/intro.md');
+const desc = rd('api/intro.md').replace(/\r\n/g, '\n');
 out['api/v1/openapi.json'] = J({
   openapi: '3.1.0',
   info: { title: 'MBNG Advisor 데이터 API', version: '1.0.0', description: desc, license: { name: 'CC BY 4.0', url: LICENSE.url } },
