@@ -74,7 +74,7 @@
       "since": "2026-11-10"
     },
     "guide-3344477": {
-      "hash": "7337bb596a3508bd375ba10b41de53bda0168cd64dc9bd03bcece44f81086736",
+      "hash": "ec4aa662237b3fa617b2cf06f237d156907c1ee5670dcd2111c56744cdd43f7f",
       "since": "2026-11-10"
     },
     "guide-3481541": {
@@ -180,6 +180,19 @@
           "뱅가드 브리치"
         ]
       }
+    },
+    {
+      "key": "page-guide-3344477-ec4aa662",
+      "kind": "page-changed",
+      "page": "guide-3344477",
+      "title": "뱅가드 브리치 가이드 본문 변경",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/3344477",
+      "date": "2026-11-10",
+      "detected_at": "2026-11-10T12:17:18Z",
+      "datasets": [
+        "weekly"
+      ],
+      "matched": {}
     }
   ]
 }

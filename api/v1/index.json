@@ -83,7 +83,7 @@
       "title": "주간 숙제",
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/weekly.json",
       "verified_at": "2026-11-10",
-      "state": "ok",
+      "state": "check_needed",
       "tables": {
         "items": 13
       }

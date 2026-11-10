@@ -66,8 +66,18 @@
     },
     "weekly": {
       "verified_at": "2026-11-10",
-      "state": "ok",
-      "pending": []
+      "state": "check_needed",
+      "pending": [
+        {
+          "key": "page-guide-3344477-ec4aa662",
+          "kind": "page-changed",
+          "title": "뱅가드 브리치 가이드 본문 변경",
+          "url": "https://mabinogimobile.nexon.com/Info/Guide/3344477",
+          "date": "2026-11-10",
+          "detected_at": "2026-11-10T12:17:18Z",
+          "matched": []
+        }
+      ]
     }
   }
 }
