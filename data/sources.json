@@ -1,0 +1,184 @@
+{
+  "guide-2751033": {
+    "type": "official",
+    "kind": "가이드",
+    "title": "길드 가이드",
+    "label": "길드 가이드",
+    "url": "https://mabinogimobile.nexon.com/Info/Guide/2751033",
+    "checked": "2026-11-10"
+  },
+  "guide-2751073": {
+    "type": "official",
+    "kind": "가이드",
+    "title": "아르바이트 가이드",
+    "label": "아르바이트 가이드",
+    "url": "https://mabinogimobile.nexon.com/Info/Guide/2751073",
+    "basis": "2025-12-18",
+    "checked": "2026-11-10"
+  },
+  "guide-2751102": {
+    "type": "official",
+    "kind": "가이드",
+    "title": "필드 보스 가이드",
+    "label": "필드 보스 가이드",
+    "url": "https://mabinogimobile.nexon.com/Info/Guide/2751102",
+    "basis": "2026-06-29",
+    "checked": "2026-11-10"
+  },
+  "guide-2751103": {
+    "type": "official",
+    "kind": "가이드",
+    "title": "사냥터 콘텐츠 가이드",
+    "label": "사냥터 콘텐츠 가이드",
+    "url": "https://mabinogimobile.nexon.com/Info/Guide/2751103",
+    "basis": "2026-11-05",
+    "checked": "2026-11-10"
+  },
+  "guide-2839865": {
+    "type": "official",
+    "kind": "가이드",
+    "title": "레이드 가이드",
+    "label": "레이드 가이드",
+    "url": "https://mabinogimobile.nexon.com/Info/Guide/2839865",
+    "basis": "2026-11-05",
+    "checked": "2026-11-10"
+  },
+  "guide-3164452": {
+    "type": "official",
+    "kind": "가이드",
+    "title": "어비스 가이드",
+    "label": "어비스 가이드",
+    "url": "https://mabinogimobile.nexon.com/Info/Guide/3164452",
+    "basis": "2026-07-02",
+    "checked": "2026-11-10"
+  },
+  "guide-3344477": {
+    "type": "official",
+    "kind": "가이드",
+    "title": "뱅가드 브리치 가이드",
+    "label": "뱅가드 브리치 가이드",
+    "url": "https://mabinogimobile.nexon.com/Info/Guide/3344477",
+    "basis": "2026-11-05",
+    "checked": "2026-11-10"
+  },
+  "guide-3481541": {
+    "type": "official",
+    "kind": "가이드",
+    "title": "협동 미션 가이드",
+    "label": "협동 미션 가이드",
+    "url": "https://mabinogimobile.nexon.com/Info/Guide/3481541",
+    "basis": "2026-06-25",
+    "checked": "2026-11-10"
+  },
+  "guide-3481543": {
+    "type": "official",
+    "kind": "가이드",
+    "title": "마도 저항 가이드",
+    "label": "마도 저항 가이드",
+    "url": "https://mabinogimobile.nexon.com/Info/Guide/3481543",
+    "basis": "2026-08-13"
+  },
+  "guide-3481548": {
+    "type": "official",
+    "kind": "가이드",
+    "title": "소울스트림 가이드",
+    "label": "소울스트림 가이드",
+    "url": "https://mabinogimobile.nexon.com/Info/Guide/3481548",
+    "basis": "2026-07-16",
+    "checked": "2026-11-10"
+  },
+  "guide-3558754": {
+    "type": "official",
+    "kind": "가이드",
+    "title": "펫 원정대 가이드",
+    "label": "펫 원정대 가이드",
+    "url": "https://mabinogimobile.nexon.com/Info/Guide/3558754",
+    "basis": "2026-10-15",
+    "checked": "2026-11-10"
+  },
+  "ingame-barrier-time": {
+    "type": "ingame",
+    "kind": "게임 화면 확인",
+    "title": "불길한 소환의 결계 매시 정시 출현, 03분 시작",
+    "checked": "2026-11-09"
+  },
+  "ingame-grilled-meat": {
+    "type": "ingame",
+    "kind": "게임 화면 확인",
+    "title": "구운 고기 1개 재료(고기 4·허브 2·소금 1) 게임 캡처",
+    "checked": "2026-11-02"
+  },
+  "ingame-leveling-list": {
+    "type": "ingame",
+    "kind": "게임 화면 확인",
+    "title": "100레벨까지 스토리 과정의 필수 재료 목록(사용자 정리)",
+    "checked": "2026-11-02"
+  },
+  "ingame-leveling-lv60": {
+    "type": "ingame",
+    "kind": "게임 화면 확인",
+    "title": "Lv.60 구운 고기 3개(고기 12개) 확인",
+    "checked": "2026-11-03"
+  },
+  "ingame-leveling-lv82": {
+    "type": "ingame",
+    "kind": "게임 화면 확인",
+    "title": "Lv.82 허브 10개 추가 확인",
+    "checked": "2026-11-08"
+  },
+  "ingame-soul-price": {
+    "type": "ingame",
+    "kind": "게임 화면 확인",
+    "title": "소울 주간 구매 가격(첫 구매 10,000골드, 회차마다 +20, 소울별 누적 독립)",
+    "checked": "2026-10-27"
+  },
+  "now-rune-engrave": {
+    "type": "official",
+    "kind": "NEXON NOW 확률",
+    "title": "NEXON NOW 룬 각인 확률(시즌 2)",
+    "label": "NEXON NOW 룬 각인 확률",
+    "url": "https://now.nexon.com/service/mabinogimobile?page=621f8510-1fe8-4d08-bf6a-a3752746439d",
+    "checked": "2026-11-04",
+    "manual": true
+  },
+  "upd-3147463": {
+    "type": "official",
+    "kind": "업데이트 노트",
+    "title": "2025-09-25(목) 업데이트 노트",
+    "label": "9/25 업데이트 노트",
+    "url": "https://mabinogimobile.nexon.com/News/Update/3147463",
+    "published": "2025-09-24"
+  },
+  "upd-3407267": {
+    "type": "official",
+    "kind": "업데이트 노트",
+    "title": "3/26(목) 업데이트 노트",
+    "label": "3/26(목) 업데이트 노트",
+    "url": "https://mabinogimobile.nexon.com/News/Update/3407267",
+    "published": "2026-03-25"
+  },
+  "upd-3480721": {
+    "type": "official",
+    "kind": "업데이트 노트",
+    "title": "6/25(목) 업데이트 노트",
+    "label": "6/25 업데이트 노트",
+    "url": "https://mabinogimobile.nexon.com/News/Update/3480721",
+    "published": "2026-06-24"
+  },
+  "upd-3521707": {
+    "type": "official",
+    "kind": "업데이트 노트",
+    "title": "8/13(목) 업데이트 노트",
+    "label": "8/13 업데이트 노트",
+    "url": "https://mabinogimobile.nexon.com/News/Update/3521707",
+    "published": "2026-08-12"
+  },
+  "upd-3575034": {
+    "type": "official",
+    "kind": "업데이트 노트",
+    "title": "11/5(목) 업데이트 노트",
+    "label": "11/5 업데이트 노트",
+    "url": "https://mabinogimobile.nexon.com/News/Update/3575034",
+    "published": "2026-11-04"
+  }
+}

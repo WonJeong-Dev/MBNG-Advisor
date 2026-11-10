@@ -1,0 +1,30 @@
+{
+  "id": "summon-barrier",
+  "title": "불길한 소환의 결계 시간",
+  "description": "불길한 소환의 결계가 나타나고 시작하는 시각",
+  "verified_at": "2026-11-09",
+  "watch": {
+    "keywords": [
+      "불길한 소환의 결계"
+    ],
+    "pages": []
+  },
+  "params": {
+    "timezone": "Asia/Seoul"
+  },
+  "notes": [
+    "진행 횟수는 주간 숙제(weekly)의 summon 항목 참고"
+  ],
+  "tables": {
+    "schedule": [
+      {
+        "every": "hour",
+        "appear_minute": 0,
+        "start_minute": 3,
+        "src": [
+          "ingame-barrier-time"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "mado-resist",
+  "title": "마도 저항 초과 피해",
+  "description": "마도 저항이 콘텐츠의 압력을 넘은 만큼 늘어나는 최종 피해의 최대치와 공식 예시",
+  "verified_at": "2026-11-04",
+  "status": {
+    "state": "ok",
+    "pending": []
+  },
+  "params": {
+    "cap_pct": 50
+  },
+  "params_sources": {
+    "cap_pct": [
+      "guide-3481543",
+      "upd-3521707"
+    ]
+  },
+  "notes": [
+    "8/13 업데이트로 최대치가 40%에서 50%로 올라감",
+    "압력이 없는 콘텐츠에도 증가가 적용됨",
+    "예시 사이 값의 계산식은 공개되지 않아 넣지 않음"
+  ],
+  "monitoring": {
+    "keywords": [
+      "마도 저항"
+    ],
+    "pages": [
+      "guide-3481543"
+    ]
+  },
+  "sources": [
+    {
+      "id": "guide-3481543",
+      "type": "official",
+      "type_label": "넥슨 공식 공개 글",
+      "kind": "가이드",
+      "title": "마도 저항 가이드",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/3481543",
+      "basis": "2026-08-13"
+    },
+    {
+      "id": "upd-3521707",
+      "type": "official",
+      "type_label": "넥슨 공식 공개 글",
+      "kind": "업데이트 노트",
+      "title": "8/13(목) 업데이트 노트",
+      "url": "https://mabinogimobile.nexon.com/News/Update/3521707",
+      "published": "2026-08-12"
+    }
+  ],
+  "data": {
+    "examples": [
+      {
+        "over": 500,
+        "final_damage_pct": 4.1,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 1000,
+        "final_damage_pct": 7.9,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 2000,
+        "final_damage_pct": 14.6,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 4000,
+        "final_damage_pct": 25,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 8000,
+        "final_damage_pct": 37.5,
+        "src": [
+          "guide-3481543"
+        ]
+      }
+    ]
+  }
+}

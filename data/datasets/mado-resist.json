@@ -1,0 +1,67 @@
+{
+  "id": "mado-resist",
+  "title": "마도 저항 초과 피해",
+  "description": "마도 저항이 콘텐츠의 압력을 넘은 만큼 늘어나는 최종 피해의 최대치와 공식 예시",
+  "verified_at": "2026-11-04",
+  "watch": {
+    "keywords": [
+      "마도 저항"
+    ],
+    "pages": [
+      "guide-3481543"
+    ]
+  },
+  "params": {
+    "cap_pct": 50
+  },
+  "notes": [
+    "8/13 업데이트로 최대치가 40%에서 50%로 올라감",
+    "압력이 없는 콘텐츠에도 증가가 적용됨",
+    "예시 사이 값의 계산식은 공개되지 않아 넣지 않음"
+  ],
+  "tables": {
+    "examples": [
+      {
+        "over": 500,
+        "final_damage_pct": 4.1,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 1000,
+        "final_damage_pct": 7.9,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 2000,
+        "final_damage_pct": 14.6,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 4000,
+        "final_damage_pct": 25,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 8000,
+        "final_damage_pct": 37.5,
+        "src": [
+          "guide-3481543"
+        ]
+      }
+    ]
+  },
+  "params_src": {
+    "cap_pct": [
+      "guide-3481543",
+      "upd-3521707"
+    ]
+  }
+}

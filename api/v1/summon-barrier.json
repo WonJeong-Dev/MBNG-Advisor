@@ -1,0 +1,52 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "summon-barrier",
+  "title": "불길한 소환의 결계 시간",
+  "description": "불길한 소환의 결계가 나타나고 시작하는 시각",
+  "verified_at": "2026-11-09",
+  "status": {
+    "state": "ok",
+    "pending": []
+  },
+  "params": {
+    "timezone": "Asia/Seoul"
+  },
+  "notes": [
+    "진행 횟수는 주간 숙제(weekly)의 summon 항목 참고"
+  ],
+  "monitoring": {
+    "keywords": [
+      "불길한 소환의 결계"
+    ],
+    "pages": []
+  },
+  "sources": [
+    {
+      "id": "ingame-barrier-time",
+      "type": "ingame",
+      "type_label": "게임 화면 직접 확인",
+      "kind": "게임 화면 확인",
+      "title": "불길한 소환의 결계 매시 정시 출현, 03분 시작",
+      "checked": "2026-11-09"
+    }
+  ],
+  "data": {
+    "schedule": [
+      {
+        "every": "hour",
+        "appear_minute": 0,
+        "start_minute": 3,
+        "src": [
+          "ingame-barrier-time"
+        ]
+      }
+    ]
+  }
+}

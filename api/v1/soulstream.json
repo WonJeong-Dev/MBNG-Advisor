@@ -1,0 +1,265 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "soulstream",
+  "title": "소울스트림 생산·주간 구매",
+  "description": "소울별 서버 내 캐릭터 능력치 합 구간과 시간당 생산 범위, 소울 주간 구매 가격",
+  "verified_at": "2026-11-10",
+  "status": {
+    "state": "ok",
+    "pending": []
+  },
+  "params": {
+    "weekly_purchase_limit": 30,
+    "weekly_purchase_scope": "소울별, 서버"
+  },
+  "notes": [
+    "구간 안의 정확한 생산량은 공식에 없어 범위로만 제공",
+    "주간 구매 가격의 누적 회차는 소울별로 따로 센다(게임 확인)"
+  ],
+  "monitoring": {
+    "keywords": [
+      "소울스트림",
+      "소울 구매",
+      "소울 생산"
+    ],
+    "pages": []
+  },
+  "sources": [
+    {
+      "id": "guide-3481548",
+      "type": "official",
+      "type_label": "넥슨 공식 공개 글",
+      "kind": "가이드",
+      "title": "소울스트림 가이드",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/3481548",
+      "basis": "2026-07-16",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "ingame-soul-price",
+      "type": "ingame",
+      "type_label": "게임 화면 직접 확인",
+      "kind": "게임 화면 확인",
+      "title": "소울 주간 구매 가격(첫 구매 10,000골드, 회차마다 +20, 소울별 누적 독립)",
+      "checked": "2026-10-27"
+    }
+  ],
+  "data": {
+    "production": [
+      {
+        "soul": "붉은",
+        "stat": "전투력",
+        "sum_from": 1,
+        "sum_to": 50000,
+        "rate_min": 0.018,
+        "rate_max": 0.036,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "붉은",
+        "stat": "전투력",
+        "sum_from": 50000,
+        "sum_to": 100000,
+        "rate_min": 0.036,
+        "rate_max": 0.054,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "붉은",
+        "stat": "전투력",
+        "sum_from": 100000,
+        "sum_to": 150000,
+        "rate_min": 0.054,
+        "rate_max": 0.072,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "붉은",
+        "stat": "전투력",
+        "sum_from": 150000,
+        "sum_to": 180000,
+        "rate_min": 0.072,
+        "rate_max": 0.09,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "붉은",
+        "stat": "전투력",
+        "sum_from": 180000,
+        "sum_to": 200000,
+        "rate_min": 0.09,
+        "rate_max": 0.108,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "푸른",
+        "stat": "생활력",
+        "sum_from": 1,
+        "sum_to": 30000,
+        "rate_min": 0.018,
+        "rate_max": 0.036,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "푸른",
+        "stat": "생활력",
+        "sum_from": 30000,
+        "sum_to": 60000,
+        "rate_min": 0.036,
+        "rate_max": 0.054,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "푸른",
+        "stat": "생활력",
+        "sum_from": 60000,
+        "sum_to": 90000,
+        "rate_min": 0.054,
+        "rate_max": 0.072,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "푸른",
+        "stat": "생활력",
+        "sum_from": 90000,
+        "sum_to": 120000,
+        "rate_min": 0.072,
+        "rate_max": 0.09,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "푸른",
+        "stat": "생활력",
+        "sum_from": 120000,
+        "sum_to": 140000,
+        "rate_min": 0.09,
+        "rate_max": 0.108,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "노란",
+        "stat": "매력",
+        "sum_from": 1,
+        "sum_to": 20000,
+        "rate_min": 0.018,
+        "rate_max": 0.036,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "노란",
+        "stat": "매력",
+        "sum_from": 20000,
+        "sum_to": 50000,
+        "rate_min": 0.036,
+        "rate_max": 0.054,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "노란",
+        "stat": "매력",
+        "sum_from": 50000,
+        "sum_to": 80000,
+        "rate_min": 0.054,
+        "rate_max": 0.072,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "노란",
+        "stat": "매력",
+        "sum_from": 80000,
+        "sum_to": 110000,
+        "rate_min": 0.072,
+        "rate_max": 0.09,
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "soul": "노란",
+        "stat": "매력",
+        "sum_from": 110000,
+        "sum_to": 130000,
+        "rate_min": 0.09,
+        "rate_max": 0.108,
+        "src": [
+          "guide-3481548"
+        ]
+      }
+    ],
+    "purchase": [
+      {
+        "count_from": 1,
+        "count_to": 600,
+        "start_price": 10000,
+        "step": 20,
+        "src": [
+          "guide-3481548",
+          "ingame-soul-price"
+        ]
+      },
+      {
+        "count_from": 601,
+        "count_to": 1200,
+        "start_price": 22000,
+        "step": 50,
+        "src": [
+          "guide-3481548",
+          "ingame-soul-price"
+        ]
+      },
+      {
+        "count_from": 1201,
+        "count_to": 1800,
+        "start_price": 52000,
+        "step": 100,
+        "src": [
+          "guide-3481548",
+          "ingame-soul-price"
+        ]
+      },
+      {
+        "count_from": 1801,
+        "count_to": 2000,
+        "start_price": 112000,
+        "step": 200,
+        "src": [
+          "guide-3481548",
+          "ingame-soul-price"
+        ]
+      }
+    ]
+  }
+}

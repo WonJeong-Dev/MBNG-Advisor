@@ -1,0 +1,65 @@
+name: 공식 글 감시
+
+# 1시간마다 마비노기 모바일 공식 업데이트·공지·개발자 노트 목록과, 데이터가 근거로 삼는 공식 가이드 본문(6시간마다)을 확인한다.
+# 관련 변경을 찾으면 data/watch.json에 기록하고 API를 다시 만들어 올린다. 그러면 해당 데이터의 status가 check_needed가 된다.
+# 알림: 이슈를 하나 만들고, 저장소 비밀값 DISCORD_WEBHOOK_URL이 있으면 디스코드로도 보낸다.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+
+concurrency:
+  group: official-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 공식 목록·가이드 확인
+        run: node tools/watch-official.mjs --summary "$RUNNER_TEMP/summary.md"
+      - name: API 다시 만들기
+        run: node tools/build.mjs
+      - name: 바뀐 것 올리기
+        id: push
+        run: |
+          if [ -z "$(git status --porcelain data api 'MBNG Advisor.html')" ]; then echo "바뀐 것 없음"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data api "MBNG Advisor.html"
+          git commit -m "공식 글 감시 결과 반영"
+          if git push; then echo "pushed=1" >> "$GITHUB_OUTPUT"; else echo "올리기 실패(그사이 다른 커밋이 있음). 다음 실행에서 다시 찾는다"; exit 0; fi
+      - name: Pages 다시 배포
+        if: steps.push.outputs.pushed == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" >/dev/null || echo "Pages 빌드 요청 실패(다음 푸시 때 반영)"
+      - name: 이슈·디스코드 알림
+        if: steps.push.outputs.pushed == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          f="$RUNNER_TEMP/summary.md"
+          [ -s "$f" ] || exit 0
+          gh issue create --title "공식 글 감시: 재확인 필요 ($(TZ=Asia/Seoul date +%F))" --body-file "$f" || echo "이슈 만들기 실패"
+          [ -n "$WEBHOOK_URL" ] || exit 0
+          python3 - "$f" <<'PY'
+          import json, os, sys, urllib.request
+          body = open(sys.argv[1], encoding="utf-8").read()
+          msg = "📌 MBNG Advisor 데이터 감시\n" + body[:1800]
+          req = urllib.request.Request(os.environ["WEBHOOK_URL"], data=json.dumps({"content": msg}).encode("utf-8"),
+                                       headers={"Content-Type": "application/json", "User-Agent": "DiscordBot (github-actions, 1.0)"}, method="POST")
+          with urllib.request.urlopen(req, timeout=20) as r:
+              print("디스코드 전송", r.status)
+          PY

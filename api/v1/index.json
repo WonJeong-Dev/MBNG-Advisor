@@ -1,0 +1,97 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "updated_at": "2026-11-10",
+  "docs": "https://wonjeong-dev.github.io/MBNG-Advisor/api/",
+  "openapi": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/openapi.json",
+  "principles": [
+    "출처는 넥슨 공식 공개 글과 게임 화면 직접 확인 두 가지만 쓴다",
+    "값마다 출처 id(src)를 붙이고 데이터마다 확인일(verified_at)을 둔다",
+    "공식 글에 관련 변경이 올라오면 status가 check_needed로 바뀌고, 재확인 뒤 ok로 돌아온다"
+  ],
+  "datasets": [
+    {
+      "id": "leveling-materials",
+      "title": "신규 육성 스토리 필수 재료",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/leveling-materials.json",
+      "verified_at": "2026-11-08",
+      "state": "ok",
+      "tables": {
+        "steps": 22,
+        "recipes": 2
+      }
+    },
+    {
+      "id": "link-bonus",
+      "title": "숙련 연계 각인 룬 보너스",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/link-bonus.json",
+      "verified_at": "2026-10-27",
+      "state": "ok",
+      "tables": {
+        "values": 220
+      }
+    },
+    {
+      "id": "mado-resist",
+      "title": "마도 저항 초과 피해",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/mado-resist.json",
+      "verified_at": "2026-11-04",
+      "state": "ok",
+      "tables": {
+        "examples": 5
+      }
+    },
+    {
+      "id": "rune-engraving-rate",
+      "title": "룬 각인 성공률(시즌 2)",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/rune-engraving-rate.json",
+      "verified_at": "2026-11-04",
+      "state": "ok",
+      "tables": {
+        "rates": 6
+      }
+    },
+    {
+      "id": "soulstream",
+      "title": "소울스트림 생산·주간 구매",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/soulstream.json",
+      "verified_at": "2026-11-10",
+      "state": "ok",
+      "tables": {
+        "production": 15,
+        "purchase": 4
+      }
+    },
+    {
+      "id": "summon-barrier",
+      "title": "불길한 소환의 결계 시간",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/summon-barrier.json",
+      "verified_at": "2026-11-09",
+      "state": "ok",
+      "tables": {
+        "schedule": 1
+      }
+    },
+    {
+      "id": "weekly",
+      "title": "주간 숙제",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/weekly.json",
+      "verified_at": "2026-11-10",
+      "state": "ok",
+      "tables": {
+        "items": 13
+      }
+    }
+  ],
+  "endpoints": {
+    "status": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/status.json",
+    "changes": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/changes.json",
+    "sources": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/sources.json"
+  }
+}

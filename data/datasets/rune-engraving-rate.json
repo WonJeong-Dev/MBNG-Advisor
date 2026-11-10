@@ -1,0 +1,89 @@
+{
+  "id": "rune-engraving-rate",
+  "title": "룬 각인 성공률(시즌 2)",
+  "description": "시즌 2 룬을 장비에 각인할 때의 희귀도별 성공률. 실패하면 장비가 저주받음",
+  "verified_at": "2026-11-04",
+  "watch": {
+    "keywords": [
+      "룬 각인 성공",
+      "각인 성공 확률",
+      "룬 각인 확률"
+    ],
+    "pages": []
+  },
+  "params": {
+    "season": 2,
+    "emblem_rate_pct": 100,
+    "applies_to": "무기·방어구·장신구"
+  },
+  "notes": [
+    "엠블럼 룬 각인은 시즌 2에서 모두 100%",
+    "NEXON NOW는 로봇 접근을 막아 자동 감시하지 않고 사람이 확인"
+  ],
+  "tables": {
+    "rates": [
+      {
+        "grade": "고급",
+        "stars": [
+          4,
+          5
+        ],
+        "rate_pct": 100,
+        "src": [
+          "now-rune-engrave"
+        ]
+      },
+      {
+        "grade": "레어",
+        "stars": [
+          6,
+          7
+        ],
+        "rate_pct": 60,
+        "src": [
+          "now-rune-engrave"
+        ]
+      },
+      {
+        "grade": "엘리트",
+        "stars": [
+          8
+        ],
+        "rate_pct": 40,
+        "src": [
+          "now-rune-engrave"
+        ]
+      },
+      {
+        "grade": "에픽",
+        "stars": [
+          9
+        ],
+        "rate_pct": 25,
+        "src": [
+          "now-rune-engrave"
+        ]
+      },
+      {
+        "grade": "전설",
+        "stars": [
+          10
+        ],
+        "rate_pct": 25,
+        "src": [
+          "now-rune-engrave"
+        ]
+      },
+      {
+        "grade": "신화",
+        "stars": [
+          10
+        ],
+        "rate_pct": 25,
+        "src": [
+          "now-rune-engrave"
+        ]
+      }
+    ]
+  }
+}

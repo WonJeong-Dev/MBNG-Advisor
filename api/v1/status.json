@@ -1,0 +1,72 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "updated_at": "2026-11-10",
+  "monitoring": {
+    "boards": [
+      "https://mabinogimobile.nexon.com/News/Devnote",
+      "https://mabinogimobile.nexon.com/News/Notice",
+      "https://mabinogimobile.nexon.com/News/Update"
+    ],
+    "pages": [
+      "guide-2751033",
+      "guide-2751073",
+      "guide-2751102",
+      "guide-2751103",
+      "guide-2839865",
+      "guide-3164452",
+      "guide-3344477",
+      "guide-3481541",
+      "guide-3481543",
+      "guide-3481548",
+      "guide-3558754"
+    ],
+    "interval": "1시간(GitHub Actions 예약 실행, 실제 간격은 GitHub 사정에 따라 늦어질 수 있음)",
+    "not_monitored": [
+      "NEXON NOW(로봇 접근 금지, 사람이 확인)"
+    ]
+  },
+  "datasets": {
+    "leveling-materials": {
+      "verified_at": "2026-11-08",
+      "state": "ok",
+      "pending": []
+    },
+    "link-bonus": {
+      "verified_at": "2026-10-27",
+      "state": "ok",
+      "pending": []
+    },
+    "mado-resist": {
+      "verified_at": "2026-11-04",
+      "state": "ok",
+      "pending": []
+    },
+    "rune-engraving-rate": {
+      "verified_at": "2026-11-04",
+      "state": "ok",
+      "pending": []
+    },
+    "soulstream": {
+      "verified_at": "2026-11-10",
+      "state": "ok",
+      "pending": []
+    },
+    "summon-barrier": {
+      "verified_at": "2026-11-09",
+      "state": "ok",
+      "pending": []
+    },
+    "weekly": {
+      "verified_at": "2026-11-10",
+      "state": "ok",
+      "pending": []
+    }
+  }
+}

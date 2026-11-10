@@ -1,0 +1,26 @@
+name: 데이터 검사
+
+# data/ 원본과 api/·앱 데이터 구간이 어긋나지 않았는지, 출처·형식 규칙을 지키는지 검사한다
+on:
+  push:
+    paths:
+      - "data/**"
+      - "api/**"
+      - "tools/**"
+      - "MBNG Advisor.html"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tools/build.mjs --check

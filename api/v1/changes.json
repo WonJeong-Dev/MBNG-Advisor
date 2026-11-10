@@ -1,0 +1,71 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "changes": [
+    {
+      "date": "2026-11-10",
+      "datasets": [
+        "link-bonus",
+        "weekly",
+        "soulstream",
+        "leveling-materials",
+        "summon-barrier",
+        "mado-resist",
+        "rune-engraving-rate"
+      ],
+      "summary": "API 첫 공개",
+      "details": [
+        "넥슨 공식 공개 글과 게임 화면 직접 확인만 근거로 하는 7종을 공개",
+        "값은 앱에 쓰던 값과 같고, 데이터마다 기존 확인일을 그대로 verified_at으로 둠"
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "datasets": [
+        "weekly"
+      ],
+      "summary": "뱅가드 브리치 주간 전리품 주 3회 → 주 1회, 레이드에 적월의 스카스 추가",
+      "details": [
+        "뱅가드 브리치: 2026-11-09 06시부터 주 1회(1회 보상이 늘어 기존 3회분과 같음)",
+        "레이드: 적월의 스카스 보스별 주 1회(레이드 가이드 2026-11-05 기준)",
+        "나머지 11개 항목은 공식 가이드·업데이트 노트와 다시 대조해 변경 없음"
+      ],
+      "src": [
+        "upd-3575034",
+        "guide-3344477",
+        "guide-2839865"
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "datasets": [
+        "soulstream"
+      ],
+      "summary": "재확인: 변경 없음",
+      "details": [
+        "11/5 업데이트 노트의 소울스트림 언급은 멤버십 화면 안내",
+        "소울스트림 가이드(2026-07-16 기준) 생산 구간 15개·구매 가격 4구간 전부 일치"
+      ],
+      "src": [
+        "upd-3575034",
+        "guide-3481548"
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "datasets": [
+        "link-bonus"
+      ],
+      "summary": "재확인: 변경 없음",
+      "details": [
+        "콜라보 상품 공지의 숙련 연계 언급은 변신 중 추가 공격력 미반영 안내로, 보너스 표와 무관"
+      ]
+    }
+  ]
+}
