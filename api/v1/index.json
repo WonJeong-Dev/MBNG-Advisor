@@ -7,7 +7,7 @@
   },
   "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
   "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
-  "updated_at": "2026-11-10",
+  "updated_at": "2026-11-11",
   "docs": "https://wonjeong-dev.github.io/MBNG-Advisor/api/",
   "openapi": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/openapi.json",
   "principles": [
@@ -83,7 +83,7 @@
       "title": "주간 숙제",
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/weekly.json",
       "verified_at": "2026-11-10",
-      "state": "check_needed",
+      "state": "ok",
       "tables": {
         "items": 13
       }

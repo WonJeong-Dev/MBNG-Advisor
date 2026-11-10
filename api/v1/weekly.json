@@ -12,18 +12,8 @@
   "description": "매주 월요일 06:00(한국 시간)에 초기화되는 주간 횟수 제한 콘텐츠와 주간 최대 횟수",
   "verified_at": "2026-11-10",
   "status": {
-    "state": "check_needed",
-    "pending": [
-      {
-        "key": "page-guide-3344477-ec4aa662",
-        "kind": "page-changed",
-        "title": "뱅가드 브리치 가이드 본문 변경",
-        "url": "https://mabinogimobile.nexon.com/Info/Guide/3344477",
-        "date": "2026-11-10",
-        "detected_at": "2026-11-10T12:17:18Z",
-        "matched": []
-      }
-    ]
+    "state": "ok",
+    "pending": []
   },
   "params": {
     "reset": "매주 월요일 06:00 (Asia/Seoul)",
@@ -127,8 +117,8 @@
       "kind": "가이드",
       "title": "뱅가드 브리치 가이드",
       "url": "https://mabinogimobile.nexon.com/Info/Guide/3344477",
-      "basis": "2026-11-05",
-      "checked": "2026-11-10"
+      "basis": "2026-11-10",
+      "checked": "2026-11-11"
     },
     {
       "id": "guide-3481541",

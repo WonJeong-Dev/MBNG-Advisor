@@ -25,7 +25,7 @@
 1. 감시가 사건을 남기면 해당 데이터의 상태가 `check_needed`가 됩니다. 운영자 PC에 Windows 알림이 뜨고, 요약이 `%USERPROFILE%\mbng-watch\재확인-날짜.md`에 남습니다.
 2. 공식 글을 읽거나 게임에서 확인합니다.
 3. 값이 바뀌었으면 `datasets/<id>.json`의 레코드와 `src`를 고치고, 필요하면 `sources.json`에 출처를 더합니다.
-4. 출처와 다시 대조했으면 `verified_at`을 그날로 바꿉니다. 대조 없이 무관한 글로 판단만 했으면 사건 key를 `reviewed`에 넣습니다.
+4. 출처와 다시 대조했으면 `verified_at`을 그날로 바꿉니다. 대조 없이 무관한 글로 판단만 했으면 사건 key를 `reviewed`에 넣습니다. 근거 글 하나만 대조해 값이 같으면(데이터 전체를 다시 대조하지 않음) `verified_at`은 두고 사건 key를 `reviewed`에 넣습니다.
 5. `changes.json`에 무엇을 근거로 무엇이 바뀌었는지(또는 변경 없음) 기록합니다.
 6. `node tools/build.mjs`로 앱과 API를 다시 만들고, `node tools/build.mjs --check`로 확인한 뒤 커밋합니다.
 
