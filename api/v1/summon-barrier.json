@@ -22,6 +22,7 @@
     "진행 횟수는 주간 숙제(weekly)의 summon 항목 참고"
   ],
   "monitoring": {
+    "auto": false,
     "keywords": [
       "불길한 소환의 결계"
     ],

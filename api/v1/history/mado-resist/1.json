@@ -1,0 +1,58 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "mado-resist",
+  "title": "마도 저항 초과 피해",
+  "revision": 1,
+  "date": "2026-11-10",
+  "summary": "API 첫 공개(앱에 쓰던 값과 같음)",
+  "hash": "7b70c2acef3aaeae",
+  "params": {
+    "cap_pct": 50
+  },
+  "data": {
+    "examples": [
+      {
+        "over": 500,
+        "final_damage_pct": 4.1,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 1000,
+        "final_damage_pct": 7.9,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 2000,
+        "final_damage_pct": 14.6,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 4000,
+        "final_damage_pct": 25,
+        "src": [
+          "guide-3481543"
+        ]
+      },
+      {
+        "over": 8000,
+        "final_damage_pct": 37.5,
+        "src": [
+          "guide-3481543"
+        ]
+      }
+    ]
+  }
+}

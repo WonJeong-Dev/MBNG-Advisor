@@ -50,6 +50,8 @@
    갱신 시: 데이터를 고칠 때는 data/datasets/*.json을 고치고 node tools/build.mjs(앱·API 함께 갱신), 재확인만 했으면 verified_at 갱신 + changes.json 기록
 21. ✅ 내 캐릭터 진단 → 직업 + 부위별 룬·필드 보스 칭호·소환 펫을 고르거나 모비라이프 표준 캐릭터 문서(JSON)를 붙여넣으면, 부위별 사용 순위 상위 칸 비교·안 쓰는 상위 룬·경합 신호·맞는 빌드(개조·세공)·추천 칭호·에픽 펫과 비교 (2026-11-10 완료, 입력형 기능이지만 사용자 결정으로 추가)
    갱신 시: 모비라이프 캐릭터 상세 스키마 버전이 바뀌면 DG_SLOT·문서 읽기 재검토. 비교 기준은 RUNES·RC·BLD·FBT_CLS·PET_CLS를 그대로 쓰므로 그 데이터를 갱신하면 함께 바뀜
+22. ✅ 독자 데이터 API 2단계 → 새 데이터 3종(점검 일정 maintenance·진행 중 이벤트 events는 공식 게시판 자동 갱신, 어비스 구멍 주기 abyss-hole은 게임 확인), 값 판본(history), 변경 RSS(feed.xml), 근거 가이드 본문 보관·바뀐 낱말 표시·기준일만 바뀐 변경 자동 처리, 앱 어구 재설정을 공식 점검 일정(정기·임시·미진행)에 연동, 게임 확인 목록 docs/INGAME_CHECK.md.txt (2026-11-11 완료)
+   갱신 시: 공식 사이트 목록 구조가 바뀌면 tools/official-parse.mjs(parseList·pager·parseMaint·parseEvents)를 고침. 감시 로그에 '이벤트 수가 맞지 않음'이 이어지면 목록 구조 변경을 의심. 게임 확인 목록의 데이터는 캡처를 받는 대로 ingame 출처로 바꿔 API에 추가
 
 운영 (2026-10-27~): 이름을 ERIN HUB → MBNG Advisor로 변경(파일 `MBNG Advisor.html`, 저장 키 `mbng_advisor_v3`, 기존 키 자동 이전).
 저장소 https://github.com/WonJeong-Dev/MBNG-Advisor (공개 — 무료 계정은 비공개 저장소에 Pages를 쓸 수 없어 사용자가 공개 전환 선택, 2026-10-27).

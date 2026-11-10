@@ -1,0 +1,252 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "weekly",
+  "title": "주간 숙제",
+  "revision": 2,
+  "date": "2026-11-10",
+  "summary": "API 첫 공개 · 뱅가드 브리치 주간 전리품 주 3회 → 주 1회, 레이드에 적월의 스카스 추가",
+  "hash": "a29fe7e93fe059da",
+  "params": {
+    "reset": "매주 월요일 06:00 (Asia/Seoul)",
+    "groups": [
+      "전투",
+      "미션",
+      "성장·생활"
+    ],
+    "raid_verified_at": "2026-11-10"
+  },
+  "data": {
+    "items": [
+      {
+        "id": "bh",
+        "group": "전투",
+        "name": "검은 구멍 초과 탐험",
+        "counts": [
+          {
+            "name": "",
+            "max": 7
+          }
+        ],
+        "description": "주 7회를 요일과 관계없이 사용. 매일 기본 1회는 다음 날 06시에 소멸(일일)",
+        "src": [
+          "guide-2751103",
+          "upd-3147463"
+        ]
+      },
+      {
+        "id": "summon",
+        "group": "전투",
+        "name": "불길한 소환의 결계",
+        "counts": [
+          {
+            "name": "",
+            "max": 7
+          }
+        ],
+        "description": "진행 횟수 주 7회",
+        "src": [
+          "upd-3147463"
+        ]
+      },
+      {
+        "id": "abyss",
+        "group": "전투",
+        "name": "어비스 클리어 전리품",
+        "counts": [
+          {
+            "name": "",
+            "max": 3
+          }
+        ],
+        "description": "클리어 전리품 주 3회. 입장은 제한 없음",
+        "src": [
+          "guide-3164452"
+        ]
+      },
+      {
+        "id": "abyssw",
+        "group": "전투",
+        "name": "어비스 주간 전리품 수령",
+        "counts": [
+          {
+            "name": "",
+            "max": 1
+          }
+        ],
+        "description": "주간 초기화 후 수령. 전주에 못 한 레이드·결계·검은 구멍 정산 포함",
+        "src": [
+          "guide-3164452",
+          "guide-2839865"
+        ]
+      },
+      {
+        "id": "raid",
+        "group": "전투",
+        "name": "레이드 클리어 전리품",
+        "counts": [
+          {
+            "name": "카브락",
+            "max": 1
+          },
+          {
+            "name": "화이트 서큐버스",
+            "max": 1
+          },
+          {
+            "name": "에이렐",
+            "max": 1
+          },
+          {
+            "name": "적월의 스카스",
+            "max": 1
+          }
+        ],
+        "description": "보스별 주 1회, 난이도와 관계없이 공유",
+        "src": [
+          "guide-2839865"
+        ]
+      },
+      {
+        "id": "fboss",
+        "group": "전투",
+        "name": "필드 보스 토벌 전리품",
+        "counts": [
+          {
+            "name": "",
+            "max": 1
+          }
+        ],
+        "description": "주 1회(1회 획득 후 다른 필드 보스도 미지급)",
+        "src": [
+          "guide-2751102",
+          "upd-3480721"
+        ]
+      },
+      {
+        "id": "vanguard",
+        "group": "전투",
+        "name": "뱅가드 브리치 주간 전리품",
+        "counts": [
+          {
+            "name": "",
+            "max": 1
+          }
+        ],
+        "description": "주간 전리품 주 1회(2026-11-09 06시부터, 그 전에는 주 3회)",
+        "src": [
+          "guide-3344477",
+          "upd-3575034"
+        ]
+      },
+      {
+        "id": "guild",
+        "group": "미션",
+        "name": "길드 미션",
+        "counts": [
+          {
+            "name": "",
+            "max": 6
+          }
+        ],
+        "description": "매주 6개",
+        "src": [
+          "guide-2751033"
+        ]
+      },
+      {
+        "id": "coop",
+        "group": "미션",
+        "name": "협동 미션 주간 선물",
+        "counts": [
+          {
+            "name": "",
+            "max": 1
+          }
+        ],
+        "description": "주간 선물 주 1회",
+        "src": [
+          "guide-3481541"
+        ]
+      },
+      {
+        "id": "wmission",
+        "group": "미션",
+        "name": "주간 미션 진행 보상",
+        "counts": [
+          {
+            "name": "",
+            "max": 4
+          }
+        ],
+        "description": "4단계 진행 보상",
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "id": "pet",
+        "group": "성장·생활",
+        "name": "펫 원정대",
+        "counts": [
+          {
+            "name": "",
+            "max": 5
+          }
+        ],
+        "description": "매주 최대 5마리(원정대 레벨에 따라 슬롯 1~5). 내 슬롯 수를 고르면 그만큼 채웠을 때 완료",
+        "src": [
+          "guide-3558754"
+        ]
+      },
+      {
+        "id": "soul",
+        "group": "성장·생활",
+        "name": "소울 주간 구매",
+        "counts": [
+          {
+            "name": "붉은",
+            "max": 30
+          },
+          {
+            "name": "노란",
+            "max": 30
+          },
+          {
+            "name": "푸른",
+            "max": 30
+          }
+        ],
+        "description": "소울별 주 최대 30회(골드)",
+        "src": [
+          "guide-3481548"
+        ]
+      },
+      {
+        "id": "job",
+        "group": "성장·생활",
+        "name": "아르바이트",
+        "counts": [
+          {
+            "name": "스페셜",
+            "max": 1
+          },
+          {
+            "name": "주말",
+            "max": 1
+          }
+        ],
+        "description": "매주 월 06시 초기화 · 스페셜 아르바이트 주 1개(라이프 멤버십) · 주말 아르바이트 주 최대 1개(토·일 생성)",
+        "src": [
+          "guide-2751073"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "id": "maintenance",
+  "title": "점검 일정",
+  "description": "공식 공지사항의 정기·임시점검 일정(한국 시간). 점검이 끝나면 공지 제목대로 실제 종료 시각과 완료 표시가 반영된다",
+  "verified_at": "2026-11-11",
+  "auto": true,
+  "watch": {
+    "keywords": [],
+    "pages": []
+  },
+  "params": {
+    "timezone": "Asia/Seoul",
+    "since": "2026-09-01",
+    "update": "감시가 1시간마다 공지사항 첫 쪽을 읽어 바로 반영"
+  },
+  "notes": [
+    "공지 제목의 날짜·시간을 그대로 옮긴다. 점검이 끝나면 넥슨이 제목 앞에 '(완료)'를 붙이고 시간을 실제 종료 시각으로 고친다(2026-11-05·11-06 공지 본문으로 확인)",
+    "'정기점검 미진행 안내' 공지는 canceled: true, 시간은 null",
+    "planned_end는 감시가 처음 본 종료 시각이 실제와 달랐을 때만 있다(2026-11-11부터 기록)",
+    "어비스 구멍 시각은 점검 뒤 새로 정해진다(abyss-hole)"
+  ],
+  "tables": {
+    "schedule": [
+      {
+        "id": "3536489",
+        "kind": "정기",
+        "date": "2026-09-03",
+        "start": "06:00",
+        "end": "08:50",
+        "start_at": "2026-09-03T06:00:00+09:00",
+        "end_at": "2026-09-03T08:50:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료) 9/3(목) 정기점검 안내 (06:00 ~ 08:50)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3536489",
+        "posted": "2026-09-01",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3539156",
+        "kind": "임시",
+        "date": "2026-09-06",
+        "start": "06:00",
+        "end": "07:45",
+        "start_at": "2026-09-06T06:00:00+09:00",
+        "end_at": "2026-09-06T07:45:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료) 9/6(일) 임시점검 안내 (06:00 ~ 07:45)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3539156",
+        "posted": "2026-09-05",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3540699",
+        "kind": "정기",
+        "date": "2026-09-10",
+        "start": "06:00",
+        "end": "07:30",
+        "start_at": "2026-09-10T06:00:00+09:00",
+        "end_at": "2026-09-10T07:30:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료) 9/10(목) 정기점검 안내 (06:00 ~ 07:30)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3540699",
+        "posted": "2026-09-08",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3545031",
+        "kind": "정기",
+        "date": "2026-09-17",
+        "start": "06:00",
+        "end": "12:30",
+        "start_at": "2026-09-17T06:00:00+09:00",
+        "end_at": "2026-09-17T12:30:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료) 9/17(목) 정기점검 안내 (06:00 ~ 12:30)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3545031",
+        "posted": "2026-09-15",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3546883",
+        "kind": "임시",
+        "date": "2026-09-17",
+        "start": "16:10",
+        "end": "17:45",
+        "start_at": "2026-09-17T16:10:00+09:00",
+        "end_at": "2026-09-17T17:45:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료)(추가) 9/17(목) 임시점검 안내 (16:10 ~ 17:45)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3546883",
+        "posted": "2026-09-17",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3547082",
+        "kind": "임시",
+        "date": "2026-09-18",
+        "start": "05:55",
+        "end": "08:30",
+        "start_at": "2026-09-18T05:55:00+09:00",
+        "end_at": "2026-09-18T08:30:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료)(추가) 9/18(금) 임시점검 안내 (05:55 ~ 08:30)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3547082",
+        "posted": "2026-09-17",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3547821",
+        "kind": "임시",
+        "date": "2026-09-18",
+        "start": "18:40",
+        "end": "20:40",
+        "start_at": "2026-09-18T18:40:00+09:00",
+        "end_at": "2026-09-18T20:40:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료) (추가) 9/18(금) 임시점검 안내 (18:40 ~ 20:40)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3547821",
+        "posted": "2026-09-18",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3549901",
+        "kind": "임시",
+        "date": "2026-09-22",
+        "start": "06:00",
+        "end": "08:45",
+        "start_at": "2026-09-22T06:00:00+09:00",
+        "end_at": "2026-09-22T08:45:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료) 9/22(화) 임시점검 안내 (06:00 ~ 08:45)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3549901",
+        "posted": "2026-09-21",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3550443",
+        "kind": "정기",
+        "date": "2026-09-24",
+        "start": null,
+        "end": null,
+        "start_at": null,
+        "end_at": null,
+        "completed": false,
+        "canceled": true,
+        "title": "9/24(목) 정기점검 미진행 안내",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3550443",
+        "posted": "2026-09-22",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3554482",
+        "kind": "정기",
+        "date": "2026-10-01",
+        "start": "06:00",
+        "end": "10:00",
+        "start_at": "2026-10-01T06:00:00+09:00",
+        "end_at": "2026-10-01T10:00:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료) 10/1(목) 정기점검 안내 (06:00 ~ 10:00)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3554482",
+        "posted": "2026-09-29",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3556378",
+        "kind": "임시",
+        "date": "2026-10-02",
+        "start": "06:00",
+        "end": "09:00",
+        "start_at": "2026-10-02T06:00:00+09:00",
+        "end_at": "2026-10-02T09:00:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료) 10/2(금) 임시점검 안내 (06:00 ~ 9:00)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3556378",
+        "posted": "2026-10-01",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3558867",
+        "kind": "정기",
+        "date": "2026-10-08",
+        "start": null,
+        "end": null,
+        "start_at": null,
+        "end_at": null,
+        "completed": false,
+        "canceled": true,
+        "title": "10/8(목) 정기점검 미진행 안내",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3558867",
+        "posted": "2026-10-06",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3562456",
+        "kind": "정기",
+        "date": "2026-10-15",
+        "start": "06:00",
+        "end": "10:10",
+        "start_at": "2026-10-15T06:00:00+09:00",
+        "end_at": "2026-10-15T10:10:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료)(추가) 10/15(목) 정기점검 안내 (06:00 ~ 10:10)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3562456",
+        "posted": "2026-10-13",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3566739",
+        "kind": "정기",
+        "date": "2026-10-22",
+        "start": "06:00",
+        "end": "08:10",
+        "start_at": "2026-10-22T06:00:00+09:00",
+        "end_at": "2026-10-22T08:10:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료)(추가) 10/22(목) 정기점검 안내 (06:00 ~ 08:10)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3566739",
+        "posted": "2026-10-20",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3571370",
+        "kind": "정기",
+        "date": "2026-10-29",
+        "start": "06:00",
+        "end": "08:15",
+        "start_at": "2026-10-29T06:00:00+09:00",
+        "end_at": "2026-10-29T08:15:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료) 10/29(목) 정기점검 안내 (06:00 ~ 08:15)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3571370",
+        "posted": "2026-10-27",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3574808",
+        "kind": "정기",
+        "date": "2026-11-05",
+        "start": "06:00",
+        "end": "12:30",
+        "start_at": "2026-11-05T06:00:00+09:00",
+        "end_at": "2026-11-05T12:30:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료) 11/5(목) 정기점검 안내 (06:00 ~ 12:30)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3574808",
+        "posted": "2026-11-03",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3576431",
+        "kind": "임시",
+        "date": "2026-11-06",
+        "start": "06:00",
+        "end": "07:30",
+        "start_at": "2026-11-06T06:00:00+09:00",
+        "end_at": "2026-11-06T07:30:00+09:00",
+        "completed": true,
+        "canceled": false,
+        "title": "(완료) 11/6(금) 임시점검 안내 (06:00 ~ 07:30)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3576431",
+        "posted": "2026-11-05",
+        "src": [
+          "board-notice"
+        ]
+      },
+      {
+        "id": "3578822",
+        "kind": "정기",
+        "date": "2026-11-12",
+        "start": "06:00",
+        "end": "11:00",
+        "start_at": "2026-11-12T06:00:00+09:00",
+        "end_at": "2026-11-12T11:00:00+09:00",
+        "completed": false,
+        "canceled": false,
+        "title": "11/12(목) 정기점검 안내 (06:00 ~ 11:00)",
+        "url": "https://mabinogimobile.nexon.com/News/Notice/3578822",
+        "posted": "2026-11-10",
+        "src": [
+          "board-notice"
+        ]
+      }
+    ]
+  }
+}

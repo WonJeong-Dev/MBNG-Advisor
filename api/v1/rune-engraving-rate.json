@@ -25,6 +25,7 @@
     "NEXON NOW는 로봇 접근을 막아 자동 감시하지 않고 사람이 확인"
   ],
   "monitoring": {
+    "auto": false,
     "keywords": [
       "룬 각인 성공",
       "각인 성공 확률",

@@ -1,4 +1,20 @@
 {
+  "board-events": {
+    "type": "official",
+    "kind": "이벤트 게시판",
+    "title": "이벤트 게시판(진행중)",
+    "label": "이벤트",
+    "url": "https://mabinogimobile.nexon.com/News/Events?headlineId=2501",
+    "checked": "2026-11-11"
+  },
+  "board-notice": {
+    "type": "official",
+    "kind": "공지 게시판",
+    "title": "공지사항(점검 공지)",
+    "label": "공지사항",
+    "url": "https://mabinogimobile.nexon.com/News/Notice",
+    "checked": "2026-11-11"
+  },
   "guide-2751033": {
     "type": "official",
     "kind": "가이드",
@@ -94,6 +110,12 @@
     "label": "펫 원정대 가이드",
     "url": "https://mabinogimobile.nexon.com/Info/Guide/3558754",
     "basis": "2026-10-15",
+    "checked": "2026-11-10"
+  },
+  "ingame-abyss-hole": {
+    "type": "ingame",
+    "kind": "게임 화면 확인",
+    "title": "어비스 구멍 15분 열림, 닫힌 뒤 36시간 후 재등장(주기 36시간 15분), 점검 사이 일정, 점검 뒤 시각 재설정",
     "checked": "2026-11-10"
   },
   "ingame-barrier-time": {

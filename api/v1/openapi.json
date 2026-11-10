@@ -3,7 +3,7 @@
   "info": {
     "title": "MBNG Advisor 데이터 API",
     "version": "1.0.0",
-    "description": "마비노기 모바일 데이터를 **넥슨 공식 공개 글**과 **게임 화면 직접 확인**만으로 정리해 JSON으로 제공합니다. 위키·팬사이트·커뮤니티·다른 API의 값은 싣지 않습니다.\n\n키 없이 누구나 읽을 수 있고, 모든 출처에서 브라우저로 바로 불러올 수 있습니다(CORS 허용).\n\n## 원칙\n\n- **출처 두 종류만:** `official`(넥슨 공식 업데이트 노트·공지·개발자 노트·가이드·NEXON NOW)과 `ingame`(게임 화면 직접 확인).\n- **값마다 출처:** 모든 레코드에 `src`(출처 id 목록)가 붙고, 출처의 제목·주소·게시일·기준일·확인일은 `sources`에 있습니다.\n- **확인일과 상태:** 데이터마다 마지막으로 출처와 대조한 날(`verified_at`)과 상태(`status.state`)가 있습니다.\n\n## 최신 유지 방식\n\n1. 공식 업데이트·공지·개발자 노트 목록과, 데이터가 근거로 삼는 공식 가이드 본문을 정기적으로 확인합니다. 넥슨 공식 사이트가 해외 접속에는 한국어 목록을 주지 않아 감시는 한국에서 실행하며, 실행 간격은 `status.json`의 `monitoring.interval`에 있습니다.\n2. 새 글이나 고친 글(제목의 '(수정)')에 데이터별 감시 키워드가 있거나 근거 가이드 본문이 바뀌면, 해당 데이터의 `status.state`가 `check_needed`로 바뀌고 `pending`에 그 글이 나옵니다.\n3. 공식 글을 다시 읽거나 게임에서 다시 확인해 값을 고치면 `changes.json`에 기록하고 `verified_at`을 갱신합니다. 그러면 상태가 `ok`로 돌아옵니다.\n\nNEXON NOW는 로봇 접근을 막아 두어 자동 감시하지 않고 사람이 확인합니다(해당 출처에 `monitoring: \"manual\"`).\n\n## 사용 예\n\n```js\nconst r = await fetch('https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/weekly.json');\nconst { status, data } = await r.json();\nif (status.state === 'check_needed') console.warn('공식 변경 재확인 중', status.pending);\nconsole.log(data.items.map(i => `${i.name} 주 ${i.counts.map(c => c.max).join('/')}회`));\n```\n\n```python\nimport requests\nd = requests.get('https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/link-bonus.json', timeout=10).json()\nv = next(x for x in d['data']['values'] if x['star'] == 10 and x['level'] == 20)\nprint(v['value'], v['heal_value'])\n```\n\n## 이용 조건\n\n- 데이터 정리·구조는 **CC BY 4.0**입니다. 출처를 `MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)`로 표기하면 상업 이용을 포함해 자유롭게 쓸 수 있습니다.\n- 넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다. 게임 이미지는 제공하지 않습니다.\n- `v1` 안에서는 필드를 추가만 합니다. 필드 이름을 바꾸거나 지울 일이 생기면 `v2`로 새 주소를 엽니다.\n- GitHub Pages가 약 10분 동안 캐시합니다. 상태 확인은 `status.json` 하나로 충분합니다.\n",
+    "description": "마비노기 모바일 데이터를 **넥슨 공식 공개 글**과 **게임 화면 직접 확인**만으로 정리해 JSON으로 제공합니다. 위키·팬사이트·커뮤니티·다른 API의 값은 싣지 않습니다.\n\n키 없이 누구나 읽을 수 있고, 모든 출처에서 브라우저로 바로 불러올 수 있습니다(CORS 허용).\n\n## 원칙\n\n- **출처 두 종류만:** `official`(넥슨 공식 업데이트 노트·공지·개발자 노트·가이드·NEXON NOW)과 `ingame`(게임 화면 직접 확인).\n- **값마다 출처:** 모든 레코드에 `src`(출처 id 목록)가 붙고, 출처의 제목·주소·게시일·기준일·확인일은 `sources`에 있습니다.\n- **확인일과 상태:** 데이터마다 마지막으로 출처와 대조한 날(`verified_at`)과 상태(`status.state`)가 있습니다.\n- **판본:** 값이 바뀔 때마다 예전 값을 `history/{dataset}/{revision}.json`에 남깁니다. 목록은 `history/{dataset}/index.json`입니다.\n- **변경 구독:** 값 변경·재확인 기록을 `changes.json`과 RSS(`feed.xml`)로 냅니다. RSS 리더나 디스코드 RSS 봇으로 구독할 수 있습니다.\n\n## 최신 유지 방식\n\n1. 공식 업데이트·공지·개발자 노트 목록과, 데이터가 근거로 삼는 공식 가이드 본문을 정기적으로 확인합니다. 넥슨 공식 사이트가 해외 접속에는 한국어 목록을 주지 않아 감시는 한국에서 실행하며, 실행 간격은 `status.json`의 `monitoring.interval`에 있습니다.\n2. 새 글이나 고친 글(제목의 '(수정)')에 데이터별 감시 키워드가 있거나 근거 가이드 본문이 바뀌면, 해당 데이터의 `status.state`가 `check_needed`로 바뀌고 `pending`에 그 글이 나옵니다.\n3. 공식 글을 다시 읽거나 게임에서 다시 확인해 값을 고치면 `changes.json`에 기록하고 `verified_at`을 갱신합니다. 그러면 상태가 `ok`로 돌아옵니다.\n\n근거 가이드는 본문을 보관해 두고 바뀐 낱말을 비교합니다. 가이드 끝의 작성 기준일 문장만 바뀌었으면 내용은 같으므로, 상태를 바꾸지 않고 '자동 재확인'으로 기록합니다.\n\n**자동 갱신 데이터(`monitoring.auto: true`):** 점검 일정(`maintenance`)과 진행 중 이벤트(`events`)는 공식 공지사항·이벤트 게시판을 그대로 옮기는 데이터라, 감시가 1시간마다 읽어 사람 확인 없이 바로 반영합니다. 점검이 끝나면 넥슨이 공지 제목에 '(완료)'와 실제 종료 시각을 적으므로 그 값으로 바뀝니다. 이벤트 목록은 전체를 다 읽었을 때만 바꿉니다.\n\nNEXON NOW는 로봇 접근을 막아 두어 자동 감시하지 않고 사람이 확인합니다(해당 출처에 `monitoring: \"manual\"`).\n\n## 사용 예\n\n```js\nconst r = await fetch('https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/weekly.json');\nconst { status, data } = await r.json();\nif (status.state === 'check_needed') console.warn('공식 변경 재확인 중', status.pending);\nconsole.log(data.items.map(i => `${i.name} 주 ${i.counts.map(c => c.max).join('/')}회`));\n```\n\n```js\n// 다음 점검(한국 시간)\nconst m = await (await fetch('https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/maintenance.json')).json();\nconst next = m.data.schedule.find(s => !s.canceled && Date.parse(s.end_at) > Date.now());\nconsole.log(next ? `${next.date} ${next.start}~${next.end} ${next.kind}점검` : '공지된 점검 없음');\n```\n\n```python\nimport requests\nd = requests.get('https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/link-bonus.json', timeout=10).json()\nv = next(x for x in d['data']['values'] if x['star'] == 10 and x['level'] == 20)\nprint(v['value'], v['heal_value'])\n```\n\n## 이용 조건\n\n- 데이터 정리·구조는 **CC BY 4.0**입니다. 출처를 `MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)`로 표기하면 상업 이용을 포함해 자유롭게 쓸 수 있습니다.\n- 넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다. 게임 이미지는 제공하지 않습니다.\n- `v1` 안에서는 필드를 추가만 합니다. 필드 이름을 바꾸거나 지울 일이 생기면 `v2`로 새 주소를 엽니다.\n- GitHub Pages가 약 10분 동안 캐시합니다. 상태 확인은 `status.json` 하나로 충분합니다.\n",
     "license": {
       "name": "CC BY 4.0",
       "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
@@ -18,11 +18,15 @@
   "tags": [
     {
       "name": "안내",
-      "description": "목록·상태·이력·출처"
+      "description": "목록·상태·이력·출처·RSS"
     },
     {
       "name": "데이터",
       "description": "데이터별 파일"
+    },
+    {
+      "name": "판본",
+      "description": "값이 바뀔 때마다 남긴 예전 값"
     }
   ],
   "paths": {
@@ -126,6 +130,361 @@
         }
       }
     },
+    "/v1/feed.xml": {
+      "get": {
+        "summary": "변경 RSS",
+        "description": "changes.json의 최근 50건을 RSS 2.0으로. RSS 리더·디스코드 봇으로 구독할 수 있다",
+        "tags": [
+          "안내"
+        ],
+        "responses": {
+          "200": {
+            "description": "성공",
+            "content": {
+              "application/rss+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/history/{dataset}/index.json": {
+      "get": {
+        "summary": "판본 목록",
+        "description": "데이터 값이 바뀔 때마다 남긴 판본(최신순). 확인일만 바뀐 경우는 판본을 만들지 않는다",
+        "tags": [
+          "판본"
+        ],
+        "parameters": [
+          {
+            "name": "dataset",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "abyss-hole",
+                "events",
+                "leveling-materials",
+                "link-bonus",
+                "mado-resist",
+                "maintenance",
+                "rune-engraving-rate",
+                "soulstream",
+                "summon-barrier",
+                "weekly"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "dataset": {
+                      "type": "string"
+                    },
+                    "versions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Revision"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/history/{dataset}/{revision}.json": {
+      "get": {
+        "summary": "판본 하나",
+        "description": "그 판본의 params와 data(데이터 파일의 params·data와 같은 형식)",
+        "tags": [
+          "판본"
+        ],
+        "parameters": [
+          {
+            "name": "dataset",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "abyss-hole",
+                "events",
+                "leveling-materials",
+                "link-bonus",
+                "mado-resist",
+                "maintenance",
+                "rune-engraving-rate",
+                "soulstream",
+                "summon-barrier",
+                "weekly"
+              ]
+            }
+          },
+          {
+            "name": "revision",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "revision": {
+                      "type": "integer"
+                    },
+                    "date": {
+                      "type": "string"
+                    },
+                    "summary": {
+                      "type": "string"
+                    },
+                    "hash": {
+                      "type": "string"
+                    },
+                    "params": {
+                      "type": "object"
+                    },
+                    "data": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/abyss-hole.json": {
+      "get": {
+        "summary": "어비스 구멍 주기",
+        "description": "어비스 구멍(어구)이 열려 있는 시간, 다시 열리기까지의 주기, 점검 뒤 재설정",
+        "tags": [
+          "데이터"
+        ],
+        "responses": {
+          "200": {
+            "description": "성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "api": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    },
+                    "license": {
+                      "$ref": "#/components/schemas/License"
+                    },
+                    "attribution": {
+                      "type": "string"
+                    },
+                    "disclaimer": {
+                      "type": "string"
+                    },
+                    "dataset": {
+                      "type": "string",
+                      "enum": [
+                        "abyss-hole"
+                      ]
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "verified_at": {
+                      "type": "string",
+                      "description": "마지막으로 출처와 대조한 날"
+                    },
+                    "status": {
+                      "$ref": "#/components/schemas/Status"
+                    },
+                    "params": {
+                      "type": "object"
+                    },
+                    "notes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "monitoring": {
+                      "type": "object",
+                      "properties": {
+                        "auto": {
+                          "type": "boolean",
+                          "description": "true: 공식 게시판을 감시가 그대로 옮겨 자동 갱신"
+                        },
+                        "keywords": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "pages": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Source"
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "cycle": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/AbyssHoleCycle"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/events.json": {
+      "get": {
+        "summary": "진행 중 이벤트",
+        "description": "공식 이벤트 게시판에서 '진행중'으로 표시된 이벤트의 제목과 기간",
+        "tags": [
+          "데이터"
+        ],
+        "responses": {
+          "200": {
+            "description": "성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "api": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    },
+                    "license": {
+                      "$ref": "#/components/schemas/License"
+                    },
+                    "attribution": {
+                      "type": "string"
+                    },
+                    "disclaimer": {
+                      "type": "string"
+                    },
+                    "dataset": {
+                      "type": "string",
+                      "enum": [
+                        "events"
+                      ]
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "verified_at": {
+                      "type": "string",
+                      "description": "마지막으로 출처와 대조한 날"
+                    },
+                    "status": {
+                      "$ref": "#/components/schemas/Status"
+                    },
+                    "params": {
+                      "type": "object"
+                    },
+                    "notes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "monitoring": {
+                      "type": "object",
+                      "properties": {
+                        "auto": {
+                          "type": "boolean",
+                          "description": "true: 공식 게시판을 감시가 그대로 옮겨 자동 갱신"
+                        },
+                        "keywords": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "pages": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Source"
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "events": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/EventsEvents"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/leveling-materials.json": {
       "get": {
         "summary": "신규 육성 스토리 필수 재료",
@@ -187,6 +546,10 @@
                     "monitoring": {
                       "type": "object",
                       "properties": {
+                        "auto": {
+                          "type": "boolean",
+                          "description": "true: 공식 게시판을 감시가 그대로 옮겨 자동 갱신"
+                        },
                         "keywords": {
                           "type": "array",
                           "items": {
@@ -293,6 +656,10 @@
                     "monitoring": {
                       "type": "object",
                       "properties": {
+                        "auto": {
+                          "type": "boolean",
+                          "description": "true: 공식 게시판을 감시가 그대로 옮겨 자동 갱신"
+                        },
                         "keywords": {
                           "type": "array",
                           "items": {
@@ -393,6 +760,10 @@
                     "monitoring": {
                       "type": "object",
                       "properties": {
+                        "auto": {
+                          "type": "boolean",
+                          "description": "true: 공식 게시판을 감시가 그대로 옮겨 자동 갱신"
+                        },
                         "keywords": {
                           "type": "array",
                           "items": {
@@ -420,6 +791,110 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/MadoResistExamples"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/maintenance.json": {
+      "get": {
+        "summary": "점검 일정",
+        "description": "공식 공지사항의 정기·임시점검 일정(한국 시간). 점검이 끝나면 공지 제목대로 실제 종료 시각과 완료 표시가 반영된다",
+        "tags": [
+          "데이터"
+        ],
+        "responses": {
+          "200": {
+            "description": "성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "api": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    },
+                    "license": {
+                      "$ref": "#/components/schemas/License"
+                    },
+                    "attribution": {
+                      "type": "string"
+                    },
+                    "disclaimer": {
+                      "type": "string"
+                    },
+                    "dataset": {
+                      "type": "string",
+                      "enum": [
+                        "maintenance"
+                      ]
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "verified_at": {
+                      "type": "string",
+                      "description": "마지막으로 출처와 대조한 날"
+                    },
+                    "status": {
+                      "$ref": "#/components/schemas/Status"
+                    },
+                    "params": {
+                      "type": "object"
+                    },
+                    "notes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "monitoring": {
+                      "type": "object",
+                      "properties": {
+                        "auto": {
+                          "type": "boolean",
+                          "description": "true: 공식 게시판을 감시가 그대로 옮겨 자동 갱신"
+                        },
+                        "keywords": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "pages": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Source"
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "schedule": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/MaintenanceSchedule"
                           }
                         }
                       }
@@ -493,6 +968,10 @@
                     "monitoring": {
                       "type": "object",
                       "properties": {
+                        "auto": {
+                          "type": "boolean",
+                          "description": "true: 공식 게시판을 감시가 그대로 옮겨 자동 갱신"
+                        },
                         "keywords": {
                           "type": "array",
                           "items": {
@@ -593,6 +1072,10 @@
                     "monitoring": {
                       "type": "object",
                       "properties": {
+                        "auto": {
+                          "type": "boolean",
+                          "description": "true: 공식 게시판을 감시가 그대로 옮겨 자동 갱신"
+                        },
                         "keywords": {
                           "type": "array",
                           "items": {
@@ -699,6 +1182,10 @@
                     "monitoring": {
                       "type": "object",
                       "properties": {
+                        "auto": {
+                          "type": "boolean",
+                          "description": "true: 공식 게시판을 감시가 그대로 옮겨 자동 갱신"
+                        },
                         "keywords": {
                           "type": "array",
                           "items": {
@@ -799,6 +1286,10 @@
                     "monitoring": {
                       "type": "object",
                       "properties": {
+                        "auto": {
+                          "type": "boolean",
+                          "description": "true: 공식 게시판을 감시가 그대로 옮겨 자동 갱신"
+                        },
                         "keywords": {
                           "type": "array",
                           "items": {
@@ -961,11 +1452,42 @@
           }
         }
       },
+      "Revision": {
+        "type": "object",
+        "properties": {
+          "revision": {
+            "type": "integer",
+            "description": "판본 번호(1부터)"
+          },
+          "date": {
+            "type": "string",
+            "description": "이 판본을 기록한 날(한국 시간)"
+          },
+          "hash": {
+            "type": "string",
+            "description": "params·data의 SHA-256 앞 16자리"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
       "Change": {
         "type": "object",
         "properties": {
           "date": {
             "type": "string"
+          },
+          "at": {
+            "type": "string",
+            "description": "감시가 자동으로 기록한 시각(UTC). 사람이 기록한 항목에는 없다"
+          },
+          "auto": {
+            "type": "boolean",
+            "description": "감시가 자동으로 기록함"
           },
           "datasets": {
             "type": "array",
@@ -987,6 +1509,136 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      },
+      "AbyssHoleCycle": {
+        "type": "object",
+        "required": [
+          "open_minutes",
+          "closed_minutes",
+          "cycle_minutes",
+          "reset",
+          "src"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "open_minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "열려 있는 시간(분)"
+          },
+          "closed_minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "닫힌 뒤 다시 열리기까지(분)"
+          },
+          "cycle_minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "한 번 열린 때부터 다음에 열릴 때까지(분)"
+          },
+          "reset": {
+            "type": "string",
+            "enum": [
+              "maintenance"
+            ],
+            "description": "점검 뒤 첫 등장 시각이 새로 정해짐. 점검 사이에는 주기가 일정"
+          },
+          "src": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            },
+            "description": "출처 id 목록(sources.json)"
+          }
+        }
+      },
+      "EventsEvents": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "period",
+          "start_date",
+          "start_time",
+          "start_note",
+          "end_date",
+          "end_time",
+          "end_note",
+          "url",
+          "src"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^\\d+$",
+            "description": "이벤트 글 번호"
+          },
+          "title": {
+            "type": "string",
+            "description": "이벤트 글 제목 원문"
+          },
+          "period": {
+            "type": "string",
+            "description": "게시판에 적힌 기간 원문(비어 있을 수 있음)"
+          },
+          "start_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "start_time": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{2}:\\d{2}$"
+          },
+          "start_note": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "시각 대신 적힌 말(예: '점검 후')"
+          },
+          "end_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "end_time": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{2}:\\d{2}$"
+          },
+          "end_note": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "날짜 대신 적힌 말(예: '별도 안내 시')"
+          },
+          "url": {
+            "type": "string"
+          },
+          "src": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            },
+            "description": "출처 id 목록(sources.json)"
           }
         }
       },
@@ -1150,6 +1802,113 @@
             "minimum": 0,
             "maximum": 100,
             "description": "늘어나는 최종 피해(%)"
+          },
+          "src": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            },
+            "description": "출처 id 목록(sources.json)"
+          }
+        }
+      },
+      "MaintenanceSchedule": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "date",
+          "start",
+          "end",
+          "start_at",
+          "end_at",
+          "completed",
+          "canceled",
+          "title",
+          "url",
+          "posted",
+          "src"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^\\d+$",
+            "description": "공지 글 번호"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "정기",
+              "임시",
+              "긴급",
+              "점검"
+            ],
+            "description": "공지 제목의 점검 종류"
+          },
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "점검 날짜(한국 시간)"
+          },
+          "start": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{2}:\\d{2}$",
+            "description": "시작 시각. 미진행이면 null"
+          },
+          "end": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{2}:\\d{2}$",
+            "description": "종료 시각. 완료(completed) 뒤에는 실제 종료 시각"
+          },
+          "start_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+09:00$",
+            "description": "시작 일시(ISO 8601, +09:00)"
+          },
+          "end_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+09:00$",
+            "description": "종료 일시(ISO 8601, +09:00). 자정을 넘기면 다음 날"
+          },
+          "completed": {
+            "type": "boolean",
+            "description": "공지 제목에 (완료)가 붙음"
+          },
+          "canceled": {
+            "type": "boolean",
+            "description": "'점검 미진행 안내': 그날 점검이 없음"
+          },
+          "planned_end": {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}$",
+            "description": "감시가 처음 본 종료 시각이 실제와 달랐을 때만 있음(2026-11-11부터 기록)"
+          },
+          "title": {
+            "type": "string",
+            "description": "공지 제목 원문"
+          },
+          "url": {
+            "type": "string"
+          },
+          "posted": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "공지 게시일"
           },
           "src": {
             "type": "array",

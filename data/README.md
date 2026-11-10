@@ -2,6 +2,8 @@
 
 이 폴더가 원본입니다. `node tools/build.mjs`가 여기서 공개 API(`api/v1/`)와 앱(`MBNG Advisor.html`의 `@data:ID` 주석 구간)을 함께 만듭니다. 앱의 해당 구간이나 `api/v1/`을 직접 고치지 않습니다.
 
+빌드는 변경 RSS(`api/v1/feed.xml`, `changes.json` 최근 50건)와 판본(`api/v1/history/<id>/`)도 만듭니다. 데이터의 `params`·`tables`가 지난 판본과 다르면 새 판본 파일(`<번호>.json`)을 하나 더 만들고, 확인일만 바뀌면 만들지 않습니다. 판본 파일은 다시 쓰지 않으니 지우거나 고치지 않습니다.
+
 ## 출처 규칙
 
 - `sources.json`의 출처 종류는 두 가지뿐입니다.
@@ -14,15 +16,17 @@
 
 | 파일 | 내용 |
 |---|---|
-| `datasets/<id>.json` | 데이터 하나. `verified_at`(마지막 대조일), `watch.keywords`(공식 글 감시 키워드), `tables`(레코드), `params`, `notes` |
+| `datasets/<id>.json` | 데이터 하나. `verified_at`(마지막 대조일), `watch.keywords`(공식 글 감시 키워드), `tables`(레코드), `params`, `notes`. `auto: true`인 데이터(점검 일정 `maintenance`, 진행 중 이벤트 `events`)는 공식 게시판을 그대로 옮기는 것이라 감시가 직접 고치고, 사람이 고치지 않습니다 |
 | `schemas.json` | 표별 레코드 형식(JSON Schema). 빌드가 검사하고 `openapi.json`에 싣습니다 |
 | `sources.json` | 출처 사전 |
-| `changes.json` | 값 변경·재확인 기록 |
+| `changes.json` | 값 변경·재확인 기록. 감시가 자동으로 남긴 항목에는 `auto: true`와 시각 `at`(UTC)이 있습니다 |
 | `watch.json` | 공식 글 감시 상태(본 글, 가이드 본문 해시, 감지한 사건)와 실행 정보(`runner`). `tools/watch-official.mjs`가 씁니다. 넥슨 공식 사이트가 해외 접속에는 한국어 목록을 주지 않아 GitHub Actions가 아니라 한국 PC에서 `tools/watch-local.ps1`로 돌립니다(작업 스케줄러 'MBNG Advisor 공식 글 감시', 1시간마다) |
 
 ## 갱신 절차
 
 1. 감시가 사건을 남기면 해당 데이터의 상태가 `check_needed`가 됩니다. 운영자 PC에 Windows 알림이 뜨고, 요약이 `%USERPROFILE%\mbng-watch\재확인-날짜.md`에 남습니다.
+   - 감시 PC에는 근거 가이드 본문이 `%USERPROFILE%\mbng-watch\pages`에 보관돼, 요약에 바뀐 낱말(예전·지금)이 함께 나옵니다. 넥슨 글이라 저장소에는 올리지 않습니다.
+   - 가이드 끝의 '본 가이드는 YYYY/M/D의 게임 상황을 기준으로' 문장만 바뀌었으면 사건을 만들지 않고, 출처의 `basis`·`checked`를 고친 뒤 `changes.json`에 '자동 재확인'으로 남깁니다.
 2. 공식 글을 읽거나 게임에서 확인합니다.
 3. 값이 바뀌었으면 `datasets/<id>.json`의 레코드와 `src`를 고치고, 필요하면 `sources.json`에 출처를 더합니다.
 4. 출처와 다시 대조했으면 `verified_at`을 그날로 바꿉니다. 대조 없이 무관한 글로 판단만 했으면 사건 key를 `reviewed`에 넣습니다. 근거 글 하나만 대조해 값이 같으면(데이터 전체를 다시 대조하지 않음) `verified_at`은 두고 사건 key를 `reviewed`에 넣습니다.
@@ -31,4 +35,6 @@
 
 ## 새 데이터 추가
 
-`datasets/`에 파일을 만들고 `schemas.json`에 표 형식을 넣습니다. 앱에서도 쓰면 `tools/build.mjs`의 `APPGEN`에 앱 상수 생성 함수를 넣고, HTML에 `/*@data:ID*/…/*@end:ID*/` 구간을 둡니다.
+`datasets/`에 파일을 만들고 `schemas.json`에 표 형식을 넣습니다(값이 없을 수 있는 필드는 `"type": ["string", "null"]`). 앱에서도 쓰면 `tools/build.mjs`의 `APPGEN`에 앱 상수 생성 함수를 넣고, HTML에 `/*@data:ID*/…/*@end:ID*/` 구간을 둡니다. API에만 내는 데이터는 생성 함수를 넣지 않습니다(`events`).
+
+공식 사이트 읽기(목록·다음 쪽·점검 공지·이벤트 기간·본문 비교)는 `tools/official-parse.mjs`에 모여 있습니다. 공식 사이트의 robots.txt는 전체 허용이고(2026-11-10 확인), sitemap.xml에는 FAQ만 있어 새 가이드를 자동으로 찾지는 못합니다.

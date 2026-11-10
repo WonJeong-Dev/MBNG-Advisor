@@ -13,15 +13,46 @@
   "principles": [
     "출처는 넥슨 공식 공개 글과 게임 화면 직접 확인 두 가지만 쓴다",
     "값마다 출처 id(src)를 붙이고 데이터마다 확인일(verified_at)을 둔다",
-    "공식 글에 관련 변경이 올라오면 status가 check_needed로 바뀌고, 재확인 뒤 ok로 돌아온다"
+    "공식 글에 관련 변경이 올라오면 status가 check_needed로 바뀌고, 재확인 뒤 ok로 돌아온다",
+    "점검 일정·진행 중 이벤트처럼 공식 게시판을 그대로 옮기는 데이터(auto)는 감시가 바로 갱신한다",
+    "값이 바뀔 때마다 판본(history)을 남기고, 변경 기록은 RSS(feed.xml)로도 낸다"
   ],
   "datasets": [
+    {
+      "id": "abyss-hole",
+      "title": "어비스 구멍 주기",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/abyss-hole.json",
+      "auto": false,
+      "verified_at": "2026-11-10",
+      "state": "ok",
+      "revision": 1,
+      "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/abyss-hole/index.json",
+      "tables": {
+        "cycle": 1
+      }
+    },
+    {
+      "id": "events",
+      "title": "진행 중 이벤트",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/events.json",
+      "auto": true,
+      "verified_at": "2026-11-11",
+      "state": "ok",
+      "revision": 1,
+      "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/events/index.json",
+      "tables": {
+        "events": 25
+      }
+    },
     {
       "id": "leveling-materials",
       "title": "신규 육성 스토리 필수 재료",
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/leveling-materials.json",
+      "auto": false,
       "verified_at": "2026-11-08",
       "state": "ok",
+      "revision": 1,
+      "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/leveling-materials/index.json",
       "tables": {
         "steps": 22,
         "recipes": 2
@@ -31,8 +62,11 @@
       "id": "link-bonus",
       "title": "숙련 연계 각인 룬 보너스",
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/link-bonus.json",
+      "auto": false,
       "verified_at": "2026-10-27",
       "state": "ok",
+      "revision": 1,
+      "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/link-bonus/index.json",
       "tables": {
         "values": 220
       }
@@ -41,18 +75,37 @@
       "id": "mado-resist",
       "title": "마도 저항 초과 피해",
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/mado-resist.json",
+      "auto": false,
       "verified_at": "2026-11-04",
       "state": "ok",
+      "revision": 1,
+      "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/mado-resist/index.json",
       "tables": {
         "examples": 5
+      }
+    },
+    {
+      "id": "maintenance",
+      "title": "점검 일정",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/maintenance.json",
+      "auto": true,
+      "verified_at": "2026-11-11",
+      "state": "ok",
+      "revision": 1,
+      "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/maintenance/index.json",
+      "tables": {
+        "schedule": 18
       }
     },
     {
       "id": "rune-engraving-rate",
       "title": "룬 각인 성공률(시즌 2)",
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/rune-engraving-rate.json",
+      "auto": false,
       "verified_at": "2026-11-04",
       "state": "ok",
+      "revision": 1,
+      "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/rune-engraving-rate/index.json",
       "tables": {
         "rates": 6
       }
@@ -61,8 +114,11 @@
       "id": "soulstream",
       "title": "소울스트림 생산·주간 구매",
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/soulstream.json",
+      "auto": false,
       "verified_at": "2026-11-10",
       "state": "ok",
+      "revision": 1,
+      "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/soulstream/index.json",
       "tables": {
         "production": 15,
         "purchase": 4
@@ -72,8 +128,11 @@
       "id": "summon-barrier",
       "title": "불길한 소환의 결계 시간",
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/summon-barrier.json",
+      "auto": false,
       "verified_at": "2026-11-09",
       "state": "ok",
+      "revision": 1,
+      "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/summon-barrier/index.json",
       "tables": {
         "schedule": 1
       }
@@ -82,8 +141,11 @@
       "id": "weekly",
       "title": "주간 숙제",
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/weekly.json",
+      "auto": false,
       "verified_at": "2026-11-10",
       "state": "ok",
+      "revision": 2,
+      "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/weekly/index.json",
       "tables": {
         "items": 13
       }
@@ -92,6 +154,8 @@
   "endpoints": {
     "status": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/status.json",
     "changes": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/changes.json",
-    "sources": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/sources.json"
+    "feed": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/feed.xml",
+    "sources": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/sources.json",
+    "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/{dataset}/index.json"
   }
 }

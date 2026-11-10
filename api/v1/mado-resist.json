@@ -30,6 +30,7 @@
     "예시 사이 값의 계산식은 공개되지 않아 넣지 않음"
   ],
   "monitoring": {
+    "auto": false,
     "keywords": [
       "마도 저항"
     ],

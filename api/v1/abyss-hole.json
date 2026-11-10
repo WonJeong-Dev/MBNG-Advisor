@@ -1,0 +1,54 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "abyss-hole",
+  "title": "어비스 구멍 주기",
+  "description": "어비스 구멍(어구)이 열려 있는 시간, 다시 열리기까지의 주기, 점검 뒤 재설정",
+  "verified_at": "2026-11-10",
+  "status": {
+    "state": "ok",
+    "pending": []
+  },
+  "params": {
+    "timezone": "Asia/Seoul"
+  },
+  "notes": [
+    "회차 시각은 점검마다 새로 정해지므로 싣지 않는다. 점검 일정은 maintenance 참고"
+  ],
+  "monitoring": {
+    "auto": false,
+    "keywords": [
+      "어비스 구멍"
+    ],
+    "pages": []
+  },
+  "sources": [
+    {
+      "id": "ingame-abyss-hole",
+      "type": "ingame",
+      "type_label": "게임 화면 직접 확인",
+      "kind": "게임 화면 확인",
+      "title": "어비스 구멍 15분 열림, 닫힌 뒤 36시간 후 재등장(주기 36시간 15분), 점검 사이 일정, 점검 뒤 시각 재설정",
+      "checked": "2026-11-10"
+    }
+  ],
+  "data": {
+    "cycle": [
+      {
+        "open_minutes": 15,
+        "closed_minutes": 2160,
+        "cycle_minutes": 2175,
+        "reset": "maintenance",
+        "src": [
+          "ingame-abyss-hole"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "summon-barrier",
+  "title": "불길한 소환의 결계 시간",
+  "revision": 1,
+  "date": "2026-11-10",
+  "summary": "API 첫 공개(앱에 쓰던 값과 같음)",
+  "hash": "156762ed840708f3",
+  "params": {
+    "timezone": "Asia/Seoul"
+  },
+  "data": {
+    "schedule": [
+      {
+        "every": "hour",
+        "appear_minute": 0,
+        "start_minute": 3,
+        "src": [
+          "ingame-barrier-time"
+        ]
+      }
+    ]
+  }
+}

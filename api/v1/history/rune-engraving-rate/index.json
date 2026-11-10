@@ -1,0 +1,21 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "rune-engraving-rate",
+  "title": "룬 각인 성공률(시즌 2)",
+  "versions": [
+    {
+      "revision": 1,
+      "date": "2026-11-10",
+      "hash": "6eb3a8e4b2437e50",
+      "summary": "API 첫 공개(앱에 쓰던 값과 같음)",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/rune-engraving-rate/1.json"
+    }
+  ]
+}

@@ -34,6 +34,16 @@
     ]
   },
   "datasets": {
+    "abyss-hole": {
+      "verified_at": "2026-11-10",
+      "state": "ok",
+      "pending": []
+    },
+    "events": {
+      "verified_at": "2026-11-11",
+      "state": "ok",
+      "pending": []
+    },
     "leveling-materials": {
       "verified_at": "2026-11-08",
       "state": "ok",
@@ -46,6 +56,11 @@
     },
     "mado-resist": {
       "verified_at": "2026-11-04",
+      "state": "ok",
+      "pending": []
+    },
+    "maintenance": {
+      "verified_at": "2026-11-11",
       "state": "ok",
       "pending": []
     },

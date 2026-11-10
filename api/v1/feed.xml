@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>MBNG Advisor 데이터 변경</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/</link>
+<atom:link href="https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/feed.xml" rel="self" type="application/rss+xml"/>
+<description>마비노기 모바일 공식 글·게임 확인 기반 데이터의 값 변경과 재확인 기록. 넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.</description>
+<language>ko</language>
+<lastBuildDate>Tue, 10 Nov 2026 15:00:00 GMT</lastBuildDate>
+<item>
+<title>어비스 구멍 주기 · 어비스 구멍 주기 공개</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/abyss-hole/index.json</link>
+<guid isPermaLink="false">mbng-6738c9a9b3b1a7ad</guid>
+<pubDate>Tue, 10 Nov 2026 15:00:00 GMT</pubDate>
+<category>abyss-hole</category>
+<description>15분 열림 + 닫힌 뒤 36시간 = 주기 36시간 15분(2,175분), 점검 사이에는 일정, 점검 뒤 시각 재설정(게임 확인 2026-11-10)
+회차 시각은 점검마다 바뀌어 싣지 않음
+출처: 어비스 구멍 15분 열림, 닫힌 뒤 36시간 후 재등장(주기 36시간 15분), 점검 사이 일정, 점검 뒤 시각 재설정</description>
+</item>
+<item>
+<title>점검 일정·진행 중 이벤트 · 점검 일정·진행 중 이벤트 공개(감시가 자동 갱신)</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/maintenance/index.json</link>
+<guid isPermaLink="false">mbng-66fcde79e63e7bd3</guid>
+<pubDate>Tue, 10 Nov 2026 15:00:00 GMT</pubDate>
+<category>maintenance</category>
+<category>events</category>
+<description>점검 일정: 2026-09-01 이후 점검 공지 18건(정기 9, 임시 7, 정기점검 미진행 2)
+진행 중 이벤트: 이벤트 게시판 진행중 25건
+두 데이터는 공식 게시판을 그대로 옮기며, 감시가 1시간마다 읽어 바로 갱신
+출처: 공지사항(점검 공지) https://mabinogimobile.nexon.com/News/Notice
+출처: 이벤트 게시판(진행중) https://mabinogimobile.nexon.com/News/Events?headlineId=2501</description>
+</item>
+<item>
+<title>주간 숙제 · 재확인: 변경 없음 (뱅가드 브리치 가이드 기준일 갱신)</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/weekly/index.json</link>
+<guid isPermaLink="false">mbng-b8e99487853a7251</guid>
+<pubDate>Tue, 10 Nov 2026 15:00:00 GMT</pubDate>
+<category>weekly</category>
+<description>감시가 찾은 본문 변경(2026-11-10 21:17)은 가이드 기준일 표기 2026/11/5 → 2026/11/10
+전리품 문단(주간 최대 1번, 2026/11/9(월) 오전 6시 이후, 매주 월요일 초기화)은 이전 본문과 같고 데이터 값과 일치
+앞부분(해금·입장·임무·부활)은 이전 본문 기록이 없어 대조하지 못했으나 주간 데이터와 무관
+이 행만 대조했으므로 verified_at은 2026-11-10 그대로 두고 사건을 reviewed로 처리
+출처: 뱅가드 브리치 가이드 https://mabinogimobile.nexon.com/Info/Guide/3344477</description>
+</item>
+<item>
+<title>숙련 연계 각인 룬 보너스 · 재확인: 변경 없음</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/link-bonus/index.json</link>
+<guid isPermaLink="false">mbng-f38218e32ebb30e9</guid>
+<pubDate>Mon, 09 Nov 2026 15:00:00 GMT</pubDate>
+<category>link-bonus</category>
+<description>콜라보 상품 공지의 숙련 연계 언급은 변신 중 추가 공격력 미반영 안내로, 보너스 표와 무관</description>
+</item>
+<item>
+<title>소울스트림 생산·주간 구매 · 재확인: 변경 없음</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/soulstream/index.json</link>
+<guid isPermaLink="false">mbng-3400464d1a65e0c2</guid>
+<pubDate>Mon, 09 Nov 2026 15:00:00 GMT</pubDate>
+<category>soulstream</category>
+<description>11/5 업데이트 노트의 소울스트림 언급은 멤버십 화면 안내
+소울스트림 가이드(2026-07-16 기준) 생산 구간 15개·구매 가격 4구간 전부 일치
+출처: 11/5(목) 업데이트 노트 https://mabinogimobile.nexon.com/News/Update/3575034
+출처: 소울스트림 가이드 https://mabinogimobile.nexon.com/Info/Guide/3481548</description>
+</item>
+<item>
+<title>주간 숙제 · 뱅가드 브리치 주간 전리품 주 3회 → 주 1회, 레이드에 적월의 스카스 추가</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/weekly/index.json</link>
+<guid isPermaLink="false">mbng-679265d28a754b7f</guid>
+<pubDate>Mon, 09 Nov 2026 15:00:00 GMT</pubDate>
+<category>weekly</category>
+<description>뱅가드 브리치: 2026-11-09 06시부터 주 1회(1회 보상이 늘어 기존 3회분과 같음)
+레이드: 적월의 스카스 보스별 주 1회(레이드 가이드 2026-11-05 기준)
+나머지 11개 항목은 공식 가이드·업데이트 노트와 다시 대조해 변경 없음
+출처: 11/5(목) 업데이트 노트 https://mabinogimobile.nexon.com/News/Update/3575034
+출처: 뱅가드 브리치 가이드 https://mabinogimobile.nexon.com/Info/Guide/3344477
+출처: 레이드 가이드 https://mabinogimobile.nexon.com/Info/Guide/2839865</description>
+</item>
+<item>
+<title>숙련 연계 각인 룬 보너스·주간 숙제·소울스트림 생산·주간 구매·신규 육성 스토리 필수 재료·불길한 소환의 결계 시간·마도 저항 초과 피해·룬 각인 성공률(시즌 2) · API 첫 공개</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/link-bonus/index.json</link>
+<guid isPermaLink="false">mbng-a519bb3547b65f4c</guid>
+<pubDate>Mon, 09 Nov 2026 15:00:00 GMT</pubDate>
+<category>link-bonus</category>
+<category>weekly</category>
+<category>soulstream</category>
+<category>leveling-materials</category>
+<category>summon-barrier</category>
+<category>mado-resist</category>
+<category>rune-engraving-rate</category>
+<description>넥슨 공식 공개 글과 게임 화면 직접 확인만 근거로 하는 7종을 공개
+값은 앱에 쓰던 값과 같고, 데이터마다 기존 확인일을 그대로 verified_at으로 둠</description>
+</item>
+</channel>
+</rss>

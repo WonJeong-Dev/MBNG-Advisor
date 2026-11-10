@@ -1,0 +1,394 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "leveling-materials",
+  "title": "신규 육성 스토리 필수 재료",
+  "revision": 1,
+  "date": "2026-11-10",
+  "summary": "API 첫 공개(앱에 쓰던 값과 같음)",
+  "hash": "9963c53a1dd4602c",
+  "params": {
+    "list_received": "2026-11-02"
+  },
+  "data": {
+    "steps": [
+      {
+        "level": 57,
+        "materials": [
+          {
+            "name": "블러디허브",
+            "qty": 5
+          },
+          {
+            "name": "허브",
+            "qty": 10
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 59,
+        "materials": [
+          {
+            "name": "철괴",
+            "qty": 3
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 59,
+        "materials": [
+          {
+            "name": "통감자구이",
+            "qty": 10
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 60,
+        "materials": [
+          {
+            "name": "쑥쑥버섯진액",
+            "qty": 5
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 60,
+        "materials": [
+          {
+            "name": "나뭇가지",
+            "qty": 5
+          },
+          {
+            "name": "통나무",
+            "qty": 2
+          },
+          {
+            "name": "구운 고기",
+            "qty": 3
+          }
+        ],
+        "src": [
+          "ingame-leveling-list",
+          "ingame-leveling-lv60"
+        ]
+      },
+      {
+        "level": 68,
+        "materials": [
+          {
+            "name": "숨숨꽃가루",
+            "qty": 5
+          },
+          {
+            "name": "튼튼버섯가루",
+            "qty": 10
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 69,
+        "materials": [
+          {
+            "name": "물이든병",
+            "qty": 3
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 73,
+        "materials": [
+          {
+            "name": "철괴",
+            "qty": 4
+          },
+          {
+            "name": "가죽",
+            "qty": 3
+          },
+          {
+            "name": "옷감",
+            "qty": 5
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 74,
+        "materials": [
+          {
+            "name": "숨숨꽃",
+            "qty": 10
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 77,
+        "materials": [
+          {
+            "name": "물이든병",
+            "qty": 3
+          },
+          {
+            "name": "생채기꽃가루",
+            "qty": 5
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 80,
+        "materials": [
+          {
+            "name": "사과",
+            "qty": 3
+          },
+          {
+            "name": "양파",
+            "qty": 3
+          },
+          {
+            "name": "옥수수",
+            "qty": 3
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 81,
+        "materials": [
+          {
+            "name": "실크",
+            "qty": 2
+          },
+          {
+            "name": "파란수국",
+            "qty": 5
+          },
+          {
+            "name": "라벤더꽃",
+            "qty": 5
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 82,
+        "materials": [
+          {
+            "name": "나뭇가지",
+            "qty": 3
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 82,
+        "materials": [
+          {
+            "name": "물이든병",
+            "qty": 2
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 82,
+        "materials": [
+          {
+            "name": "허브",
+            "qty": 10
+          }
+        ],
+        "src": [
+          "ingame-leveling-lv82"
+        ]
+      },
+      {
+        "level": 83,
+        "materials": [
+          {
+            "name": "깔끔버섯",
+            "qty": 5
+          },
+          {
+            "name": "숨숨꽃",
+            "qty": 5
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 83,
+        "materials": [
+          {
+            "name": "물이든병",
+            "qty": 3
+          },
+          {
+            "name": "숨숨꽃",
+            "qty": 10
+          },
+          {
+            "name": "새록버섯",
+            "qty": 5
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 85,
+        "materials": [
+          {
+            "name": "블러디허브",
+            "qty": 10
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 85,
+        "materials": [
+          {
+            "name": "거미줄",
+            "qty": 5
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 85,
+        "materials": [
+          {
+            "name": "튼튼버섯",
+            "qty": 10
+          },
+          {
+            "name": "마나허브",
+            "qty": 10
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 87,
+        "materials": [
+          {
+            "name": "진정초",
+            "qty": 10
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "level": 91,
+        "materials": [
+          {
+            "name": "철괴",
+            "qty": 1
+          },
+          {
+            "name": "목재+",
+            "qty": 2
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      }
+    ],
+    "recipes": [
+      {
+        "item": "통감자구이",
+        "materials": [
+          {
+            "name": "감자",
+            "qty": 4
+          },
+          {
+            "name": "허브",
+            "qty": 2
+          },
+          {
+            "name": "설탕",
+            "qty": 2
+          }
+        ],
+        "src": [
+          "ingame-leveling-list"
+        ]
+      },
+      {
+        "item": "구운 고기",
+        "materials": [
+          {
+            "name": "고기",
+            "qty": 4
+          },
+          {
+            "name": "허브",
+            "qty": 2
+          },
+          {
+            "name": "소금",
+            "qty": 1
+          }
+        ],
+        "src": [
+          "ingame-grilled-meat"
+        ]
+      }
+    ]
+  }
+}

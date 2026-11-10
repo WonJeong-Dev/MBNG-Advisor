@@ -12,6 +12,8 @@ $base = Join-Path $env:USERPROFILE "mbng-watch"
 $dir = Join-Path $base "MBNG-Advisor"
 $log = Join-Path $base "watch.log"
 $sum = Join-Path $base "summary.md"
+# 근거 가이드 본문 보관(바뀐 낱말 비교·기준일만 바뀐 변경 자동 처리용). 넥슨 글이라 저장소에는 올리지 않는다
+$pages = Join-Path $base "pages"
 New-Item -ItemType Directory -Force $base | Out-Null
 function W($m) { $s = "$m".Trim(); if ($s -and $s -notmatch "RemoteException") { Add-Content -Path $log -Value ("[" + (Get-Date -Format "yyyy-MM-dd HH:mm:ss") + "] " + $s) -Encoding UTF8 } }
 # Windows 알림(누르면 $file을 연다). 별도 모듈 없이 Windows 기본 알림 API를 쓴다
@@ -38,7 +40,7 @@ try {
   git fetch --quiet origin 2>&1 | ForEach-Object { W $_ }
   git reset --hard --quiet origin/main 2>&1 | ForEach-Object { W $_ }
   if (Test-Path $sum) { Remove-Item $sum }
-  node tools/watch-official.mjs --summary $sum 2>&1 | ForEach-Object { W $_ }
+  node tools/watch-official.mjs --summary $sum --pages-dir $pages 2>&1 | ForEach-Object { W $_ }
   node tools/build.mjs 2>&1 | ForEach-Object { W $_ }
   if (git status --porcelain data api "MBNG Advisor.html") {
     git add data api "MBNG Advisor.html"

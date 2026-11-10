@@ -1,0 +1,28 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "weekly",
+  "title": "주간 숙제",
+  "versions": [
+    {
+      "revision": 2,
+      "date": "2026-11-10",
+      "hash": "a29fe7e93fe059da",
+      "summary": "API 첫 공개 · 뱅가드 브리치 주간 전리품 주 3회 → 주 1회, 레이드에 적월의 스카스 추가",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/weekly/2.json"
+    },
+    {
+      "revision": 1,
+      "date": "2026-10-27",
+      "hash": "ec426d2ccee6fc97",
+      "summary": "API 공개 전 앱 판본(확인일 2026-10-27)",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/weekly/1.json"
+    }
+  ]
+}

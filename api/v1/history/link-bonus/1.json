@@ -1,0 +1,2224 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "link-bonus",
+  "title": "숙련 연계 각인 룬 보너스",
+  "revision": 1,
+  "date": "2026-11-10",
+  "summary": "API 첫 공개(앱에 쓰던 값과 같음)",
+  "hash": "3932786920302eb1",
+  "params": {
+    "diff_rate": 0.4,
+    "formula": "추가 공격력 = 기본 공격력 차이 × 40% + 룬 공격력 차이 × 40%(각 차이는 대상 무기가 더 높을 때만) + 각인 룬 값"
+  },
+  "data": {
+    "values": [
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 1,
+        "value": 3,
+        "heal_value": 1,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 2,
+        "value": 4,
+        "heal_value": 1,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 3,
+        "value": 4,
+        "heal_value": 1,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 4,
+        "value": 5,
+        "heal_value": 2,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 5,
+        "value": 6,
+        "heal_value": 2,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 6,
+        "value": 7,
+        "heal_value": 2,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 7,
+        "value": 8,
+        "heal_value": 3,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 8,
+        "value": 10,
+        "heal_value": 3,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 9,
+        "value": 11,
+        "heal_value": 4,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 10,
+        "value": 13,
+        "heal_value": 4,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 11,
+        "value": 18,
+        "heal_value": 6,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 12,
+        "value": 23,
+        "heal_value": 8,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 13,
+        "value": 28,
+        "heal_value": 9,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 14,
+        "value": 33,
+        "heal_value": 11,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 15,
+        "value": 38,
+        "heal_value": 13,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 16,
+        "value": 44,
+        "heal_value": 15,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 17,
+        "value": 49,
+        "heal_value": 16,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 18,
+        "value": 54,
+        "heal_value": 18,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 19,
+        "value": 59,
+        "heal_value": 20,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 0,
+        "star_label": "★ 없음",
+        "level": 20,
+        "value": 64,
+        "heal_value": 21,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 1,
+        "value": 5,
+        "heal_value": 2,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 2,
+        "value": 8,
+        "heal_value": 3,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 3,
+        "value": 9,
+        "heal_value": 3,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 4,
+        "value": 11,
+        "heal_value": 4,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 5,
+        "value": 12,
+        "heal_value": 4,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 6,
+        "value": 14,
+        "heal_value": 5,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 7,
+        "value": 17,
+        "heal_value": 6,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 8,
+        "value": 20,
+        "heal_value": 7,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 9,
+        "value": 22,
+        "heal_value": 7,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 10,
+        "value": 26,
+        "heal_value": 9,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 11,
+        "value": 37,
+        "heal_value": 12,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 12,
+        "value": 47,
+        "heal_value": 16,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 13,
+        "value": 58,
+        "heal_value": 19,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 14,
+        "value": 68,
+        "heal_value": 23,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 15,
+        "value": 79,
+        "heal_value": 26,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 16,
+        "value": 90,
+        "heal_value": 30,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 17,
+        "value": 100,
+        "heal_value": 33,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 18,
+        "value": 111,
+        "heal_value": 37,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 19,
+        "value": 121,
+        "heal_value": 40,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 1,
+        "star_label": "★1",
+        "level": 20,
+        "value": 132,
+        "heal_value": 44,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 1,
+        "value": 11,
+        "heal_value": 4,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 2,
+        "value": 16,
+        "heal_value": 5,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 3,
+        "value": 19,
+        "heal_value": 6,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 4,
+        "value": 22,
+        "heal_value": 7,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 5,
+        "value": 25,
+        "heal_value": 8,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 6,
+        "value": 30,
+        "heal_value": 10,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 7,
+        "value": 36,
+        "heal_value": 12,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 8,
+        "value": 41,
+        "heal_value": 14,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 9,
+        "value": 47,
+        "heal_value": 16,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 10,
+        "value": 55,
+        "heal_value": 18,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 11,
+        "value": 77,
+        "heal_value": 26,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 12,
+        "value": 98,
+        "heal_value": 33,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 13,
+        "value": 120,
+        "heal_value": 40,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 14,
+        "value": 142,
+        "heal_value": 47,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 15,
+        "value": 164,
+        "heal_value": 55,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 16,
+        "value": 186,
+        "heal_value": 62,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 17,
+        "value": 208,
+        "heal_value": 69,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 18,
+        "value": 230,
+        "heal_value": 77,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 19,
+        "value": 252,
+        "heal_value": 84,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 2,
+        "star_label": "★2",
+        "level": 20,
+        "value": 274,
+        "heal_value": 91,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 1,
+        "value": 18,
+        "heal_value": 6,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 2,
+        "value": 27,
+        "heal_value": 9,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 3,
+        "value": 32,
+        "heal_value": 11,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 4,
+        "value": 36,
+        "heal_value": 12,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 5,
+        "value": 41,
+        "heal_value": 14,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 6,
+        "value": 50,
+        "heal_value": 17,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 7,
+        "value": 59,
+        "heal_value": 20,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 8,
+        "value": 68,
+        "heal_value": 23,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 9,
+        "value": 77,
+        "heal_value": 26,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 10,
+        "value": 90,
+        "heal_value": 30,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 11,
+        "value": 126,
+        "heal_value": 42,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 12,
+        "value": 162,
+        "heal_value": 54,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 13,
+        "value": 198,
+        "heal_value": 66,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 14,
+        "value": 234,
+        "heal_value": 78,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 15,
+        "value": 271,
+        "heal_value": 90,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 16,
+        "value": 307,
+        "heal_value": 102,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 17,
+        "value": 343,
+        "heal_value": 114,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 18,
+        "value": 379,
+        "heal_value": 126,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 19,
+        "value": 415,
+        "heal_value": 138,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 3,
+        "star_label": "★3",
+        "level": 20,
+        "value": 451,
+        "heal_value": 150,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 1,
+        "value": 32,
+        "heal_value": 11,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 2,
+        "value": 48,
+        "heal_value": 16,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 3,
+        "value": 56,
+        "heal_value": 19,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 4,
+        "value": 64,
+        "heal_value": 21,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 5,
+        "value": 72,
+        "heal_value": 24,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 6,
+        "value": 89,
+        "heal_value": 30,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 7,
+        "value": 105,
+        "heal_value": 35,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 8,
+        "value": 121,
+        "heal_value": 40,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 9,
+        "value": 137,
+        "heal_value": 46,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 10,
+        "value": 161,
+        "heal_value": 54,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 11,
+        "value": 226,
+        "heal_value": 75,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 12,
+        "value": 290,
+        "heal_value": 97,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 13,
+        "value": 354,
+        "heal_value": 118,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 14,
+        "value": 419,
+        "heal_value": 140,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 15,
+        "value": 483,
+        "heal_value": 161,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 16,
+        "value": 548,
+        "heal_value": 183,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 17,
+        "value": 612,
+        "heal_value": 204,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 18,
+        "value": 677,
+        "heal_value": 226,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 19,
+        "value": 741,
+        "heal_value": 247,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 4,
+        "star_label": "★4",
+        "level": 20,
+        "value": 806,
+        "heal_value": 269,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 1,
+        "value": 52,
+        "heal_value": 17,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 2,
+        "value": 79,
+        "heal_value": 26,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 3,
+        "value": 92,
+        "heal_value": 31,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 4,
+        "value": 105,
+        "heal_value": 35,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 5,
+        "value": 118,
+        "heal_value": 39,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 6,
+        "value": 144,
+        "heal_value": 48,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 7,
+        "value": 171,
+        "heal_value": 57,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 8,
+        "value": 197,
+        "heal_value": 66,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 9,
+        "value": 223,
+        "heal_value": 74,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 10,
+        "value": 262,
+        "heal_value": 87,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 11,
+        "value": 367,
+        "heal_value": 122,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 12,
+        "value": 472,
+        "heal_value": 157,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 13,
+        "value": 577,
+        "heal_value": 192,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 14,
+        "value": 682,
+        "heal_value": 227,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 15,
+        "value": 787,
+        "heal_value": 262,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 16,
+        "value": 892,
+        "heal_value": 297,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 17,
+        "value": 997,
+        "heal_value": 332,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 18,
+        "value": 1102,
+        "heal_value": 367,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 19,
+        "value": 1207,
+        "heal_value": 402,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 5,
+        "star_label": "★5",
+        "level": 20,
+        "value": 1312,
+        "heal_value": 437,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 1,
+        "value": 71,
+        "heal_value": 24,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 2,
+        "value": 106,
+        "heal_value": 35,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 3,
+        "value": 124,
+        "heal_value": 41,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 4,
+        "value": 141,
+        "heal_value": 47,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 5,
+        "value": 159,
+        "heal_value": 53,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 6,
+        "value": 194,
+        "heal_value": 65,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 7,
+        "value": 230,
+        "heal_value": 77,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 8,
+        "value": 265,
+        "heal_value": 88,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 9,
+        "value": 301,
+        "heal_value": 100,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 10,
+        "value": 354,
+        "heal_value": 118,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 11,
+        "value": 495,
+        "heal_value": 165,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 12,
+        "value": 636,
+        "heal_value": 212,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 13,
+        "value": 778,
+        "heal_value": 259,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 14,
+        "value": 919,
+        "heal_value": 306,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 15,
+        "value": 1061,
+        "heal_value": 354,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 16,
+        "value": 1202,
+        "heal_value": 401,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 17,
+        "value": 1344,
+        "heal_value": 448,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 18,
+        "value": 1485,
+        "heal_value": 495,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 19,
+        "value": 1627,
+        "heal_value": 542,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 6,
+        "star_label": "★6",
+        "level": 20,
+        "value": 1768,
+        "heal_value": 589,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 1,
+        "value": 81,
+        "heal_value": 27,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 2,
+        "value": 121,
+        "heal_value": 40,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 3,
+        "value": 141,
+        "heal_value": 47,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 4,
+        "value": 162,
+        "heal_value": 54,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 5,
+        "value": 182,
+        "heal_value": 61,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 6,
+        "value": 222,
+        "heal_value": 74,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 7,
+        "value": 263,
+        "heal_value": 88,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 8,
+        "value": 303,
+        "heal_value": 101,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 9,
+        "value": 344,
+        "heal_value": 115,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 10,
+        "value": 404,
+        "heal_value": 135,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 11,
+        "value": 566,
+        "heal_value": 189,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 12,
+        "value": 728,
+        "heal_value": 243,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 13,
+        "value": 889,
+        "heal_value": 296,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 14,
+        "value": 1051,
+        "heal_value": 350,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 15,
+        "value": 1213,
+        "heal_value": 404,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 16,
+        "value": 1374,
+        "heal_value": 458,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 17,
+        "value": 1536,
+        "heal_value": 512,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 18,
+        "value": 1698,
+        "heal_value": 566,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 19,
+        "value": 1860,
+        "heal_value": 620,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 7,
+        "star_label": "★7",
+        "level": 20,
+        "value": 2021,
+        "heal_value": 674,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 1,
+        "value": 93,
+        "heal_value": 31,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 2,
+        "value": 140,
+        "heal_value": 47,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 3,
+        "value": 163,
+        "heal_value": 54,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 4,
+        "value": 186,
+        "heal_value": 62,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 5,
+        "value": 209,
+        "heal_value": 70,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 6,
+        "value": 256,
+        "heal_value": 85,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 7,
+        "value": 302,
+        "heal_value": 101,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 8,
+        "value": 349,
+        "heal_value": 116,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 9,
+        "value": 395,
+        "heal_value": 132,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 10,
+        "value": 465,
+        "heal_value": 155,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 11,
+        "value": 651,
+        "heal_value": 217,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 12,
+        "value": 837,
+        "heal_value": 279,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 13,
+        "value": 1023,
+        "heal_value": 341,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 14,
+        "value": 1209,
+        "heal_value": 403,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 15,
+        "value": 1395,
+        "heal_value": 465,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 16,
+        "value": 1581,
+        "heal_value": 527,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 17,
+        "value": 1767,
+        "heal_value": 589,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 18,
+        "value": 1953,
+        "heal_value": 651,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 19,
+        "value": 2139,
+        "heal_value": 713,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 8,
+        "star_label": "★8",
+        "level": 20,
+        "value": 2325,
+        "heal_value": 775,
+        "src": [
+          "upd-3407267"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 1,
+        "value": 105,
+        "heal_value": 35,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 2,
+        "value": 158,
+        "heal_value": 53,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 3,
+        "value": 184,
+        "heal_value": 61,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 4,
+        "value": 210,
+        "heal_value": 70,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 5,
+        "value": 237,
+        "heal_value": 79,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 6,
+        "value": 289,
+        "heal_value": 96,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 7,
+        "value": 342,
+        "heal_value": 114,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 8,
+        "value": 394,
+        "heal_value": 131,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 9,
+        "value": 447,
+        "heal_value": 149,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 10,
+        "value": 526,
+        "heal_value": 175,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 11,
+        "value": 736,
+        "heal_value": 245,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 12,
+        "value": 946,
+        "heal_value": 315,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 13,
+        "value": 1157,
+        "heal_value": 386,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 14,
+        "value": 1367,
+        "heal_value": 456,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 15,
+        "value": 1577,
+        "heal_value": 526,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 16,
+        "value": 1788,
+        "heal_value": 596,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 17,
+        "value": 1998,
+        "heal_value": 666,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 18,
+        "value": 2208,
+        "heal_value": 736,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 19,
+        "value": 2419,
+        "heal_value": 806,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 9,
+        "star_label": "★9",
+        "level": 20,
+        "value": 2629,
+        "heal_value": 876,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 1,
+        "value": 134,
+        "heal_value": 45,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 2,
+        "value": 200,
+        "heal_value": 67,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 3,
+        "value": 234,
+        "heal_value": 78,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 4,
+        "value": 267,
+        "heal_value": 89,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 5,
+        "value": 300,
+        "heal_value": 100,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 6,
+        "value": 367,
+        "heal_value": 122,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 7,
+        "value": 434,
+        "heal_value": 145,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 8,
+        "value": 501,
+        "heal_value": 167,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 9,
+        "value": 568,
+        "heal_value": 189,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 10,
+        "value": 668,
+        "heal_value": 223,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 11,
+        "value": 935,
+        "heal_value": 312,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 12,
+        "value": 1202,
+        "heal_value": 401,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 13,
+        "value": 1469,
+        "heal_value": 490,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 14,
+        "value": 1736,
+        "heal_value": 579,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 15,
+        "value": 2003,
+        "heal_value": 668,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 16,
+        "value": 2270,
+        "heal_value": 757,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 17,
+        "value": 2537,
+        "heal_value": 846,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 18,
+        "value": 2804,
+        "heal_value": 935,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 19,
+        "value": 3071,
+        "heal_value": 1024,
+        "src": [
+          "upd-3480721"
+        ]
+      },
+      {
+        "star": 10,
+        "star_label": "★10",
+        "level": 20,
+        "value": 3338,
+        "heal_value": 1113,
+        "src": [
+          "upd-3480721"
+        ]
+      }
+    ]
+  }
+}

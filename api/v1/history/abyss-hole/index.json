@@ -1,0 +1,21 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "abyss-hole",
+  "title": "어비스 구멍 주기",
+  "versions": [
+    {
+      "revision": 1,
+      "date": "2026-11-11",
+      "hash": "373420ef7c1c4452",
+      "summary": "어비스 구멍 주기 공개",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/abyss-hole/1.json"
+    }
+  ]
+}
