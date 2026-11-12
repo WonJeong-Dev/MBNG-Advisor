@@ -7,7 +7,7 @@
   },
   "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
   "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
-  "updated_at": "2026-11-12",
+  "updated_at": "2026-11-13",
   "monitoring": {
     "boards": [
       "https://mabinogimobile.nexon.com/News/Devnote",
@@ -40,7 +40,7 @@
       "pending": []
     },
     "events": {
-      "verified_at": "2026-11-12",
+      "verified_at": "2026-11-13",
       "state": "ok",
       "pending": []
     },
@@ -72,7 +72,7 @@
       "pending": []
     },
     "maintenance": {
-      "verified_at": "2026-11-12",
+      "verified_at": "2026-11-13",
       "state": "ok",
       "pending": []
     },

@@ -10,7 +10,7 @@
   "dataset": "maintenance",
   "title": "점검 일정",
   "description": "공식 공지사항의 정기·임시점검 일정(한국 시간). 점검이 끝나면 공지 제목대로 실제 종료 시각과 완료 표시가 반영된다",
-  "verified_at": "2026-11-12",
+  "verified_at": "2026-11-13",
   "status": {
     "state": "ok",
     "pending": []

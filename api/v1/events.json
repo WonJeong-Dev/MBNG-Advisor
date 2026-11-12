@@ -10,7 +10,7 @@
   "dataset": "events",
   "title": "진행 중 이벤트",
   "description": "공식 이벤트 게시판에서 '진행중'으로 표시된 이벤트의 제목과 기간",
-  "verified_at": "2026-11-12",
+  "verified_at": "2026-11-13",
   "status": {
     "state": "ok",
     "pending": []
