@@ -6,7 +6,29 @@
 <atom:link href="https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/feed.xml" rel="self" type="application/rss+xml"/>
 <description>마비노기 모바일 공식 글·게임 확인 기반 데이터의 값 변경과 재확인 기록. 넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.</description>
 <language>ko</language>
-<lastBuildDate>Tue, 10 Nov 2026 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 12 Nov 2026 08:32:33 GMT</lastBuildDate>
+<item>
+<title>진행 중 이벤트 · 진행 중 이벤트: 추가 4건, 종료 1건</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/events/index.json</link>
+<guid isPermaLink="false">mbng-5e1484b8bcc4d4ed</guid>
+<pubDate>Thu, 12 Nov 2026 08:32:33 GMT</pubDate>
+<category>events</category>
+<description>추가: 응원의 출석 이벤트 안내 (2026.11.12(목) 점검 후 ~ 2026.11.26(목) 오전 5시 59분까지)
+추가: 뱅가드 브리치 미션 이벤트 안내 (2026.11.12(목) 점검 후 ~ 2026.12.3(목) 오전 5시 59분까지)
+추가: 마족 토벌 미션 이벤트 안내 (2026.11.12(목) 점검 후 ~ 2026.12.3(목) 오전 5시 59분까지)
+추가: 던바튼의 비밀 자경단 이벤트 안내 (2026.11.12(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지)
+종료: 할로윈 특제 케이크 이벤트 안내
+출처: 이벤트 게시판(진행중) https://mabinogimobile.nexon.com/News/Events?headlineId=2501</description>
+</item>
+<item>
+<title>점검 일정 · 점검 일정: 11/12 정기점검 06:00~09:30 완료</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/maintenance/index.json</link>
+<guid isPermaLink="false">mbng-60af0db230abf24e</guid>
+<pubDate>Thu, 12 Nov 2026 08:32:27 GMT</pubDate>
+<category>maintenance</category>
+<description>(완료) 11/12(목) 정기점검 안내 (06:00 ~ 09:30) (https://mabinogimobile.nexon.com/News/Notice/3578822)
+출처: 공지사항(점검 공지) https://mabinogimobile.nexon.com/News/Notice</description>
+</item>
 <item>
 <title>어비스 구멍 주기 · 어비스 구멍 주기 공개</title>
 <link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/abyss-hole/index.json</link>

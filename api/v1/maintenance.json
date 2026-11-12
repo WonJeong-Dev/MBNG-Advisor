@@ -10,7 +10,7 @@
   "dataset": "maintenance",
   "title": "점검 일정",
   "description": "공식 공지사항의 정기·임시점검 일정(한국 시간). 점검이 끝나면 공지 제목대로 실제 종료 시각과 완료 표시가 반영된다",
-  "verified_at": "2026-11-11",
+  "verified_at": "2026-11-12",
   "status": {
     "state": "ok",
     "pending": []
@@ -338,17 +338,18 @@
         "kind": "정기",
         "date": "2026-11-12",
         "start": "06:00",
-        "end": "11:00",
+        "end": "09:30",
         "start_at": "2026-11-12T06:00:00+09:00",
-        "end_at": "2026-11-12T11:00:00+09:00",
-        "completed": false,
+        "end_at": "2026-11-12T09:30:00+09:00",
+        "completed": true,
         "canceled": false,
-        "title": "11/12(목) 정기점검 안내 (06:00 ~ 11:00)",
+        "title": "(완료) 11/12(목) 정기점검 안내 (06:00 ~ 09:30)",
         "url": "https://mabinogimobile.nexon.com/News/Notice/3578822",
         "posted": "2026-11-10",
         "src": [
           "board-notice"
-        ]
+        ],
+        "planned_end": "11:00"
       }
     ]
   }

@@ -11,6 +11,13 @@
   "title": "진행 중 이벤트",
   "versions": [
     {
+      "revision": 2,
+      "date": "2026-11-12",
+      "hash": "47507f936b07c893",
+      "summary": "진행 중 이벤트: 추가 4건, 종료 1건",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/events/2.json"
+    },
+    {
       "revision": 1,
       "date": "2026-11-11",
       "hash": "09b2acdcb2776383",

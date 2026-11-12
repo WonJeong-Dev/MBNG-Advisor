@@ -7,7 +7,7 @@
   },
   "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
   "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
-  "updated_at": "2026-11-11",
+  "updated_at": "2026-11-12",
   "docs": "https://wonjeong-dev.github.io/MBNG-Advisor/api/",
   "openapi": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/openapi.json",
   "principles": [
@@ -36,12 +36,12 @@
       "title": "진행 중 이벤트",
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/events.json",
       "auto": true,
-      "verified_at": "2026-11-11",
+      "verified_at": "2026-11-12",
       "state": "ok",
-      "revision": 1,
+      "revision": 2,
       "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/events/index.json",
       "tables": {
-        "events": 25
+        "events": 28
       }
     },
     {
@@ -50,7 +50,7 @@
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/leveling-materials.json",
       "auto": false,
       "verified_at": "2026-11-08",
-      "state": "ok",
+      "state": "check_needed",
       "revision": 1,
       "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/leveling-materials/index.json",
       "tables": {
@@ -89,9 +89,9 @@
       "title": "점검 일정",
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/maintenance.json",
       "auto": true,
-      "verified_at": "2026-11-11",
+      "verified_at": "2026-11-12",
       "state": "ok",
-      "revision": 1,
+      "revision": 2,
       "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/maintenance/index.json",
       "tables": {
         "schedule": 18
@@ -143,7 +143,7 @@
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/weekly.json",
       "auto": false,
       "verified_at": "2026-11-10",
-      "state": "ok",
+      "state": "check_needed",
       "revision": 2,
       "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/weekly/index.json",
       "tables": {

@@ -10,7 +10,7 @@
   "dataset": "events",
   "title": "진행 중 이벤트",
   "description": "공식 이벤트 게시판에서 '진행중'으로 표시된 이벤트의 제목과 기간",
-  "verified_at": "2026-11-11",
+  "verified_at": "2026-11-12",
   "status": {
     "state": "ok",
     "pending": []
@@ -43,6 +43,66 @@
   ],
   "data": {
     "events": [
+      {
+        "id": "3579322",
+        "title": "응원의 출석 이벤트 안내",
+        "period": "2026.11.12(목) 점검 후 ~ 2026.11.26(목) 오전 5시 59분까지",
+        "start_date": "2026-11-12",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-11-26",
+        "end_time": "05:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3579322",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3579317",
+        "title": "뱅가드 브리치 미션 이벤트 안내",
+        "period": "2026.11.12(목) 점검 후 ~ 2026.12.3(목) 오전 5시 59분까지",
+        "start_date": "2026-11-12",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-03",
+        "end_time": "05:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3579317",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3579316",
+        "title": "마족 토벌 미션 이벤트 안내",
+        "period": "2026.11.12(목) 점검 후 ~ 2026.12.3(목) 오전 5시 59분까지",
+        "start_date": "2026-11-12",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-03",
+        "end_time": "05:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3579316",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3579315",
+        "title": "던바튼의 비밀 자경단 이벤트 안내",
+        "period": "2026.11.12(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지",
+        "start_date": "2026-11-12",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3579315",
+        "src": [
+          "board-events"
+        ]
+      },
       {
         "id": "3575400",
         "title": "마비노기 모바일 콜라보 기념 치지직 ＆ SOOP 드롭스 이벤트 안내",
@@ -144,21 +204,6 @@
         "end_time": "23:59",
         "end_note": null,
         "url": "https://mabinogimobile.nexon.com/News/Events/3567687",
-        "src": [
-          "board-events"
-        ]
-      },
-      {
-        "id": "3563067",
-        "title": "할로윈 특제 케이크 이벤트 안내",
-        "period": "2026.10.15(목) 점검 후 ~ 2026.11.12(목) 오전 5시 59분까지",
-        "start_date": "2026-10-15",
-        "start_time": null,
-        "start_note": "점검 후",
-        "end_date": "2026-11-12",
-        "end_time": "05:59",
-        "end_note": null,
-        "url": "https://mabinogimobile.nexon.com/News/Events/3563067",
         "src": [
           "board-events"
         ]

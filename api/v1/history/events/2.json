@@ -1,0 +1,444 @@
+{
+  "api": "MBNG Advisor 데이터 API",
+  "version": "v1",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/deed.ko"
+  },
+  "attribution": "MBNG Advisor (https://wonjeong-dev.github.io/MBNG-Advisor/)",
+  "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
+  "dataset": "events",
+  "title": "진행 중 이벤트",
+  "revision": 2,
+  "date": "2026-11-12",
+  "summary": "진행 중 이벤트: 추가 4건, 종료 1건",
+  "hash": "47507f936b07c893",
+  "params": {
+    "timezone": "Asia/Seoul",
+    "update": "감시가 1시간마다 진행중 목록 전체를 읽어, 목록 수가 맞을 때만 반영"
+  },
+  "data": {
+    "events": [
+      {
+        "id": "3579322",
+        "title": "응원의 출석 이벤트 안내",
+        "period": "2026.11.12(목) 점검 후 ~ 2026.11.26(목) 오전 5시 59분까지",
+        "start_date": "2026-11-12",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-11-26",
+        "end_time": "05:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3579322",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3579317",
+        "title": "뱅가드 브리치 미션 이벤트 안내",
+        "period": "2026.11.12(목) 점검 후 ~ 2026.12.3(목) 오전 5시 59분까지",
+        "start_date": "2026-11-12",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-03",
+        "end_time": "05:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3579317",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3579316",
+        "title": "마족 토벌 미션 이벤트 안내",
+        "period": "2026.11.12(목) 점검 후 ~ 2026.12.3(목) 오전 5시 59분까지",
+        "start_date": "2026-11-12",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-03",
+        "end_time": "05:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3579316",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3579315",
+        "title": "던바튼의 비밀 자경단 이벤트 안내",
+        "period": "2026.11.12(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지",
+        "start_date": "2026-11-12",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3579315",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3575400",
+        "title": "마비노기 모바일 콜라보 기념 치지직 ＆ SOOP 드롭스 이벤트 안내",
+        "period": "2026.11.5(목) 오후 6시 ~ 2026.11.18(수) 오후 11시 59분까지",
+        "start_date": "2026-11-05",
+        "start_time": "18:00",
+        "start_note": null,
+        "end_date": "2026-11-18",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3575400",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3575399",
+        "title": "(추가) 마비노기 모바일 콜라보 기념 신규/복귀 모험가님을 위한 넥슨캐시 플레이 미션 이벤트 안내",
+        "period": "2026.11.5(목) 점검 후 ~ 2026.12.2(수) 오후 11시 59분까지",
+        "start_date": "2026-11-05",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-02",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3575399",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3574928",
+        "title": "마비노기 모바일 시즌 어워즈 진행 사전 안내",
+        "period": "2026.6.25(목) 점검 후 ~ 2026.11.30(월) 오후 11시 59분까지",
+        "start_date": "2026-06-25",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-11-30",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3574928",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3572981",
+        "title": "주술회전 X 마비노기 모바일 콜라보 기념 스크린샷 SNS 공유 이벤트",
+        "period": "2026.11.5(목) 점검 후 ~ 2026.11.15(일) 오후 11시 59분까지",
+        "start_date": "2026-11-05",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-11-15",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3572981",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3572111",
+        "title": "모험가의 기록 상시 이벤트 11월 주제 안내",
+        "period": "2026.11.1(일) 오전 0시 ~ 2026.11.30(월) 오후 11시 59분까지",
+        "start_date": "2026-11-01",
+        "start_time": "00:00",
+        "start_note": null,
+        "end_date": "2026-11-30",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3572111",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3571432",
+        "title": "(추가) 주술회전 X 마비노기 모바일 콜라보 이벤트 안내",
+        "period": "2026.11.5(목) 점검 후 ~ 2026.12.3(목) 오전 5시 59분까지",
+        "start_date": "2026-11-05",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-03",
+        "end_time": "05:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3571432",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3567687",
+        "title": "10/22(목) 넥슨에센셜 신규 상품 업데이트 기념 포토 리뷰 이벤트 안내",
+        "period": "2026.10.22(목) 신규 상품 업데이트 이후 ~ 2026.11.29(일) 오후 11시 59분까지",
+        "start_date": "2026-10-22",
+        "start_time": null,
+        "start_note": "신규 상품 업데이트 이후",
+        "end_date": "2026-11-29",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3567687",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3563066",
+        "title": "(수정) 도전! 룬다 어비스 이벤트 안내",
+        "period": "2026.10.15(목) 점검 후 ~ 2026.11.19(목) 오전 5시 59분까지",
+        "start_date": "2026-10-15",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-11-19",
+        "end_time": "05:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3563066",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3545039",
+        "title": "(수정) 매일매일 행운 출석 이벤트 안내",
+        "period": "2026.9.17(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지",
+        "start_date": "2026-09-17",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3545039",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3545036",
+        "title": "(수정) 에린 버닝 챌린지: 부스트 이벤트 안내",
+        "period": "2026.9.17(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지",
+        "start_date": "2026-09-17",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3545036",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3545035",
+        "title": "(수정) 에린 버닝 챌린지: 맥스 이벤트 안내",
+        "period": "2026.9.17(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지",
+        "start_date": "2026-09-17",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3545035",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3545032",
+        "title": "(수정) 함께 놀자! 친구 초대 이벤트! 안내",
+        "period": "2026.9.17(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지",
+        "start_date": "2026-09-17",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3545032",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3481569",
+        "title": "(수정) 시즌2 '빛과 어둠' 업데이트 기념 이벤트 모아보기 안내",
+        "period": "2026.6.25(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지",
+        "start_date": "2026-06-25",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3481569",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3481567",
+        "title": "(추가) 이상한 고양이의 여정 상점(에린 상점) 이벤트 안내",
+        "period": "2026.6.25(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지",
+        "start_date": "2026-06-25",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3481567",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3481559",
+        "title": "(수정) 레벨업 지원 이벤트 안내",
+        "period": "2026.6.25(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지",
+        "start_date": "2026-06-25",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3481559",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3481558",
+        "title": "모험가의 여정 4단계 이벤트 안내",
+        "period": "2026.6.25(목) 점검 후 ~ 별도 안내 시 까지",
+        "start_date": "2026-06-25",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": null,
+        "end_time": null,
+        "end_note": "별도 안내 시",
+        "url": "https://mabinogimobile.nexon.com/News/Events/3481558",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3480730",
+        "title": "시즌2 업데이트 기념! 넥슨에센셜 마비노기 모바일 스토어 이벤트 안내",
+        "period": "",
+        "start_date": null,
+        "start_time": null,
+        "start_note": null,
+        "end_date": null,
+        "end_time": null,
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3480730",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3429301",
+        "title": "(추가) 모험가의 기록 상시 이벤트 안내",
+        "period": "2026.4.23(목) ~ 별도 안내 시 까지",
+        "start_date": "2026-04-23",
+        "start_time": null,
+        "start_note": null,
+        "end_date": null,
+        "end_time": null,
+        "end_note": "별도 안내 시",
+        "url": "https://mabinogimobile.nexon.com/News/Events/3429301",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3407405",
+        "title": "(수정) 3/26(목) 넥슨에센셜 마비노기 모바일 스토어 오픈 이벤트 안내",
+        "period": "",
+        "start_date": null,
+        "start_time": null,
+        "start_note": null,
+        "end_date": null,
+        "end_time": null,
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3407405",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3322350",
+        "title": "(수정) 레이널드의 일일 출석부 이벤트 변경사항 안내",
+        "period": "2025.12.30(화) 점검 후 ~ 별도 안내 시까지",
+        "start_date": "2025-12-30",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": null,
+        "end_time": null,
+        "end_note": "별도 안내 시",
+        "url": "https://mabinogimobile.nexon.com/News/Events/3322350",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3147442",
+        "title": "모험가의 여정 3단계 이벤트 안내",
+        "period": "2025.09.25(목) 점검 후 ~ 별도 안내 시까지",
+        "start_date": "2025-09-25",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": null,
+        "end_time": null,
+        "end_note": "별도 안내 시",
+        "url": "https://mabinogimobile.nexon.com/News/Events/3147442",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "2839187",
+        "title": "라사의 웰컴 출석부 이벤트 변경사항 안내",
+        "period": "2025.4.24.(목) 점검 후 ~ 별도 안내 시까지",
+        "start_date": "2025-04-24",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": null,
+        "end_time": null,
+        "end_note": "별도 안내 시",
+        "url": "https://mabinogimobile.nexon.com/News/Events/2839187",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "2756013",
+        "title": "7단계 성장 미션!",
+        "period": "2025.3.27(목) ~ 별도 안내 시 까지",
+        "start_date": "2025-03-27",
+        "start_time": null,
+        "start_note": null,
+        "end_date": null,
+        "end_time": null,
+        "end_note": "별도 안내 시",
+        "url": "https://mabinogimobile.nexon.com/News/Events/2756013",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "2756012",
+        "title": "모험가의 여정",
+        "period": "2025.3.27(목) ~ 별도 안내 시 까지",
+        "start_date": "2025-03-27",
+        "start_time": null,
+        "start_note": null,
+        "end_date": null,
+        "end_time": null,
+        "end_note": "별도 안내 시",
+        "url": "https://mabinogimobile.nexon.com/News/Events/2756012",
+        "src": [
+          "board-events"
+        ]
+      }
+    ]
+  }
+}

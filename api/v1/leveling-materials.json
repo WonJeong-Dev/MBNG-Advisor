@@ -12,8 +12,20 @@
   "description": "100레벨까지 스토리를 진행할 때 퀘스트가 요구하는 재료와 수량, 직접 만들어야 하는 요리의 재료",
   "verified_at": "2026-11-08",
   "status": {
-    "state": "ok",
-    "pending": []
+    "state": "check_needed",
+    "pending": [
+      {
+        "key": "update-3579297",
+        "kind": "post",
+        "title": "(추가) 11/12(목) 업데이트 노트",
+        "url": "https://mabinogimobile.nexon.com/News/Update/3579297",
+        "date": "2026-11-11",
+        "detected_at": "2026-11-12T08:32:06Z",
+        "matched": [
+          "메인 퀘스트"
+        ]
+      }
+    ]
   },
   "params": {
     "list_received": "2026-11-02"
