@@ -6,7 +6,16 @@
 <atom:link href="https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/feed.xml" rel="self" type="application/rss+xml"/>
 <description>마비노기 모바일 공식 글·게임 확인 기반 데이터의 값 변경과 재확인 기록. 넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.</description>
 <language>ko</language>
-<lastBuildDate>Thu, 12 Nov 2026 08:32:33 GMT</lastBuildDate>
+<lastBuildDate>Mon, 16 Nov 2026 01:17:14 GMT</lastBuildDate>
+<item>
+<title>진행 중 이벤트 · 진행 중 이벤트: 종료 1건</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/events/index.json</link>
+<guid isPermaLink="false">mbng-4d80d77fa6e5b5ba</guid>
+<pubDate>Mon, 16 Nov 2026 01:17:14 GMT</pubDate>
+<category>events</category>
+<description>종료: 주술회전 X 마비노기 모바일 콜라보 기념 스크린샷 SNS 공유 이벤트
+출처: 이벤트 게시판(진행중) https://mabinogimobile.nexon.com/News/Events?headlineId=2501</description>
+</item>
 <item>
 <title>진행 중 이벤트 · 진행 중 이벤트: 추가 4건, 종료 1건</title>
 <link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/events/index.json</link>

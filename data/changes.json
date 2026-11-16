@@ -138,5 +138,20 @@
     "src": [
       "board-events"
     ]
+  },
+  {
+    "date": "2026-11-16",
+    "at": "2026-11-16T01:17:14Z",
+    "auto": true,
+    "datasets": [
+      "events"
+    ],
+    "summary": "진행 중 이벤트: 종료 1건",
+    "details": [
+      "종료: 주술회전 X 마비노기 모바일 콜라보 기념 스크린샷 SNS 공유 이벤트"
+    ],
+    "src": [
+      "board-events"
+    ]
   }
 ]
