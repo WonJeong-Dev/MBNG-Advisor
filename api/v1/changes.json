@@ -9,6 +9,21 @@
   "disclaimer": "넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.",
   "changes": [
     {
+      "date": "2026-11-17",
+      "at": "2026-11-17T09:17:09Z",
+      "auto": true,
+      "datasets": [
+        "maintenance"
+      ],
+      "summary": "점검 일정: 11/19 정기점검 06:00~10:30 공지",
+      "details": [
+        "11/19(목) 정기점검 안내 (06:00 ~ 10:30) (https://mabinogimobile.nexon.com/News/Notice/3581864)"
+      ],
+      "src": [
+        "board-notice"
+      ]
+    },
+    {
       "date": "2026-11-16",
       "at": "2026-11-16T01:17:14Z",
       "auto": true,
