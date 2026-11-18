@@ -21,8 +21,53 @@
   "tables": {
     "events": [
       {
+        "id": "3582610",
+        "title": "팥 vs 슈크림 누가 더 완전한가 이벤트 안내",
+        "period": "2026.11.19(목) 점검 후 ~ 2026.12.16(목) 오후 11시 59분까지",
+        "start_date": "2026-11-19",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3582610",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3582609",
+        "title": "모험가 길드의 보급상점 이벤트 안내",
+        "period": "2026.11.19(목) 점검 후 ~ 2026.12.3(목) 오전 5시 59분까지",
+        "start_date": "2026-11-19",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-03",
+        "end_time": "05:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3582609",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
+        "id": "3582608",
+        "title": "간식 준비를 도와달라냥 이벤트 안내",
+        "period": "2026.11.19(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지",
+        "start_date": "2026-11-19",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3582608",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
         "id": "3579322",
-        "title": "응원의 출석 이벤트 안내",
+        "title": "(수정) 응원의 출석 이벤트 안내",
         "period": "2026.11.12(목) 점검 후 ~ 2026.11.26(목) 오전 5시 59분까지",
         "start_date": "2026-11-12",
         "start_time": null,
@@ -52,7 +97,7 @@
       },
       {
         "id": "3579316",
-        "title": "마족 토벌 미션 이벤트 안내",
+        "title": "(수정) 마족 토벌 미션 이벤트 안내",
         "period": "2026.11.12(목) 점검 후 ~ 2026.12.3(목) 오전 5시 59분까지",
         "start_date": "2026-11-12",
         "start_time": null,
