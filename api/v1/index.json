@@ -38,10 +38,10 @@
       "auto": true,
       "verified_at": "2026-11-19",
       "state": "ok",
-      "revision": 4,
+      "revision": 5,
       "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/events/index.json",
       "tables": {
-        "events": 30
+        "events": 28
       }
     },
     {
@@ -91,7 +91,7 @@
       "auto": true,
       "verified_at": "2026-11-19",
       "state": "ok",
-      "revision": 3,
+      "revision": 4,
       "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/maintenance/index.json",
       "tables": {
         "schedule": 19

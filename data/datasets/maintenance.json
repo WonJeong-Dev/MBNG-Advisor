@@ -333,17 +333,18 @@
         "kind": "정기",
         "date": "2026-11-19",
         "start": "06:00",
-        "end": "10:30",
+        "end": "08:15",
         "start_at": "2026-11-19T06:00:00+09:00",
-        "end_at": "2026-11-19T10:30:00+09:00",
-        "completed": false,
+        "end_at": "2026-11-19T08:15:00+09:00",
+        "completed": true,
         "canceled": false,
-        "title": "11/19(목) 정기점검 안내 (06:00 ~ 10:30)",
+        "title": "(완료) 11/19(목) 정기점검 안내 (06:00 ~ 08:15)",
         "url": "https://mabinogimobile.nexon.com/News/Notice/3581864",
         "posted": "2026-11-17",
         "src": [
           "board-notice"
-        ]
+        ],
+        "planned_end": "10:30"
       }
     ]
   }
