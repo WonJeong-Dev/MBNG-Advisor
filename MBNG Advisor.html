@@ -2224,7 +2224,7 @@ function pgGem(){const g=S.gm,c=RUNES[g.c]?g.c:S.sel,B=bldOf(c),top=B.length?gem
  ${top.length?`<p class="hint mt10">상위 3줄: <b>${top.map(x=>x.endsWith('쿨')?x.slice(0,-1)+' 재사용 대기':x+' 피해').join(' · ')}</b>${kc?` → 형태 '${GM_K[kc][0]}'${g.k===kc?' (계산에 적용됨)':` <button class="linkbtn" data-gmk="${kc}">이 형태로 계산 →</button>`}`:' → 재사용 대기 줄이 2개라 계산 대상이 아닙니다'}. 칸 전체 전략에서는 가장 많이 겹친 조합을 은행에서 이 태그들로 치환합니다.</p>`:''}</div>`}
 
 /* ===== 데이터: 과제 알리미 (사용자 지정 목록 2026-11-23, 같은 날 '모험가 길드의 정기 의뢰' 추가) =====
-   표시(한국 시간): 월 06:00~화 05:59 주간+일일 · 화 06:00~토 05:59 일일 · 토 06:00~월 05:59 일일+주말
+   표시(한국 시간): 주간·일일은 항상(주간은 2026-11-23 사용자 변경으로 일주일 내내, 처음엔 월 06:00~화 05:59만), 토 06:00~월 05:59에는 주말 추가
    초기화: 일일 매일 06:00, 주간 월 06:00, 주말 토 06:00. 서버별은 한 번, 캐릭터별은 캐릭터마다 체크(주간·주말은 사용자 승인으로 캐릭터별)
    '뱅가드블리츠'는 게임 콘텐츠 이름 '뱅가드 브리치'로 표기
    [그룹 id, 이름, 기간(d 일일/w 주간/e 주말), 범위(s 서버/c 캐릭터), [[항목 id, 이름, 설명]]] */
@@ -2236,23 +2236,23 @@ const TODO=[
 const TD_DAY=['월','화','수','목','금','토','일'];
 /* 지금 기간: weekStart(월 06:00)를 기준으로 날마다 06:00 경계가 ws + n일(한국 시간은 서머타임 없음) */
 function tdNow(now=Date.now()){const ws=weekStart(now),idx=Math.floor((now-ws)/DAYMS),sat=now>=ws+5*DAYMS?ws+5*DAYMS:ws-2*DAYMS,ymd=t=>new Date(t+KST).toISOString().slice(0,10);
- return {now,ws,idx,wVis:idx===0,eVis:idx>=5,k:{d:ymd(ws+idx*DAYMS),w:ymd(ws),e:ymd(sat)},next:ws+(idx+1)*DAYMS}}
+ return {now,ws,idx,wVis:true,eVis:idx>=5,k:{d:ymd(ws+idx*DAYMS),w:ymd(ws),e:ymd(sat)},next:ws+(idx+1)*DAYMS}}
 function checkTodo(now=Date.now()){const T=tdNow(now),o=S.todo;let ch=false;for(const p of ['d','w','e'])if(o.k[p]!==T.k[p]){if(o.k[p])ch=true;o.k[p]=T.k[p];o.c[p]={}}if(ch||!o.sig)save();const sig=`${T.k.d}|${T.wVis}|${T.eVis}`,moved=o.sig!==sig;o.sig=sig;return {T,ch,moved}}
 const tdGroups=T=>TODO.filter(g=>g[2]==='d'||(g[2]==='w'&&T.wVis)||(g[2]==='e'&&T.eVis));
 const tdWho=g=>g[3]==='s'?'S':S.todo.cur,tdOn=(g,it,who=tdWho(g))=>!!S.todo.c[g[2]][who+':'+it[0]];
 const tdCount=(L,who)=>L.reduce((a,g)=>{if(g[3]==='s'&&who)return a;for(const it of g[4]){a[1]++;if(tdOn(g,it,g[3]==='s'?'S':(who||S.todo.cur)))a[0]++}return a},[0,0]);
 const tdLeft=T=>{const ms=T.next-Date.now(),h=Math.floor(ms/HR),m=Math.floor(ms%HR/6e4);return h?`${h}시간 ${m}분`:`${Math.max(m,0)}분`};
-const tdNextWhat=T=>{const i=T.idx+1;return `${TD_DAY[i%7]} 06:00 · `+(i===1?'주간 과제 끝 · 일일 초기화':i===5?'주말 과제 시작 · 일일 초기화':i===7?'주말 과제 끝 · 주간 과제 시작':'일일 초기화')};
-const tdRange={w:'월 06:00 ~ 화 05:59',e:'토 06:00 ~ 월 05:59',d:'매일 06:00 초기화'};
+const tdNextWhat=T=>{const i=T.idx+1;return `${TD_DAY[i%7]} 06:00 · `+(i===5?'주말 과제 시작 · 일일 초기화':i===7?'주간 초기화 · 주말 과제 끝':'일일 초기화')};
+const tdRange={w:'매주 월 06:00 초기화',e:'토 06:00 ~ 월 05:59',d:'매일 06:00 초기화'};
 let tdArm='';
 function pgTodo(){const {T}=checkTodo(),o=S.todo,G=tdGroups(T),[dn,tot]=tdCount(G),p=tot?Math.round(dn/tot*100):0,day=new Date(T.ws+T.idx*DAYMS+KST),
- mode=T.wVis?['주간','일일']:T.eVis?['일일','주말']:['일일'],hasC=G.some(g=>g[3]==='c'),cur=o.chars.find(c=>c.id===o.cur)||o.chars[0];
+ mode=T.eVis?['주간','일일','주말']:['주간','일일'],hasC=G.some(g=>g[3]==='c'),cur=o.chars.find(c=>c.id===o.cur)||o.chars[0];
  const row=(g,it)=>{const on=tdOn(g,it);return `<button class="tdi ${on?'on':''}" data-td="${g[0]}|${it[0]}" aria-pressed="${on}"><span class="tdck">${svg('check')}</span><span class="tdt"><b>${esc(it[1])}</b><span>${it[2]?esc(it[2]):g[3]==='s'?'서버당 1회':'캐릭터마다'}</span></span></button>`};
  const grp=g=>{const L=g[4].filter(it=>!(o.hide&&tdOn(g,it))),[a,b]=tdCount([g]);return `<section class="panel tdg td-${g[2]}"><div class="tdgh"><div><b>${esc(g[1])}</b><span class="tiny">${tdRange[g[2]]} · ${g[3]==='s'?'서버별':`${esc(cur.name)}`}</span></div><span class="tdn ${a===b?'ok':''}">${a}<em>/${b}</em></span></div>
   <div class="bar"><i style="width:${b?a/b*100:0}%"></i></div><div class="tdl">${L.map(it=>row(g,it)).join('')||`<div class="tdall">${svg('check')}<span>모두 완료</span></div>`}</div></section>`};
  return `<div class="panel hl tdhero"><div class="tdtop"><div class="tdhd"><div class="tiny">${day.getUTCMonth()+1}/${day.getUTCDate()}(${TD_DAY[T.idx]}) · 한국 시간 06:00 기준</div><div class="tdtitle">${dn===tot&&tot?'오늘 과제를 모두 끝냈어요':'오늘의 과제'}</div>
- <div class="tdmode">${mode.map(m=>`<span class="tdb tdb-${m==='주간'?'w':m==='주말'?'e':'d'}">${m}</span>`).join('')}<span class="tiny">${tot-dn?`${tot-dn}개 남음`:'남은 과제 없음'}</span></div></div>
- <div class="tdring ${dn===tot&&tot?'ok':''}" style="--p:${p}"><b>${dn}<em>/${tot}</em></b><span>${p}%</span></div></div>
+ <div class="tdmode">${mode.map(m=>`<span class="tdb tdb-${m==='주간'?'w':m==='주말'?'e':'d'}">${m}</span>`).join('')}</div></div>
+ <div class="tdring ${dn===tot&&tot?'ok':''}" style="--p:${p}"><b>${dn}<em>/${tot}</em></b><span>${tot-dn?`${tot-dn}개 남음`:'완료'}</span></div></div>
  <div class="tdnext"><div><span class="tiny">다음 초기화까지</span><b id="tdcd">${tdLeft(T)}</b></div><span class="tiny" id="tdnw">${tdNextWhat(T)}</span></div></div>
  ${hasC?`<div class="tdchars">${o.chars.map(c=>{const [a,b]=tdCount(G,c.id);return o.edit?`<span class="tdchip on"><input data-tdn="${c.id}" value="${esc(c.name)}" maxlength="12" aria-label="캐릭터 이름">${o.chars.length>1?`<button class="tdx" data-tddel="${c.id}" aria-label="${esc(c.name)} 삭제">${tdArm===c.id?'삭제?':'×'}</button>`:''}</span>`:`<button class="tdchip ${c.id===o.cur?'on':''}" data-tdc="${c.id}">${esc(c.name)} <em>${a}/${b}</em></button>`}).join('')}
  ${o.edit&&o.chars.length<8?'<button class="tdchip add" data-act="tdadd">+ 캐릭터</button>':''}<span class="tdtools"><button class="linkbtn" data-act="tdedit">${o.edit?'완료':'캐릭터 편집'}</button><button class="linkbtn" data-act="tdhide">${o.hide?'완료 항목 보이기':'완료 항목 숨기기'}</button></span></div>`:''}
