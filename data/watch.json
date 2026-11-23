@@ -81,8 +81,8 @@
       "since": "2026-11-10"
     },
     "guide-2839865": {
-      "hash": "dbee0a0763467687d60be55a7d9bd0abfc9de6ab63095c8fb10071b169210e18",
-      "since": "2026-11-10"
+      "hash": "e3c79737c0e10e4d107f13b54571cbeedb3bd1549e3cdef93eb30757047956c9",
+      "since": "2026-11-23"
     },
     "guide-3164452": {
       "hash": "046216ae6577d97c3906424368e3b37fda7068ac7597805c8fadb172b855f920",
@@ -287,6 +287,19 @@
           "클리어 전리품"
         ]
       }
+    },
+    {
+      "key": "page-guide-2839865-e3c79737",
+      "kind": "page-changed",
+      "page": "guide-2839865",
+      "title": "레이드 가이드 본문 변경",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2839865",
+      "date": "2026-11-23",
+      "detected_at": "2026-11-23T06:50:38Z",
+      "datasets": [
+        "weekly"
+      ],
+      "matched": {}
     }
   ]
 }
