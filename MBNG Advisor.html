@@ -1006,7 +1006,7 @@ const CHARM=[['face','얼굴 장식 선택','외모 바꾸기에서 얼굴 장�
 /* ===== 상태 ===== */
 let S={page:'class',sel:'석궁사수',fam:'all',q:'',view:'card',fav:[],all:false,rp:'all',rpa:0,rq:'',rsel:'',ca:'석궁사수',cb:'궁수',ls:8,lall:false,lh:0,lk:{},pq:'',pf:'all',pl:0,gq:'',gs:'all',wk:{},wedit:false,soul:{},charm:[],bq:'',bm:'all',br:'all',bp:'all',bc:1,bt:'x',bcur:'all',tf:'all',ptf:'all',mt:'board',mr:'pct_change_24h_desc',mc:'all',mq:'',mpf:'all',mb:'buy',mw:[],mrg:30,mgt:'잔영',mgp:'all',mgm:'use',mgs:0,rcf:'all',hb:0};
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(OLD_KEY)||'{}'))}catch(e){}
-if(!Array.isArray(S.fav))S.fav=[];S.todo=Object.assign({chars:[{id:'c1',name:'내 캐릭터'}],cur:'c1',hide:false,edit:false,k:{d:'',w:'',e:''},c:{d:{},w:{},e:{}},sig:''},S.todo&&typeof S.todo==='object'?S.todo:{});if(!Array.isArray(S.todo.chars)||!S.todo.chars.length)S.todo.chars=[{id:'c1',name:'내 캐릭터'}];if(!S.todo.chars.some(c=>c.id===S.todo.cur))S.todo.cur=S.todo.chars[0].id;if(!S.todo.k||typeof S.todo.k!=='object')S.todo.k={d:'',w:'',e:''};if(!S.todo.c||typeof S.todo.c!=='object')S.todo.c={};for(const p of ['d','w','e'])if(!S.todo.c[p]||typeof S.todo.c[p]!=='object')S.todo.c[p]={};S.todo.edit=false;S.page='todo';S.gm=Object.assign({t:'3',p:'',n:20,k:'d3',l:10,c:''},S.gm&&typeof S.gm==='object'?S.gm:{});if(!['3','2a','2b'].includes(S.gm.t))S.gm.t='3';if(!['d3','d2c1'].includes(S.gm.k))S.gm.k='d3';S.gm.n=Math.min(40,Math.max(1,+S.gm.n||20));S.gm.l=Math.min(9999,Math.max(0,+S.gm.l||0));if(!RUNES[S.sel])S.sel='석궁사수';
+if(!Array.isArray(S.fav))S.fav=[];S.todo=Object.assign({chars:[{id:'c1',name:'내 캐릭터'}],cur:'c1',hide:false,edit:false,k:{d:'',w:'',e:''},c:{d:{},w:{},e:{}},sig:''},S.todo&&typeof S.todo==='object'?S.todo:{});if(!Array.isArray(S.todo.chars)||!S.todo.chars.length)S.todo.chars=[{id:'c1',name:'내 캐릭터'}];if(!S.todo.chars.some(c=>c.id===S.todo.cur))S.todo.cur=S.todo.chars[0].id;if(!S.todo.k||typeof S.todo.k!=='object')S.todo.k={d:'',w:'',e:''};if(!S.todo.c||typeof S.todo.c!=='object')S.todo.c={};for(const p of ['d','w','e'])if(!S.todo.c[p]||typeof S.todo.c[p]!=='object')S.todo.c[p]={};S.todo.edit=false;{const w=S.todo.c.w;for(const k of Object.keys(w))if(k.endsWith(':w5')&&!k.startsWith('S:')){w['S:w5']=1;delete w[k]}}S.page='todo';S.gm=Object.assign({t:'3',p:'',n:20,k:'d3',l:10,c:''},S.gm&&typeof S.gm==='object'?S.gm:{});if(!['3','2a','2b'].includes(S.gm.t))S.gm.t='3';if(!['d3','d2c1'].includes(S.gm.k))S.gm.k='d3';S.gm.n=Math.min(40,Math.max(1,+S.gm.n||20));S.gm.l=Math.min(9999,Math.max(0,+S.gm.l||0));if(!RUNES[S.sel])S.sel='석궁사수';
 S.lk=Object.assign({b1:0,r1:0,b2:0,r2:0,st:8,lv:15},S.lk&&typeof S.lk==='object'?S.lk:{});if(!LK[S.lk.st])S.lk.st=8;if(!LK[0][S.lk.lv-1])S.lk.lv=15;if(!LK[S.ls])S.ls=8;
 if(S.pf!=='all'&&!PFAC.includes(S.pf))S.pf='all';if(!(S.pl>=0&&S.pl<=6))S.pl=0;if(typeof S.pq!=='string')S.pq='';
 if(S.gs!=='all'&&!GSK.some(g=>g[0]===S.gs))S.gs='all';if(S.tf!=='all'&&!CF[S.tf])S.tf='all';if(S.ptf!=='all'&&!CF[S.ptf])S.ptf='all';if(typeof S.gq!=='string')S.gq='';
@@ -2225,11 +2225,11 @@ function pgGem(){const g=S.gm,c=RUNES[g.c]?g.c:S.sel,B=bldOf(c),top=B.length?gem
 
 /* ===== 데이터: 과제 알리미 (사용자 지정 목록 2026-11-23, 같은 날 '모험가 길드의 정기 의뢰' 추가) =====
    표시(한국 시간): 주간·일일은 항상(주간은 2026-11-23 사용자 변경으로 일주일 내내, 처음엔 월 06:00~화 05:59만), 토 06:00~월 05:59에는 주말 추가
-   초기화: 일일 매일 06:00, 주간 월 06:00, 주말 토 06:00. 서버별은 한 번, 캐릭터별은 캐릭터마다 체크(주간·주말은 사용자 승인으로 캐릭터별)
+   초기화: 일일 매일 06:00, 주간 월 06:00, 주말 토 06:00. 서버별은 한 번, 캐릭터별은 캐릭터마다 체크(주간·주말은 사용자 승인으로 캐릭터별, 소울스트림 소울 구매만 항목 단위로 서버 공유 — 사용자 2026-11-23. 주간 항목은 회색 설명 없이 이름만, 주말 항목도 '캐릭터마다' 문구 없음)
    '뱅가드블리츠'는 게임 콘텐츠 이름 '뱅가드 브리치'로 표기
-   [그룹 id, 이름, 기간(d 일일/w 주간/e 주말), 범위(s 서버/c 캐릭터), [[항목 id, 이름, 설명]]] */
+   [그룹 id, 이름, 기간(d 일일/w 주간/e 주말), 범위(s 서버/c 캐릭터), [[항목 id, 이름, 설명, 범위(그룹과 다를 때만)]]] */
 const TODO=[
-['w','주간 과제','w','c',[['w1','주간 전리품 수령','어비스 전리품'],['w2','필드 보스 처치',''],['w3','뱅가드 브리치',''],['w4','임무 게시판 스크롤 구매',''],['w5','소울스트림 소울 구매',''],['w6','에반 인챈트 스크롤 구매','던바튼'],['w7','에반 스카스 전리품 구매','던바튼'],['w8','모험가 길드의 정기 의뢰 1회 완료','']]],
+['w','주간 과제','w','c',[['w1','주간 전리품 수령 (어비스 전리품)',''],['w2','필드 보스 처치',''],['w3','뱅가드 브리치',''],['w4','임무 게시판 스크롤 구매',''],['w5','소울스트림 소울 구매','','s'],['w6','던바튼 에반 인챈트 스크롤 구매',''],['w7','던바튼 에반 스카스 전리품 구매',''],['w8','모험가 길드의 정기 의뢰 1회 완료','']]],
 ['e','주말 과제','e','c',[['e1','어비스 3회 클리어',''],['e2','레이드 1회 클리어',''],['e3','어비스 주간 보상 클리어',''],['e4','레이드 주간 보상 클리어','']]],
 ['ds','일일 과제 · 서버','d','s',[['s1','콜헨 물물교환 코너','폐허 및 협곡 마나석']]],
 ['dc','일일 과제 · 캐릭터','d','c',[['c1','캐시샵 필수 품목 구매',''],['c2','이벤트 달성 항목 수령',''],['c3','요일 던전',''],['c4','검은 구멍',''],['c5','트레이시 물물교환','두갈드아일 · 나무진액'],['c6','엘빈 물물교환','두갈드아일 · 상급 목재'],['c7','아이데른 물물교환','반호르 · 은합금괴']]]];
@@ -2239,15 +2239,15 @@ function tdNow(now=Date.now()){const ws=weekStart(now),idx=Math.floor((now-ws)/D
  return {now,ws,idx,wVis:true,eVis:idx>=5,k:{d:ymd(ws+idx*DAYMS),w:ymd(ws),e:ymd(sat)},next:ws+(idx+1)*DAYMS}}
 function checkTodo(now=Date.now()){const T=tdNow(now),o=S.todo;let ch=false;for(const p of ['d','w','e'])if(o.k[p]!==T.k[p]){if(o.k[p])ch=true;o.k[p]=T.k[p];o.c[p]={}}if(ch||!o.sig)save();const sig=`${T.k.d}|${T.wVis}|${T.eVis}`,moved=o.sig!==sig;o.sig=sig;return {T,ch,moved}}
 const tdGroups=T=>TODO.filter(g=>g[2]==='d'||(g[2]==='w'&&T.wVis)||(g[2]==='e'&&T.eVis));
-const tdWho=g=>g[3]==='s'?'S':S.todo.cur,tdOn=(g,it,who=tdWho(g))=>!!S.todo.c[g[2]][who+':'+it[0]];
-const tdCount=(L,who)=>L.reduce((a,g)=>{if(g[3]==='s'&&who)return a;for(const it of g[4]){a[1]++;if(tdOn(g,it,g[3]==='s'?'S':(who||S.todo.cur)))a[0]++}return a},[0,0]);
+const tdScope=(g,it)=>it[3]||g[3],tdWho=(g,it)=>tdScope(g,it)==='s'?'S':S.todo.cur,tdOn=(g,it,who=tdWho(g,it))=>!!S.todo.c[g[2]][who+':'+it[0]];
+const tdCount=(L,who)=>L.reduce((a,g)=>{for(const it of g[4]){const sv=tdScope(g,it)==='s';if(sv&&who)continue;a[1]++;if(tdOn(g,it,sv?'S':(who||S.todo.cur)))a[0]++}return a},[0,0]);
 const tdLeft=T=>{const ms=T.next-Date.now(),h=Math.floor(ms/HR),m=Math.floor(ms%HR/6e4);return h?`${h}시간 ${m}분`:`${Math.max(m,0)}분`};
 const tdNextWhat=T=>{const i=T.idx+1;return `${TD_DAY[i%7]} 06:00 · `+(i===5?'주말 과제 시작 · 일일 초기화':i===7?'주간 초기화 · 주말 과제 끝':'일일 초기화')};
 const tdRange={w:'매주 월 06:00 초기화',e:'토 06:00 ~ 월 05:59',d:'매일 06:00 초기화'};
 let tdArm='';
 function pgTodo(){const {T}=checkTodo(),o=S.todo,G=tdGroups(T),[dn,tot]=tdCount(G),p=tot?Math.round(dn/tot*100):0,day=new Date(T.ws+T.idx*DAYMS+KST),
  mode=T.eVis?['주간','일일','주말']:['주간','일일'],hasC=G.some(g=>g[3]==='c'),cur=o.chars.find(c=>c.id===o.cur)||o.chars[0];
- const row=(g,it)=>{const on=tdOn(g,it);return `<button class="tdi ${on?'on':''}" data-td="${g[0]}|${it[0]}" aria-pressed="${on}"><span class="tdck">${svg('check')}</span><span class="tdt"><b>${esc(it[1])}</b><span>${it[2]?esc(it[2]):g[3]==='s'?'서버당 1회':'캐릭터마다'}</span></span></button>`};
+ const row=(g,it)=>{const on=tdOn(g,it);return `<button class="tdi ${on?'on':''}" data-td="${g[0]}|${it[0]}" aria-pressed="${on}"><span class="tdck">${svg('check')}</span><span class="tdt"><b>${esc(it[1])}</b>${(s=>s?`<span>${esc(s)}</span>`:'')(g[2]==='w'?'':it[2]||(tdScope(g,it)==='s'?'서버당 1회':g[2]==='d'?'캐릭터마다':''))}</span></button>`};
  const grp=g=>{const L=g[4].filter(it=>!(o.hide&&tdOn(g,it))),[a,b]=tdCount([g]);return `<section class="panel tdg td-${g[2]}"><div class="tdgh"><div><b>${esc(g[1])}</b><span class="tiny">${tdRange[g[2]]} · ${g[3]==='s'?'서버별':`${esc(cur.name)}`}</span></div><span class="tdn ${a===b?'ok':''}">${a}<em>/${b}</em></span></div>
   <div class="bar"><i style="width:${b?a/b*100:0}%"></i></div><div class="tdl">${L.map(it=>row(g,it)).join('')||`<div class="tdall">${svg('check')}<span>모두 완료</span></div>`}</div></section>`};
  return `<div class="panel hl tdhero"><div class="tdtop"><div class="tdhd"><div class="tiny">${day.getUTCMonth()+1}/${day.getUTCDate()}(${TD_DAY[T.idx]}) · 한국 시간 06:00 기준</div><div class="tdtitle">${dn===tot&&tot?'오늘 과제를 모두 끝냈어요':'오늘의 과제'}</div>
@@ -2365,7 +2365,7 @@ function holeTk(x){const m=$('hkm'),el=$('hbk');try{if(x)localStorage.removeItem
 
 /* ===== 이벤트 ===== */
 document.addEventListener('click',e=>{const t=e.target;let el;
- if(el=t.closest('[data-td]')){const [gid,iid]=el.dataset.td.split('|'),g=TODO.find(x=>x[0]===gid);if(!g)return;const k=tdWho(g)+':'+iid,m=S.todo.c[g[2]];if(m[k])delete m[k];else m[k]=1;save();return render()}
+ if(el=t.closest('[data-td]')){const [gid,iid]=el.dataset.td.split('|'),g=TODO.find(x=>x[0]===gid),it=g&&g[4].find(x=>x[0]===iid);if(!it)return;const k=tdWho(g,it)+':'+iid,m=S.todo.c[g[2]];if(m[k])delete m[k];else m[k]=1;save();return render()}
  if(el=t.closest('[data-tdc]')){S.todo.cur=el.dataset.tdc;save();return render()}
  if(el=t.closest('[data-tddel]')){const id=el.dataset.tddel,o=S.todo;if(tdArm!==id){tdArm=id;render();setTimeout(()=>{if(tdArm===id){tdArm='';if(S.page==='todo')render()}},4000);return}tdArm='';o.chars=o.chars.filter(c=>c.id!==id);for(const p of ['d','w','e'])for(const k of Object.keys(o.c[p]))if(k.startsWith(id+':'))delete o.c[p][k];if(o.cur===id)o.cur=o.chars[0].id;save();return render()}
  if(el=t.closest('[data-act="tdadd"]')){const o=S.todo;let n=1;while(o.chars.some(c=>c.id==='c'+n))n++;o.chars.push({id:'c'+n,name:'캐릭터 '+(o.chars.length+1)});save();return render()}
