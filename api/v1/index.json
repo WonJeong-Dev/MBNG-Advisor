@@ -91,10 +91,10 @@
       "auto": true,
       "verified_at": "2026-11-24",
       "state": "ok",
-      "revision": 4,
+      "revision": 5,
       "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/maintenance/index.json",
       "tables": {
-        "schedule": 19
+        "schedule": 20
       }
     },
     {

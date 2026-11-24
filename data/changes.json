@@ -221,5 +221,20 @@
     "src": [
       "board-events"
     ]
+  },
+  {
+    "date": "2026-11-24",
+    "at": "2026-11-24T09:17:09Z",
+    "auto": true,
+    "datasets": [
+      "maintenance"
+    ],
+    "summary": "점검 일정: 11/26 정기점검 06:00~10:30 공지",
+    "details": [
+      "11/26(목) 정기점검 안내 (06:00 ~ 10:30) (https://mabinogimobile.nexon.com/News/Notice/3586172)"
+    ],
+    "src": [
+      "board-notice"
+    ]
   }
 ]
