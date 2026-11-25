@@ -21,6 +21,21 @@
   "tables": {
     "events": [
       {
+        "id": "3586877",
+        "title": "에린의 정수를 찾아서 이벤트 안내",
+        "period": "2026.11.26(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지",
+        "start_date": "2026-11-26",
+        "start_time": null,
+        "start_note": "점검 후",
+        "end_date": "2026-12-16",
+        "end_time": "23:59",
+        "end_note": null,
+        "url": "https://mabinogimobile.nexon.com/News/Events/3586877",
+        "src": [
+          "board-events"
+        ]
+      },
+      {
         "id": "3582610",
         "title": "(수정) 팥 vs 슈크림 누가 더 완전한가 이벤트 안내",
         "period": "2026.11.19(목) 점검 후 ~ 2026.12.16(목) 오후 11시 59분까지",
