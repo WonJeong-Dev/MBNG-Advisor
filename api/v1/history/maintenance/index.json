@@ -11,6 +11,13 @@
   "title": "점검 일정",
   "versions": [
     {
+      "revision": 6,
+      "date": "2026-11-26",
+      "hash": "978a8273f8a52469",
+      "summary": "점검 일정: 11/26 정기점검 06:00~08:10 완료",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/maintenance/6.json"
+    },
+    {
       "revision": 5,
       "date": "2026-11-24",
       "hash": "1d2f2869a39b4b69",

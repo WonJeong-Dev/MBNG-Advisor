@@ -11,6 +11,13 @@
   "title": "진행 중 이벤트",
   "versions": [
     {
+      "revision": 7,
+      "date": "2026-11-26",
+      "hash": "5ae6c2d48c11eff1",
+      "summary": "값 변경",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/events/7.json"
+    },
+    {
       "revision": 6,
       "date": "2026-11-25",
       "hash": "a7402f38de4ac500",
