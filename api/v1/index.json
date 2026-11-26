@@ -50,7 +50,7 @@
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/leveling-materials.json",
       "auto": false,
       "verified_at": "2026-11-08",
-      "state": "check_needed",
+      "state": "ok",
       "revision": 1,
       "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/leveling-materials/index.json",
       "tables": {
@@ -143,8 +143,8 @@
       "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/weekly.json",
       "auto": false,
       "verified_at": "2026-11-10",
-      "state": "check_needed",
-      "revision": 2,
+      "state": "ok",
+      "revision": 3,
       "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/weekly/index.json",
       "tables": {
         "items": 13

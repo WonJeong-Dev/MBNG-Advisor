@@ -11,6 +11,13 @@
   "title": "주간 숙제",
   "versions": [
     {
+      "revision": 3,
+      "date": "2026-11-27",
+      "hash": "5fcd32a13f9f95e4",
+      "summary": "재확인: 변경 없음 (레이드 가이드 기준일 갱신, 카브락 매우 어려움 추가)",
+      "url": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/weekly/3.json"
+    },
+    {
       "revision": 2,
       "date": "2026-11-10",
       "hash": "a29fe7e93fe059da",

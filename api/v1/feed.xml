@@ -6,7 +6,29 @@
 <atom:link href="https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/feed.xml" rel="self" type="application/rss+xml"/>
 <description>마비노기 모바일 공식 글·게임 확인 기반 데이터의 값 변경과 재확인 기록. 넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.</description>
 <language>ko</language>
-<lastBuildDate>Thu, 26 Nov 2026 02:05:36 GMT</lastBuildDate>
+<lastBuildDate>Thu, 26 Nov 2026 15:00:00 GMT</lastBuildDate>
+<item>
+<title>신규 육성 스토리 필수 재료 · 재확인: 변경 없음</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/leveling-materials/index.json</link>
+<guid isPermaLink="false">mbng-fc8ff10e7f7b081b</guid>
+<pubDate>Thu, 26 Nov 2026 15:00:00 GMT</pubDate>
+<category>leveling-materials</category>
+<description>11/12 노트(3579297)의 메인 퀘스트 언급은 이벤트 퀘스트 선행 조건(메인 퀘스트 '던바튼으로' 클리어)으로 육성 재료와 무관. 사건을 reviewed로 처리</description>
+</item>
+<item>
+<title>주간 숙제 · 재확인: 변경 없음 (레이드 가이드 기준일 갱신, 카브락 매우 어려움 추가)</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/weekly/index.json</link>
+<guid isPermaLink="false">mbng-5b2430abd0b99a5e</guid>
+<pubDate>Thu, 26 Nov 2026 15:00:00 GMT</pubDate>
+<category>weekly</category>
+<description>레이드 가이드 본문 변경(2026-11-23): 부활 제한 표에 카브락 매우 어려움(함께하기 8회·혼자하기 1회) 추가, 기준일 2026/11/5 → 2026/11/23
+레이드 전리품 문단(보스별 주 1회, 난이도와 관계없음, 매주 월요일 06시 초기화, 캐릭터 단위)과 보스 4종(카브락·화이트 서큐버스·에이렐·적월의 스카스)은 데이터와 같음
+11/19 노트(3582627)와 11/19·11/26 수정: 카브락 매우 어려움 난이도 추가(2026-11-23 06시 오픈, 첫 주간 전리품 초기화 11-30). 클리어 전리품은 보스 단위라 주간 횟수 변화 없음. 주간 전리품 정산 전 레이드 클리어 오류 수정과 차감 조치(11-23~11-30), 11/26 수정은 현상 발생 기간 정정(11/9 → 11/5)으로 일회성 조치
+11/12 노트(3579297)의 아르바이트·뱅가드 브리치 언급은 기간 한정 사이드 퀘스트·이벤트 공지 링크로 주간 횟수와 무관
+11/19 캐시백 패키지 공지(3583001)의 뱅가드 브리치는 패키지 미션(2회 클리어)으로 무관
+레이드 행만 대조했으므로 verified_at은 2026-11-10 그대로 두고 raid_verified_at만 2026-11-27로 갱신, 사건 6건을 reviewed로 처리
+출처: 레이드 가이드 https://mabinogimobile.nexon.com/Info/Guide/2839865</description>
+</item>
 <item>
 <title>진행 중 이벤트 · 진행 중 이벤트: 종료 1건</title>
 <link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/events/index.json</link>
