@@ -38,7 +38,7 @@
       "auto": true,
       "verified_at": "2026-11-27",
       "state": "ok",
-      "revision": 7,
+      "revision": 8,
       "history": "https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/events/index.json",
       "tables": {
         "events": 28

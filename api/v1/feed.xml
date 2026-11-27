@@ -6,7 +6,16 @@
 <atom:link href="https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/feed.xml" rel="self" type="application/rss+xml"/>
 <description>마비노기 모바일 공식 글·게임 확인 기반 데이터의 값 변경과 재확인 기록. 넥슨과 무관한 팬 프로젝트입니다. 게임 명칭과 콘텐츠의 권리는 넥슨코리아에 있습니다.</description>
 <language>ko</language>
-<lastBuildDate>Thu, 26 Nov 2026 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 27 Nov 2026 13:27:38 GMT</lastBuildDate>
+<item>
+<title>진행 중 이벤트 · 진행 중 이벤트: 변경 1건</title>
+<link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/events/index.json</link>
+<guid isPermaLink="false">mbng-9b3c8a2c5f1be6e1</guid>
+<pubDate>Fri, 27 Nov 2026 13:27:38 GMT</pubDate>
+<category>events</category>
+<description>변경: (수정) 팥 vs 슈크림 누가 더 완전한가 이벤트 안내 (2026.11.19(목) 점검 후 ~ 2026.12.16(수) 오후 11시 59분까지)
+출처: 이벤트 게시판(진행중) https://mabinogimobile.nexon.com/News/Events?headlineId=2501</description>
+</item>
 <item>
 <title>신규 육성 스토리 필수 재료 · 재확인: 변경 없음</title>
 <link>https://wonjeong-dev.github.io/MBNG-Advisor/api/v1/history/leveling-materials/index.json</link>
