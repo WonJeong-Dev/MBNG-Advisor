@@ -85,6 +85,7 @@ tr.cur,tr.cur:hover{background:var(--accent-w);box-shadow:inset 3px 0 0 var(--ac
 .sgh{display:flex;align-items:center;gap:8px;margin:24px 0 10px;font-weight:600}.sgh:first-child{margin-top:0}
 .lt th,.lt td{padding:8px 9px;font-size:12px}.lt td.hc{background:var(--accent-w);color:var(--accent);font-weight:700}
 .prow{display:grid;grid-template-columns:60px minmax(150px,.8fr) minmax(0,2fr);gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.prow:last-child{border-bottom:0}
+.vlist{container-type:inline-size}.vrow{display:grid;grid-template-columns:64px minmax(120px,.65fr) minmax(0,1.2fr) minmax(260px,1.15fr);gap:8px 14px;align-items:start;padding:11px 0;border-bottom:1px solid var(--line)}.vrow:last-child{border-bottom:0}.vrow>.st{text-align:center;justify-self:start;min-width:56px}.vnm b{margin-right:6px}.vdep{color:var(--muted);border-color:var(--line2)}.vuse{font-size:13px;line-height:1.55;display:grid;gap:2px}.vmeta{display:grid;gap:4px;color:var(--muted)}.vmeta>div{display:grid;grid-template-columns:58px minmax(0,1fr);gap:6px}.vk{color:var(--subtle);font-weight:600}@container (max-width:640px){.vrow{grid-template-columns:64px minmax(0,1fr)}.vuse,.vmeta{grid-column:2}}
 .brow{display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.brow:last-child{border-bottom:0}.brow.p{grid-template-columns:minmax(0,1fr) auto}
 .ph>h2{flex:none;max-width:100%}.ph>span.tiny{flex:1 1 0;min-width:38%;text-align:right}
 .bx{display:grid;grid-template-columns:minmax(0,max-content) auto minmax(0,max-content);justify-content:start;align-items:center;gap:6px}
@@ -1004,12 +1005,12 @@ const SOUL_PRICE=[[1,600,10000,20],[601,1200,22000,50],[1201,1800,52000,100],[18
 const CHARM=[['face','얼굴 장식 선택','외모 바꾸기에서 얼굴 장식 선택. 안경은 던바튼 NPC 시몬의 의상점에서 캐릭터당 1회 구매 가능'],['fashion','패션 장비 착용','가진 것 중 희귀도가 가장 높은 것으로. [매력] 화면이 더 높은 희귀도로 교체를 추천'],['pet','동행 펫 지정',''],['ride','탈것 장착',''],['title','매력을 올려 주는 타이틀 장착',''],['check','성장 가이드 → [매력] 화면 확인','타이틀·스텔라그램·펫·탈것·패션 항목별 매력 현황에서 빠진 곳 찾기']];
 
 /* ===== 상태 ===== */
-let S={page:'class',sel:'석궁사수',fam:'all',q:'',view:'card',fav:[],all:false,rp:'all',rpa:0,rq:'',rsel:'',ca:'석궁사수',cb:'궁수',ls:8,lall:false,lh:0,lk:{},pq:'',pf:'all',pl:0,gq:'',gs:'all',wk:{},wedit:false,soul:{},charm:[],bq:'',bm:'all',br:'all',bp:'all',bc:1,bt:'x',bcur:'all',tf:'all',ptf:'all',mt:'board',mr:'pct_change_24h_desc',mc:'all',mq:'',mpf:'all',mb:'buy',mw:[],mrg:30,mgt:'잔영',mgp:'all',mgm:'use',mgs:0,rcf:'all',hb:0};
+let S={page:'class',sel:'석궁사수',fam:'all',q:'',view:'card',fav:[],all:false,rp:'all',rpa:0,rq:'',rsel:'',ca:'석궁사수',cb:'궁수',ls:8,lall:false,lh:0,lk:{},pq:'',pf:'all',pl:0,gq:'',gs:'all',wk:{},wedit:false,soul:{},charm:[],bq:'',bm:'all',br:'all',bp:'all',bc:1,bt:'x',bcur:'all',tf:'all',ptf:'all',mt:'board',mr:'pct_change_24h_desc',mc:'all',mq:'',mpf:'all',mb:'buy',mw:[],mrg:30,mgt:'잔영',mgp:'all',mgm:'use',mgs:0,rcf:'all',hb:0,vq:'',vf:'all',vgb:false,vgs:true};
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(OLD_KEY)||'{}'))}catch(e){}
 if(!Array.isArray(S.fav))S.fav=[];S.todo=Object.assign({chars:[{id:'c1',name:'내 캐릭터'}],cur:'c1',hide:false,edit:false,k:{d:'',w:'',e:''},c:{d:{},w:{},e:{}},sig:''},S.todo&&typeof S.todo==='object'?S.todo:{});if(!Array.isArray(S.todo.chars)||!S.todo.chars.length)S.todo.chars=[{id:'c1',name:'내 캐릭터'}];if(!S.todo.chars.some(c=>c.id===S.todo.cur))S.todo.cur=S.todo.chars[0].id;if(!S.todo.k||typeof S.todo.k!=='object')S.todo.k={d:'',w:'',e:''};if(!S.todo.c||typeof S.todo.c!=='object')S.todo.c={};for(const p of ['d','w','e'])if(!S.todo.c[p]||typeof S.todo.c[p]!=='object')S.todo.c[p]={};S.todo.edit=false;{const w=S.todo.c.w;for(const k of Object.keys(w))if(k.endsWith(':w5')&&!k.startsWith('S:')){w['S:w5']=1;delete w[k]}}S.page='todo';S.gm=Object.assign({t:'3',p:'',n:20,k:'d3',l:10,c:''},S.gm&&typeof S.gm==='object'?S.gm:{});if(!['3','2a','2b'].includes(S.gm.t))S.gm.t='3';if(!['d3','d2c1'].includes(S.gm.k))S.gm.k='d3';S.gm.n=Math.min(40,Math.max(1,+S.gm.n||20));S.gm.l=Math.min(9999,Math.max(0,+S.gm.l||0));if(!RUNES[S.sel])S.sel='석궁사수';
 S.lk=Object.assign({b1:0,r1:0,b2:0,r2:0,st:8,lv:15},S.lk&&typeof S.lk==='object'?S.lk:{});if(!LK[S.lk.st])S.lk.st=8;if(!LK[0][S.lk.lv-1])S.lk.lv=15;if(!LK[S.ls])S.ls=8;
 if(S.pf!=='all'&&!PFAC.includes(S.pf))S.pf='all';if(!(S.pl>=0&&S.pl<=6))S.pl=0;if(typeof S.pq!=='string')S.pq='';
-if(S.gs!=='all'&&!GSK.some(g=>g[0]===S.gs))S.gs='all';if(S.tf!=='all'&&!CF[S.tf])S.tf='all';if(S.ptf!=='all'&&!CF[S.ptf])S.ptf='all';if(typeof S.gq!=='string')S.gq='';
+if(S.gs!=='all'&&!GSK.some(g=>g[0]===S.gs))S.gs='all';if(S.tf!=='all'&&!CF[S.tf])S.tf='all';if(S.ptf!=='all'&&!CF[S.ptf])S.ptf='all';if(typeof S.gq!=='string')S.gq='';if(typeof S.vq!=='string')S.vq='';if(!['all','x','l','k'].includes(S.vf))S.vf='all';S.vgb=!!S.vgb;S.vgs=S.vgs!==false;
 if(typeof S.bq!=='string')S.bq='';if(!['all','o','i'].includes(S.bm))S.bm='all';if(S.br!=='all'&&!BARTER.concat(SHOP).some(r=>r[0]===S.br))S.br='all';if(!['x','g'].includes(S.bt))S.bt='x';if(!['all','골드','하트 토큰'].includes(S.bcur))S.bcur='all';if(!['all','일','주'].includes(S.bp))S.bp='all';if(!(Number.isInteger(S.bc)&&S.bc>=1&&S.bc<=20))S.bc=1;
 S.wk=Object.assign({key:'',c:{},hide:[]},S.wk&&typeof S.wk==='object'?S.wk:{});if(!S.wk.c||typeof S.wk.c!=='object')S.wk.c={};if(!Array.isArray(S.wk.hide))S.wk.hide=[];if(S.wk.v!==2){delete S.wk.c['job.0'];delete S.wk.c['job.1'];S.wk.v=2}if(![1,2,3,4,5].includes(S.wpet))S.wpet=5;
 {const o=S.soul&&typeof S.soul==='object'?S.soul:{},a=x=>[0,1,2].map(i=>Array.isArray(x)&&typeof x[i]==='string'?x[i]:'');S.soul={r:a(o.r),s:a(o.s),p:a(o.p),alt:typeof o.alt==='string'?o.alt:''}}if(!Array.isArray(S.charm))S.charm=[];
@@ -1165,6 +1166,78 @@ function pgGath(){return `<div class="panel"><div class="ph"><h2>채집물 ${GAT
  <p class="tiny">필요 레벨은 해당 생활 스킬 레벨입니다. 채집물 위치(지역)는 낚시터 이름에 적힌 것 외에는 자료가 없어 표시하지 않습니다.</p></div>
  <div id="glist">${gatherList()}</div>
  <p class="tiny">출처: <a href="${GATH_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬' 채집 계열</a> (문서 수정 ${GATH_SRC[1]}, 수집 ${GATH_DATE}) · 최대 레벨·신규 채집물은 <a href="https://mabinogimobile.nexon.com/News/Update/3480721" target="_blank" rel="noopener">공식 6/25 노트</a>와 대조 · 옥수수 Lv.1과 동쪽 호수 낚시터 황금 도구 상자(낫)는 게임 내 확인(${GATH_DATE})</p>`}
+
+/* ===== 페이지: 유효 채집물 분류 (보관함 정리용, 2026-11-29 사용자와 합의한 분류) =====
+   [묶음, 이름, 해당 아이템(육성 예비분·상점 대조용), 쓰이는 곳, 판정, 조건 문구]
+   판정: x 정리 · l 조금만 · k 보관. 문자열이면 전제와 무관, 객체면 {d 기본(붕대 안 씀·유탄 씀), b 붕대 씀, s 유탄 안 씀, bs 붕대 씀+유탄 안 씀}
+   쓰이는 곳: 나무위키 '마비노기 모바일/생활 스킬'(문서 수정 2026-10-21, GATH_SRC와 같은 판)의 물약 조제·요리·핸디크래프트·재료 가공 표와
+   앱 BARTER(NPC 교환)·PROC·MADO 표를 2026-11-29 대조. 분류는 사용자 전제(붕대는 안 씀, 마법 유탄은 씀)를 반영한 판단 */
+const VG_DATE='2026-11-29';
+const VG=[
+['꽃·허브','허브',['허브'],['요리 다수(구운 고기·통감자구이 x2, 숙성된 커다란 고기 x6 등)'],'k',''],
+['꽃·허브','블러디 허브',['블러디 허브'],['회복 물약 전 단계(탁월한 회복 물약 x24)','피해 감소·강타 강화 비약 x10'],'k',''],
+['꽃·허브','마나 허브',['마나 허브'],['5속성 결정 가공 x10','마력 기폭제 x50','마법 유탄 부품 x10','광역 강화 비약 x10'],'k',''],
+['꽃·허브','화살꽃',['화살꽃'],['이동 속도·연타 강화 비약 x10'],'k',''],
+['꽃·허브','새초롱꽃',['새초롱꽃'],['밀봉된 저주해제 물약 상자 x15'],'k',''],
+['꽃·허브','라벤더 꽃',['라벤더 꽃'],['풍미 가득 스테이크 x2','알리사 교환(1개 → 연금술 부스러기 또는 밀가루, 일 1회)'],'k',''],
+['꽃·허브','네잎클로버',['네잎클로버'],['치명타 비약 x10(상급·최상급 치명타 비약의 바탕)'],'l',''],
+['꽃·허브','파란 수국',['파란 수국'],['델 교환(10개 → 화살꽃·숨숨꽃·생채기꽃·진정초 10개, 일 3회)'],'l','화살꽃으로 바꿀 만큼만'],
+['꽃·허브','숨숨꽃 · 가루',['숨숨꽃','숨숨꽃 가루'],['최상급 회복 물약 x6','가루 → 상급 속성 붕대 x6'],{d:'x',b:'k'},''],
+['꽃·허브','끈기 풀',['끈기 풀'],['궁극기 비약 x10(→ 상급 궁극기 비약)'],'x',''],
+['꽃·허브','생채기꽃 · 가루',['생채기꽃','생채기꽃 가루'],['가루 → 뛰어난 붕대·최상급 붕대 x6','숀 교환(10개 → 물이 든 병 10개, 일 1회)'],{d:'x',b:'k'},''],
+['꽃·허브','진정초 · 가루',['진정초','진정초 가루'],['가루 → 최상급 속성 붕대 x6'],{d:'x',b:'k'},''],
+['꽃·허브','끈적 풀 · 가루',['끈적 풀','끈적 풀 가루'],['가루 → 상급 뛰어난 붕대 x5'],{d:'x',b:'k'},''],
+['버섯','튼튼 버섯 · 포자 · 진액',['튼튼 버섯','튼튼 버섯 포자','튼튼 버섯 진액'],['진액 → 상급·최상급·특급 실크 x8/16/20','특급 실크는 잔영·해연 장갑 재료'],'k',''],
+['버섯','튼튼 버섯 가루',['튼튼 버섯 가루'],['기본 속성 붕대 x3'],{d:'x',b:'k'},''],
+['버섯','깔끔 버섯 · 포자 · 진액',['깔끔 버섯','깔끔 버섯 포자','깔끔 버섯 진액'],['버섯 → 최상급 회복 물약 x6','진액 → 강타·연타·광역 강화 비약, 상급 비약 4종, 뛰어난 회복 물약','포자 → 킬리언 교환(5개 → 건강 드링크, 일 5회)'],'k',''],
+['버섯','증폭 버섯 · 포자 · 진액',['증폭 버섯','증폭 버섯 포자','증폭 버섯 진액'],['진액 → 상급 강타·연타·광역 강화 비약 x5','진액 → 대만찬(페어리 플로스) x16'],'k',''],
+['버섯','솔솔 버섯 · 포자 · 진액',['솔솔 버섯','솔솔 버섯 포자','솔솔 버섯 진액'],['진액 → 최상급 치명타 비약, 뛰어난 회복 물약S','진액 → 대만찬(페어리 플로스) x16'],'k',''],
+['버섯','산뜻 버섯 · 포자 · 진액',['산뜻 버섯','산뜻 버섯 포자','산뜻 버섯 진액'],['진액 → 탁월한 회복 물약','진액 → 최상급 강타·연타·광역 강화 비약'],'k',''],
+['버섯','개암 버섯',['개암 버섯'],['포레스트 스테이크 x10','풍미 가득 스테이크 x12'],'k',''],
+['버섯','반짝이는 이끼',['반짝이는 이끼'],['마력 기폭제 x25(→ 상급 마법 유탄 부품·대만찬)','최상급 가죽(가죽 가공 Lv.6) x4'],'k',''],
+['버섯','쑥쑥 버섯',['쑥쑥 버섯'],['딜리스 교환(3개 → 네잎클로버, 일 1회)','상급 회복 물약 x2'],'l',''],
+['버섯','쑥쑥 버섯 포자 · 진액',['쑥쑥 버섯 포자','쑥쑥 버섯 진액'],['진액 → 기본 비약 4종(치명타·궁극기·피해 감소·이동 속도) x3'],'x',''],
+['버섯','새록 버섯 · 포자 · 진액',['새록 버섯','새록 버섯 포자','새록 버섯 진액'],['버섯 → 회복 물약 x2','진액 → 상급 회복 물약 x5'],'x',''],
+['곤충','사슴벌레',['사슴벌레'],['최상급 치명타·강타·연타·광역 강화 비약 x6'],'k',''],
+['곤충','장수풍뎅이',['장수풍뎅이'],['피해 감소 비약 x6','강타 강화 비약 x10'],'k',''],
+['곤충','동전무당벌레',['동전무당벌레'],['치명타 비약 x6'],'k',''],
+['곤충','흰꽃나비',['흰꽃나비'],['궁극기 비약 x6','광역 강화 비약 x10'],'k',''],
+['곤충','똑딱 반딧불이',['똑딱 반딧불이'],['이동 속도 비약 x6','연타 강화 비약 x10'],'k',''],
+['곤충','석양나비',['석양나비'],['불꽃의 결정 → 화염 마법 유탄 x3(상급 x9)','결정 → 속성 붕대','킬리언 교환(2개 → 약품 제작대 설계도 3레벨, 일 1회)'],{d:'k',s:'x',bs:'k'},'약품 제작대 3레벨 전이면 2개는 남김'],
+['곤충','낙엽나방',['낙엽나방'],['전기의 결정 → 번개 마법 유탄 x3(상급 x9)','결정 → 속성 붕대'],{d:'k',s:'x',bs:'k'},''],
+['곤충','응축된 바람',['응축된 바람'],['바람 마법 유탄 x3(상급 x9)','메아리 피리 x10 · 공명하는 메아리 피리 x30','대만찬(페어리 플로스) x16'],{d:'k',s:'l'},''],
+['곤충','나비잠자리',['나비잠자리'],['환영 가루 → 구름결 막대 → 대만찬','환영 가루 → 변신 인형'],'l',''],
+['곤충','흰얼음풍뎅이',['흰얼음풍뎅이'],['얼음의 결정 → 속성 붕대만'],{d:'x',b:'k'},''],
+['곤충','황혼잠자리',['황혼잠자리'],['봉인의 결정 → 속성 붕대만'],{d:'x',b:'k'},''],
+['곤충','달무늬 사슴벌레',['달무늬 사슴벌레'],['광휘의 결정 → 속성 붕대만'],{d:'x',b:'k'},''],
+['곤충','유령 반딧불이',['유령 반딧불이'],['광휘의 결정 → 속성 붕대','시몬 교환(2개 → 옷감 가공 시설 설계도 3레벨, 일 1회)'],{d:'x',b:'k'},'옷감 가공 시설 3레벨 전이면 2개는 남김'],
+['곤충','애벌레',['애벌레'],['트레이시 교환(5개 → 목재 가공 시설 설계도 3레벨, 일 1회)'],'x','목재 가공 시설 3레벨 전이면 5개는 남김'],
+['곤충','하루살이 · 초파리 · 겨울나방',['하루살이','초파리','겨울나방'],['쓰는 곳 없음(위 문서의 제작·가공 표와 앱의 교환 표 기준)'],'x','']];
+const VGL={x:['정리','var(--red)'],l:['조금만','var(--gold)'],k:['보관','var(--accent)']},VGG=['꽃·허브','버섯','곤충'];
+const vgN=s=>s.replace(/\s/g,'');
+const vgV=r=>{const v=r[4],b=!!S.vgb,s=!S.vgs;return typeof v==='string'?v:b&&s?(v.bs||v.b||v.s||v.d):b?(v.b||v.d):s?(v.s||v.d):v.d};
+const vgDep=r=>typeof r[4]==='string'?'':[r[4].b||r[4].bs?'붕대':'',r[4].s?'유탄':''].filter(Boolean).join('·');
+let VGQ=null;
+/* 육성 예비분: QST 직접 재료(d)와 QCR 요리를 직접 만들 때 드는 재료(c). 이름은 공백을 빼고 맞춘다 */
+const vgQ=()=>{if(VGQ)return VGQ;const d={},c={};for(const [,ms] of QST)for(const [n,q] of ms){const k=vgN(n);d[k]=(d[k]||0)+q;if(QCR[n])for(const [m,x] of QCR[n])c[vgN(m)]=(c[vgN(m)]||0)+x*q}return VGQ={d,c}};
+const vgLim=s=>/^\d+$/.test(s)?`주 ${s}`:s.replace(/^서버당 (\d+)$/,'서버당 주 $1');
+function vgRow(r){const v=vgV(r),[lb,col]=VGL[v],dep=vgDep(r),Q=vgQ();
+ const res=r[2].map(n=>{const a=Q.d[vgN(n)]||0,b=Q.c[vgN(n)]||0;return a||b?`${esc(n)} ${a}${b?` (+요리용 ${b})`:''}`:''}).filter(Boolean);
+ const sh=r[2].map(n=>{const L=SHOP.filter(s=>vgN(s[2])===vgN(n));if(!L.length)return '';const npc=[...new Set(L.map(s=>s[1]))];return `${esc(n)} ${esc(L[0][3])} · ${vgLim(L[0][4])} (${esc(npc[0])}${npc.length>1?` 외 ${npc.length-1}`:''})`}).filter(Boolean);
+ return `<div class="vrow"><span class="st" style="--sc:${col}">${lb}</span><div class="vnm"><b>${esc(r[1])}</b>${dep?`<span class="tg vdep">${dep} 전제</span>`:''}${r[5]?`<div class="tiny">${esc(r[5])}</div>`:''}</div><div class="vuse">${r[3].map(u=>`<div>${esc(u)}</div>`).join('')}</div><div class="vmeta tiny"><div><span class="vk">육성 예비</span><span>${res.length?res.join(', '):'없음'}</span></div><div><span class="vk">다시 사기</span><span>${sh.length?sh.join('<br>'):'NPC 상점 판매 없음'}</span></div></div></div>`}
+function vgList(){const q=vgN(S.vq||''),f=S.vf;
+ const rows=VG.filter(r=>(f==='all'||vgV(r)===f)&&(!q||vgN(r[1]+r[2].join('')+r[3].join('')).includes(q)));
+ if(!rows.length)return '<div class="empty">조건에 맞는 채집물이 없습니다.</div>';
+ const foot={'버섯':'버섯 x30 + 종이 x3 → 포자 x15, 포자 x10 + 물이 든 병 x1 → 진액 x5. 진액을 쓰는 종류는 버섯·포자도 함께 보관합니다.','곤충':'결정 가공: 곤충 x3 + 마나 허브 x10 + 점토 x3 → 결정 x3. 결정은 낚시(전 지역 공통)에서도 나옵니다.'};
+ return VGG.map(g=>{const rs=rows.filter(r=>r[0]===g);return rs.length?`<div class="panel"><div class="ph"><h2>${g}</h2><span class="tiny">${rs.length}개</span></div><div class="vlist">${rs.map(vgRow).join('')}</div>${foot[g]?`<p class="tiny mt10">${foot[g]}</p>`:''}</div>`:''}).join('')}
+function pgVg(){const c=k=>VG.filter(r=>vgV(r)===k).length;
+ return `<div class="panel"><div class="ph"><h2>채집물 ${VG.length}개 항목 분류</h2><div class="row"><input type="search" id="vq" placeholder="채집물 · 쓰이는 곳 검색" value="${esc(S.vq)}" style="width:210px"></div></div>
+ <div class="row"><label class="row tiny"><input type="checkbox" id="vgb" ${S.vgb?'checked':''}>붕대를 쓴다</label><label class="row tiny"><input type="checkbox" id="vgs" ${S.vgs?'checked':''}>마법 유탄을 쓴다</label></div>
+ <div class="tabs mt10">${[['all',`전체 ${VG.length}`],['x',`정리 ${c('x')}`],['l',`조금만 ${c('l')}`],['k',`보관 ${c('k')}`]].map(([k,l])=>`<button class="tabbtn ${S.vf===k?'on':''}" data-vf="${k}">${l}</button>`).join('')}</div>
+ <p class="hint">보관함을 정리할 때 무엇을 정리해도 되는지 나눈 표입니다. <b>정리</b> = 쓰는 곳이 거의 없음, <b>조금만</b> = 교환·일부 제작용으로 조금만 남김, <b>보관</b> = 계속 쓰는 재료. 판정은 위 두 전제(붕대·마법 유탄)를 바탕으로 한 판단이라 근거인 쓰이는 곳을 함께 적었고, '전제' 표시가 있는 항목은 체크를 바꾸면 판정이 바뀝니다.</p>
+ <p class="tiny">육성 예비 = 신규 육성 스토리 퀘스트가 요구하는 수량(신규 육성 준비물 표에서 자동 계산, '요리용'은 통감자구이·구운 고기를 직접 만들 때 드는 양). 다시 사기 = NPC 주간 상점(골드), 같은 값에 파는 NPC가 여럿이면 '외 N'.</p></div>
+ <div id="vlist">${vgList()}</div>
+ <p class="tiny">출처: <a href="${GATH_SRC[0]}" target="_blank" rel="noopener">나무위키 '마비노기 모바일/생활 스킬'</a> 물약 조제·요리·핸디크래프트·재료 가공 표 (문서 수정 ${GATH_SRC[1]}, 대조 ${VG_DATE}) · NPC 교환·주간 상점은 앱의 물물교환 표(같은 문서) · 분류는 사용자 전제(${VG_DATE})를 반영한 판단 · 확인 못 한 것: 원재료가 거래소에 올라가는지(2026-11-01 모비라이프 API 조사에서는 원재료 대부분이 없었음), 속성 붕대의 실제 쓰임(전제에서 '안 씀'으로 처리)</p>`}
 
 /* ===== 페이지: 물물교환 ===== */
 const BREG=[...new Set(BARTER.map(r=>r[0]))],BNAME={'동광석':'동 광석','백금강괴':'백금 강괴','야채 볶음':'야채볶음'},r1=x=>(Math.round(x*10)/10).toLocaleString();
@@ -2119,7 +2192,7 @@ function dgPaint(f){if(f&&$('dgf'))$('dgf').innerHTML=dgForm();if($('dgr'))$('dg
 /* ===== 라우팅 ===== */
 const ICO={todo:'<rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="m8 9 1.5 1.5L12 8"/><path d="M14 9.5h2.5"/><path d="m8 15 1.5 1.5L12 14"/><path d="M14 15.5h2.5"/>',gem:'<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20"/><path d="m9 3-2 6 5 12 5-12-2-6"/>',diag:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.5h6V4"/><path d="m9 13 2 2 4-4.5"/>',mado:'<path d="M12 3 3 7.5l9 4.5 9-4.5z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/>',perf:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.3 14h9.4"/>',mem:'<path d="M12 8.5 14.6 12 12 15.5 9.4 12z"/><path d="M19.5 12a7.5 7.5 0 0 1-13.4 4.6"/><path d="M4.5 12a7.5 7.5 0 0 1 13.4-4.6"/><path d="M18.2 3.8v3.9h-3.9"/><path d="M5.8 20.2v-3.9h3.9"/>',guide:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',market:'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',pet:'<circle cx="5.5" cy="10.5" r="2"/><circle cx="9.5" cy="5.5" r="2"/><circle cx="14.5" cy="5.5" r="2"/><circle cx="18.5" cy="10.5" r="2"/><path d="M12 12c-3 0-6 4.5-6 7 0 1.6 1.3 2.4 2.8 2 1.1-.3 2.1-.6 3.2-.6s2.1.3 3.2.6c1.5.4 2.8-.4 2.8-2 0-2.5-3-7-6-7z"/>',class:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',rune:'<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9.5 3 12 9l2.5-6M12 9v12"/>',fbt:'<path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',cmp:'<path d="m8 3-4 4 4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
  link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',gear:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
- proc:'<path d="M2 20h20"/><path d="M4 20V10l5 3v-3l5 3V6l6 4v10"/>',gath:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.2-6"/>',
+ proc:'<path d="M2 20h20"/><path d="M4 20V10l5 3v-3l5 3V6l6 4v10"/>',vg:'<rect x="3" y="4" width="18" height="5" rx="1.5"/><path d="M5 9v9.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V9"/><path d="M10 13h4"/>',gath:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.2-6"/>',
  week:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="m9 15 2 2 4-4"/>',check:'<path d="M20 6 9 17l-5-5"/>',
  soul:'<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/>',
  barter:'<path d="M4 8h15l-4-4"/><path d="M20 16H5l4 4"/>',about:'<circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/>',more:'<circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/>',ext:'<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>'};
@@ -2260,9 +2333,9 @@ function pgTodo(){const {T}=checkTodo(),o=S.todo,G=tdGroups(T),[dn,tot]=tdCount(
  <p class="tiny mt10">체크는 이 기기 브라우저에 저장됩니다 · 페이지를 켜 둔 채 06:00이 지나면 목록과 체크가 저절로 바뀝니다 · 횟수까지 세는 공식 주간 목록은 <button class="linkbtn" data-nav="week">주간 체크리스트</button></p>`}
 function todoTick(){const r=checkTodo();if(S.page!=='todo')return;if(r.ch||r.moved){render();if(r.ch)toast('06:00이 지나 과제가 새로 바뀌었습니다.');return}const el=$('tdcd');if(el)el.textContent=tdLeft(r.T)}
 
-const NAV=[['todo','홈','과제 알리미'],['class','정보','직업 정보'],['rune','정보','룬 역검색'],['cmp','정보','직업 비교'],['fbt','정보','필드 보스 칭호'],['pet','정보','에픽 펫 추천'],['mado','정보','잔영·해연 로드맵'],['perf','정보','성능 개선'],['mem','정보','기억 각인'],['week','도구','주간 체크리스트'],['guide','도구','신규 육성 준비물'],['link','도구','숙련 연계'],['soul','도구','소울스트림'],['gear','도구','장비 비교'],['gem','도구','보석 세공'],['diag','도구','내 캐릭터 진단'],['market','생활','거래소'],['proc','생활','가공 레시피'],['gath','생활','채집 바로찾기'],['barter','생활','물물교환'],['about','기타','출처 · 갱신']];
+const NAV=[['todo','홈','과제 알리미'],['class','정보','직업 정보'],['rune','정보','룬 역검색'],['cmp','정보','직업 비교'],['fbt','정보','필드 보스 칭호'],['pet','정보','에픽 펫 추천'],['mado','정보','잔영·해연 로드맵'],['perf','정보','성능 개선'],['mem','정보','기억 각인'],['week','도구','주간 체크리스트'],['guide','도구','신규 육성 준비물'],['link','도구','숙련 연계'],['soul','도구','소울스트림'],['gear','도구','장비 비교'],['gem','도구','보석 세공'],['diag','도구','내 캐릭터 진단'],['market','생활','거래소'],['proc','생활','가공 레시피'],['gath','생활','채집 바로찾기'],['vg','생활','유효 채집물 분류'],['barter','생활','물물교환'],['about','기타','출처 · 갱신']];
 const TABS={todo:'과제',class:'직업',week:'숙제',proc:'가공',gath:'채집'};
-const PAGES={todo:['과제 알리미','오늘 할 일일·주간·주말 과제를 한국 시간에 맞춰 보여 줍니다. 페이지를 켜 둔 채 06:00이 지나면 목록과 체크가 저절로 바뀝니다.',pgTodo],mado:['잔영·해연 로드맵','마도 저항을 올리는 잔영·해연 장비를 어느 부위부터 어떤 순서로 모을지, 공식 규칙과 지금 시세로 정리합니다.',pgMado],perf:['성능 개선','성능 개선을 하면 무엇이 바뀌고 무엇이 남는지, 헷갈리는 경우를 공식 근거와 예시로 정리합니다.',pgPerf],mem:['기억 각인','기억 각인으로 무엇이 바뀌고 남는지, 어떤 장비에 쓸 수 있는지, 헷갈리는 경우를 시즌 2 기준 공식 근거와 예시로 정리합니다.',pgMem],gem:['보석 세공','스타프리즘 세공을 가장 적은 세공기로 끝내는 순서를 NEXON NOW 확률표와 공식 규칙으로 계산합니다. 은행 태그 바꾸기까지 고려합니다.',pgGem],guide:['신규 육성 준비물','100레벨까지 키우는 스토리 과정의 필수 재료를 같은 재료끼리 합치고, 지금 가진 수량으로 어디까지 멈춤 없이 갈 수 있는지 계산합니다.',pgGuide],market:['거래소','거래소 전 품목의 시세와 급등·급락·품귀를 보고, 가공 수익과 장비 제작비, 물물교환 차익을 현재 시세로 계산합니다.',pgMarket],pet:['에픽 펫 추천','21개 직업별로 가장 효율 좋은 에픽 펫과 대안을 스탯 목표 근거와 함께 보여 줍니다.',pgPet],fbt:['필드 보스 칭호','필드 보스 6종 막타 칭호의 보조 능력치(치명타·강타 강화 등) 효과와, 21개 직업에 가장 효율적인 칭호를 근거와 함께 보여 줍니다.',pgFbt],barter:['물물교환',`가성비 좋은 교환 순위와 NPC 물물교환 ${BARTER.length}건, 골드 주간 상점 ${SHOP.length}건을 아이템·NPC·지역으로 찾고, 가공 대신 교환으로 얻는 재료를 캐릭터 수에 맞춰 계산합니다.`,pgBarter],class:['직업 정보','21개 직업의 주·부 스탯·개조·세공·장신구 세팅과 부위별 룬 사용 순위를 한눈에 봅니다.',pgClass],rune:['룬 역검색','룬을 고르면 어떤 직업이 몇 위로 쓰는지 자동으로 정리합니다.',pgRune],cmp:['직업 비교','두 직업의 세팅과 룬 TOP3를 나란히 비교하고 공통 룬을 찾습니다.',pgCmp],week:['주간 체크리스트','매주 월요일 06:00에 자동으로 초기화되는 주간 숙제입니다. 공식 가이드·업데이트 노트로 확인된 항목만 담았습니다.',pgWeek],link:['숙련 연계','공식 보너스표를 성급·강화 단계별로 조회하고, 무기 수치로 숙련 연계 추가 공격력을 자동 계산합니다.',pgLink],soul:['소울스트림','게임 화면의 소울 값 몇 개만 옮겨 적으면 주당 생산량, 다음 구간까지 남은 합계, 이번 주 구매 비용을 계산합니다.',pgSoul],proc:['가공 레시피','6개 가공 시설의 레시피 91개를 검색하고, 재료를 눌러 가공 단계를 따라갑니다.',pgProc],gath:['채집 바로찾기','아이템을 검색하면 어느 채집물에서 몇 레벨부터 얻는지 자동으로 정리합니다.',pgGath],gear:['장비 비교','숫자 몇 개로 성능 개선·보관·분해를 바로 판정합니다.',pgGear],diag:['내 캐릭터 진단','캐릭터 문서를 붙여넣거나 룬·칭호·펫을 직접 고르면, 직업별 룬 사용 순위·교체 신호·빌드·추천 칭호·에픽 펫과 비교합니다.',pgDiag],about:['출처 · 갱신','데이터 출처, 기준일, 갱신 방법입니다.',pgAbout]};
+const PAGES={todo:['과제 알리미','오늘 할 일일·주간·주말 과제를 한국 시간에 맞춰 보여 줍니다. 페이지를 켜 둔 채 06:00이 지나면 목록과 체크가 저절로 바뀝니다.',pgTodo],mado:['잔영·해연 로드맵','마도 저항을 올리는 잔영·해연 장비를 어느 부위부터 어떤 순서로 모을지, 공식 규칙과 지금 시세로 정리합니다.',pgMado],perf:['성능 개선','성능 개선을 하면 무엇이 바뀌고 무엇이 남는지, 헷갈리는 경우를 공식 근거와 예시로 정리합니다.',pgPerf],mem:['기억 각인','기억 각인으로 무엇이 바뀌고 남는지, 어떤 장비에 쓸 수 있는지, 헷갈리는 경우를 시즌 2 기준 공식 근거와 예시로 정리합니다.',pgMem],gem:['보석 세공','스타프리즘 세공을 가장 적은 세공기로 끝내는 순서를 NEXON NOW 확률표와 공식 규칙으로 계산합니다. 은행 태그 바꾸기까지 고려합니다.',pgGem],guide:['신규 육성 준비물','100레벨까지 키우는 스토리 과정의 필수 재료를 같은 재료끼리 합치고, 지금 가진 수량으로 어디까지 멈춤 없이 갈 수 있는지 계산합니다.',pgGuide],market:['거래소','거래소 전 품목의 시세와 급등·급락·품귀를 보고, 가공 수익과 장비 제작비, 물물교환 차익을 현재 시세로 계산합니다.',pgMarket],pet:['에픽 펫 추천','21개 직업별로 가장 효율 좋은 에픽 펫과 대안을 스탯 목표 근거와 함께 보여 줍니다.',pgPet],fbt:['필드 보스 칭호','필드 보스 6종 막타 칭호의 보조 능력치(치명타·강타 강화 등) 효과와, 21개 직업에 가장 효율적인 칭호를 근거와 함께 보여 줍니다.',pgFbt],barter:['물물교환',`가성비 좋은 교환 순위와 NPC 물물교환 ${BARTER.length}건, 골드 주간 상점 ${SHOP.length}건을 아이템·NPC·지역으로 찾고, 가공 대신 교환으로 얻는 재료를 캐릭터 수에 맞춰 계산합니다.`,pgBarter],class:['직업 정보','21개 직업의 주·부 스탯·개조·세공·장신구 세팅과 부위별 룬 사용 순위를 한눈에 봅니다.',pgClass],rune:['룬 역검색','룬을 고르면 어떤 직업이 몇 위로 쓰는지 자동으로 정리합니다.',pgRune],cmp:['직업 비교','두 직업의 세팅과 룬 TOP3를 나란히 비교하고 공통 룬을 찾습니다.',pgCmp],week:['주간 체크리스트','매주 월요일 06:00에 자동으로 초기화되는 주간 숙제입니다. 공식 가이드·업데이트 노트로 확인된 항목만 담았습니다.',pgWeek],link:['숙련 연계','공식 보너스표를 성급·강화 단계별로 조회하고, 무기 수치로 숙련 연계 추가 공격력을 자동 계산합니다.',pgLink],soul:['소울스트림','게임 화면의 소울 값 몇 개만 옮겨 적으면 주당 생산량, 다음 구간까지 남은 합계, 이번 주 구매 비용을 계산합니다.',pgSoul],proc:['가공 레시피','6개 가공 시설의 레시피 91개를 검색하고, 재료를 눌러 가공 단계를 따라갑니다.',pgProc],gath:['채집 바로찾기','아이템을 검색하면 어느 채집물에서 몇 레벨부터 얻는지 자동으로 정리합니다.',pgGath],vg:['유효 채집물 분류','보관함 정리용으로 꽃·허브·버섯·곤충을 정리 / 조금만 / 보관으로 나누고, 판정마다 쓰이는 곳을 보여 줍니다.',pgVg],gear:['장비 비교','숫자 몇 개로 성능 개선·보관·분해를 바로 판정합니다.',pgGear],diag:['내 캐릭터 진단','캐릭터 문서를 붙여넣거나 룬·칭호·펫을 직접 고르면, 직업별 룬 사용 순위·교체 신호·빌드·추천 칭호·에픽 펫과 비교합니다.',pgDiag],about:['출처 · 갱신','데이터 출처, 기준일, 갱신 방법입니다.',pgAbout]};
 function render(){if(!PAGES[S.page])S.page='class';const P=PAGES[S.page];$('pt').textContent=P[0];$('ps').textContent=P[1];$('page').innerHTML=P[2]();if(S.page==='gear')gearJudge();if(S.page==='link')linkCalc();if(S.page==='soul')soulCalc();if(S.page==='guide')qPaint();if(S.page==='mado')mdEnter();if(S.page==='gem')gmPaint();if(S.page==='market'){mkEnter();mkLiqRun()}else if(S.page==='proc'||S.page==='barter'){mkLoad();mkLiqRun()}
  document.querySelectorAll('.nav[data-nav],.tab[data-nav]').forEach(b=>b.classList.toggle('on',b.dataset.nav===S.page));$('morebtn').classList.toggle('on',!TABS[S.page]);$('eb').textContent='MABINOGI MOBILE · '+NAV.find(n=>n[0]===S.page)[1]}
 function go(p){S.page=p;save();$('sheet').hidden=true;render();window.scrollTo({top:0});if($('page').animate&&!matchMedia('(prefers-reduced-motion: reduce)').matches)$('page').animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:220,easing:'cubic-bezier(.2,.7,.2,1)'})}
@@ -2405,6 +2478,7 @@ document.addEventListener('click',e=>{const t=e.target;let el;
  if(el=t.closest('[data-pq]')){S.pq=el.dataset.pq;S.pf='all';S.pl=0;save();render();return window.scrollTo({top:0,behavior:'smooth'})}
  if(el=t.closest('[data-act="preset"]')){S.pq='';S.pf='all';S.pl=0;save();return render()}
  if(el=t.closest('[data-gs]')){S.gs=el.dataset.gs;save();return render()}
+ if(el=t.closest('[data-vf]')){S.vf=el.dataset.vf;save();return render()}
  if(el=t.closest('[data-gq]')){S.gq=el.dataset.gq;S.gs='all';save();render();return window.scrollTo({top:0,behavior:'smooth'})}
  if(el=t.closest('[data-goproc]')){S.pq=el.dataset.goproc;S.pf='all';S.pl=0;return go('proc')}
  if(el=t.closest('[data-tf]')){S.tf=el.dataset.tf;save();return render()}
@@ -2453,6 +2527,7 @@ document.addEventListener('input',e=>{const el=e.target;
  if(el.id==='rq'){S.rq=el.value;save();const st=runeStats(S.rp);$('rlist').innerHTML=runeRows(st,st.find(x=>x.id===S.rsel)||st[0]);return}
  if(el.id==='pq'){S.pq=el.value;save();$('plist').innerHTML=procList();return}
  if(el.id==='gq'){S.gq=el.value;save();$('glist').innerHTML=gatherList();return}
+ if(el.id==='vq'){S.vq=el.value;save();$('vlist').innerHTML=vgList();return}
  if(el.id==='bq'){S.bq=el.value;save();$('blist').innerHTML=S.bt==='g'?shopList():barterList();return}
  if(el.id==='mq'){S.mq=el.value;save();clearTimeout(MK.t);MK.t=setTimeout(mkBoard,350);return}
  if(el.id==='mtg'){const p=S.mw.find(w=>w.k===MK.sel);if(p){p.t=Number(el.value.replace(/\D/g,''))||0;save();mkPaint()}return}
@@ -2462,7 +2537,7 @@ document.addEventListener('input',e=>{const el=e.target;
  if(el.closest('#lq'))return linkCalc();
  if(el.closest('#gq'))return gearJudge();
  if(el.dataset.mv&&S.md.v[el.dataset.mv]){const k=el.dataset.mv,m=(k==='무기'?2:1)*700,n=Math.min(m,Number(el.value.replace(/\D/g,''))||0);if(n===m&&el.value!==String(m))el.value=m;S.md.v[k][+el.dataset.mx]=n;save();return mdPaint()}});
-document.addEventListener('change',e=>{const el=e.target;if(el.dataset&&el.dataset.tdn){const c=S.todo.chars.find(x=>x.id===el.dataset.tdn);if(c){c.name=el.value.trim().slice(0,12)||c.name;el.value=c.name;save()}return}if(el.id==='gmk'){S.gm.k=el.value;save();gmPaint2();return}if(el.id==='gmc'){S.gm.c=el.value;save();render();return}if(el.id==='ca'||el.id==='cb'){S[el.id]=el.value;save();render()}
+document.addEventListener('change',e=>{const el=e.target;if(el.id==='vgb'||el.id==='vgs'){S[el.id]=el.checked;save();return render()}if(el.dataset&&el.dataset.tdn){const c=S.todo.chars.find(x=>x.id===el.dataset.tdn);if(c){c.name=el.value.trim().slice(0,12)||c.name;el.value=c.name;save()}return}if(el.id==='gmk'){S.gm.k=el.value;save();gmPaint2();return}if(el.id==='gmc'){S.gm.c=el.value;save();render();return}if(el.id==='ca'||el.id==='cb'){S[el.id]=el.value;save();render()}
  if(el.id==='lst'||el.id==='llv'){linkCalc();S.ls=S.lk.st;save();render()}
  if(el.id==='wpet'){S.wpet=+el.value;save();render()}
  if(el.id==='dgj'){const d=S.dg;d.j=RUNES[el.value]?el.value:'';if(d.j)for(const [k] of PARTS)d.r[k]=d.r[k].map(n=>dgMatch(d.j,k,n));save();return dgPaint(1)}
